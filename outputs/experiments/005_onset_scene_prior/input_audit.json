@@ -1,0 +1,131 @@
+{
+  "pairs": [
+    {
+      "episode": "episode_000000",
+      "frames": [
+        425,
+        426,
+        427,
+        428,
+        429,
+        430,
+        431,
+        432,
+        433,
+        434,
+        435,
+        436,
+        437,
+        438,
+        439,
+        440,
+        441,
+        442
+      ],
+      "images_identical": true,
+      "only_first_prompt_line_changed": true
+    },
+    {
+      "episode": "episode_000000",
+      "frames": [
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156
+      ],
+      "images_identical": true,
+      "only_first_prompt_line_changed": true
+    },
+    {
+      "episode": "episode_000000",
+      "frames": [
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82
+      ],
+      "images_identical": true,
+      "only_first_prompt_line_changed": true
+    },
+    {
+      "episode": "episode_000001",
+      "frames": [
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208,
+        209,
+        210
+      ],
+      "images_identical": true,
+      "only_first_prompt_line_changed": true
+    },
+    {
+      "episode": "episode_000001",
+      "frames": [
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125
+      ],
+      "images_identical": true,
+      "only_first_prompt_line_changed": true
+    }
+  ],
+  "usage_all_ten_calls": {
+    "input_tokens": 162217,
+    "output_tokens": 2263,
+    "total_tokens": 164480
+  }
+}

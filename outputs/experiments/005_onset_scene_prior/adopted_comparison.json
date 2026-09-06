@@ -1,0 +1,201 @@
+{
+  "benchmark_version": "v1",
+  "reference_role": "working_reference_not_exact_frame_truth",
+  "inference_performed": false,
+  "reports": [
+    {
+      "trajectory_id": "episode_000000",
+      "baseline_subtasks": 11,
+      "candidate_subtasks": 11,
+      "reference_subtasks": 11,
+      "baseline_sequence_edit_distance": 0,
+      "candidate_sequence_edit_distance": 0,
+      "baseline_frame_label_agreement": 0.9865771812080537,
+      "candidate_frame_label_agreement": 0.9815436241610739,
+      "boundary_comparison_available": true,
+      "boundaries": [
+        {
+          "next_subtask": 2,
+          "reference": 12,
+          "baseline": 12,
+          "candidate": 12,
+          "baseline_deviation": 0,
+          "candidate_deviation": 0,
+          "change": "unchanged",
+          "exact_truth_confirmed": false
+        },
+        {
+          "next_subtask": 3,
+          "reference": 76,
+          "baseline": 75,
+          "candidate": 72,
+          "baseline_deviation": 1,
+          "candidate_deviation": 4,
+          "change": "farther_from_reference",
+          "exact_truth_confirmed": false
+        },
+        {
+          "next_subtask": 4,
+          "reference": 91,
+          "baseline": 91,
+          "candidate": 91,
+          "baseline_deviation": 0,
+          "candidate_deviation": 0,
+          "change": "unchanged",
+          "exact_truth_confirmed": false
+        },
+        {
+          "next_subtask": 5,
+          "reference": 152,
+          "baseline": 149,
+          "candidate": 149,
+          "baseline_deviation": 3,
+          "candidate_deviation": 3,
+          "change": "unchanged",
+          "exact_truth_confirmed": false
+        },
+        {
+          "next_subtask": 6,
+          "reference": 176,
+          "baseline": 176,
+          "candidate": 176,
+          "baseline_deviation": 0,
+          "candidate_deviation": 0,
+          "change": "unchanged",
+          "exact_truth_confirmed": false
+        },
+        {
+          "next_subtask": 7,
+          "reference": 284,
+          "baseline": 284,
+          "candidate": 284,
+          "baseline_deviation": 0,
+          "candidate_deviation": 0,
+          "change": "unchanged",
+          "exact_truth_confirmed": false
+        },
+        {
+          "next_subtask": 8,
+          "reference": 330,
+          "baseline": 331,
+          "candidate": 331,
+          "baseline_deviation": 1,
+          "candidate_deviation": 1,
+          "change": "unchanged",
+          "exact_truth_confirmed": false
+        },
+        {
+          "next_subtask": 9,
+          "reference": 438,
+          "baseline": 436,
+          "candidate": 436,
+          "baseline_deviation": 2,
+          "candidate_deviation": 2,
+          "change": "unchanged",
+          "exact_truth_confirmed": false
+        },
+        {
+          "next_subtask": 10,
+          "reference": 451,
+          "baseline": 451,
+          "candidate": 451,
+          "baseline_deviation": 0,
+          "candidate_deviation": 0,
+          "change": "unchanged",
+          "exact_truth_confirmed": false
+        },
+        {
+          "next_subtask": 11,
+          "reference": 575,
+          "baseline": 574,
+          "candidate": 574,
+          "baseline_deviation": 1,
+          "candidate_deviation": 1,
+          "change": "unchanged",
+          "exact_truth_confirmed": false
+        }
+      ],
+      "changed_frames_from_baseline": 3,
+      "changed_annotation_from_baseline": true,
+      "candidate_sha256": "eb72d36290ceee8c058d14442b722613f86cb4e4ff3f6467df7cebe2296e62c8"
+    },
+    {
+      "trajectory_id": "episode_000001",
+      "baseline_subtasks": 7,
+      "candidate_subtasks": 7,
+      "reference_subtasks": 7,
+      "baseline_sequence_edit_distance": 0,
+      "candidate_sequence_edit_distance": 0,
+      "baseline_frame_label_agreement": 0.9949238578680203,
+      "candidate_frame_label_agreement": 0.9949238578680203,
+      "boundary_comparison_available": true,
+      "boundaries": [
+        {
+          "next_subtask": 2,
+          "reference": 12,
+          "baseline": 12,
+          "candidate": 12,
+          "baseline_deviation": 0,
+          "candidate_deviation": 0,
+          "change": "unchanged",
+          "exact_truth_confirmed": false
+        },
+        {
+          "next_subtask": 3,
+          "reference": 118,
+          "baseline": 118,
+          "candidate": 118,
+          "baseline_deviation": 0,
+          "candidate_deviation": 0,
+          "change": "unchanged",
+          "exact_truth_confirmed": false
+        },
+        {
+          "next_subtask": 4,
+          "reference": 153,
+          "baseline": 153,
+          "candidate": 153,
+          "baseline_deviation": 0,
+          "candidate_deviation": 0,
+          "change": "unchanged",
+          "exact_truth_confirmed": false
+        },
+        {
+          "next_subtask": 5,
+          "reference": 206,
+          "baseline": 205,
+          "candidate": 205,
+          "baseline_deviation": 1,
+          "candidate_deviation": 1,
+          "change": "unchanged",
+          "exact_truth_confirmed": false
+        },
+        {
+          "next_subtask": 6,
+          "reference": 221,
+          "baseline": 221,
+          "candidate": 221,
+          "baseline_deviation": 0,
+          "candidate_deviation": 0,
+          "change": "unchanged",
+          "exact_truth_confirmed": false
+        },
+        {
+          "next_subtask": 7,
+          "reference": 365,
+          "baseline": 364,
+          "candidate": 364,
+          "baseline_deviation": 1,
+          "candidate_deviation": 1,
+          "change": "unchanged",
+          "exact_truth_confirmed": false
+        }
+      ],
+      "changed_frames_from_baseline": 0,
+      "changed_annotation_from_baseline": true,
+      "candidate_sha256": "244d82b0428c746e39aa5e2ddebaeb33c727ac27b8515066cc5b4eec21e9fb62"
+    }
+  ],
+  "promotion_status": "not_evaluated",
+  "reason": "Promotion requires a declared confirmed target case and review of regressions; reference distance alone cannot establish improvement."
+}

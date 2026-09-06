@@ -22,7 +22,7 @@ def run():
         annotate.OUT=dest
         with patch('requests.post',side_effect=AssertionError('Offline experiment: model cache miss')):
             for ep in ['episode_000000','episode_000001']:
-                run_workbench_pipeline.run(ep,scene_prior=False)
+                run_workbench_pipeline.run(ep,scene_prior=False,onset_scene_prior=True)
         comparison=benchmark.run(dest/'automatic/onset_refined/annotations')
         text_changes=[]
         for entry in benchmark.read(benchmark.BENCH/'manifest.json')['trajectories']:

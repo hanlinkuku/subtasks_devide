@@ -1,0 +1,92 @@
+[
+  {
+    "status": 200,
+    "elapsed_seconds": 12.43,
+    "model": "qwen3-vl-32b-instruct",
+    "parameters": {
+      "temperature": 0.01,
+      "max_tokens": 1600
+    }
+  },
+  {
+    "status": 200,
+    "elapsed_seconds": 13.872,
+    "model": "qwen3-vl-32b-instruct",
+    "parameters": {
+      "temperature": 0.01,
+      "max_tokens": 1600
+    }
+  },
+  {
+    "status": 200,
+    "elapsed_seconds": 13.334,
+    "model": "qwen3-vl-32b-instruct",
+    "parameters": {
+      "temperature": 0.01,
+      "max_tokens": 1600
+    }
+  },
+  {
+    "status": 200,
+    "elapsed_seconds": 22.49,
+    "model": "qwen3-vl-32b-instruct",
+    "parameters": {
+      "temperature": 0.01,
+      "max_tokens": 1600
+    }
+  },
+  {
+    "status": 200,
+    "elapsed_seconds": 10.206,
+    "model": "qwen3-vl-32b-instruct",
+    "parameters": {
+      "temperature": 0.01,
+      "max_tokens": 1600
+    }
+  },
+  {
+    "status": 200,
+    "elapsed_seconds": 11.197,
+    "model": "qwen3-vl-32b-instruct",
+    "parameters": {
+      "temperature": 0.01,
+      "max_tokens": 1600
+    }
+  },
+  {
+    "status": 200,
+    "elapsed_seconds": 15.639,
+    "model": "qwen3-vl-32b-instruct",
+    "parameters": {
+      "temperature": 0.01,
+      "max_tokens": 1600
+    }
+  },
+  {
+    "status": 200,
+    "elapsed_seconds": 15.126,
+    "model": "qwen3-vl-32b-instruct",
+    "parameters": {
+      "temperature": 0.01,
+      "max_tokens": 1600
+    }
+  },
+  {
+    "status": 200,
+    "elapsed_seconds": 20.217,
+    "model": "qwen3-vl-32b-instruct",
+    "parameters": {
+      "temperature": 0.01,
+      "max_tokens": 1600
+    }
+  },
+  {
+    "status": 200,
+    "elapsed_seconds": 11.159,
+    "model": "qwen3-vl-32b-instruct",
+    "parameters": {
+      "temperature": 0.01,
+      "max_tokens": 1600
+    }
+  }
+]

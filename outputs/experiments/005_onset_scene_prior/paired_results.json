@@ -1,0 +1,452 @@
+[
+  {
+    "trajectory_id": "episode_000000",
+    "candidate": {
+      "start_frame": 78,
+      "end_frame": 90,
+      "skill_id": "press",
+      "arm_used": "left",
+      "proposal_only": true,
+      "contact_verified": false,
+      "peak_frame": 81
+    },
+    "historical": {
+      "supported": true,
+      "response_frame": 80,
+      "earlier_flash_checks": [],
+      "response_uncertain": false,
+      "onset": {
+        "start_frame": 75,
+        "earliest_frame": 73,
+        "latest_frame": 77,
+        "uncertain": true,
+        "evidence": "从帧65到72，夹爪持续接近按钮区域，step_mm逐渐减小（从2.827降至1.049），表明减速接近。在帧73-77，step_mm再次上升至1.756，且视觉上夹爪尖端已对准最上方的圆形按钮（电源/模式键），并开始有轻微推进趋势。帧78-79中，夹爪位置略有后退或调整，但未完全脱离按钮区域。帧80屏幕响应，显示操作成功。由于帧73-77之间运动连续、无明显停顿，无法精确区分‘接触保持’与‘局部推进’的起始点，因此判定为不确定。可能的起点范围为73-77帧，其中75帧是视觉和运动数据均较合理的中间点。"
+      },
+      "original_event": {
+        "start_frame": 78,
+        "end_frame": 90,
+        "skill_id": "press",
+        "arm_used": "left",
+        "proposal_only": true,
+        "contact_verified": false,
+        "peak_frame": 81
+      },
+      "scope": "response-assisted inference, not measured contact time"
+    },
+    "control": {
+      "supported": true,
+      "response_frame": 80,
+      "earlier_flash_checks": [],
+      "response_uncertain": false,
+      "onset": {
+        "start_frame": 75,
+        "earliest_frame": 73,
+        "latest_frame": 77,
+        "uncertain": true,
+        "evidence": "从帧65到72，夹爪持续接近按钮区域，step_mm逐渐减小（从2.827降至1.049），表明减速接近。在帧73-77，step_mm再次上升至1.756，且视觉上夹爪尖端已对准最上方的圆形按钮（电源/模式键），并开始有轻微推进趋势。帧78-79中，夹爪位置略有后退或调整，但未完全脱离按钮区域。帧80屏幕响应，显示操作成功。由于帧73-77之间运动连续、无明显停顿，无法精确区分‘最后定向推进’的起点，因此判定为uncertain。可能的起点范围为73-77帧，其中75帧是视觉上夹爪最接近按钮且运动量适中的中间点。"
+      },
+      "original_event": {
+        "start_frame": 78,
+        "end_frame": 90,
+        "skill_id": "press",
+        "arm_used": "left",
+        "proposal_only": true,
+        "contact_verified": false,
+        "peak_frame": 81
+      },
+      "scope": "response-assisted inference, not measured contact time"
+    },
+    "variant": {
+      "supported": true,
+      "response_frame": 80,
+      "earlier_flash_checks": [],
+      "response_uncertain": false,
+      "onset": {
+        "start_frame": 72,
+        "earliest_frame": 70,
+        "latest_frame": 74,
+        "uncertain": true,
+        "evidence": "从帧65到帧71，操作端（黑色夹具）持续向目标（TOSHIBA温控器）靠近，步长逐步减小，表明进入对准阶段。在帧72，操作端与最上方按钮（电源/模式键）的间距已极小，且该帧后连续几帧（73-77）中操作端位置基本稳定，无明显推进或回退，同时屏幕在帧80发生响应。这表明接触可能发生在帧72至74之间。然而，由于画面视角遮挡严重，无法直接观察到接触瞬间，且帧72-74间运动增量较小（step_mm: 1.049, 1.857, 1.827），无法明确区分是最后的微调推进还是接触后的保持。因此判定为不确定，起点范围定为70-74帧，其中72帧为最可能的接触起始点。"
+      },
+      "original_event": {
+        "start_frame": 78,
+        "end_frame": 90,
+        "skill_id": "press",
+        "arm_used": "left",
+        "proposal_only": true,
+        "contact_verified": false,
+        "peak_frame": 81
+      },
+      "scope": "response-assisted inference, not measured contact time"
+    }
+  },
+  {
+    "trajectory_id": "episode_000000",
+    "candidate": {
+      "start_frame": 138,
+      "end_frame": 175,
+      "skill_id": "press",
+      "arm_used": "left",
+      "proposal_only": true,
+      "contact_verified": false,
+      "peak_frame": 149
+    },
+    "historical": {
+      "supported": true,
+      "response_frame": 154,
+      "earlier_flash_checks": [],
+      "response_uncertain": false,
+      "onset": {
+        "start_frame": 149,
+        "earliest_frame": 148,
+        "latest_frame": 150,
+        "uncertain": true,
+        "evidence": "从帧139到147，夹爪持续向按钮区域推进，step_mm逐渐减小，表明接近过程。在帧148，step_mm为0.418mm，推进仍在继续；帧149，step_mm骤降至0.066mm，且视觉上夹爪尖端已非常接近或接触按钮（无明显位移），随后帧150 step_mm为0.043mm，几乎静止。帧151开始出现较大位移（step_mm=0.295mm），可能为按压后回弹或调整。屏幕响应发生在帧154，但按压起点应在此之前。由于帧148-150之间运动极微，无法明确区分是最后推进还是接触保持，因此判定为不确定，可能范围在148-150帧之间。"
+      },
+      "original_event": {
+        "start_frame": 138,
+        "end_frame": 175,
+        "skill_id": "press",
+        "arm_used": "left",
+        "proposal_only": true,
+        "contact_verified": false,
+        "peak_frame": 149
+      },
+      "scope": "response-assisted inference, not measured contact time"
+    },
+    "variant": {
+      "supported": true,
+      "response_frame": 154,
+      "earlier_flash_checks": [],
+      "response_uncertain": false,
+      "onset": {
+        "start_frame": 149,
+        "earliest_frame": 148,
+        "latest_frame": 150,
+        "uncertain": true,
+        "evidence": "从帧139到147，操作端（黑色夹具）持续向目标（空调遥控器）靠近，步长逐渐减小，表明对准过程。在帧148，步长骤降至0.418mm，且视觉上夹具尖端已非常接近按钮区域，可能已接触。帧149步长极小（0.066mm），并伴随轻微位移，符合接触后微调或保持按压的特征。帧150步长进一步减小至0.043mm，几乎静止，而屏幕在帧154才响应，说明接触发生在149-150之间。由于无明显视觉形变或清晰接触点，无法精确判定首次接触帧，因此将起点范围定为148-150，以149作为最可能的起始点。"
+      },
+      "original_event": {
+        "start_frame": 138,
+        "end_frame": 175,
+        "skill_id": "press",
+        "arm_used": "left",
+        "proposal_only": true,
+        "contact_verified": false,
+        "peak_frame": 149
+      },
+      "scope": "response-assisted inference, not measured contact time"
+    },
+    "control": {
+      "supported": true,
+      "response_frame": 154,
+      "earlier_flash_checks": [],
+      "response_uncertain": false,
+      "onset": {
+        "start_frame": 149,
+        "earliest_frame": 148,
+        "latest_frame": 150,
+        "uncertain": true,
+        "evidence": "从帧139到147，夹爪持续向按钮区域推进，step_mm逐渐减小，表明接近过程。在帧148，step_mm为0.418mm，仍处于推进状态。帧149的step_mm骤降至0.066mm，且delta_xyz_mm几乎为零，显示明显的减速或短暂停留。随后帧150的step_mm为0.043mm，继续微小移动，但整体运动极缓。帧151开始出现较大位移（step_mm=0.295），可能为按压后回弹或调整。屏幕响应发生在帧154，因此接触和按压应发生在149-150之间。由于视觉上无法明确区分149与150哪一帧是实际接触起点，且无明显形变或遮挡变化，判定为不确定，范围定为148-150帧。"
+      },
+      "original_event": {
+        "start_frame": 138,
+        "end_frame": 175,
+        "skill_id": "press",
+        "arm_used": "left",
+        "proposal_only": true,
+        "contact_verified": false,
+        "peak_frame": 149
+      },
+      "scope": "response-assisted inference, not measured contact time"
+    }
+  },
+  {
+    "trajectory_id": "episode_000000",
+    "candidate": {
+      "start_frame": 432,
+      "end_frame": 450,
+      "skill_id": "press",
+      "arm_used": "left",
+      "proposal_only": true,
+      "contact_verified": false,
+      "peak_frame": 447
+    },
+    "historical": {
+      "supported": true,
+      "response_frame": 440,
+      "earlier_flash_checks": [],
+      "response_uncertain": false,
+      "onset": {
+        "start_frame": 436,
+        "earliest_frame": 435,
+        "latest_frame": 437,
+        "uncertain": true,
+        "evidence": "从帧425到435，夹爪持续向按钮靠近，但未见明显接触迹象（无屏幕响应或视觉遮挡变化）。在帧436，夹爪尖端首次与按钮区域发生可见接触（视觉上夹爪左尖端覆盖了电源按钮），且delta_xyz_mm显示z轴负向推进（-0.974mm），表明开始施加压力。帧437继续推进（-0.822mm），并保持接触。帧440屏幕响应，说明按压已生效。由于436-437帧之间运动连续，无明显减速或停留，无法精确区分‘接触起点’与‘开始推进’，因此判定为不确定。可能的起点范围为435-437帧，其中436帧最符合‘接触后推进’的起始点。"
+      },
+      "original_event": {
+        "start_frame": 432,
+        "end_frame": 450,
+        "skill_id": "press",
+        "arm_used": "left",
+        "proposal_only": true,
+        "contact_verified": false,
+        "peak_frame": 447
+      },
+      "scope": "response-assisted inference, not measured contact time"
+    },
+    "control": {
+      "supported": true,
+      "response_frame": 440,
+      "earlier_flash_checks": [],
+      "response_uncertain": false,
+      "onset": {
+        "start_frame": 436,
+        "earliest_frame": 435,
+        "latest_frame": 437,
+        "uncertain": true,
+        "evidence": "从帧425到435，夹爪持续向按钮靠近，但未见明显接触迹象（无屏幕响应或视觉遮挡变化）。在帧436，夹爪左尖端首次清晰地覆盖并压住电源按钮，同时伴随Z轴负向位移（-0.974mm），表明开始施加压力。帧437继续推进（-0.822mm），且屏幕在帧440才响应，说明按压动作始于436前后。由于435至437之间运动连续且无明显减速/停留，无法精确区分‘最后推进起点’与‘接触保持’的边界，因此判定为不确定，范围限定在435-437帧。"
+      },
+      "original_event": {
+        "start_frame": 432,
+        "end_frame": 450,
+        "skill_id": "press",
+        "arm_used": "left",
+        "proposal_only": true,
+        "contact_verified": false,
+        "peak_frame": 447
+      },
+      "scope": "response-assisted inference, not measured contact time"
+    },
+    "variant": {
+      "supported": true,
+      "response_frame": 440,
+      "earlier_flash_checks": [],
+      "response_uncertain": false,
+      "onset": {
+        "start_frame": 436,
+        "earliest_frame": 435,
+        "latest_frame": 437,
+        "uncertain": true,
+        "evidence": "从帧425到435，操作端（黑色夹具）持续向目标（温控面板）靠近，但未见明显接触迹象。在帧436，操作端位置稳定且与电源按钮区域对齐，同时delta_xyz_mm显示Z轴负向推进0.974mm，表明开始施加压力。帧437继续推进0.822mm，且屏幕在帧440才响应，说明接触发生在436-437之间。由于视觉上无法明确区分436和437哪一帧首次发生物理接触，且无明显减速或停留过渡，因此判定为不确定，范围限定在435-437帧内。"
+      },
+      "original_event": {
+        "start_frame": 432,
+        "end_frame": 450,
+        "skill_id": "press",
+        "arm_used": "left",
+        "proposal_only": true,
+        "contact_verified": false,
+        "peak_frame": 447
+      },
+      "scope": "response-assisted inference, not measured contact time"
+    }
+  },
+  {
+    "trajectory_id": "episode_000001",
+    "candidate": {
+      "start_frame": 101,
+      "end_frame": 152,
+      "skill_id": "press",
+      "arm_used": "left",
+      "proposal_only": true,
+      "contact_verified": false,
+      "peak_frame": 127
+    },
+    "historical": {
+      "supported": true,
+      "response_frame": 123,
+      "earlier_flash_checks": [
+        {
+          "cue": {
+            "frame": 123,
+            "luminance_delta": 32.118,
+            "threshold": 12
+          },
+          "check": {
+            "changed": true,
+            "first_changed_frame": 123,
+            "previous_state": "屏幕关闭，无可见数字或背光",
+            "new_state": "屏幕亮起，显示数字'18.5℃'及图标（雪花、温度计等），背光开启",
+            "uncertain": false
+          }
+        }
+      ],
+      "response_uncertain": false,
+      "onset": {
+        "start_frame": 118,
+        "earliest_frame": 117,
+        "latest_frame": 119,
+        "uncertain": true,
+        "evidence": "从帧117到118，末端增量从0.779mm骤降至0.322mm，表明减速或接近接触；帧119的位移仅为0.019mm，几乎静止，符合接触后保持的特征。帧120开始有微小位移（0.136mm），但屏幕在帧123才响应，说明接触可能发生在118-119之间。由于视觉上夹爪尖端始终遮挡按钮，无法直接观察接触瞬间，且运动连续无明显过渡，因此判定为不确定，起点范围在117-119帧之间。"
+      },
+      "original_event": {
+        "start_frame": 101,
+        "end_frame": 152,
+        "skill_id": "press",
+        "arm_used": "left",
+        "proposal_only": true,
+        "contact_verified": false,
+        "peak_frame": 127
+      },
+      "scope": "response-assisted inference, not measured contact time"
+    },
+    "control": {
+      "supported": true,
+      "response_frame": 123,
+      "earlier_flash_checks": [
+        {
+          "cue": {
+            "frame": 123,
+            "luminance_delta": 32.118,
+            "threshold": 12
+          },
+          "check": {
+            "changed": true,
+            "first_changed_frame": 123,
+            "previous_state": "屏幕关闭，无可见数字或背光",
+            "new_state": "屏幕亮起，显示数字'18.5℃'及图标（雪花、温度计等），背光开启",
+            "uncertain": false
+          }
+        }
+      ],
+      "response_uncertain": false,
+      "onset": {
+        "start_frame": 118,
+        "earliest_frame": 117,
+        "latest_frame": 119,
+        "uncertain": true,
+        "evidence": "从帧117到118，末端增量从0.779mm骤降至0.322mm，表明减速或接近接触；帧119的位移仅为0.019mm，几乎静止，符合接触后保持的特征。帧120开始有微小位移（0.136mm），但屏幕在帧123才响应，说明接触可能发生在118-119之间。由于视觉上夹爪尖端始终遮挡按钮，无法直接观察接触瞬间，且运动连续无明显过渡，因此判定为不确定，起点范围为117-119帧。"
+      },
+      "original_event": {
+        "start_frame": 101,
+        "end_frame": 152,
+        "skill_id": "press",
+        "arm_used": "left",
+        "proposal_only": true,
+        "contact_verified": false,
+        "peak_frame": 127
+      },
+      "scope": "response-assisted inference, not measured contact time"
+    },
+    "variant": {
+      "supported": true,
+      "response_frame": 123,
+      "earlier_flash_checks": [
+        {
+          "cue": {
+            "frame": 123,
+            "luminance_delta": 32.118,
+            "threshold": 12
+          },
+          "check": {
+            "changed": true,
+            "first_changed_frame": 123,
+            "previous_state": "屏幕关闭，无可见数字或背光",
+            "new_state": "屏幕亮起，显示数字'18.5℃'及图标（雪花、温度计等），背光开启",
+            "uncertain": false
+          }
+        }
+      ],
+      "response_uncertain": false,
+      "onset": {
+        "start_frame": 118,
+        "earliest_frame": 117,
+        "latest_frame": 119,
+        "uncertain": true,
+        "evidence": "从帧117到118，末端增量从0.779mm骤降至0.322mm，表明运动显著减速，可能进入接触阶段。帧119的位移仅为0.019mm，几乎静止，符合接触后保持按压的特征。帧120开始出现微小位移（0.136mm），但屏幕在帧123才响应，说明按压持续至响应前。由于视觉上无法确认操作端与按钮的物理接触点，且帧117-119间运动变化连续无明显停顿，因此无法精确判定接触起点，但最可能的范围是117-119帧之间。"
+      },
+      "original_event": {
+        "start_frame": 101,
+        "end_frame": 152,
+        "skill_id": "press",
+        "arm_used": "left",
+        "proposal_only": true,
+        "contact_verified": false,
+        "peak_frame": 127
+      },
+      "scope": "response-assisted inference, not measured contact time"
+    }
+  },
+  {
+    "trajectory_id": "episode_000001",
+    "candidate": {
+      "start_frame": 211,
+      "end_frame": 220,
+      "skill_id": "press",
+      "arm_used": "left",
+      "proposal_only": true,
+      "contact_verified": false,
+      "peak_frame": 215
+    },
+    "historical": {
+      "supported": true,
+      "response_frame": 208,
+      "earlier_flash_checks": [],
+      "response_uncertain": false,
+      "onset": {
+        "start_frame": 205,
+        "earliest_frame": 204,
+        "latest_frame": 206,
+        "uncertain": true,
+        "evidence": "从帧196到205，夹爪持续向按钮靠近，z轴位移逐渐减小（从-0.275mm到-0.789mm），表明接近过程。在帧205，夹爪尖端已非常接近或接触下箭头按钮，且屏幕在帧208响应（温度从18.5°C变为18.0°C）。由于视觉上无法明确区分接触瞬间（无明显形变或遮挡变化），且运动连续无可见减速/停留，因此判定为不确定。可能的接触起点范围在204-206帧之间，其中205帧最可能为实际接触开始。"
+      },
+      "original_event": {
+        "start_frame": 211,
+        "end_frame": 220,
+        "skill_id": "press",
+        "arm_used": "left",
+        "proposal_only": true,
+        "contact_verified": false,
+        "peak_frame": 215
+      },
+      "scope": "response-assisted inference, not measured contact time"
+    },
+    "variant": {
+      "supported": true,
+      "response_frame": 208,
+      "earlier_flash_checks": [],
+      "response_uncertain": false,
+      "onset": {
+        "start_frame": 205,
+        "earliest_frame": 204,
+        "latest_frame": 206,
+        "uncertain": true,
+        "evidence": "从帧196到205，操作端（黑色夹具）持续向目标（温控面板）的下排按钮区域推进，运动轨迹稳定且逐步靠近。在帧205，操作端尖端与目标按钮区域的距离已非常接近，几乎接触。帧206开始出现明显的Z轴负向位移（delta_xyz_mm: [1.502, 0.699, -0.534]），表明开始施加按压。然而，在帧205至206之间，视觉上无法明确区分是接触瞬间还是微小推进后的首次按压，且无明显减速或停留迹象。因此，无法精确判定接触起点，但可确定在204-206帧区间内发生定向按压推进并进入接触保持阶段。"
+      },
+      "original_event": {
+        "start_frame": 211,
+        "end_frame": 220,
+        "skill_id": "press",
+        "arm_used": "left",
+        "proposal_only": true,
+        "contact_verified": false,
+        "peak_frame": 215
+      },
+      "scope": "response-assisted inference, not measured contact time"
+    },
+    "control": {
+      "supported": true,
+      "response_frame": 208,
+      "earlier_flash_checks": [],
+      "response_uncertain": false,
+      "onset": {
+        "start_frame": 205,
+        "earliest_frame": 204,
+        "latest_frame": 206,
+        "uncertain": true,
+        "evidence": "从帧204到205，夹爪持续向按钮推进（delta_xyz_mm显示z轴负向移动），且在205帧后屏幕于208帧响应。204帧时夹爪尖端已非常接近按钮，但未见明显接触或遮挡；205帧推进幅度较小（step_mm=1.314），可能为接触前的最后推进；206帧有较大推进（step_mm=1.741），但此时屏幕尚未响应，且视觉上夹爪位置变化不显著。由于无清晰接触瞬间或遮挡变化，无法精确判定接触起点，故设为不确定，范围在204-206帧之间。"
+      },
+      "original_event": {
+        "start_frame": 211,
+        "end_frame": 220,
+        "skill_id": "press",
+        "arm_used": "left",
+        "proposal_only": true,
+        "contact_verified": false,
+        "peak_frame": 215
+      },
+      "scope": "response-assisted inference, not measured contact time"
+    }
+  }
+]

@@ -43,7 +43,7 @@ def prepare_episode(ep):
                 raise ValueError('视频与轨迹帧数不一致')
 
 
-def run(ep, experimental_review=False, scene_prior=False):
+def run(ep, experimental_review=False, scene_prior=False, onset_scene_prior=False):
     prepare_episode(ep)
     progress('检测运动区间与候选交互')
     proposal = automatic.propose(ep)
@@ -52,7 +52,7 @@ def run(ep, experimental_review=False, scene_prior=False):
     progress('根据持续后撤细化结束边界')
     automatic.reconcile_withdrawal(automatic.propose(ep, horizontal_withdrawal=True), visual)
     progress('逐帧检查画面响应与按压起点')
-    refine_onsets.run(ep)
+    refine_onsets.run(ep,scene_prior=onset_scene_prior)
     if not experimental_review:
         progress('自动划分完成；实验复核未参与正式结果')
         return

@@ -16,7 +16,7 @@ import automatic_segment as automatic
 MODEL='qwen3-vl-32b-instruct'
 
 
-def ask(ep,kind,frames,prompt):
+def ask(ep,kind,frames,prompt,cache_tag=None):
     blobs=[];fingerprints=[]
     for frame in frames:
         path=annotate.OUT/'native'/ep/f'{frame:06d}.jpg'
@@ -29,6 +29,9 @@ def ask(ep,kind,frames,prompt):
         blobs.append({'image':'data:image/jpeg;base64,'+base64.b64encode(buf.getvalue()).decode()})
     identity=hashlib.sha256(json.dumps([MODEL,prompt,frames,fingerprints],ensure_ascii=False).encode()).hexdigest()[:16]
     dest=annotate.OUT/'automatic'/'onset_evidence'/ep/f'{kind}_{identity}.json'
+    if cache_tag is not None:
+        if not cache_tag.replace('_','').isalnum():raise ValueError('Invalid experiment cache tag')
+        dest=dest.with_name(dest.stem+'_'+cache_tag+'.json')
     if dest.exists():return json.loads(dest.read_text(encoding='utf-8'))['result']
     content=[{'text':prompt}]+blobs
     print('CALL',ep,kind,frames[0],frames[-1],flush=True)
@@ -73,7 +76,7 @@ def brightness_candidates(ep,start,end):
             for i,v in enumerate(delta) if abs(v-center)>threshold]
 
 
-def refine_one(ep,event,preceding_end,fps):
+def refine_one(ep,event,preceding_end,fps,scene_prior=False,onset_cache_tag=None):
     first=max(preceding_end+1,event['start_frame']-round(fps))
     last=event['end_frame']
     step=max(1,int(np.ceil((last-first)/17)))
@@ -115,7 +118,9 @@ def refine_one(ep,event,preceding_end,fps):
 逐帧末端增量为辅助证据，不能单独证明接触。数据：{json.dumps(samples,separators=(',',':'))}
 输出JSON：{{"start_frame":0,"earliest_frame":0,"latest_frame":0,"uncertain":true,"evidence":"观察到的过渡及判断依据"}}。
 帧号必须位于提供的窗口内，earliest_frame <= start_frame <= latest_frame，起点不能晚于响应帧。'''
-    result=ask(ep,'onset',list(range(start,end+1)),prompt)
+    if not scene_prior:
+        prompt='这是左臂固定腕部相机。请依据画面辨别操作端、目标及遮挡，不预设目标安装方式或哪根尖端用于操作。\n'+prompt.split('\n',1)[1]
+    result=ask(ep,'onset',list(range(start,end+1)),prompt,cache_tag=onset_cache_tag)
     values=[result.get(k) for k in ['earliest_frame','start_frame','latest_frame']]
     valid=all(type(v)==int for v in values) and start<=values[0]<=values[1]<=values[2]<=anchor
     return {'supported':valid,'response_frame':anchor,'earlier_flash_checks':flash_checks,
@@ -123,13 +128,13 @@ def refine_one(ep,event,preceding_end,fps):
             'onset':result,'original_event':event,'scope':'response-assisted inference, not measured contact time'}
 
 
-def run(ep):
+def run(ep,scene_prior=False):
     proposal=json.loads((annotate.OUT/'automatic'/'motion_refined'/f'{ep}.json').read_text(encoding='utf-8'))
     decisions=json.loads((annotate.OUT/'automatic'/'motion_refined'/'decisions'/f'{ep}.json').read_text(encoding='utf-8'))['events']
     candidates=proposal['interaction_proposals']
     if len(candidates)!=len(decisions):raise ValueError('Event mismatch')
     jobs=[(ep,event,candidates[i-1]['end_frame'] if i else -1,proposal['fps']) for i,event in enumerate(candidates)]
-    with ThreadPoolExecutor(max_workers=2) as pool:results=list(pool.map(lambda args:refine_one(*args),jobs))
+    with ThreadPoolExecutor(max_workers=2) as pool:results=list(pool.map(lambda args:refine_one(*args,scene_prior=scene_prior),jobs))
     updated=[]
     for old,new in zip(decisions,results):
         event=dict(old)

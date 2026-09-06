@@ -1,0 +1,59 @@
+{
+  "model": "qwen3-vl-32b-instruct",
+  "prompt": "这是左臂固定腕部相机；面板安装在墙上。黑色夹爪左尖端用于操作，会遮挡按钮。\n第208帧观察到屏幕响应。这只是响应时刻，不是按压开始的答案。\n请在响应之前找最后一段定向按压推进的起点：已经对准按钮后的局部推进，及随后的接触保持；之前的大范围接近/对准仍属于reach或move。\n若先减速或短暂停留，再小幅推进，应辨别后面这次推进；若连续推进无可见过渡，明确写uncertain=true并给可能范围，不要假装能精确判定。\n不要因为窗口从某帧开始就把该帧当作press起点。不要把屏幕响应帧直接复制为起点。\n逐帧末端增量为辅助证据，不能单独证明接触。数据：[{\"frame\":196,\"delta_xyz_mm\":[1.219,0.641,-0.275],\"step_mm\":1.404},{\"frame\":197,\"delta_xyz_mm\":[1.191,0.518,0.156],\"step_mm\":1.308},{\"frame\":198,\"delta_xyz_mm\":[1.085,0.192,0.372],\"step_mm\":1.164},{\"frame\":199,\"delta_xyz_mm\":[0.693,-0.371,0.64],\"step_mm\":1.014},{\"frame\":200,\"delta_xyz_mm\":[0.754,-0.632,0.01],\"step_mm\":0.983},{\"frame\":201,\"delta_xyz_mm\":[0.816,-0.898,-0.576],\"step_mm\":1.343},{\"frame\":202,\"delta_xyz_mm\":[0.649,-0.71,-0.732],\"step_mm\":1.208},{\"frame\":203,\"delta_xyz_mm\":[0.645,-0.598,-0.703],\"step_mm\":1.126},{\"frame\":204,\"delta_xyz_mm\":[1.145,-0.34,-0.779],\"step_mm\":1.426},{\"frame\":205,\"delta_xyz_mm\":[1.047,-0.078,-0.789],\"step_mm\":1.314},{\"frame\":206,\"delta_xyz_mm\":[1.502,0.699,-0.534],\"step_mm\":1.741},{\"frame\":207,\"delta_xyz_mm\":[1.753,1.033,-0.119],\"step_mm\":2.038},{\"frame\":208,\"delta_xyz_mm\":[1.424,0.831,0.3],\"step_mm\":1.676},{\"frame\":209,\"delta_xyz_mm\":[1.491,0.722,0.836],\"step_mm\":1.856},{\"frame\":210,\"delta_xyz_mm\":[1.036,0.426,0.392],\"step_mm\":1.187}]\n输出JSON：{\"start_frame\":0,\"earliest_frame\":0,\"latest_frame\":0,\"uncertain\":true,\"evidence\":\"观察到的过渡及判断依据\"}。\n帧号必须位于提供的窗口内，earliest_frame <= start_frame <= latest_frame，起点不能晚于响应帧。",
+  "frames": [
+    196,
+    197,
+    198,
+    199,
+    200,
+    201,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207,
+    208,
+    209,
+    210
+  ],
+  "image_sha256": [
+    "69c637462842196e12be22a0a8feacd0a740690b41d4a792a825d04173c0665c",
+    "8c3e09e67e9cfc8bbe18bd85e6b7b621367e55611d52bab2408cb1f71f72f55e",
+    "c89121f422cc4ee203d7b3d3fcad25505f0c186322c3b3cb0d87741dc27d2a11",
+    "f20ff4c2444d729711132a8b7ff411fcaeb9aa4c0fc1d4b692dd525c87e7d5b6",
+    "d828cb6cec2b441ea718da318bfc97161a0467c4e46db8ef4822dabf01a0e697",
+    "38e0732e594b8b20e5974f348befe638f566acf9ba23779373088477dc930615",
+    "5590fc2abdc0ffb0b3c79cb4a91dc1f334bc269e82fd5fb2e22856ce1543d73f",
+    "788361d890822f047beb66d74f55a8f1e8b10d3cc04f3b4c70b500ca50fb8ce5",
+    "6d6c947285da84fe92eb23589cb2148950f262bd0f833c83774ae0f7456eca30",
+    "beb0cf64cf470c78de9d094e4adef8b5ca1e240a488d2162e0fbdda344593c35",
+    "621de10430e3f29a872ee9a7bdd605e338e2b41a8eecf5c2d8ff5ba1f942c1a2",
+    "892af109899f38e4475a60efbd294912d32b906603b75d65857c9d2d83dc9c50",
+    "757bd0aa5e4d8355b6c3a5ae5360bb6a06aa8e5a104e51ace0a99cf2cc22d82a",
+    "b968012efc386413f280d0c484355a387cc37ec18277852311661e9d66b963ea",
+    "bc266f3dbf82747b69b4360e534c1ea20229ab4cf37a7e63fbc5a67578ee1d7b"
+  ],
+  "result": {
+    "start_frame": 205,
+    "earliest_frame": 204,
+    "latest_frame": 206,
+    "uncertain": true,
+    "evidence": "从帧204到205，夹爪持续向按钮推进（delta_xyz_mm显示z轴负向移动），且在205帧后屏幕于208帧响应。204帧时夹爪尖端已非常接近按钮，但未见明显接触或遮挡；205帧推进幅度较小（step_mm=1.314），可能为接触前的最后推进；206帧有较大推进（step_mm=1.741），但此时屏幕尚未响应，且视觉上夹爪位置变化不显著。由于无清晰接触瞬间或遮挡变化，无法精确判定接触起点，故设为不确定，范围在204-206帧之间。"
+  },
+  "usage": {
+    "image_tokens": 13230,
+    "input_tokens": 14019,
+    "input_tokens_details": {
+      "image_tokens": 13230,
+      "text_tokens": 789
+    },
+    "output_tokens": 208,
+    "output_tokens_details": {
+      "text_tokens": 208
+    },
+    "total_tokens": 14227
+  },
+  "reference_used_during_inference": false
+}

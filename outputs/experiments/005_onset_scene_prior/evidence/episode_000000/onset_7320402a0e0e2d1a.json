@@ -1,0 +1,65 @@
+{
+  "model": "qwen3-vl-32b-instruct",
+  "prompt": "这是左臂固定腕部相机。请依据画面辨别操作端、目标及遮挡，不预设目标安装方式或哪根尖端用于操作。\n第440帧观察到屏幕响应。这只是响应时刻，不是按压开始的答案。\n请在响应之前找最后一段定向按压推进的起点：已经对准按钮后的局部推进，及随后的接触保持；之前的大范围接近/对准仍属于reach或move。\n若先减速或短暂停留，再小幅推进，应辨别后面这次推进；若连续推进无可见过渡，明确写uncertain=true并给可能范围，不要假装能精确判定。\n不要因为窗口从某帧开始就把该帧当作press起点。不要把屏幕响应帧直接复制为起点。\n逐帧末端增量为辅助证据，不能单独证明接触。数据：[{\"frame\":425,\"delta_xyz_mm\":[1.858,0.905,-0.608],\"step_mm\":2.154},{\"frame\":426,\"delta_xyz_mm\":[1.607,0.521,-0.568],\"step_mm\":1.782},{\"frame\":427,\"delta_xyz_mm\":[1.304,0.298,-0.449],\"step_mm\":1.41},{\"frame\":428,\"delta_xyz_mm\":[0.558,-0.436,-0.304],\"step_mm\":0.771},{\"frame\":429,\"delta_xyz_mm\":[0.414,-0.398,0.259],\"step_mm\":0.63},{\"frame\":430,\"delta_xyz_mm\":[0.828,-0.551,0.184],\"step_mm\":1.011},{\"frame\":431,\"delta_xyz_mm\":[1.076,-0.737,1.01],\"step_mm\":1.65},{\"frame\":432,\"delta_xyz_mm\":[1.134,-0.686,0.228],\"step_mm\":1.345},{\"frame\":433,\"delta_xyz_mm\":[0.598,-0.926,-0.154],\"step_mm\":1.113},{\"frame\":434,\"delta_xyz_mm\":[0.455,-0.545,-0.29],\"step_mm\":0.767},{\"frame\":435,\"delta_xyz_mm\":[0.349,-0.409,-0.571],\"step_mm\":0.784},{\"frame\":436,\"delta_xyz_mm\":[0.305,-0.141,-0.974],\"step_mm\":1.031},{\"frame\":437,\"delta_xyz_mm\":[0.318,-0.052,-0.822],\"step_mm\":0.883},{\"frame\":438,\"delta_xyz_mm\":[1.428,1.186,-0.071],\"step_mm\":1.858},{\"frame\":439,\"delta_xyz_mm\":[1.309,1.009,0.148],\"step_mm\":1.66},{\"frame\":440,\"delta_xyz_mm\":[1.687,1.529,-0.043],\"step_mm\":2.278},{\"frame\":441,\"delta_xyz_mm\":[1.655,1.348,-0.142],\"step_mm\":2.139},{\"frame\":442,\"delta_xyz_mm\":[1.344,1.246,0.124],\"step_mm\":1.837}]\n输出JSON：{\"start_frame\":0,\"earliest_frame\":0,\"latest_frame\":0,\"uncertain\":true,\"evidence\":\"观察到的过渡及判断依据\"}。\n帧号必须位于提供的窗口内，earliest_frame <= start_frame <= latest_frame，起点不能晚于响应帧。",
+  "frames": [
+    425,
+    426,
+    427,
+    428,
+    429,
+    430,
+    431,
+    432,
+    433,
+    434,
+    435,
+    436,
+    437,
+    438,
+    439,
+    440,
+    441,
+    442
+  ],
+  "image_sha256": [
+    "e42e20764a3206c6a2cba8c4088ea3cc0d978bb055d9a56e580344a3628b9300",
+    "535085e7ecfa07363f99f71247d0d4dfc2347c2aa1cb970021bf85bbbcad635d",
+    "43e3549f850503d1aacf53240ae7c7ace7fd8f9d665f456a7c5d1033dfe0b3d9",
+    "fa19e945e5c82070184d461e39123584c06047db8418bdd5c4de7cc540234a4a",
+    "c96f0587f5802f32067c6d3a32a4f2e3217178af3c3e870f82689b73c024c563",
+    "c4e8761c5cf9fb827c7167b988a49c105e2a06a533b6f396d3b98898a5221b39",
+    "8fbb6bc2bcf77a950fc27cb95b4eafd40bc766ceb43cfa529e1aa13f8b7338fc",
+    "b7c5cdd91a39e247a0437a3eeca5570fd40ddc60fbd09b9502e5b2ae0d725f5f",
+    "51b63a5a13cbbc3fed32fd6d32ee01783318e0d6a5437c6856deb713bbf1e603",
+    "a523d472d3ae76ddf3ea33cc4d76d7dd6dff0263abe46f48a711d39271a6da0e",
+    "89e3b0aaf65142e6dc42710f899280d66b0fb2ba5beb5641c2a4b22c0d130a0b",
+    "151916e9c30f0313e0e74158418d57bdf9b9f5006a5eb82bd0a72cd1df6126a0",
+    "445d2707ccddcd06158dee4ccc8c536b555eccee9583058abeabe62ef281be16",
+    "1e29be654dded72d97c4b36a58049953ecb1a64c98f971011a1c24167aefff16",
+    "c750005d8bd04da9a15d75cc133404345cf63f452661746aeaf6b1b15b0fe957",
+    "b5c0876cb86111d6fcb3af3d28b06fa87d395bcc615a99a9527a53fa41806e3e",
+    "08b473fef05a0c00ba18d074288ef3774aa22458d47638dd3c3dbcbaaaf476ad",
+    "4bd2b701feeabd46b7922f7d283a96ee4c6da3ec65dbff5ceae87ef53c3aa56c"
+  ],
+  "result": {
+    "start_frame": 436,
+    "earliest_frame": 435,
+    "latest_frame": 437,
+    "uncertain": true,
+    "evidence": "从帧425到435，操作端（黑色夹具）持续向目标（温控面板）靠近，但未见明显接触迹象。在帧436，操作端位置稳定且与电源按钮区域对齐，同时delta_xyz_mm显示Z轴负向推进0.974mm，表明开始施加压力。帧437继续推进0.822mm，且屏幕在帧440才响应，说明接触发生在436-437之间。由于视觉上无法明确区分436和437哪一帧首次发生物理接触，且无明显减速或停留过渡，因此判定为不确定，范围限定在435-437帧内。"
+  },
+  "usage": {
+    "image_tokens": 15876,
+    "input_tokens": 16783,
+    "input_tokens_details": {
+      "image_tokens": 15876,
+      "text_tokens": 907
+    },
+    "output_tokens": 209,
+    "output_tokens_details": {
+      "text_tokens": 209
+    },
+    "total_tokens": 16992
+  },
+  "reference_used_during_inference": false
+}

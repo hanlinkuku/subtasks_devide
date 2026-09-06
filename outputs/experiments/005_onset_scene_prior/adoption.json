@@ -1,0 +1,20 @@
+{
+  "decision": "adopt_onset_first_line_scene_prior_removal",
+  "previous_commit": "37085cd5067accb9fa298c013056b249ad8cfb16",
+  "checks": [
+    {
+      "episode": "episode_000000",
+      "press_end_frames_unchanged": true,
+      "skill_arm_sequence_unchanged": true
+    },
+    {
+      "episode": "episode_000001",
+      "press_end_frames_unchanged": true,
+      "skill_arm_sequence_unchanged": true
+    }
+  ],
+  "isolated_and_adopted_outputs_identical": true,
+  "accuracy_improvement_claimed": false,
+  "micro_boundary_change_frames": 3,
+  "universal_tolerance_established": false
+}
