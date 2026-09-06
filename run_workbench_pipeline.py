@@ -43,7 +43,7 @@ def prepare_episode(ep):
                 raise ValueError('视频与轨迹帧数不一致')
 
 
-def run(ep):
+def run(ep, experimental_review=False):
     prepare_episode(ep)
     progress('检测运动区间与候选交互')
     proposal = automatic.propose(ep)
@@ -53,6 +53,9 @@ def run(ep):
     automatic.reconcile_withdrawal(automatic.propose(ep, horizontal_withdrawal=True), visual)
     progress('逐帧检查画面响应与按压起点')
     refine_onsets.run(ep)
+    if not experimental_review:
+        progress('基线自动划分完成；实验复核未参与正式结果')
+        return
     progress('固定四视角全程观察与局部分歧复查')
     audit=multiview_review.run(ep)
     progress('提取分歧窗口的可见事实，检查交互证据充分性')
@@ -63,4 +66,6 @@ def run(ep):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('episode')
-    run(parser.parse_args().episode)
+    parser.add_argument('--experimental-review', action='store_true')
+    args=parser.parse_args()
+    run(args.episode, args.experimental_review)

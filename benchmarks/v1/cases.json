@@ -1,0 +1,97 @@
+{
+  "confirmed_errors": [],
+  "pending_boundary_disagreements": [
+    {
+      "id": "episode_000000-boundary-3",
+      "trajectory_id": "episode_000000",
+      "status": "reference_disagreement_not_confirmed_error",
+      "next_subtask": 3,
+      "reference": 76,
+      "baseline": 75,
+      "candidate": 75,
+      "baseline_deviation": 1,
+      "candidate_deviation": 1,
+      "change": "unchanged",
+      "exact_truth_confirmed": false
+    },
+    {
+      "id": "episode_000000-boundary-5",
+      "trajectory_id": "episode_000000",
+      "status": "reference_disagreement_not_confirmed_error",
+      "next_subtask": 5,
+      "reference": 152,
+      "baseline": 149,
+      "candidate": 149,
+      "baseline_deviation": 3,
+      "candidate_deviation": 3,
+      "change": "unchanged",
+      "exact_truth_confirmed": false
+    },
+    {
+      "id": "episode_000000-boundary-8",
+      "trajectory_id": "episode_000000",
+      "status": "reference_disagreement_not_confirmed_error",
+      "next_subtask": 8,
+      "reference": 330,
+      "baseline": 331,
+      "candidate": 331,
+      "baseline_deviation": 1,
+      "candidate_deviation": 1,
+      "change": "unchanged",
+      "exact_truth_confirmed": false
+    },
+    {
+      "id": "episode_000000-boundary-9",
+      "trajectory_id": "episode_000000",
+      "status": "reference_disagreement_not_confirmed_error",
+      "next_subtask": 9,
+      "reference": 438,
+      "baseline": 436,
+      "candidate": 436,
+      "baseline_deviation": 2,
+      "candidate_deviation": 2,
+      "change": "unchanged",
+      "exact_truth_confirmed": false
+    },
+    {
+      "id": "episode_000000-boundary-11",
+      "trajectory_id": "episode_000000",
+      "status": "reference_disagreement_not_confirmed_error",
+      "next_subtask": 11,
+      "reference": 575,
+      "baseline": 574,
+      "candidate": 574,
+      "baseline_deviation": 1,
+      "candidate_deviation": 1,
+      "change": "unchanged",
+      "exact_truth_confirmed": false
+    },
+    {
+      "id": "episode_000001-boundary-5",
+      "trajectory_id": "episode_000001",
+      "status": "reference_disagreement_not_confirmed_error",
+      "next_subtask": 5,
+      "reference": 206,
+      "baseline": 205,
+      "candidate": 205,
+      "baseline_deviation": 1,
+      "candidate_deviation": 1,
+      "change": "unchanged",
+      "exact_truth_confirmed": false
+    },
+    {
+      "id": "episode_000001-boundary-7",
+      "trajectory_id": "episode_000001",
+      "status": "reference_disagreement_not_confirmed_error",
+      "next_subtask": 7,
+      "reference": 365,
+      "baseline": 364,
+      "candidate": 364,
+      "baseline_deviation": 1,
+      "candidate_deviation": 1,
+      "change": "unchanged",
+      "exact_truth_confirmed": false
+    }
+  ],
+  "excluded": "Experimental model disagreements are not confirmed algorithm errors. Action text and object attributes have not been quantitatively adjudicated."
+}

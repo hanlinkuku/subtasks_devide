@@ -1,0 +1,228 @@
+{
+  "trajectory_id": "episode_000000",
+  "trajectory_start": 0,
+  "trajectory_end": 595,
+  "task_name": "用左臂操作温控面板并调节温度",
+  "subtasks": [
+    {
+      "id": 1,
+      "standard_action_text": "机械臂在初始位置保持静止。",
+      "skill_id": "wait",
+      "arm_used": "none",
+      "notes": "自动生成，尚未通过人工边界验收。",
+      "start_frame": 0,
+      "end_frame": 11,
+      "start_time": 0.0,
+      "end_time": 0.733333,
+      "target_object_attribute": {
+        "name": "",
+        "colors": [],
+        "shapes": [],
+        "materials": [],
+        "sizes": [],
+        "others": [],
+        "description": ""
+      }
+    },
+    {
+      "id": 2,
+      "standard_action_text": "左臂接近温控面板按钮区域。",
+      "skill_id": "reach",
+      "arm_used": "left",
+      "notes": "自动生成，尚未通过人工边界验收。",
+      "start_frame": 12,
+      "end_frame": 74,
+      "start_time": 0.8,
+      "end_time": 4.933333,
+      "target_object_attribute": {
+        "name": "温控面板",
+        "colors": [],
+        "shapes": [],
+        "materials": [],
+        "sizes": [],
+        "others": [],
+        "description": ""
+      }
+    },
+    {
+      "id": 3,
+      "standard_action_text": "按压并保持按钮",
+      "skill_id": "press",
+      "arm_used": "left",
+      "notes": "自动生成，尚未通过人工边界验收。按压开始：从帧65到72，夹爪持续接近按钮区域，step_mm逐渐减小（从2.827降至1.049），表明减速接近。在帧73-77，step_mm再次上升至1.756，且视觉上夹爪尖端已对准最上方的圆形按钮（电源/模式键），并开始有轻微推进趋势。帧78-79中，夹爪位置略有后退或调整，但未完全脱离按钮区域。帧80屏幕响应，显示操作成功。由于帧73-77之间运动连续、无明显停顿，无法精确区分‘接触保持’与‘局部推进’的起始点，因此判定为不确定。可能的起点范围为73-77帧，其中75帧是视觉和运动数据均较合理的中间点。 结束边界由持续后撤信号定位。 模型给出的待复核起点范围为73—77帧，该范围不是保证误差界。",
+      "start_frame": 75,
+      "end_frame": 90,
+      "start_time": 5.0,
+      "end_time": 6.0,
+      "target_object_attribute": {
+        "name": "温控面板",
+        "colors": [],
+        "shapes": [],
+        "materials": [],
+        "sizes": [],
+        "others": [],
+        "description": ""
+      }
+    },
+    {
+      "id": 4,
+      "standard_action_text": "左臂移动并调整按钮操作位置。",
+      "skill_id": "move",
+      "arm_used": "left",
+      "notes": "自动生成，尚未通过人工边界验收。",
+      "start_frame": 91,
+      "end_frame": 148,
+      "start_time": 6.066667,
+      "end_time": 9.866667,
+      "target_object_attribute": {
+        "name": "温控面板",
+        "colors": [],
+        "shapes": [],
+        "materials": [],
+        "sizes": [],
+        "others": [],
+        "description": ""
+      }
+    },
+    {
+      "id": 5,
+      "standard_action_text": "按压升温按钮并保持",
+      "skill_id": "press",
+      "arm_used": "left",
+      "notes": "自动生成，尚未通过人工边界验收。按压开始：从帧139到147，夹爪持续向按钮区域推进，step_mm逐渐减小，表明接近过程。在帧148，step_mm为0.418mm，推进仍在继续；帧149，step_mm骤降至0.066mm，且视觉上夹爪尖端已非常接近或接触按钮（无明显位移），随后帧150 step_mm为0.043mm，几乎静止。帧151开始出现较大位移（step_mm=0.295mm），可能为按压后回弹或调整。屏幕响应发生在帧154，但按压起点应在此之前。由于帧148-150之间运动极微，无法明确区分是最后推进还是接触保持，因此判定为不确定，可能范围在148-150帧之间。 结束边界由持续后撤信号定位。 模型给出的待复核起点范围为148—150帧，该范围不是保证误差界。",
+      "start_frame": 149,
+      "end_frame": 175,
+      "start_time": 9.933333,
+      "end_time": 11.666667,
+      "target_object_attribute": {
+        "name": "温控面板",
+        "colors": [],
+        "shapes": [],
+        "materials": [],
+        "sizes": [],
+        "others": [],
+        "description": ""
+      }
+    },
+    {
+      "id": 6,
+      "standard_action_text": "左臂撤回初始位置。",
+      "skill_id": "move",
+      "arm_used": "left",
+      "notes": "自动生成，尚未通过人工边界验收。",
+      "start_frame": 176,
+      "end_frame": 283,
+      "start_time": 11.733333,
+      "end_time": 18.866667,
+      "target_object_attribute": {
+        "name": "温控面板",
+        "colors": [],
+        "shapes": [],
+        "materials": [],
+        "sizes": [],
+        "others": [],
+        "description": ""
+      }
+    },
+    {
+      "id": 7,
+      "standard_action_text": "机械臂在初始位置保持静止。",
+      "skill_id": "wait",
+      "arm_used": "none",
+      "notes": "自动生成，尚未通过人工边界验收。",
+      "start_frame": 284,
+      "end_frame": 330,
+      "start_time": 18.933333,
+      "end_time": 22.0,
+      "target_object_attribute": {
+        "name": "",
+        "colors": [],
+        "shapes": [],
+        "materials": [],
+        "sizes": [],
+        "others": [],
+        "description": ""
+      }
+    },
+    {
+      "id": 8,
+      "standard_action_text": "左臂接近温控面板按钮区域。",
+      "skill_id": "reach",
+      "arm_used": "left",
+      "notes": "自动生成，尚未通过人工边界验收。",
+      "start_frame": 331,
+      "end_frame": 435,
+      "start_time": 22.066667,
+      "end_time": 29.0,
+      "target_object_attribute": {
+        "name": "温控面板",
+        "colors": [],
+        "shapes": [],
+        "materials": [],
+        "sizes": [],
+        "others": [],
+        "description": ""
+      }
+    },
+    {
+      "id": 9,
+      "standard_action_text": "按压并保持电源按钮",
+      "skill_id": "press",
+      "arm_used": "left",
+      "notes": "自动生成，尚未通过人工边界验收。按压开始：从帧425到435，夹爪持续向按钮靠近，但未见明显接触迹象（无屏幕响应或视觉遮挡变化）。在帧436，夹爪尖端首次与按钮区域发生可见接触（视觉上夹爪左尖端覆盖了电源按钮），且delta_xyz_mm显示z轴负向推进（-0.974mm），表明开始施加压力。帧437继续推进（-0.822mm），并保持接触。帧440屏幕响应，说明按压已生效。由于436-437帧之间运动连续，无明显减速或停留，无法精确区分‘接触起点’与‘开始推进’，因此判定为不确定。可能的起点范围为435-437帧，其中436帧最符合‘接触后推进’的起始点。 结束边界由持续后撤信号定位。 模型给出的待复核起点范围为435—437帧，该范围不是保证误差界。",
+      "start_frame": 436,
+      "end_frame": 450,
+      "start_time": 29.066667,
+      "end_time": 30.0,
+      "target_object_attribute": {
+        "name": "温控面板",
+        "colors": [],
+        "shapes": [],
+        "materials": [],
+        "sizes": [],
+        "others": [],
+        "description": ""
+      }
+    },
+    {
+      "id": 10,
+      "standard_action_text": "左臂撤回初始位置。",
+      "skill_id": "move",
+      "arm_used": "left",
+      "notes": "自动生成，尚未通过人工边界验收。",
+      "start_frame": 451,
+      "end_frame": 573,
+      "start_time": 30.066667,
+      "end_time": 38.2,
+      "target_object_attribute": {
+        "name": "温控面板",
+        "colors": [],
+        "shapes": [],
+        "materials": [],
+        "sizes": [],
+        "others": [],
+        "description": ""
+      }
+    },
+    {
+      "id": 11,
+      "standard_action_text": "机械臂在初始位置保持静止。",
+      "skill_id": "wait",
+      "arm_used": "none",
+      "notes": "自动生成，尚未通过人工边界验收。",
+      "start_frame": 574,
+      "end_frame": 595,
+      "start_time": 38.266667,
+      "end_time": 39.666667,
+      "target_object_attribute": {
+        "name": "",
+        "colors": [],
+        "shapes": [],
+        "materials": [],
+        "sizes": [],
+        "others": [],
+        "description": ""
+      }
+    }
+  ]
+}

@@ -104,7 +104,7 @@ def list_episodes():
 
 
 @app.get('/api/episodes/{ep}/annotation')
-def get_annotation(ep: str, source: str = 'latest'):
+def get_annotation(ep: str, source: str = 'latest', experimental_review: bool = False):
     meta = episode(ep)
     if source not in {'latest', 'automatic'}:
         raise HTTPException(400, '无效来源')
@@ -113,7 +113,7 @@ def get_annotation(ep: str, source: str = 'latest'):
     if not path.exists():
         raise HTTPException(404, '尚无标注，请运行自动划分')
     review_path=annotate.OUT/'automatic/multiview_refined/decisions'/f'{ep}.json'
-    review=json.loads(review_path.read_text(encoding='utf-8')) if review_path.exists() else None
+    review=json.loads(review_path.read_text(encoding='utf-8')) if experimental_review and review_path.exists() else None
     facts_path=annotate.OUT/'automatic/fact_review'/f'{ep}.json'
     if review and facts_path.exists():
         review['fact_review']=json.loads(facts_path.read_text(encoding='utf-8'))

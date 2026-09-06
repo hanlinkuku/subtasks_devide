@@ -6,6 +6,14 @@ from fastapi.testclient import TestClient
 import workbench as wb
 
 
+def test_experimental_review_is_opt_in(client):
+    default=client.get('/api/episodes/episode_000000/annotation').json()
+    experimental=client.get('/api/episodes/episode_000000/annotation?experimental_review=true').json()
+    assert default['review'] is None
+    assert experimental['review'] is not None
+    assert default['annotation']==experimental['annotation']
+
+
 @pytest.fixture
 def client(tmp_path, monkeypatch):
     monkeypatch.setattr(wb, 'MANUAL', tmp_path / 'manual')

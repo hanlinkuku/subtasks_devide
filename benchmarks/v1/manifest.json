@@ -1,0 +1,23 @@
+{
+  "version": "v1",
+  "source_commit": "3a2e4a223d93e1acfd97cbb5e4a698a8ae27cf09",
+  "reference_role": "user_selected_working_reference",
+  "exact_frame_truth_claimed": false,
+  "confirmed_algorithm_error_cases": [],
+  "trajectories": [
+    {
+      "trajectory_id": "episode_000000",
+      "baseline": "baseline/episode_000000.json",
+      "baseline_sha256": "724abfc75aaff929d73ce835593e08aa0bbb99ae9961e8aef9100acb61399a70",
+      "reference": "reference/episode_000000.json",
+      "reference_sha256": "1c7a7b5c1c658dbdbaf6c2a3417293cc0a72448110d02c8da8d3e8fa263f2ba3"
+    },
+    {
+      "trajectory_id": "episode_000001",
+      "baseline": "baseline/episode_000001.json",
+      "baseline_sha256": "e4fa8e7d3e84464166a2843c4634185c3180ccabcb78ec9a5b4cef0c0e641a96",
+      "reference": "reference/episode_000001.json",
+      "reference_sha256": "2e23f3ee4fbcc1b7746cb17efdc88bed757d2206bb0688a980cedd653aaf1a71"
+    }
+  ]
+}
