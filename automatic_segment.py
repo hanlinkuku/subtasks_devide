@@ -44,8 +44,12 @@ def motion_intervals(points, fps):
     return intervals,steps,distance
 
 
-def propose(ep, horizontal_withdrawal=False):
+def propose(ep, horizontal_withdrawal=False, arm='left', persist=True):
     points,rows,cols=annotate.telemetry(ep)
+    if arm not in {'left','right'}:raise ValueError('Unknown arm')
+    pose_column=cols.index('observation.state.'+arm+'_ee_pose')
+    points=np.asarray([row[pose_column][:3] for row in rows],dtype=float)
+    if not np.all(np.isfinite(points)):raise ValueError('Invalid arm telemetry')
     info=json.loads((annotate.DATA/'meta'/'info.json').read_text(encoding='utf-8'))
     fps=float(info['fps']);n=len(points)
     indices=np.asarray([r[cols.index('frame_index')] for r in rows])
@@ -80,11 +84,11 @@ def propose(ep, horizontal_withdrawal=False):
             next_peak=next((v for v in local if v>p),None)
             if next_peak is not None:release=min(release,next_peak)
             release=max(left+1,release)
-            if last<left:segments.append({'start_frame':last,'end_frame':left-1,'skill_id':'reach' if last==start else 'move','arm_used':'left'})
-            event={'start_frame':left,'end_frame':release-1,'skill_id':'press','arm_used':'left',
+            if last<left:segments.append({'start_frame':last,'end_frame':left-1,'skill_id':'reach' if last==start else 'move','arm_used':arm})
+            event={'start_frame':left,'end_frame':release-1,'skill_id':'press','arm_used':arm,
                    'proposal_only':True,'contact_verified':False,'peak_frame':p}
             segments.append(event);events.append(event.copy());last=release
-        if last<=end:segments.append({'start_frame':last,'end_frame':end,'skill_id':'move','arm_used':'left'})
+        if last<=end:segments.append({'start_frame':last,'end_frame':end,'skill_id':'move','arm_used':arm})
         cursor=end+1
     if cursor<n:segments.append({'start_frame':cursor,'end_frame':n-1,'skill_id':'wait','arm_used':'none'})
     cursor=0
@@ -99,7 +103,9 @@ def propose(ep, horizontal_withdrawal=False):
         'source_sha256':hashlib.sha256((annotate.OUT/'telemetry'/f'{ep}.json').read_bytes()).hexdigest()}
     result['withdrawal_detector']='horizontal_displacement_with_sustained_retreat' if horizontal_withdrawal else 'total_displacement_with_sustained_retreat'
     stage='motion_refined' if horizontal_withdrawal else 'kinematic'
-    annotate.save(annotate.OUT/'automatic'/stage/f'{ep}.json',result)
+    if persist:
+        filename=f'{ep}.json' if arm=='left' else f'{ep}.right.json'
+        annotate.save(annotate.OUT/'automatic'/stage/filename,result)
     print(ep,'motion',intervals,'interactions',[(e['start_frame'],e['end_frame']) for e in events],flush=True)
     return result
 

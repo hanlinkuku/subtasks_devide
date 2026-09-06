@@ -1,0 +1,117 @@
+{
+  "trajectory_id": "episode_000001",
+  "arms": {
+    "left": {
+      "trajectory_id": "episode_000001",
+      "fps": 15.0,
+      "frame_count": 394,
+      "motion_intervals": [
+        [
+          12,
+          363
+        ]
+      ],
+      "interaction_proposals": [
+        {
+          "start_frame": 101,
+          "end_frame": 152,
+          "skill_id": "press",
+          "arm_used": "left",
+          "proposal_only": true,
+          "contact_verified": false,
+          "peak_frame": 127
+        },
+        {
+          "start_frame": 211,
+          "end_frame": 220,
+          "skill_id": "press",
+          "arm_used": "left",
+          "proposal_only": true,
+          "contact_verified": false,
+          "peak_frame": 215
+        }
+      ],
+      "segments": [
+        {
+          "start_frame": 0,
+          "end_frame": 11,
+          "skill_id": "wait",
+          "arm_used": "none"
+        },
+        {
+          "start_frame": 12,
+          "end_frame": 100,
+          "skill_id": "reach",
+          "arm_used": "left"
+        },
+        {
+          "start_frame": 101,
+          "end_frame": 152,
+          "skill_id": "press",
+          "arm_used": "left",
+          "proposal_only": true,
+          "contact_verified": false,
+          "peak_frame": 127
+        },
+        {
+          "start_frame": 153,
+          "end_frame": 210,
+          "skill_id": "move",
+          "arm_used": "left"
+        },
+        {
+          "start_frame": 211,
+          "end_frame": 220,
+          "skill_id": "press",
+          "arm_used": "left",
+          "proposal_only": true,
+          "contact_verified": false,
+          "peak_frame": 215
+        },
+        {
+          "start_frame": 221,
+          "end_frame": 363,
+          "skill_id": "move",
+          "arm_used": "left"
+        },
+        {
+          "start_frame": 364,
+          "end_frame": 393,
+          "skill_id": "wait",
+          "arm_used": "none"
+        }
+      ],
+      "accepted": false,
+      "method": "rest hysteresis and radial turning points; interaction labels need visual verification",
+      "reference_annotations_used_for_inference": false,
+      "source_sha256": "c8965c04ab289b332da61728b60be019ba3192b095eef21a8503151285e0dd74",
+      "withdrawal_detector": "horizontal_displacement_with_sustained_retreat"
+    },
+    "right": {
+      "trajectory_id": "episode_000001",
+      "fps": 15.0,
+      "frame_count": 394,
+      "motion_intervals": [],
+      "interaction_proposals": [],
+      "segments": [
+        {
+          "start_frame": 0,
+          "end_frame": 393,
+          "skill_id": "wait",
+          "arm_used": "none"
+        }
+      ],
+      "accepted": false,
+      "method": "rest hysteresis and radial turning points; interaction labels need visual verification",
+      "reference_annotations_used_for_inference": false,
+      "source_sha256": "c8965c04ab289b332da61728b60be019ba3192b095eef21a8503151285e0dd74",
+      "withdrawal_detector": "horizontal_displacement_with_sustained_retreat"
+    }
+  },
+  "arms_with_translation_intervals": [
+    "left"
+  ],
+  "reference_used_during_inference": false,
+  "automatic_annotation_replaced": false,
+  "limitation": "Translation-based button candidates only. Absence does not exclude rotation, gripper or stationary interaction. Right-arm visual refinement is not implemented."
+}
