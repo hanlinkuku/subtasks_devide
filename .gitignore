@@ -38,3 +38,6 @@ outputs/replays/*/*
 # Future personal scratch files
 .DS_Store
 Thumbs.db
+
+# Isolated experiments copy existing inputs and caches; reports remain tracked.
+outputs/experiments/*/workspace/

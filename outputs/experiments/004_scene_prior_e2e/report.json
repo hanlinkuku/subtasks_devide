@@ -1,0 +1,238 @@
+{
+  "comparison": {
+    "benchmark_version": "v1",
+    "reference_role": "working_reference_not_exact_frame_truth",
+    "inference_performed": false,
+    "reports": [
+      {
+        "trajectory_id": "episode_000000",
+        "baseline_subtasks": 11,
+        "candidate_subtasks": 11,
+        "reference_subtasks": 11,
+        "baseline_sequence_edit_distance": 0,
+        "candidate_sequence_edit_distance": 0,
+        "baseline_frame_label_agreement": 0.9865771812080537,
+        "candidate_frame_label_agreement": 0.9865771812080537,
+        "boundary_comparison_available": true,
+        "boundaries": [
+          {
+            "next_subtask": 2,
+            "reference": 12,
+            "baseline": 12,
+            "candidate": 12,
+            "baseline_deviation": 0,
+            "candidate_deviation": 0,
+            "change": "unchanged",
+            "exact_truth_confirmed": false
+          },
+          {
+            "next_subtask": 3,
+            "reference": 76,
+            "baseline": 75,
+            "candidate": 75,
+            "baseline_deviation": 1,
+            "candidate_deviation": 1,
+            "change": "unchanged",
+            "exact_truth_confirmed": false
+          },
+          {
+            "next_subtask": 4,
+            "reference": 91,
+            "baseline": 91,
+            "candidate": 91,
+            "baseline_deviation": 0,
+            "candidate_deviation": 0,
+            "change": "unchanged",
+            "exact_truth_confirmed": false
+          },
+          {
+            "next_subtask": 5,
+            "reference": 152,
+            "baseline": 149,
+            "candidate": 149,
+            "baseline_deviation": 3,
+            "candidate_deviation": 3,
+            "change": "unchanged",
+            "exact_truth_confirmed": false
+          },
+          {
+            "next_subtask": 6,
+            "reference": 176,
+            "baseline": 176,
+            "candidate": 176,
+            "baseline_deviation": 0,
+            "candidate_deviation": 0,
+            "change": "unchanged",
+            "exact_truth_confirmed": false
+          },
+          {
+            "next_subtask": 7,
+            "reference": 284,
+            "baseline": 284,
+            "candidate": 284,
+            "baseline_deviation": 0,
+            "candidate_deviation": 0,
+            "change": "unchanged",
+            "exact_truth_confirmed": false
+          },
+          {
+            "next_subtask": 8,
+            "reference": 330,
+            "baseline": 331,
+            "candidate": 331,
+            "baseline_deviation": 1,
+            "candidate_deviation": 1,
+            "change": "unchanged",
+            "exact_truth_confirmed": false
+          },
+          {
+            "next_subtask": 9,
+            "reference": 438,
+            "baseline": 436,
+            "candidate": 436,
+            "baseline_deviation": 2,
+            "candidate_deviation": 2,
+            "change": "unchanged",
+            "exact_truth_confirmed": false
+          },
+          {
+            "next_subtask": 10,
+            "reference": 451,
+            "baseline": 451,
+            "candidate": 451,
+            "baseline_deviation": 0,
+            "candidate_deviation": 0,
+            "change": "unchanged",
+            "exact_truth_confirmed": false
+          },
+          {
+            "next_subtask": 11,
+            "reference": 575,
+            "baseline": 574,
+            "candidate": 574,
+            "baseline_deviation": 1,
+            "candidate_deviation": 1,
+            "change": "unchanged",
+            "exact_truth_confirmed": false
+          }
+        ],
+        "changed_frames_from_baseline": 0,
+        "changed_annotation_from_baseline": true,
+        "candidate_sha256": "f155a8dbacf96a6a1a97ef5a5582cbefe126acabefac95fd7458f78e1bb1aa21"
+      },
+      {
+        "trajectory_id": "episode_000001",
+        "baseline_subtasks": 7,
+        "candidate_subtasks": 7,
+        "reference_subtasks": 7,
+        "baseline_sequence_edit_distance": 0,
+        "candidate_sequence_edit_distance": 0,
+        "baseline_frame_label_agreement": 0.9949238578680203,
+        "candidate_frame_label_agreement": 0.9949238578680203,
+        "boundary_comparison_available": true,
+        "boundaries": [
+          {
+            "next_subtask": 2,
+            "reference": 12,
+            "baseline": 12,
+            "candidate": 12,
+            "baseline_deviation": 0,
+            "candidate_deviation": 0,
+            "change": "unchanged",
+            "exact_truth_confirmed": false
+          },
+          {
+            "next_subtask": 3,
+            "reference": 118,
+            "baseline": 118,
+            "candidate": 118,
+            "baseline_deviation": 0,
+            "candidate_deviation": 0,
+            "change": "unchanged",
+            "exact_truth_confirmed": false
+          },
+          {
+            "next_subtask": 4,
+            "reference": 153,
+            "baseline": 153,
+            "candidate": 153,
+            "baseline_deviation": 0,
+            "candidate_deviation": 0,
+            "change": "unchanged",
+            "exact_truth_confirmed": false
+          },
+          {
+            "next_subtask": 5,
+            "reference": 206,
+            "baseline": 205,
+            "candidate": 205,
+            "baseline_deviation": 1,
+            "candidate_deviation": 1,
+            "change": "unchanged",
+            "exact_truth_confirmed": false
+          },
+          {
+            "next_subtask": 6,
+            "reference": 221,
+            "baseline": 221,
+            "candidate": 221,
+            "baseline_deviation": 0,
+            "candidate_deviation": 0,
+            "change": "unchanged",
+            "exact_truth_confirmed": false
+          },
+          {
+            "next_subtask": 7,
+            "reference": 365,
+            "baseline": 364,
+            "candidate": 364,
+            "baseline_deviation": 1,
+            "candidate_deviation": 1,
+            "change": "unchanged",
+            "exact_truth_confirmed": false
+          }
+        ],
+        "changed_frames_from_baseline": 0,
+        "changed_annotation_from_baseline": true,
+        "candidate_sha256": "8d1c1e5647252f3301aa0aad280e9b697dacd5354e4715edb85dbc6684b2a880"
+      }
+    ],
+    "promotion_status": "not_evaluated",
+    "reason": "Promotion requires a declared confirmed target case and review of regressions; reference distance alone cannot establish improvement."
+  },
+  "text_changes": [
+    {
+      "trajectory_id": "episode_000000",
+      "subtask_id": 3,
+      "field": "standard_action_text",
+      "before": "按压并保持按钮",
+      "after": "按压并保持电源按钮"
+    },
+    {
+      "trajectory_id": "episode_000000",
+      "subtask_id": 5,
+      "field": "standard_action_text",
+      "before": "按压升温按钮并保持",
+      "after": "按压升温按钮"
+    },
+    {
+      "trajectory_id": "episode_000001",
+      "subtask_id": 3,
+      "field": "standard_action_text",
+      "before": "按压并保持电源按钮",
+      "after": "按压电源按钮并保持"
+    },
+    {
+      "trajectory_id": "episode_000001",
+      "subtask_id": 5,
+      "field": "standard_action_text",
+      "before": "按压降温按钮",
+      "after": "按压向下箭头按钮"
+    }
+  ],
+  "actual_network_calls": 0,
+  "elapsed_pipeline_seconds": 6.672,
+  "mode": "actual_response_cache_replay",
+  "formal_annotation_replaced": false,
+  "scene_prior_removed_only_in_first_visual_stage": true
+}

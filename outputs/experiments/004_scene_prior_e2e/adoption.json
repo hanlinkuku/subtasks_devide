@@ -1,0 +1,10 @@
+{
+  "decision": "adopt_first_visual_stage_scene_prior_removal",
+  "benchmark": "v1",
+  "final_frame_labels_unchanged": true,
+  "isolated_and_adopted_outputs_identical": true,
+  "text_change_count": 4,
+  "accuracy_improvement_claimed": false,
+  "new_network_calls_in_e2e_check": 0,
+  "scope": "Removes explicit object, mounting, grasp and fingertip assumptions only in first visual prompt. Other stages remain scene-specific."
+}

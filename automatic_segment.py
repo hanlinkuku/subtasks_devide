@@ -163,10 +163,10 @@ def refine_event(ep,event,fps,n,scene_prior=True,cache_tag=None):
     return result
 
 
-def run_visual(proposal):
+def run_visual(proposal, scene_prior=False):
     ep=proposal['trajectory_id']
     with ThreadPoolExecutor(max_workers=2) as pool:
-        results=list(pool.map(lambda e:refine_event(ep,e,proposal['fps'],proposal['frame_count']),proposal['interaction_proposals']))
+        results=list(pool.map(lambda e:refine_event(ep,e,proposal['fps'],proposal['frame_count'],scene_prior=scene_prior),proposal['interaction_proposals']))
     annotate.save(annotate.OUT/'automatic'/'visual'/f'{ep}.json',{'trajectory_id':ep,'events':results,
         'accepted':False,'reference_annotations_used_for_inference':False})
     return results
