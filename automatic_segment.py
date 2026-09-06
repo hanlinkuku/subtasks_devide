@@ -18,6 +18,7 @@ from PIL import Image,ImageDraw,ImageFont
 import requests
 
 import annotate
+import arm_context
 
 
 def motion_intervals(points, fps):
@@ -111,7 +112,9 @@ def propose(ep, horizontal_withdrawal=False, arm='left', persist=True):
 
 
 def refine_event(ep,event,fps,n,scene_prior=True,cache_tag=None):
-    points,_,_=annotate.telemetry(ep)
+    arm=arm_context.require_arm(event.get('arm_used'))
+    if scene_prior and arm!='left':raise ValueError('Legacy scene prior is only valid for the original left-arm setup')
+    points=arm_context.xyz(ep,arm)
     start=max(0,event['start_frame']-12);end=min(n-1,event['end_frame']+12)
     frame_ids=sorted(set(np.linspace(start,end,min(16,end-start+1)).round().astype(int).tolist()
                          +[event['start_frame'],event['end_frame'],event['peak_frame']]))
@@ -127,9 +130,9 @@ def refine_event(ep,event,fps,n,scene_prior=True,cache_tag=None):
 若证据不支持按钮操作，interaction_supported=false。允许修正边界到提供窗口内；帧号必须是原始帧号。'''
     if not scene_prior:
         lines=prompt.splitlines()
-        prompt='观察实际画面确定操作目标、夹爪与目标的关系，不预设物体类型、安装方式、是否抓持或使用哪根尖端。腕部相机刚性固定在左臂，夹爪在腕部图中固定不代表手臂静止。\n'+'\n'.join(lines[2:])
+        prompt=f'观察实际画面确定操作目标、夹爪与目标的关系，不预设物体类型、安装方式、是否抓持或使用哪根尖端。腕部相机刚性固定在{arm_context.arm_label(arm)}，夹爪在腕部图中固定不代表手臂静止。\n'+'\n'.join(lines[2:])
     motion=[{'frame':k,'xyz_mm':np.round(points[k]*1000,2).tolist()} for k in frame_ids]
-    prompt+='\n同帧左末端位置：'+json.dumps(motion,separators=(',',':'))
+    prompt+='\n同帧'+('左' if arm=='left' else '右')+'末端位置：'+json.dumps(motion,separators=(',',':'))
     signature=hashlib.sha256((prompt+str(frame_ids)).encode()).hexdigest()[:12]
     dest=annotate.OUT/'automatic'/'evidence'/ep/f'event_{event["peak_frame"]}_{signature}.json'
     if cache_tag is not None:
@@ -138,7 +141,7 @@ def refine_event(ep,event,fps,n,scene_prior=True,cache_tag=None):
     if dest.exists():return json.loads(dest.read_text(encoding='utf-8'))['result']
     content=[{'text':prompt}]
     files=[(annotate.OUT/'frames'/ep/'head_rgb'/f'{event["peak_frame"]:06d}.jpg',event['peak_frame'])]
-    files.extend((annotate.OUT/'native'/ep/f'{k:06d}.jpg',k) for k in frame_ids)
+    files.extend((arm_context.wrist_path(ep,k,arm),k) for k in frame_ids)
     font=ImageFont.truetype('C:/Windows/Fonts/arial.ttf',24)
     for path,k in files:
         with Image.open(path) as source:im=source.copy()
@@ -258,9 +261,10 @@ def reconcile_withdrawal(proposal, visual):
             event['evidence']=event.get('evidence','')+' 结束边界由持续后撤的水平位移信号细化。'
         events.append(event)
     if len(visual)!=len(proposal['interaction_proposals']):raise ValueError('Interaction count changed; rerun semantic analysis')
+    proposal_arm=next((s['arm_used'] for s in proposal.get('segments',[]) if s.get('arm_used') in {'left','right'}),'unknown')
     annotate.save(annotate.OUT/'automatic'/'motion_refined'/'decisions'/f'{proposal["trajectory_id"]}.json',
         {'events':events,'accepted':False,'reference_used_during_inference':False,
-         'scope':'left-arm wall-button interactions; not a general contact detector'})
+         'scope':f'{proposal_arm}-arm wall-button interactions; not a general contact detector'})
     return export_prediction(proposal,events,stage='motion_refined')
 
 

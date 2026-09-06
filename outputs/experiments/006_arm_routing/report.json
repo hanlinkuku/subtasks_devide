@@ -1,0 +1,70 @@
+{
+  "previous_commit": "546965ff68ccd5fb41fd6e62f53c2ece32e39fad",
+  "results": [
+    {
+      "trajectory_id": "episode_000000",
+      "complete_annotation_unchanged_from_previous_commit": true,
+      "selection": {
+        "trajectory_id": "episode_000000",
+        "selected_arm": "left",
+        "status": "single_translation_arm",
+        "arms": {
+          "left": {
+            "motion_intervals": [
+              [
+                12,
+                283
+              ],
+              [
+                331,
+                573
+              ]
+            ],
+            "max_step_mm": 21.395875058947546,
+            "max_distance_mm": 416.17077409328704
+          },
+          "right": {
+            "motion_intervals": [],
+            "max_step_mm": 0.36440534865761437,
+            "max_distance_mm": 0.3971274503981885
+          }
+        },
+        "limitation": "Translation only; no interval does not rule out rotation, gripper motion or static interaction."
+      },
+      "before_canonical_sha256": "b29ba5a3e21f56c283c57a62075c4bd0b24a06439709fc49d127ab6ac7ddf919",
+      "after_canonical_sha256": "b29ba5a3e21f56c283c57a62075c4bd0b24a06439709fc49d127ab6ac7ddf919"
+    },
+    {
+      "trajectory_id": "episode_000001",
+      "complete_annotation_unchanged_from_previous_commit": true,
+      "selection": {
+        "trajectory_id": "episode_000001",
+        "selected_arm": "left",
+        "status": "single_translation_arm",
+        "arms": {
+          "left": {
+            "motion_intervals": [
+              [
+                12,
+                363
+              ]
+            ],
+            "max_step_mm": 12.992497594175093,
+            "max_distance_mm": 421.63315599642345
+          },
+          "right": {
+            "motion_intervals": [],
+            "max_step_mm": 0.08756296928858706,
+            "max_distance_mm": 0.0872362653757063
+          }
+        },
+        "limitation": "Translation only; no interval does not rule out rotation, gripper motion or static interaction."
+      },
+      "before_canonical_sha256": "7795e0474a8bc39ee93f51697345a357255ab7dcdc0325170848bf1fd6d1074f",
+      "after_canonical_sha256": "7795e0474a8bc39ee93f51697345a357255ab7dcdc0325170848bf1fd6d1074f"
+    }
+  ],
+  "actual_network_calls": 0,
+  "cached_pipeline_seconds": 4.854,
+  "right_visual_accuracy_validated_on_real_video": false
+}

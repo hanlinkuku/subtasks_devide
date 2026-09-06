@@ -12,14 +12,15 @@ import requests
 
 import annotate
 import automatic_segment as automatic
+import arm_context
 
 MODEL='qwen3-vl-32b-instruct'
 
 
-def ask(ep,kind,frames,prompt,cache_tag=None):
+def ask(ep,kind,frames,prompt,cache_tag=None,arm='left'):
     blobs=[];fingerprints=[]
     for frame in frames:
-        path=annotate.OUT/'native'/ep/f'{frame:06d}.jpg'
+        path=arm_context.wrist_path(ep,frame,arm)
         raw=path.read_bytes();fingerprints.append(hashlib.sha256(raw).hexdigest())
         with Image.open(io.BytesIO(raw)) as im:
             im=im.copy();draw=ImageDraw.Draw(im)
@@ -56,12 +57,14 @@ SCREEN='''这是墙面温控面板的腕部相机逐时图，图片FRAME标签�
 若没有清晰变化，changed=false，first_changed_frame=null。'''
 
 
-def brightness_candidates(ep,start,end):
+def brightness_candidates(ep,start,end,arm='left'):
     """Recall cue for brief flashes in this fixed wrist-camera layout.
 
     Camera motion/exposure can also cause jumps: a VLM must confirm the cue.
     This does not detect contact or replace semantic response verification.
     """
+    arm_context.require_arm(arm)
+    if arm!='left':return []  # Fixed left-camera ROI has not been validated on right views.
     means=[]
     for n in range(start,end+1):
         with Image.open(annotate.OUT/'native'/ep/f'{n:06d}.jpg') as im:
@@ -77,35 +80,37 @@ def brightness_candidates(ep,start,end):
 
 
 def refine_one(ep,event,preceding_end,fps,scene_prior=False,onset_cache_tag=None):
+    arm=arm_context.require_arm(event.get('arm_used'))
+    if scene_prior and arm!='left':raise ValueError('Legacy onset prior is only valid for left arm')
     first=max(preceding_end+1,event['start_frame']-round(fps))
     last=event['end_frame']
     step=max(1,int(np.ceil((last-first)/17)))
     frames=list(range(first,last+1,step))
     if frames[-1]!=last:frames.append(last)
-    coarse=ask(ep,'screen_coarse',frames,SCREEN)
+    coarse=ask(ep,'screen_coarse',frames,SCREEN,arm=arm)
     response_frame=coarse.get('first_changed_frame')
     if not coarse.get('changed') or type(response_frame)!=int or response_frame not in frames:
         return {'supported':False,'reason':'No valid screen response anchor','original_event':event}
     idx=frames.index(response_frame)
     if idx==0:return {'supported':False,'reason':'No earlier unchanged frame','original_event':event}
     fine_frames=list(range(frames[idx-1],response_frame+1))
-    fine=ask(ep,'screen_fine',fine_frames,SCREEN)
+    fine=ask(ep,'screen_fine',fine_frames,SCREEN,arm=arm)
     anchor=fine.get('first_changed_frame')
     if not fine.get('changed') or type(anchor)!=int or anchor not in fine_frames:
         return {'supported':False,'reason':'Unresolved response anchor','original_event':event}
     # Uniform samples can skip a brief first response and pick a later redraw.
     flash_checks=[]
-    for cue in brightness_candidates(ep,first,anchor):
+    for cue in brightness_candidates(ep,first,anchor,arm=arm):
         if cue['frame']>=anchor:continue
         local=list(range(max(first,cue['frame']-2),min(last,cue['frame']+2)+1))
-        check=ask(ep,'earlier_flash',local,SCREEN+'\n请特别检查短暂闪现或从暗底变亮底，即使下一帧内容又消失，也属于一次可见响应。')
+        check=ask(ep,'earlier_flash',local,SCREEN+'\n请特别检查短暂闪现或从暗底变亮底，即使下一帧内容又消失，也属于一次可见响应。',arm=arm)
         candidate=check.get('first_changed_frame')
         flash_checks.append({'cue':cue,'check':check})
         if check.get('changed') and type(candidate)==int and candidate in local and local[0]<candidate<anchor:
             anchor=candidate;fine=check;break
     # Search the local actuation before response, not the whole approach.
     start=max(first,anchor-round(fps));end=min(last,anchor+2)
-    points,_,_=annotate.telemetry(ep)
+    points=arm_context.xyz(ep,arm)
     samples=[]
     for n in range(start,end+1):
         delta=(points[n]-points[max(0,n-1)])*1000
@@ -119,8 +124,8 @@ def refine_one(ep,event,preceding_end,fps,scene_prior=False,onset_cache_tag=None
 输出JSON：{{"start_frame":0,"earliest_frame":0,"latest_frame":0,"uncertain":true,"evidence":"观察到的过渡及判断依据"}}。
 帧号必须位于提供的窗口内，earliest_frame <= start_frame <= latest_frame，起点不能晚于响应帧。'''
     if not scene_prior:
-        prompt='这是左臂固定腕部相机。请依据画面辨别操作端、目标及遮挡，不预设目标安装方式或哪根尖端用于操作。\n'+prompt.split('\n',1)[1]
-    result=ask(ep,'onset',list(range(start,end+1)),prompt,cache_tag=onset_cache_tag)
+        prompt=f'这是{arm_context.arm_label(arm)}固定腕部相机。请依据画面辨别操作端、目标及遮挡，不预设目标安装方式或哪根尖端用于操作。\n'+prompt.split('\n',1)[1]
+    result=ask(ep,'onset',list(range(start,end+1)),prompt,cache_tag=onset_cache_tag,arm=arm)
     values=[result.get(k) for k in ['earliest_frame','start_frame','latest_frame']]
     valid=all(type(v)==int for v in values) and start<=values[0]<=values[1]<=values[2]<=anchor
     return {'supported':valid,'response_frame':anchor,'earlier_flash_checks':flash_checks,

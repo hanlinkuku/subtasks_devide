@@ -1,0 +1,23 @@
+{
+  "trajectory_id": "episode_000001",
+  "selected_arm": "left",
+  "status": "single_translation_arm",
+  "arms": {
+    "left": {
+      "motion_intervals": [
+        [
+          12,
+          363
+        ]
+      ],
+      "max_step_mm": 12.992497594175093,
+      "max_distance_mm": 421.63315599642345
+    },
+    "right": {
+      "motion_intervals": [],
+      "max_step_mm": 0.08756296928858706,
+      "max_distance_mm": 0.0872362653757063
+    }
+  },
+  "limitation": "Translation only; no interval does not rule out rotation, gripper motion or static interaction."
+}
