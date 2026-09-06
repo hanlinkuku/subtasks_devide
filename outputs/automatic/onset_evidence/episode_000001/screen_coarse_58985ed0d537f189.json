@@ -1,0 +1,55 @@
+{
+  "model": "qwen3-vl-32b-instruct",
+  "prompt": "这是墙面温控面板的腕部相机逐时图，图片FRAME标签是原始帧号。只比较屏幕可见状态，不判断机械臂动作。\n找出相对于本窗口第一张图的第一次明确界面变化：数字出现/消失、背光明显切换、设定值首次改变。\n不要把面板随相机移动、反光或模糊误认为内容变化；不要猜看不清的数字。只选实际提供的帧号。\n输出JSON：{\"changed\":true,\"first_changed_frame\":0,\"previous_state\":\"\",\"new_state\":\"\",\"uncertain\":false}。\n若没有清晰变化，changed=false，first_changed_frame=null。",
+  "frames": [
+    196,
+    198,
+    200,
+    202,
+    204,
+    206,
+    208,
+    210,
+    212,
+    214,
+    216,
+    218,
+    220
+  ],
+  "image_sha256": [
+    "69c637462842196e12be22a0a8feacd0a740690b41d4a792a825d04173c0665c",
+    "c89121f422cc4ee203d7b3d3fcad25505f0c186322c3b3cb0d87741dc27d2a11",
+    "d828cb6cec2b441ea718da318bfc97161a0467c4e46db8ef4822dabf01a0e697",
+    "5590fc2abdc0ffb0b3c79cb4a91dc1f334bc269e82fd5fb2e22856ce1543d73f",
+    "6d6c947285da84fe92eb23589cb2148950f262bd0f833c83774ae0f7456eca30",
+    "621de10430e3f29a872ee9a7bdd605e338e2b41a8eecf5c2d8ff5ba1f942c1a2",
+    "757bd0aa5e4d8355b6c3a5ae5360bb6a06aa8e5a104e51ace0a99cf2cc22d82a",
+    "bc266f3dbf82747b69b4360e534c1ea20229ab4cf37a7e63fbc5a67578ee1d7b",
+    "ff8bd6421828322712365848b9ef46265c547e56bb016656daa3dde5d662d50e",
+    "c9db4c381ab78289b5c73d6a436c3aa1e34bb1ab229f94c061fd19613e9bcef8",
+    "79589d8137abe5665c14e48407fb59823d162db25680c69e241ad06ddff671c9",
+    "ff73df0dc09d2b9e8863965bb428e98fed3953b5bca64e74bdac75a35e69b7d8",
+    "ef6be29a4a614cd859367856339d55fe66b0da5058e6cb7119f1aea4610141eb"
+  ],
+  "result": {
+    "changed": true,
+    "first_changed_frame": 208,
+    "previous_state": "18.5°C",
+    "new_state": "18.0°C",
+    "uncertain": false
+  },
+  "usage": {
+    "image_tokens": 11466,
+    "input_tokens": 11604,
+    "input_tokens_details": {
+      "image_tokens": 11466,
+      "text_tokens": 138
+    },
+    "output_tokens": 51,
+    "output_tokens_details": {
+      "text_tokens": 51
+    },
+    "total_tokens": 11655
+  },
+  "reference_used_during_inference": false
+}

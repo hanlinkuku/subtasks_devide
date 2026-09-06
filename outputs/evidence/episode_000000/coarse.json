@@ -1,0 +1,294 @@
+{
+  "model": "qwen3-vl-32b-instruct",
+  "prompt": "你是机器人轨迹原子动作标注员。每张图是同一原始帧的四个同步视角（左上head_rgb，右上head_right_rgb，左下left_wrist_rgb，右下right_wrist_rgb），不是四个时间点。机械臂左右以机器人本体为准，不按屏幕左右。图片上标有原始frame_index，必须使用这些原始编号，不是图片序号。帧率15fps。只根据可见证据，不臆测接触、按压次数、温度读数或成功状态。技能可用reach/grasp/move/rotate/press/pull/push/release/wait；撤离用move并在动作描述中说明。一个子任务一个主要原子动作，不能把接近、按压、撤离合并。连续相同目的的运动不任意拆段。区分按压保持和新的独立按压。只输出JSON，不加代码围栏。\n这是全轨迹每秒抽帧，任务级参考是操作空调开关和温度，参考名称并不证明实际发生。识别全部可见动作阶段，包括有意义的等待、接近、接触/按压、移向另一个按钮、撤离。当前只给候选边界，不要声称精确。输出 {\"task_name\":\"中文总体任务\", \"segments\":[{\"start_frame\":0,\"end_frame\":10,\"skill_id\":\"wait\",\"arm_used\":\"none\",\"action\":\"中文\",\"evidence\":\"观察依据\",\"uncertainty\":\"边界或动作疑点\"}],\"object\":{\"name\":\"\",\"colors\":[],\"shapes\":[],\"materials\":[],\"sizes\":[],\"others\":[],\"description\":\"\"},\"review_focus\":[\"需要逐帧复核的内容\"]}。segments按时间顺序覆盖整条轨迹，起止帧为闭区间。未知物体属性用空数组/空字符串，不猜品牌材质尺寸。",
+  "frames": [
+    0,
+    15,
+    30,
+    45,
+    60,
+    75,
+    90,
+    105,
+    120,
+    135,
+    150,
+    165,
+    180,
+    195,
+    210,
+    225,
+    240,
+    255,
+    270,
+    285,
+    300,
+    315,
+    330,
+    345,
+    360,
+    375,
+    390,
+    405,
+    420,
+    435,
+    450,
+    465,
+    480,
+    495,
+    510,
+    525,
+    540,
+    555,
+    570,
+    585,
+    595
+  ],
+  "usage": {
+    "image_tokens": 39442,
+    "input_tokens": 40615,
+    "input_tokens_details": {
+      "image_tokens": 39442,
+      "text_tokens": 1173
+    },
+    "output_tokens": 1406,
+    "output_tokens_details": {
+      "text_tokens": 1406
+    },
+    "total_tokens": 42021
+  },
+  "request_id": "7e061206-17fb-9127-ab72-b3724ce578b0",
+  "result": {
+    "task_name": "操作空调温控面板",
+    "segments": [
+      {
+        "start_frame": 0,
+        "end_frame": 30,
+        "skill_id": "wait",
+        "arm_used": "none",
+        "action": "等待，机械臂未移动，保持初始位置",
+        "evidence": "从FRAME0到FRAME30，所有视角中机械臂末端无位移，位于画面下方，未接近目标物体",
+        "uncertainty": "无明显动作，边界为静止状态的起始与结束"
+      },
+      {
+        "start_frame": 30,
+        "end_frame": 45,
+        "skill_id": "move",
+        "arm_used": "left",
+        "action": "左臂向温控面板移动，接近目标",
+        "evidence": "FRAME30至FRAME45，左腕视角显示机械臂末端逐渐靠近墙面温控面板，头视角可见机械臂从下方向上移动",
+        "uncertainty": "移动起始点可能在FRAME30前，但当前帧为首次可见运动"
+      },
+      {
+        "start_frame": 45,
+        "end_frame": 60,
+        "skill_id": "reach",
+        "arm_used": "left",
+        "action": "左臂末端到达温控面板，准备接触",
+        "evidence": "FRAME45，左腕视角显示机械臂末端已贴近温控面板右侧边缘，头视角显示机械臂对准面板",
+        "uncertainty": "接触尚未发生，边界为接近完成时刻"
+      },
+      {
+        "start_frame": 60,
+        "end_frame": 75,
+        "skill_id": "press",
+        "arm_used": "left",
+        "action": "左臂按压温控面板上的按钮（疑似电源或模式键）",
+        "evidence": "FRAME60，左腕视角显示机械臂末端与面板右上角按钮接触；FRAME75，面板屏幕亮起并显示18.0℃，表明按键生效",
+        "uncertainty": "具体按压哪个按钮无法精确识别，但有明确接触和界面响应"
+      },
+      {
+        "start_frame": 75,
+        "end_frame": 120,
+        "skill_id": "press",
+        "arm_used": "left",
+        "action": "左臂持续按压或重复按压温度调节按钮（向上箭头）",
+        "evidence": "从FRAME75到FRAME120，面板温度从18.0℃逐步上升至20.5℃，且左腕视角显示末端持续接触面板右侧区域，符合连续按压行为",
+        "uncertainty": "按压是连续保持还是多次短按无法区分，但整体为同一目的动作段"
+      },
+      {
+        "start_frame": 120,
+        "end_frame": 195,
+        "skill_id": "wait",
+        "arm_used": "left",
+        "action": "左臂保持在面板附近，无明显动作，等待系统响应",
+        "evidence": "FRAME120至FRAME195，机械臂末端位置稳定，面板显示20.5℃不变，无进一步交互",
+        "uncertainty": "是否完全撤离或仍在轻触无法确认，但无动态变化"
+      },
+      {
+        "start_frame": 195,
+        "end_frame": 210,
+        "skill_id": "move",
+        "arm_used": "left",
+        "action": "左臂从温控面板撤离，向后退开",
+        "evidence": "FRAME195，左腕视角显示机械臂末端开始远离面板；FRAME210，机械臂已退至初始位置附近，头视角可见其离开面板区域",
+        "uncertainty": "撤离终点可能在FRAME210之后，但当前帧为可见撤离完成点"
+      },
+      {
+        "start_frame": 210,
+        "end_frame": 375,
+        "skill_id": "wait",
+        "arm_used": "none",
+        "action": "等待，机械臂保持在撤离后位置，无操作",
+        "evidence": "从FRAME210到FRAME375，所有视角中机械臂无移动，面板显示20.5℃不变",
+        "uncertainty": "无动作，边界为静止状态的起始与结束"
+      },
+      {
+        "start_frame": 375,
+        "end_frame": 390,
+        "skill_id": "move",
+        "arm_used": "left",
+        "action": "左臂再次向温控面板移动，接近目标",
+        "evidence": "FRAME375至FRAME390，左腕视角显示机械臂末端重新朝向墙面温控面板，头视角可见机械臂从下方向上移动",
+        "uncertainty": "移动起始点可能在FRAME375前，但当前帧为首次可见运动"
+      },
+      {
+        "start_frame": 390,
+        "end_frame": 405,
+        "skill_id": "reach",
+        "arm_used": "left",
+        "action": "左臂末端到达温控面板，准备接触",
+        "evidence": "FRAME390，左腕视角显示机械臂末端已贴近温控面板右侧边缘，头视角显示机械臂对准面板",
+        "uncertainty": "接触尚未发生，边界为接近完成时刻"
+      },
+      {
+        "start_frame": 405,
+        "end_frame": 450,
+        "skill_id": "press",
+        "arm_used": "left",
+        "action": "左臂按压温控面板上的按钮（疑似模式或设置键）",
+        "evidence": "FRAME405，左腕视角显示机械臂末端与面板右上角按钮接触；FRAME450，面板屏幕变为全白或进入设置界面，表明按键生效",
+        "uncertainty": "具体按压哪个按钮无法精确识别，但有明确接触和界面响应"
+      },
+      {
+        "start_frame": 450,
+        "end_frame": 480,
+        "skill_id": "wait",
+        "arm_used": "left",
+        "action": "左臂保持在面板附近，无明显动作，等待系统响应",
+        "evidence": "FRAME450至FRAME480，机械臂末端位置稳定，面板显示变化后无进一步交互",
+        "uncertainty": "是否完全撤离或仍在轻触无法确认，但无动态变化"
+      },
+      {
+        "start_frame": 480,
+        "end_frame": 595,
+        "skill_id": "move",
+        "arm_used": "left",
+        "action": "左臂从温控面板撤离，向后退开并返回初始位置",
+        "evidence": "FRAME480，左腕视角显示机械臂末端开始远离面板；FRAME595，机械臂已退至初始位置附近，头视角可见其离开面板区域",
+        "uncertainty": "撤离终点可能在FRAME595之后，但当前帧为可见撤离完成点"
+      }
+    ],
+    "object": {
+      "name": "温控面板",
+      "colors": [
+        "white",
+        "silver"
+      ],
+      "shapes": [
+        "rectangle"
+      ],
+      "materials": [
+        "plastic"
+      ],
+      "sizes": [],
+      "others": [
+        "带有数字显示屏和多个物理按钮"
+      ],
+      "description": "墙挂式白色矩形温控面板，品牌为TOSHIBA，具有LCD显示屏和四个物理按钮（上下箭头、圆形按钮、方形按钮），旁边有一个银色金属盖板"
+    },
+    "review_focus": [
+      "FRAME60-75及FRAME405-450中按压的具体按钮需逐帧确认是否为同一按钮或不同按钮",
+      "FRAME120-195及FRAME450-480的等待阶段是否包含微小按压或调整动作需复核",
+      "撤离动作的精确结束帧需结合后续帧确认"
+    ]
+  },
+  "proposal_checks": {
+    "structurally_consistent": false,
+    "issues": [
+      {
+        "segment": 0,
+        "reason": "wait_despite_end_effector_motion",
+        "excursion_mm": 175.992
+      },
+      {
+        "segment": 1,
+        "reason": "gap_or_overlap",
+        "expected_start": 31
+      },
+      {
+        "segment": 2,
+        "reason": "gap_or_overlap",
+        "expected_start": 46
+      },
+      {
+        "segment": 3,
+        "reason": "gap_or_overlap",
+        "expected_start": 61
+      },
+      {
+        "segment": 4,
+        "reason": "gap_or_overlap",
+        "expected_start": 76
+      },
+      {
+        "segment": 5,
+        "reason": "gap_or_overlap",
+        "expected_start": 121
+      },
+      {
+        "segment": 5,
+        "reason": "wait_despite_end_effector_motion",
+        "excursion_mm": 60.195
+      },
+      {
+        "segment": 6,
+        "reason": "gap_or_overlap",
+        "expected_start": 196
+      },
+      {
+        "segment": 7,
+        "reason": "gap_or_overlap",
+        "expected_start": 211
+      },
+      {
+        "segment": 7,
+        "reason": "wait_despite_end_effector_motion",
+        "excursion_mm": 266.716
+      },
+      {
+        "segment": 8,
+        "reason": "gap_or_overlap",
+        "expected_start": 376
+      },
+      {
+        "segment": 9,
+        "reason": "gap_or_overlap",
+        "expected_start": 391
+      },
+      {
+        "segment": 10,
+        "reason": "gap_or_overlap",
+        "expected_start": 406
+      },
+      {
+        "segment": 11,
+        "reason": "gap_or_overlap",
+        "expected_start": 451
+      },
+      {
+        "segment": 11,
+        "reason": "wait_despite_end_effector_motion",
+        "excursion_mm": 239.206
+      },
+      {
+        "segment": 12,
+        "reason": "gap_or_overlap",
+        "expected_start": 481
+      }
+    ],
+    "semantic_accuracy_verified": false,
+    "exact_boundaries_verified": false,
+    "eligible_for_final_delivery": false
+  }
+}

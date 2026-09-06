@@ -1,0 +1,115 @@
+{
+  "model": "qwen3-vl-32b-instruct",
+  "prompt": "你是机器人轨迹原子动作标注员。每张图上下两格是同一原始帧的头部head_rgb视角与左腕left_wrist_rgb视角，不是两个时间点。机械臂左右以机器人本体为准，不按屏幕左右。图片上标有原始frame_index，必须使用这些原始编号，不是图片序号。帧率15fps。只根据可见证据，不臆测接触、按压次数、温度读数或成功状态。技能可用reach/grasp/move/rotate/press/pull/push/release/wait；撤离用move并在动作描述中说明。一个子任务一个主要原子动作，不能把接近、按压、撤离合并。连续相同目的的运动不任意拆段。区分按压保持和新的独立按压。只输出JSON，不加代码围栏。\n下面是原视频第96至155帧，逐帧提供，没有跳帧。请沿时间顺序追踪夹爪和面板相对位置，识别每次独立动作。任务参考为操作温控面板，但不得由目标推断实际动作。区分接近reach、按压press、按钮间移动move、离开面板撤离move、静止等待wait。按压可包括有明确证据的向按钮推进、保持接触、回弹；无接触证据时不要编造按压，可描述贴近面板调整位置。屏幕变化是辅助证据，不单凭屏幕推算接触边界。切勿把持续静止误判为持续按压，也不要把同一动作每次轻微晃动切为新任务。若窗口中间开始/结束的是持续动作，在continues_from_previous/continues_to_next中说明。\n输出 {\"segments\":[{\"start_frame\":96,\"end_frame\":155,\"skill_id\":\"wait\",\"arm_used\":\"none\",\"action\":\"中文可观察动作\",\"evidence\":\"说明支持动作与起止边界的画面变化，引用帧号\",\"uncertain\":false,\"continues_from_previous\":false,\"continues_to_next\":false}],\"possible_missed_actions\":[],\"screen_changes\":[{\"frame\":0,\"observation\":\"只写清晰可见的变化\"}]}。segments必须严格覆盖[96,155]的所有整数帧，使用包含端点的闭区间，相邻段下一start=上一end+1。窗口外不可见内容不要断言。若边界或接触无法可靠判断，uncertain=true并在evidence说明。",
+  "frames": [
+    96,
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134,
+    135,
+    136,
+    137,
+    138,
+    139,
+    140,
+    141,
+    142,
+    143,
+    144,
+    145,
+    146,
+    147,
+    148,
+    149,
+    150,
+    151,
+    152,
+    153,
+    154,
+    155
+  ],
+  "usage": {
+    "image_tokens": 28920,
+    "input_tokens": 30573,
+    "input_tokens_details": {
+      "image_tokens": 28920,
+      "text_tokens": 1653
+    },
+    "output_tokens": 169,
+    "output_tokens_details": {
+      "text_tokens": 169
+    },
+    "total_tokens": 30742
+  },
+  "request_id": "12220a6c-15b0-9cbc-b3c3-03e4e43a5cdf",
+  "result": {
+    "segments": [
+      {
+        "start_frame": 96,
+        "end_frame": 155,
+        "skill_id": "wait",
+        "arm_used": "none",
+        "action": "夹爪静止于温控面板前方，未与按钮接触，无明显运动",
+        "evidence": "从FRAME96至FRAME155，左腕视角中夹爪始终位于面板右侧，与按钮保持固定距离，无位移或姿态变化；屏幕显示温度在18.0°C稳定后于FRAME154变为18.5°C，但无夹爪接触证据。",
+        "uncertain": false,
+        "continues_from_previous": false,
+        "continues_to_next": false
+      }
+    ],
+    "possible_missed_actions": [],
+    "screen_changes": [
+      {
+        "frame": 154,
+        "observation": "屏幕温度从18.0°C变为18.5°C"
+      }
+    ]
+  },
+  "proposal_checks": {
+    "structurally_consistent": false,
+    "issues": [
+      {
+        "segment": 0,
+        "reason": "wait_despite_end_effector_motion",
+        "excursion_mm": 30.695
+      }
+    ],
+    "semantic_accuracy_verified": false,
+    "exact_boundaries_verified": false,
+    "eligible_for_final_delivery": false
+  }
+}

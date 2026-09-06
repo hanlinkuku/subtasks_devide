@@ -1,0 +1,59 @@
+{
+  "model": "qwen3-vl-32b-instruct",
+  "prompt": "这是墙面温控面板的腕部相机逐时图，图片FRAME标签是原始帧号。只比较屏幕可见状态，不判断机械臂动作。\n找出相对于本窗口第一张图的第一次明确界面变化：数字出现/消失、背光明显切换、设定值首次改变。\n不要把面板随相机移动、反光或模糊误认为内容变化；不要猜看不清的数字。只选实际提供的帧号。\n输出JSON：{\"changed\":true,\"first_changed_frame\":0,\"previous_state\":\"\",\"new_state\":\"\",\"uncertain\":false}。\n若没有清晰变化，changed=false，first_changed_frame=null。",
+  "frames": [
+    63,
+    65,
+    67,
+    69,
+    71,
+    73,
+    75,
+    77,
+    79,
+    81,
+    83,
+    85,
+    87,
+    89,
+    90
+  ],
+  "image_sha256": [
+    "dbf5fe2a01571e55e611bdccf321dc9482b016931dde87fee3cfb13481c2e54e",
+    "2f713887a68a8aba722fdcfc1748b81723ad1607f0802b8a04d32ea04992e9c7",
+    "d47eb4adc9927e62130abcd965cde419ca807ca0017352ac2f31c55b5b649140",
+    "6dd9786ced8576acb7a74f57c541439b84d48b5152d8fb56e6e832ff86a6c1be",
+    "d83cd8b30b55b95ddb19b93dea4817d0eb8fa05d48504784e34c0cd79ed17695",
+    "0bc3a8100a3438c24ef3e0002ffe2ff49b57495f1450be47cf75101966f6ded3",
+    "343162374d99707c1471ec1e7f7ec775f5e465ab2ca3a441e7d04472d2dbaa9a",
+    "33e86f0fba7d5fb9986fab60fbdeafa48edfb954fdce6aa5d16c0c988e830c6e",
+    "60ba42d957adec10547128384ca43fcd271954f2677fd793222865771deee5ae",
+    "07ece7bb6bae961574644bf9b6aa960e382e5dc654fdde3e9d0154d8485b25e8",
+    "b847dd4340cdbc0cca94288041890191f5a99449e9cab6410701798394baf61c",
+    "3d960b0de0feee8a0c261dd9f6898eda08f4f19f0f3e233757c0e88c8c498ce0",
+    "8475b4c5e62b71828a6bd61e939424370e5a548a86f05941f3a0a3ef3fcabdc0",
+    "980a3b5366285c814eaf4b1c0fee214ee7a5e432db4bbda773e1595256e159a9",
+    "e8106891a7b6e2e7f07a3dcb340fcc1b645706ccabbc2582191ea8bded16a60a"
+  ],
+  "result": {
+    "changed": true,
+    "first_changed_frame": 81,
+    "previous_state": "屏幕显示数字18.0℃，背光较暗，有反光",
+    "new_state": "屏幕背光明显亮起，显示数字18.0℃，图标清晰可见",
+    "uncertain": false
+  },
+  "usage": {
+    "image_tokens": 13230,
+    "input_tokens": 13368,
+    "input_tokens_details": {
+      "image_tokens": 13230,
+      "text_tokens": 138
+    },
+    "output_tokens": 79,
+    "output_tokens_details": {
+      "text_tokens": 79
+    },
+    "total_tokens": 13447
+  },
+  "reference_used_during_inference": false
+}

@@ -1,0 +1,64 @@
+{
+  "model": "qwen3-vl-32b-instruct",
+  "prompt": "你是机器人轨迹原子动作标注员。每张图上下两格是同一原始帧的头部head_rgb视角与左腕left_wrist_rgb视角，不是两个时间点。机械臂左右以机器人本体为准，不按屏幕左右。图片上标有原始frame_index，必须使用这些原始编号，不是图片序号。帧率15fps。只根据可见证据，不臆测接触、按压次数、温度读数或成功状态。技能可用reach/grasp/move/rotate/press/pull/push/release/wait；撤离用move并在动作描述中说明。一个子任务一个主要原子动作，不能把接近、按压、撤离合并。连续相同目的的运动不任意拆段。区分按压保持和新的独立按压。只输出JSON，不加代码围栏。\n下面是原视频第576至595帧，逐帧提供，没有跳帧。请沿时间顺序追踪夹爪和面板相对位置，识别每次独立动作。任务参考为操作温控面板，但不得由目标推断实际动作。区分接近reach、按压press、按钮间移动move、离开面板撤离move、静止等待wait。按压可包括有明确证据的向按钮推进、保持接触、回弹；无接触证据时不要编造按压，可描述贴近面板调整位置。屏幕变化是辅助证据，不单凭屏幕推算接触边界。切勿把持续静止误判为持续按压，也不要把同一动作每次轻微晃动切为新任务。若窗口中间开始/结束的是持续动作，在continues_from_previous/continues_to_next中说明。\n输出 {\"segments\":[{\"start_frame\":576,\"end_frame\":595,\"skill_id\":\"wait\",\"arm_used\":\"none\",\"action\":\"中文可观察动作\",\"evidence\":\"说明支持动作与起止边界的画面变化，引用帧号\",\"uncertain\":false,\"continues_from_previous\":false,\"continues_to_next\":false}],\"possible_missed_actions\":[],\"screen_changes\":[{\"frame\":0,\"observation\":\"只写清晰可见的变化\"}]}。segments必须严格覆盖[576,595]的所有整数帧，使用包含端点的闭区间，相邻段下一start=上一end+1。窗口外不可见内容不要断言。若边界或接触无法可靠判断，uncertain=true并在evidence说明。",
+  "frames": [
+    576,
+    577,
+    578,
+    579,
+    580,
+    581,
+    582,
+    583,
+    584,
+    585,
+    586,
+    587,
+    588,
+    589,
+    590,
+    591,
+    592,
+    593,
+    594,
+    595
+  ],
+  "usage": {
+    "image_tokens": 9640,
+    "input_tokens": 10554,
+    "input_tokens_details": {
+      "image_tokens": 9640,
+      "text_tokens": 914
+    },
+    "output_tokens": 158,
+    "output_tokens_details": {
+      "text_tokens": 158
+    },
+    "total_tokens": 10712
+  },
+  "request_id": "69f544c8-2cd7-94b6-aa68-d794b798243b",
+  "result": {
+    "segments": [
+      {
+        "start_frame": 576,
+        "end_frame": 595,
+        "skill_id": "wait",
+        "arm_used": "none",
+        "action": "机械臂夹爪静止，未与面板发生接触或移动",
+        "evidence": "从帧576至595，head_rgb视角中温控面板位置固定，无变化；left_wrist_rgb视角中夹爪保持同一姿态，未见向面板移动、接近或接触的迹象。夹爪与墙面距离稳定，无位移或形变。屏幕内容在所有帧中均无可见变化，无按钮响应或界面更新。",
+        "uncertain": false,
+        "continues_from_previous": false,
+        "continues_to_next": false
+      }
+    ],
+    "possible_missed_actions": [],
+    "screen_changes": []
+  },
+  "proposal_checks": {
+    "structurally_consistent": true,
+    "issues": [],
+    "semantic_accuracy_verified": false,
+    "exact_boundaries_verified": false,
+    "eligible_for_final_delivery": false
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "model": "qwen3-vl-32b-instruct",
+  "prompt": "你是机器人轨迹原子动作标注员。每张图上下两格是同一原始帧的头部head_rgb视角与左腕left_wrist_rgb视角，不是两个时间点。机械臂左右以机器人本体为准，不按屏幕左右。图片上标有原始frame_index，必须使用这些原始编号，不是图片序号。帧率15fps。只根据可见证据，不臆测接触、按压次数、温度读数或成功状态。技能可用reach/grasp/move/rotate/press/pull/push/release/wait；撤离用move并在动作描述中说明。一个子任务一个主要原子动作，不能把接近、按压、撤离合并。连续相同目的的运动不任意拆段。区分按压保持和新的独立按压。只输出JSON，不加代码围栏。\n下面是原视频第384至443帧，逐帧提供，没有跳帧。请沿时间顺序追踪夹爪和面板相对位置，识别每次独立动作。任务参考为操作温控面板，但不得由目标推断实际动作。区分接近reach、按压press、按钮间移动move、离开面板撤离move、静止等待wait。按压可包括有明确证据的向按钮推进、保持接触、回弹；无接触证据时不要编造按压，可描述贴近面板调整位置。屏幕变化是辅助证据，不单凭屏幕推算接触边界。切勿把持续静止误判为持续按压，也不要把同一动作每次轻微晃动切为新任务。若窗口中间开始/结束的是持续动作，在continues_from_previous/continues_to_next中说明。\n输出 {\"segments\":[{\"start_frame\":384,\"end_frame\":443,\"skill_id\":\"wait\",\"arm_used\":\"none\",\"action\":\"中文可观察动作\",\"evidence\":\"说明支持动作与起止边界的画面变化，引用帧号\",\"uncertain\":false,\"continues_from_previous\":false,\"continues_to_next\":false}],\"possible_missed_actions\":[],\"screen_changes\":[{\"frame\":0,\"observation\":\"只写清晰可见的变化\"}]}。segments必须严格覆盖[384,443]的所有整数帧，使用包含端点的闭区间，相邻段下一start=上一end+1。窗口外不可见内容不要断言。若边界或接触无法可靠判断，uncertain=true并在evidence说明。",
+  "frames": [
+    384,
+    385,
+    386,
+    387,
+    388,
+    389,
+    390,
+    391,
+    392,
+    393,
+    394,
+    395,
+    396,
+    397,
+    398,
+    399,
+    400,
+    401,
+    402,
+    403,
+    404,
+    405,
+    406,
+    407,
+    408,
+    409,
+    410,
+    411,
+    412,
+    413,
+    414,
+    415,
+    416,
+    417,
+    418,
+    419,
+    420,
+    421,
+    422,
+    423,
+    424,
+    425,
+    426,
+    427,
+    428,
+    429,
+    430,
+    431,
+    432,
+    433,
+    434,
+    435,
+    436,
+    437,
+    438,
+    439,
+    440,
+    441,
+    442,
+    443
+  ],
+  "usage": {
+    "image_tokens": 28920,
+    "input_tokens": 30634,
+    "input_tokens_details": {
+      "image_tokens": 28920,
+      "text_tokens": 1714
+    },
+    "output_tokens": 292,
+    "output_tokens_details": {
+      "text_tokens": 292
+    },
+    "total_tokens": 30926
+  },
+  "request_id": "570f7d0f-214e-9de4-87d1-7cf323a99b22",
+  "result": {
+    "segments": [
+      {
+        "start_frame": 384,
+        "end_frame": 400,
+        "skill_id": "reach",
+        "arm_used": "left",
+        "action": "夹爪向温控面板靠近，保持对准右下角按钮区域",
+        "evidence": "从FRAME384到FRAME400，左腕视角中夹爪持续向面板移动，距离逐渐缩短，未接触面板；head_rgb视角显示机械臂末端稳定朝向面板右下角区域。",
+        "uncertain": false,
+        "continues_from_previous": false,
+        "continues_to_next": true
+      },
+      {
+        "start_frame": 401,
+        "end_frame": 443,
+        "skill_id": "press",
+        "arm_used": "left",
+        "action": "夹爪按压面板右下角按钮并保持接触，屏幕亮度降低",
+        "evidence": "FRAME401起，左腕视角显示夹爪前端与面板右下角按钮区域接触，位置稳定无明显位移；FRAME401至FRAME443期间，面板屏幕亮度持续变暗，至FRAME440后完全熄灭，表明按压动作持续进行且可能触发了屏幕关闭功能。",
+        "uncertain": false,
+        "continues_from_previous": true,
+        "continues_to_next": false
+      }
+    ],
+    "possible_missed_actions": [],
+    "screen_changes": [
+      {
+        "frame": 401,
+        "observation": "面板屏幕亮度开始下降"
+      },
+      {
+        "frame": 440,
+        "observation": "面板屏幕完全熄灭"
+      }
+    ]
+  },
+  "proposal_checks": {
+    "structurally_consistent": true,
+    "issues": [],
+    "semantic_accuracy_verified": false,
+    "exact_boundaries_verified": false,
+    "eligible_for_final_delivery": false
+  }
+}

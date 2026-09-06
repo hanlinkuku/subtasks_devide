@@ -1,0 +1,109 @@
+{
+  "model": "qwen3-vl-32b-instruct",
+  "prompt": "你是机器人轨迹原子动作标注员。每张图上下两格是同一原始帧的头部head_rgb视角与左腕left_wrist_rgb视角，不是两个时间点。机械臂左右以机器人本体为准，不按屏幕左右。图片上标有原始frame_index，必须使用这些原始编号，不是图片序号。帧率15fps。只根据可见证据，不臆测接触、按压次数、温度读数或成功状态。技能可用reach/grasp/move/rotate/press/pull/push/release/wait；撤离用move并在动作描述中说明。一个子任务一个主要原子动作，不能把接近、按压、撤离合并。连续相同目的的运动不任意拆段。区分按压保持和新的独立按压。只输出JSON，不加代码围栏。\n关键：腕部相机固定在机械臂上！因此夹爪在腕部图中的像素位置固定完全不意味着机械臂静止。必须看墙面、门框、面板相对腕部相机的变化，并交叉看固定头部视角。以下还提供同帧左末端位置，单位毫米，是实际运动的辅助证据（不直接证明接触或任务成功）。不要把手臂返回途中判成wait。持续向同一按钮靠近是一个reach，不要分成move再reach。屏幕数值变化不等于新按压：长按自动连增温度可能属于一次press，不得按每次数字跳变切片。只在实际松开再按或换按钮等证据下拆分。接触不清晰则明确uncertain=true。\n逐帧审核范围[90,137]，所有帧均提供。运动数据：[{\"frame\":90,\"left_xyz_mm\":[239.41,104.35,553.75],\"step_mm\":0.662},{\"frame\":91,\"left_xyz_mm\":[238.86,104.79,554.55],\"step_mm\":1.06},{\"frame\":92,\"left_xyz_mm\":[238.14,105.5,555.13],\"step_mm\":1.168},{\"frame\":93,\"left_xyz_mm\":[236.92,106.71,555.55],\"step_mm\":1.768},{\"frame\":94,\"left_xyz_mm\":[235.16,108.53,555.24],\"step_mm\":2.551},{\"frame\":95,\"left_xyz_mm\":[232.83,110.81,554.19],\"step_mm\":3.421},{\"frame\":96,\"left_xyz_mm\":[230.36,113.24,552.96],\"step_mm\":3.677},{\"frame\":97,\"left_xyz_mm\":[227.51,115.92,551.86],\"step_mm\":4.064},{\"frame\":98,\"left_xyz_mm\":[225.09,118.11,551.59],\"step_mm\":3.281},{\"frame\":99,\"left_xyz_mm\":[222.61,120.54,551.96],\"step_mm\":3.49},{\"frame\":100,\"left_xyz_mm\":[220.58,122.85,553.09],\"step_mm\":3.276},{\"frame\":101,\"left_xyz_mm\":[219.33,124.97,555.39],\"step_mm\":3.363},{\"frame\":102,\"left_xyz_mm\":[220.03,128.4,557.46],\"step_mm\":4.07},{\"frame\":103,\"left_xyz_mm\":[221.54,132.47,559.28],\"step_mm\":4.71},{\"frame\":104,\"left_xyz_mm\":[222.62,136.67,559.99],\"step_mm\":4.395},{\"frame\":105,\"left_xyz_mm\":[223.07,139.26,560.74],\"step_mm\":2.733},{\"frame\":106,\"left_xyz_mm\":[222.78,140.57,560.99],\"step_mm\":1.362},{\"frame\":107,\"left_xyz_mm\":[222.43,141.45,560.15],\"step_mm\":1.274},{\"frame\":108,\"left_xyz_mm\":[222.13,141.94,559.54],\"step_mm\":0.833},{\"frame\":109,\"left_xyz_mm\":[222.22,142.03,559.29],\"step_mm\":0.279},{\"frame\":110,\"left_xyz_mm\":[222.6,142.29,559.14],\"step_mm\":0.486},{\"frame\":111,\"left_xyz_mm\":[222.6,142.27,558.87],\"step_mm\":0.269},{\"frame\":112,\"left_xyz_mm\":[222.63,142.2,558.29],\"step_mm\":0.593},{\"frame\":113,\"left_xyz_mm\":[222.64,142.03,557.98],\"step_mm\":0.346},{\"frame\":114,\"left_xyz_mm\":[222.49,141.66,556.84],\"step_mm\":1.208},{\"frame\":115,\"left_xyz_mm\":[222.44,141.42,555.79],\"step_mm\":1.079},{\"frame\":116,\"left_xyz_mm\":[222.52,141.33,555.11],\"step_mm\":0.693},{\"frame\":117,\"left_xyz_mm\":[222.64,141.18,554.92],\"step_mm\":0.27},{\"frame\":118,\"left_xyz_mm\":[222.49,140.41,554.25],\"step_mm\":1.03},{\"frame\":119,\"left_xyz_mm\":[222.62,139.88,553.69],\"step_mm\":0.783},{\"frame\":120,\"left_xyz_mm\":[222.86,139.64,553.34],\"step_mm\":0.48},{\"frame\":121,\"left_xyz_mm\":[223.34,139.21,552.87],\"step_mm\":0.803},{\"frame\":122,\"left_xyz_mm\":[223.97,138.64,552.89],\"step_mm\":0.844},{\"frame\":123,\"left_xyz_mm\":[224.58,138.09,553.04],\"step_mm\":0.834},{\"frame\":124,\"left_xyz_mm\":[225.26,137.48,552.89],\"step_mm\":0.932},{\"frame\":125,\"left_xyz_mm\":[225.93,136.72,552.91],\"step_mm\":1.017},{\"frame\":126,\"left_xyz_mm\":[226.33,135.76,553.25],\"step_mm\":1.092},{\"frame\":127,\"left_xyz_mm\":[226.57,134.42,553.09],\"step_mm\":1.367},{\"frame\":128,\"left_xyz_mm\":[226.63,132.68,553.01],\"step_mm\":1.742},{\"frame\":129,\"left_xyz_mm\":[226.27,130.95,553.35],\"step_mm\":1.799},{\"frame\":130,\"left_xyz_mm\":[226.19,129.42,553.36],\"step_mm\":1.535},{\"frame\":131,\"left_xyz_mm\":[226.46,128.36,553.22],\"step_mm\":1.108},{\"frame\":132,\"left_xyz_mm\":[226.58,127.02,553.08],\"step_mm\":1.347},{\"frame\":133,\"left_xyz_mm\":[226.81,125.82,553.53],\"step_mm\":1.306},{\"frame\":134,\"left_xyz_mm\":[227.28,124.74,554.02],\"step_mm\":1.279},{\"frame\":135,\"left_xyz_mm\":[227.66,123.73,553.68],\"step_mm\":1.125},{\"frame\":136,\"left_xyz_mm\":[227.97,122.45,552.95],\"step_mm\":1.51},{\"frame\":137,\"left_xyz_mm\":[228.77,121.51,552.4],\"step_mm\":1.344}]\n输出 {\"segments\":[{\"start_frame\":0,\"end_frame\":1,\"skill_id\":\"reach\",\"arm_used\":\"left\",\"action\":\"中文\",\"evidence\":\"具体相对位置、运动和接触证据及帧号\",\"uncertain\":true}],\"boundary_uncertainty\":[{\"frame\":0,\"earliest\":0,\"latest\":0,\"reason\":\"不确定依据\"}],\"screen_changes\":[],\"missed_action_check\":\"是否有遗漏独立技能\"}。严格覆盖本窗口所有帧，闭区间连续无重叠。不要根据任务文字补全未观察的动作，不要编造精度。",
+  "frames": [
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134,
+    135,
+    136,
+    137
+  ],
+  "usage": {
+    "image_tokens": 23136,
+    "input_tokens": 26407,
+    "input_tokens_details": {
+      "image_tokens": 23136,
+      "text_tokens": 3271
+    },
+    "output_tokens": 547,
+    "output_tokens_details": {
+      "text_tokens": 547
+    },
+    "total_tokens": 26954
+  },
+  "request_id": "da0a1b27-6b57-9eb2-bdef-318af5b89776",
+  "result": {
+    "segments": [
+      {
+        "start_frame": 90,
+        "end_frame": 105,
+        "skill_id": "reach",
+        "arm_used": "left",
+        "action": "左臂向温控面板的上箭头按钮靠近，夹爪未接触按钮",
+        "evidence": "从frame 90到105，腕部相机视角中温控面板逐渐放大，显示机械臂持续向右上方移动；头部视角中机械臂末端位置从239.41mm（x）移动至223.07mm（x），y轴从104.35mm增至139.26mm，z轴从553.75mm增至560.74mm，表明持续接近目标按钮。夹爪在腕部图中始终位于面板右侧，未见接触迹象。",
+        "uncertain": false
+      },
+      {
+        "start_frame": 106,
+        "end_frame": 117,
+        "skill_id": "press",
+        "arm_used": "left",
+        "action": "左臂夹爪按压温控面板的上箭头按钮，保持按压状态",
+        "evidence": "frame 106起，腕部相机视角中夹爪与上箭头按钮区域重叠，且按钮区域无明显位移或弹出，表明持续接触；frame 106-117间末端位置变化极小（x:222.78→222.64mm, y:140.57→141.18mm, z:560.99→554.92mm），符合按压时微调姿态；屏幕温度值稳定在18.0℃，无跳变，说明为一次长按操作而非多次点击。",
+        "uncertain": false
+      },
+      {
+        "start_frame": 118,
+        "end_frame": 137,
+        "skill_id": "move",
+        "arm_used": "left",
+        "action": "左臂撤离，夹爪从温控面板上箭头按钮处后退",
+        "evidence": "frame 118起，腕部相机视角中夹爪与按钮区域分离，面板在视野中缩小；末端位置从222.49mm（x）移动至228.77mm（x），y轴从140.41mm降至121.51mm，z轴从554.25mm降至552.4mm，显示手臂向左下方回撤；无新接触或按压证据。",
+        "uncertain": false
+      }
+    ],
+    "boundary_uncertainty": [],
+    "screen_changes": [],
+    "missed_action_check": "无遗漏独立技能"
+  },
+  "proposal_checks": {
+    "structurally_consistent": true,
+    "issues": [],
+    "semantic_accuracy_verified": false,
+    "exact_boundaries_verified": false,
+    "eligible_for_final_delivery": false
+  }
+}

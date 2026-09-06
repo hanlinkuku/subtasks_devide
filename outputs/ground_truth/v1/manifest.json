@@ -1,0 +1,265 @@
+{
+  "version": "v1",
+  "imported_at": "2026-09-06T05:20:25.812341+00:00",
+  "source": "user manually annotated attachment and inline message",
+  "user_caveat": "在reach到press和press到move的划分难以精确到帧，可能会有偏差",
+  "reference_role": "human_reference_with_boundary_uncertainty",
+  "exact_frame_truth_claimed": false,
+  "frame_authority": "user-supplied frame indices; times recomputed from source FPS",
+  "fps": 15,
+  "frame_interval_convention": "inclusive",
+  "boundary_tolerance_frames": null,
+  "trajectories": [
+    {
+      "trajectory_id": "episode_000000",
+      "file": "outputs/ground_truth/v1/episode_000000.json",
+      "sha256": "b8c00c6b56f5608e217f986382d513fb5fbf9a7333b464a0db4b4ebeeed1552f",
+      "source_sha256": "219888a2d824ef57fa561689fd0497e521ab13e03f09d35bc3f543311530a8e1",
+      "ready_for_comparison": false,
+      "structural_issues": [
+        {
+          "reason": "overlap",
+          "previous_subtask_id": 4,
+          "subtask_id": 5,
+          "previous_end": 153,
+          "current_start": 152,
+          "affected_frames": [
+            152,
+            153
+          ]
+        },
+        {
+          "reason": "overlap",
+          "previous_subtask_id": 8,
+          "subtask_id": 9,
+          "previous_end": 433,
+          "current_start": 433,
+          "affected_frames": [
+            433,
+            433
+          ]
+        }
+      ],
+      "time_corrections": [
+        {
+          "subtask_id": 2,
+          "field": "end_time",
+          "original": 5.0,
+          "normalized": 5.133333
+        },
+        {
+          "subtask_id": 3,
+          "field": "start_time",
+          "original": 5.066667,
+          "normalized": 5.2
+        },
+        {
+          "subtask_id": 3,
+          "field": "end_time",
+          "original": 6.0,
+          "normalized": 6.066667
+        },
+        {
+          "subtask_id": 4,
+          "field": "start_time",
+          "original": 6.066667,
+          "normalized": 6.133333
+        },
+        {
+          "subtask_id": 4,
+          "field": "end_time",
+          "original": 10.066667,
+          "normalized": 10.2
+        },
+        {
+          "subtask_id": 7,
+          "field": "end_time",
+          "original": 22.0,
+          "normalized": 21.933333
+        },
+        {
+          "subtask_id": 8,
+          "field": "start_time",
+          "original": 22.066667,
+          "normalized": 22.0
+        },
+        {
+          "subtask_id": 8,
+          "field": "end_time",
+          "original": 29.133333,
+          "normalized": 28.866667
+        },
+        {
+          "subtask_id": 9,
+          "field": "start_time",
+          "original": 29.2,
+          "normalized": 28.866667
+        },
+        {
+          "subtask_id": 9,
+          "field": "end_time",
+          "original": 30.0,
+          "normalized": 30.066667
+        },
+        {
+          "subtask_id": 10,
+          "field": "start_time",
+          "original": 30.066667,
+          "normalized": 30.133333
+        },
+        {
+          "subtask_id": 10,
+          "field": "end_time",
+          "original": 38.2,
+          "normalized": 38.266667
+        },
+        {
+          "subtask_id": 11,
+          "field": "start_time",
+          "original": 38.266667,
+          "normalized": 38.333333
+        }
+      ],
+      "uncertain_boundaries": [
+        {
+          "from_subtask_id": 2,
+          "to_subtask_id": 3,
+          "from_skill": "reach",
+          "to_skill": "press",
+          "reference_frame": 78,
+          "uncertainty_frames": null,
+          "basis": "User reports difficulty locating press transitions to an exact frame; no numeric tolerance specified"
+        },
+        {
+          "from_subtask_id": 3,
+          "to_subtask_id": 4,
+          "from_skill": "press",
+          "to_skill": "move",
+          "reference_frame": 92,
+          "uncertainty_frames": null,
+          "basis": "User reports difficulty locating press transitions to an exact frame; no numeric tolerance specified"
+        },
+        {
+          "from_subtask_id": 4,
+          "to_subtask_id": 5,
+          "from_skill": "move",
+          "to_skill": "press",
+          "reference_frame": 152,
+          "uncertainty_frames": null,
+          "basis": "User reports difficulty locating press transitions to an exact frame; no numeric tolerance specified"
+        },
+        {
+          "from_subtask_id": 5,
+          "to_subtask_id": 6,
+          "from_skill": "press",
+          "to_skill": "move",
+          "reference_frame": 176,
+          "uncertainty_frames": null,
+          "basis": "User reports difficulty locating press transitions to an exact frame; no numeric tolerance specified"
+        },
+        {
+          "from_subtask_id": 8,
+          "to_subtask_id": 9,
+          "from_skill": "reach",
+          "to_skill": "press",
+          "reference_frame": 433,
+          "uncertainty_frames": null,
+          "basis": "User reports difficulty locating press transitions to an exact frame; no numeric tolerance specified"
+        },
+        {
+          "from_subtask_id": 9,
+          "to_subtask_id": 10,
+          "from_skill": "press",
+          "to_skill": "move",
+          "reference_frame": 452,
+          "uncertainty_frames": null,
+          "basis": "User reports difficulty locating press transitions to an exact frame; no numeric tolerance specified"
+        }
+      ]
+    },
+    {
+      "trajectory_id": "episode_000001",
+      "file": "outputs/ground_truth/v1/episode_000001.json",
+      "sha256": "d9a8b993a375e287adeecf82ac2ffd48fc7cac0cf55e7bce4aa332b3c73a6961",
+      "source_sha256": "e2103f960a35ce2c778651b64b765ba0aef9d879ed29a4026f7f6a6967edcf2f",
+      "ready_for_comparison": true,
+      "structural_issues": [],
+      "time_corrections": [
+        {
+          "subtask_id": 2,
+          "field": "end_time",
+          "original": 7.8,
+          "normalized": 7.733333
+        },
+        {
+          "subtask_id": 3,
+          "field": "start_time",
+          "original": 7.866667,
+          "normalized": 7.8
+        },
+        {
+          "subtask_id": 5,
+          "field": "end_time",
+          "original": 14.666667,
+          "normalized": 14.733333
+        },
+        {
+          "subtask_id": 6,
+          "field": "start_time",
+          "original": 14.733333,
+          "normalized": 14.8
+        },
+        {
+          "subtask_id": 6,
+          "field": "end_time",
+          "original": 24.2,
+          "normalized": 24.266667
+        },
+        {
+          "subtask_id": 7,
+          "field": "start_time",
+          "original": 24.266667,
+          "normalized": 24.333333
+        }
+      ],
+      "uncertain_boundaries": [
+        {
+          "from_subtask_id": 2,
+          "to_subtask_id": 3,
+          "from_skill": "reach",
+          "to_skill": "press",
+          "reference_frame": 117,
+          "uncertainty_frames": null,
+          "basis": "User reports difficulty locating press transitions to an exact frame; no numeric tolerance specified"
+        },
+        {
+          "from_subtask_id": 3,
+          "to_subtask_id": 4,
+          "from_skill": "press",
+          "to_skill": "move",
+          "reference_frame": 153,
+          "uncertainty_frames": null,
+          "basis": "User reports difficulty locating press transitions to an exact frame; no numeric tolerance specified"
+        },
+        {
+          "from_subtask_id": 4,
+          "to_subtask_id": 5,
+          "from_skill": "move",
+          "to_skill": "press",
+          "reference_frame": 206,
+          "uncertainty_frames": null,
+          "basis": "User reports difficulty locating press transitions to an exact frame; no numeric tolerance specified"
+        },
+        {
+          "from_subtask_id": 5,
+          "to_subtask_id": 6,
+          "from_skill": "press",
+          "to_skill": "move",
+          "reference_frame": 222,
+          "uncertainty_frames": null,
+          "basis": "User reports difficulty locating press transitions to an exact frame; no numeric tolerance specified"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "model": "qwen3-vl-32b-instruct",
+  "prompt": "你是机器人轨迹原子动作标注员。每张图上下两格是同一原始帧的头部head_rgb视角与左腕left_wrist_rgb视角，不是两个时间点。机械臂左右以机器人本体为准，不按屏幕左右。图片上标有原始frame_index，必须使用这些原始编号，不是图片序号。帧率15fps。只根据可见证据，不臆测接触、按压次数、温度读数或成功状态。技能可用reach/grasp/move/rotate/press/pull/push/release/wait；撤离用move并在动作描述中说明。一个子任务一个主要原子动作，不能把接近、按压、撤离合并。连续相同目的的运动不任意拆段。区分按压保持和新的独立按压。只输出JSON，不加代码围栏。\n关键：腕部相机固定在机械臂上！因此夹爪在腕部图中的像素位置固定完全不意味着机械臂静止。必须看墙面、门框、面板相对腕部相机的变化，并交叉看固定头部视角。以下还提供同帧左末端位置，单位毫米，是实际运动的辅助证据（不直接证明接触或任务成功）。不要把手臂返回途中判成wait。持续向同一按钮靠近是一个reach，不要分成move再reach。屏幕数值变化不等于新按压：长按自动连增温度可能属于一次press，不得按每次数字跳变切片。只在实际松开再按或换按钮等证据下拆分。接触不清晰则明确uncertain=true。\n逐帧审核范围[554,579]，所有帧均提供。运动数据：[{\"frame\":554,\"left_xyz_mm\":[-17.18,335.26,336.32],\"step_mm\":2.117},{\"frame\":555,\"left_xyz_mm\":[-19.38,335.27,335.72],\"step_mm\":2.29},{\"frame\":556,\"left_xyz_mm\":[-21.57,335.29,335.12],\"step_mm\":2.266},{\"frame\":557,\"left_xyz_mm\":[-23.05,335.33,334.75],\"step_mm\":1.532},{\"frame\":558,\"left_xyz_mm\":[-23.97,335.35,334.34],\"step_mm\":0.996},{\"frame\":559,\"left_xyz_mm\":[-24.61,335.35,334.09],\"step_mm\":0.694},{\"frame\":560,\"left_xyz_mm\":[-24.95,335.36,333.92],\"step_mm\":0.378},{\"frame\":561,\"left_xyz_mm\":[-24.63,335.34,334.21],\"step_mm\":0.436},{\"frame\":562,\"left_xyz_mm\":[-23.91,335.35,334.74],\"step_mm\":0.888},{\"frame\":563,\"left_xyz_mm\":[-23.19,335.33,335.33],\"step_mm\":0.933},{\"frame\":564,\"left_xyz_mm\":[-23.05,335.33,335.75],\"step_mm\":0.438},{\"frame\":565,\"left_xyz_mm\":[-22.94,335.33,335.2],\"step_mm\":0.555},{\"frame\":566,\"left_xyz_mm\":[-22.79,335.33,334.59],\"step_mm\":0.625},{\"frame\":567,\"left_xyz_mm\":[-22.73,335.33,334.45],\"step_mm\":0.16},{\"frame\":568,\"left_xyz_mm\":[-22.73,335.34,334.43],\"step_mm\":0.02},{\"frame\":569,\"left_xyz_mm\":[-22.76,335.34,334.43],\"step_mm\":0.026},{\"frame\":570,\"left_xyz_mm\":[-22.73,335.35,334.41],\"step_mm\":0.033},{\"frame\":571,\"left_xyz_mm\":[-22.73,335.37,334.6],\"step_mm\":0.187},{\"frame\":572,\"left_xyz_mm\":[-22.73,335.36,334.78],\"step_mm\":0.185},{\"frame\":573,\"left_xyz_mm\":[-22.74,335.34,334.98],\"step_mm\":0.197},{\"frame\":574,\"left_xyz_mm\":[-22.74,335.33,335.0],\"step_mm\":0.024},{\"frame\":575,\"left_xyz_mm\":[-22.74,335.33,335.05],\"step_mm\":0.05},{\"frame\":576,\"left_xyz_mm\":[-22.74,335.33,335.07],\"step_mm\":0.019},{\"frame\":577,\"left_xyz_mm\":[-22.75,335.33,335.04],\"step_mm\":0.035},{\"frame\":578,\"left_xyz_mm\":[-22.77,335.33,335.03],\"step_mm\":0.017},{\"frame\":579,\"left_xyz_mm\":[-22.77,335.32,335.08],\"step_mm\":0.044}]\n输出 {\"segments\":[{\"start_frame\":0,\"end_frame\":1,\"skill_id\":\"reach\",\"arm_used\":\"left\",\"action\":\"中文\",\"evidence\":\"具体相对位置、运动和接触证据及帧号\",\"uncertain\":true}],\"boundary_uncertainty\":[{\"frame\":0,\"earliest\":0,\"latest\":0,\"reason\":\"不确定依据\"}],\"screen_changes\":[],\"missed_action_check\":\"是否有遗漏独立技能\"}。严格覆盖本窗口所有帧，闭区间连续无重叠。不要根据任务文字补全未观察的动作，不要编造精度。",
+  "frames": [
+    554,
+    555,
+    556,
+    557,
+    558,
+    559,
+    560,
+    561,
+    562,
+    563,
+    564,
+    565,
+    566,
+    567,
+    568,
+    569,
+    570,
+    571,
+    572,
+    573,
+    574,
+    575,
+    576,
+    577,
+    578,
+    579
+  ],
+  "usage": {
+    "image_tokens": 12532,
+    "input_tokens": 14533,
+    "input_tokens_details": {
+      "image_tokens": 12532,
+      "text_tokens": 2001
+    },
+    "output_tokens": 314,
+    "output_tokens_details": {
+      "text_tokens": 314
+    },
+    "total_tokens": 14847
+  },
+  "request_id": "6cdb1646-1995-97df-b141-d1ddbaa58ebf",
+  "result": {
+    "segments": [
+      {
+        "start_frame": 554,
+        "end_frame": 560,
+        "skill_id": "reach",
+        "arm_used": "left",
+        "action": "左臂向墙上的白色面板靠近，夹爪持续朝向目标区域移动",
+        "evidence": "从frame 554到560，左末端位置x从-17.18mm移动至-24.95mm，z从336.32mm降至333.92mm，表明手臂在水平和垂直方向持续接近墙面面板；头部视角中墙面与门框相对位置稳定，腕部相机视角中夹爪保持朝向墙面，未见接触迹象。",
+        "uncertain": false
+      },
+      {
+        "start_frame": 561,
+        "end_frame": 579,
+        "skill_id": "wait",
+        "arm_used": "left",
+        "action": "左臂在接近墙面面板后保持静止，无明显运动",
+        "evidence": "从frame 561到579，左末端位置x维持在-24.63mm至-22.77mm之间，z维持在334.21mm至335.08mm之间，变化极小（最大步长0.044mm），且头部与腕部视角中墙面、门框及夹爪相对位置均无显著变化，表明机械臂处于等待状态。",
+        "uncertain": false
+      }
+    ],
+    "boundary_uncertainty": [],
+    "screen_changes": [],
+    "missed_action_check": "无遗漏独立技能"
+  },
+  "proposal_checks": {
+    "structurally_consistent": true,
+    "issues": [],
+    "semantic_accuracy_verified": false,
+    "exact_boundaries_verified": false,
+    "eligible_for_final_delivery": false
+  }
+}

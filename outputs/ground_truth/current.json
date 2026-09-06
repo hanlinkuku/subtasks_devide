@@ -1,0 +1,4 @@
+{
+  "manifest": "outputs/ground_truth/v2/manifest.json",
+  "role": "working_reference_with_boundary_uncertainty"
+}

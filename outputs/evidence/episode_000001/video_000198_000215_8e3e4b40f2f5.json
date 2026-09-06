@@ -1,0 +1,103 @@
+{
+  "model": "qwen3-vl-32b-instruct",
+  "prompt": "这是左腕相机的视频片段，原视频15fps，帧范围198至215。画面标注的是原始帧号。\n接口播放帧率为10，仅供时序观察；不要使用接口播放秒数定位，必须使用画面上的原始帧号。\n相机固定在左臂，黑色夹爪位置固定是正常现象，须看目标相对夹爪的运动。\n只依据实际图像作答。无法确定接触的时刻时给范围，禁止凭屏幕变化断定物理接触起始。\n只分析夹爪尖端与按钮的接触关系：接近、按住、松开或移向另一个按钮。不要把屏幕数字变化当成独立动作。请给首次能看见接触和首次能看见脱离的帧号；如果被遮挡、深度不可见或不能确定，必须在uncertain_boundaries中说明，不得杜撰接触时刻。\n只输出JSON对象，格式为：{\"observations\":[{\"frame\":0,\"description\":\"可见事实\"}],\"actions\":[{\"start_frame\":0,\"end_frame\":1,\"skill_id\":\"reach/press/move/wait之一\",\"description\":\"动作\",\"confidence\":\"high/medium/low之一\"}],\"uncertain_boundaries\":[{\"earliest_frame\":0,\"latest_frame\":1,\"reason\":\"原因\"}]}。\n不要猜测品牌、无法辨认的数字或未看到的动作；动作起止采用闭区间。",
+  "frames": [
+    198,
+    199,
+    200,
+    201,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207,
+    208,
+    209,
+    210,
+    211,
+    212,
+    213,
+    214,
+    215
+  ],
+  "usage": {
+    "input_tokens": 5649,
+    "input_tokens_details": {
+      "text_tokens": 301,
+      "video_tokens": 5348
+    },
+    "output_tokens": 434,
+    "output_tokens_details": {
+      "text_tokens": 434
+    },
+    "total_tokens": 6083,
+    "video_tokens": 5348
+  },
+  "request_id": "5a4a86bd-f290-993d-972c-3e474ca42fc7",
+  "result": {
+    "observations": [
+      {
+        "frame": 198,
+        "description": "夹爪尖端位于空调遥控器下方，未接触任何按钮。"
+      },
+      {
+        "frame": 200,
+        "description": "夹爪位置未变，仍与遥控器无接触。"
+      },
+      {
+        "frame": 203,
+        "description": "夹爪位置不变，遥控器屏幕显示18.5°C，风扇图标显示三档风速。"
+      },
+      {
+        "frame": 205,
+        "description": "夹爪位置不变，遥控器屏幕仍显示18.5°C。"
+      },
+      {
+        "frame": 208,
+        "description": "夹爪位置不变，遥控器屏幕温度变为18.0°C，风扇图标仍为三档。"
+      },
+      {
+        "frame": 210,
+        "description": "夹爪位置不变，遥控器屏幕仍显示18.0°C。"
+      },
+      {
+        "frame": 213,
+        "description": "夹爪位置不变，遥控器屏幕显示18.0°C，风扇图标仍为三档。"
+      },
+      {
+        "frame": 215,
+        "description": "夹爪位置不变，遥控器屏幕仍显示18.0°C。"
+      }
+    ],
+    "actions": [
+      {
+        "start_frame": 198,
+        "end_frame": 215,
+        "skill_id": "wait",
+        "description": "夹爪保持静止，未与遥控器按钮发生接触。",
+        "confidence": "high"
+      }
+    ],
+    "uncertain_boundaries": [
+      {
+        "earliest_frame": 198,
+        "latest_frame": 215,
+        "reason": "夹爪始终未接触遥控器按钮，且无可见运动或遮挡导致无法判断接触状态。"
+      }
+    ]
+  },
+  "proposal_checks": {
+    "structurally_consistent": false,
+    "issues": [
+      {
+        "segment": 0,
+        "reason": "wait_despite_end_effector_motion",
+        "excursion_mm": 16.767
+      }
+    ],
+    "semantic_accuracy_verified": false,
+    "exact_boundaries_verified": false,
+    "eligible_for_final_delivery": false
+  }
+}

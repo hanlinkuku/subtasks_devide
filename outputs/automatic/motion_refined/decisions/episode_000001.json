@@ -1,0 +1,27 @@
+{
+  "events": [
+    {
+      "interaction_supported": true,
+      "start_frame": 101,
+      "end_frame": 152,
+      "action": "按压并保持电源按钮",
+      "evidence": "从帧101开始，夹爪左侧尖端持续靠近面板右侧的电源按钮区域，虽被遮挡但可见其位置稳定且无明显回撤。在帧123时屏幕首次亮起（显示模糊界面），随后在帧147-149屏幕清晰显示18.5℃及制冷模式，表明设备已启动。结合夹爪在101-149帧间持续接近、无松开迹象，以及屏幕响应变化，推断为对电源按钮的长按操作。夹爪未完全离开按钮区域直至149帧后才开始后退（151帧后），符合按压保持行为。 结束边界由持续后撤的水平位移信号细化。",
+      "additional_actions": [],
+      "uncertain": false,
+      "vlm_end_frame": 149
+    },
+    {
+      "interaction_supported": true,
+      "start_frame": 207,
+      "end_frame": 220,
+      "action": "按压降温按钮",
+      "evidence": "从FRAME 207到FRAME 209，面板显示温度从18.5°C变为18.0°C，同时夹爪尖端持续靠近并接触下方三角形降温按钮（被遮挡），符合按压推进及接触保持的特征。在FRAME 211至216期间，温度维持18.0°C且夹爪位置稳定，表明按压后保持接触。后续帧中夹爪开始回撤，说明松开离开。整个过程无其他按钮响应，可确认为一次长按操作。 结束边界由持续后撤的水平位移信号细化。",
+      "additional_actions": [],
+      "uncertain": false,
+      "vlm_end_frame": 216
+    }
+  ],
+  "accepted": false,
+  "reference_used_during_inference": false,
+  "scope": "left-arm wall-button interactions; not a general contact detector"
+}

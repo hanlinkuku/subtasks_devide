@@ -1,0 +1,39 @@
+{
+  "model": "qwen3-vl-32b-instruct",
+  "prompt": "这是墙面温控面板的腕部相机逐时图，图片FRAME标签是原始帧号。只比较屏幕可见状态，不判断机械臂动作。\n找出相对于本窗口第一张图的第一次明确界面变化：数字出现/消失、背光明显切换、设定值首次改变。\n不要把面板随相机移动、反光或模糊误认为内容变化；不要猜看不清的数字。只选实际提供的帧号。\n输出JSON：{\"changed\":true,\"first_changed_frame\":0,\"previous_state\":\"\",\"new_state\":\"\",\"uncertain\":false}。\n若没有清晰变化，changed=false，first_changed_frame=null。",
+  "frames": [
+    151,
+    152,
+    153,
+    154,
+    155
+  ],
+  "image_sha256": [
+    "8d076653d3bba366a085775547b72d31f60e8a301e9487d62a26bb657edbf2a3",
+    "2bc65fc9c9a4a9dfc21fef2318515a0219a78d2bddd3b7eeea515d6c35d0f81b",
+    "955a6b43339575229b62e2e1cd951469bc31e1d53fe562a3f9af1e4dadb12598",
+    "00e99b2b5c3bea894be3c41341a7846b15919c76cd9b60def30e23c75a11a71a",
+    "e5e64de7a51fc112cfc38ab4b09c3b578f9ad494a9224b8665b349f3db9fa4a6"
+  ],
+  "result": {
+    "changed": true,
+    "first_changed_frame": 154,
+    "previous_state": "18.0°C",
+    "new_state": "18.5°C",
+    "uncertain": false
+  },
+  "usage": {
+    "image_tokens": 4410,
+    "input_tokens": 4548,
+    "input_tokens_details": {
+      "image_tokens": 4410,
+      "text_tokens": 138
+    },
+    "output_tokens": 55,
+    "output_tokens_details": {
+      "text_tokens": 55
+    },
+    "total_tokens": 4603
+  },
+  "reference_used_during_inference": false
+}

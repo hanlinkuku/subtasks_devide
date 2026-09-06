@@ -1,0 +1,157 @@
+{
+  "model": "qwen3-vl-32b-instruct",
+  "prompt": "这是左腕相机的视频片段，原视频15fps，帧范围72至95。画面标注的是原始帧号。\n接口播放帧率为10，仅供时序观察；不要使用接口播放秒数定位，必须使用画面上的原始帧号。\n相机固定在左臂，黑色夹爪位置固定是正常现象，须看目标相对夹爪的运动。\n只依据实际图像作答。无法确定接触的时刻时给范围，禁止凭屏幕变化断定物理接触起始。\n比较按钮和夹爪的相对位置。是否有按压、保持、松开？区分背光点亮与温度改变。每次变化必须给首次可见的原始帧号。\n只输出JSON对象，格式为：{\"observations\":[{\"frame\":0,\"description\":\"可见事实\"}],\"actions\":[{\"start_frame\":0,\"end_frame\":1,\"skill_id\":\"reach/press/move/wait之一\",\"description\":\"动作\",\"confidence\":\"high/medium/low之一\"}],\"uncertain_boundaries\":[{\"earliest_frame\":0,\"latest_frame\":1,\"reason\":\"原因\"}]}。\n不要猜测品牌、无法辨认的数字或未看到的动作；动作起止采用闭区间。",
+  "frames": [
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95
+  ],
+  "usage": {
+    "input_tokens": 7390,
+    "input_tokens_details": {
+      "text_tokens": 260,
+      "video_tokens": 7130
+    },
+    "output_tokens": 833,
+    "output_tokens_details": {
+      "text_tokens": 833
+    },
+    "total_tokens": 8223,
+    "video_tokens": 7130
+  },
+  "request_id": "733dcadc-3c3a-9f68-b193-5606fca85e4f",
+  "result": {
+    "observations": [
+      {
+        "frame": 72,
+        "description": "白色TOSHIBA温控面板倾斜放置，屏幕为深色未点亮状态，右侧有四个按钮（上、下、设置、菜单），前景黑色夹爪固定不动。"
+      },
+      {
+        "frame": 74,
+        "description": "屏幕显示数字“18.0”，左侧有太阳图标，右侧有风扇图标和温度单位℃，屏幕背光已点亮。"
+      },
+      {
+        "frame": 76,
+        "description": "屏幕内容与前帧一致，显示“18.0℃”，太阳图标和风扇图标可见。"
+      },
+      {
+        "frame": 78,
+        "description": "屏幕内容与前帧一致，无变化。"
+      },
+      {
+        "frame": 80,
+        "description": "屏幕突然变亮，显示为纯白背景，无任何图标或数字，疑似背光异常或屏幕刷新过程。"
+      },
+      {
+        "frame": 82,
+        "description": "屏幕恢复显示，显示“18.0℃”，左侧太阳图标变为雪花图标，风扇图标和温度单位仍存在。"
+      },
+      {
+        "frame": 84,
+        "description": "屏幕内容与前帧一致，雪花图标、温度“18.0℃”、风扇图标均稳定显示。"
+      },
+      {
+        "frame": 86,
+        "description": "屏幕内容与前帧一致，无变化。"
+      },
+      {
+        "frame": 88,
+        "description": "屏幕内容与前帧一致，无变化。"
+      },
+      {
+        "frame": 90,
+        "description": "屏幕内容与前帧一致，无变化。"
+      },
+      {
+        "frame": 92,
+        "description": "屏幕内容与前帧一致，无变化。"
+      },
+      {
+        "frame": 94,
+        "description": "屏幕内容与前帧一致，无变化。"
+      }
+    ],
+    "actions": [
+      {
+        "start_frame": 74,
+        "end_frame": 78,
+        "skill_id": "press",
+        "description": "在FRAME 74首次出现屏幕点亮并显示“18.0℃”及太阳图标，表明可能按压了某个按钮（如电源或模式键）以激活屏幕。由于无物理接触可见，此动作基于屏幕状态变化推断。",
+        "confidence": "medium"
+      },
+      {
+        "start_frame": 80,
+        "end_frame": 80,
+        "skill_id": "wait",
+        "description": "屏幕短暂变为纯白，可能是系统刷新或背光异常，无用户操作迹象，持续仅一帧。",
+        "confidence": "high"
+      },
+      {
+        "start_frame": 82,
+        "end_frame": 94,
+        "skill_id": "wait",
+        "description": "屏幕恢复并稳定显示“18.0℃”及雪花图标，无进一步操作发生，系统处于待机或保持状态。",
+        "confidence": "high"
+      }
+    ],
+    "uncertain_boundaries": [
+      {
+        "earliest_frame": 72,
+        "latest_frame": 74,
+        "reason": "无法确定屏幕从关闭到点亮的具体触发时刻，因为没有观察到手指或物体接触按钮，只能根据屏幕状态变化推断按压发生在72至74帧之间。"
+      },
+      {
+        "earliest_frame": 74,
+        "latest_frame": 78,
+        "reason": "屏幕显示内容在74-78帧间保持不变，无法判断是否持续按压或已松开，因无物理接触证据。"
+      }
+    ]
+  },
+  "proposal_checks": {
+    "structurally_consistent": false,
+    "issues": [
+      {
+        "segment": 0,
+        "reason": "gap_or_overlap",
+        "expected_start": 72
+      },
+      {
+        "segment": 1,
+        "reason": "gap_or_overlap",
+        "expected_start": 79
+      },
+      {
+        "segment": 2,
+        "reason": "gap_or_overlap",
+        "expected_start": 81
+      },
+      {
+        "reason": "uncovered_tail"
+      }
+    ],
+    "semantic_accuracy_verified": false,
+    "exact_boundaries_verified": false,
+    "eligible_for_final_delivery": false
+  }
+}

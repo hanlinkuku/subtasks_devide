@@ -1,0 +1,73 @@
+{
+  "model": "qwen3-vl-32b-instruct",
+  "prompt": "这是左腕相机的视频片段，原视频15fps，帧范围140至155。画面标注的是原始帧号。\n接口播放帧率为10，仅供时序观察；不要使用接口播放秒数定位，必须使用画面上的原始帧号。\n相机固定在左臂，黑色夹爪位置固定是正常现象，须看目标相对夹爪的运动。\n只依据实际图像作答。无法确定接触的时刻时给范围，禁止凭屏幕变化断定物理接触起始。\n只分析夹爪尖端与按钮的接触关系：接近、按住、松开或移向另一个按钮。不要把屏幕数字变化当成独立动作。请给首次能看见接触和首次能看见脱离的帧号；如果被遮挡、深度不可见或不能确定，必须在uncertain_boundaries中说明，不得杜撰接触时刻。\n只输出JSON对象，格式为：{\"observations\":[{\"frame\":0,\"description\":\"可见事实\"}],\"actions\":[{\"start_frame\":0,\"end_frame\":1,\"skill_id\":\"reach/press/move/wait之一\",\"description\":\"动作\",\"confidence\":\"high/medium/low之一\"}],\"uncertain_boundaries\":[{\"earliest_frame\":0,\"latest_frame\":1,\"reason\":\"原因\"}]}。\n不要猜测品牌、无法辨认的数字或未看到的动作；动作起止采用闭区间。",
+  "frames": [
+    140,
+    141,
+    142,
+    143,
+    144,
+    145,
+    146,
+    147,
+    148,
+    149,
+    150,
+    151,
+    152,
+    153,
+    154,
+    155
+  ],
+  "usage": {
+    "input_tokens": 5055,
+    "input_tokens_details": {
+      "text_tokens": 301,
+      "video_tokens": 4754
+    },
+    "output_tokens": 281,
+    "output_tokens_details": {
+      "text_tokens": 281
+    },
+    "total_tokens": 5336,
+    "video_tokens": 4754
+  },
+  "request_id": "6fbf1ee8-2c45-9786-b71b-36b159f03b8c",
+  "result": {
+    "observations": [
+      {
+        "frame": 140,
+        "description": "夹爪位于空调遥控器右侧，未接触任何按钮。屏幕显示温度为18.0°C，制冷模式（雪花图标）开启，风速为中等。"
+      },
+      {
+        "frame": 145,
+        "description": "夹爪位置未变，仍与遥控器无接触。屏幕显示温度仍为18.0°C，无变化。"
+      },
+      {
+        "frame": 150,
+        "description": "夹爪位置不变，未接触遥控器。屏幕显示温度仍为18.0°C。"
+      },
+      {
+        "frame": 155,
+        "description": "夹爪位置未变，未接触遥控器。屏幕显示温度变为18.5°C，可能由其他操作引起，但夹爪未参与。"
+      }
+    ],
+    "actions": [
+      {
+        "start_frame": 140,
+        "end_frame": 155,
+        "skill_id": "wait",
+        "description": "夹爪保持静止，未与遥控器上的任何按钮发生接触或移动。",
+        "confidence": "high"
+      }
+    ],
+    "uncertain_boundaries": []
+  },
+  "proposal_checks": {
+    "structurally_consistent": true,
+    "issues": [],
+    "semantic_accuracy_verified": false,
+    "exact_boundaries_verified": false,
+    "eligible_for_final_delivery": false
+  }
+}

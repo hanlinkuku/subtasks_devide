@@ -1,0 +1,114 @@
+{
+  "model": "qwen3-vl-32b-instruct",
+  "prompt": "你是机器人轨迹原子动作标注员。每张图上下两格是同一原始帧的头部head_rgb视角与左腕left_wrist_rgb视角，不是两个时间点。机械臂左右以机器人本体为准，不按屏幕左右。图片上标有原始frame_index，必须使用这些原始编号，不是图片序号。帧率15fps。只根据可见证据，不臆测接触、按压次数、温度读数或成功状态。技能可用reach/grasp/move/rotate/press/pull/push/release/wait；撤离用move并在动作描述中说明。一个子任务一个主要原子动作，不能把接近、按压、撤离合并。连续相同目的的运动不任意拆段。区分按压保持和新的独立按压。只输出JSON，不加代码围栏。\n关键：腕部相机固定在机械臂上！因此夹爪在腕部图中的像素位置固定完全不意味着机械臂静止。必须看墙面、门框、面板相对腕部相机的变化，并交叉看固定头部视角。以下还提供同帧左末端位置，单位毫米，是实际运动的辅助证据（不直接证明接触或任务成功）。不要把手臂返回途中判成wait。持续向同一按钮靠近是一个reach，不要分成move再reach。屏幕数值变化不等于新按压：长按自动连增温度可能属于一次press，不得按每次数字跳变切片。只在实际松开再按或换按钮等证据下拆分。接触不清晰则明确uncertain=true。\n逐帧审核范围[168,207]，所有帧均提供。运动数据：[{\"frame\":168,\"left_xyz_mm\":[236.51,123.13,552.06],\"step_mm\":0.509},{\"frame\":169,\"left_xyz_mm\":[237.26,123.69,551.86],\"step_mm\":0.959},{\"frame\":170,\"left_xyz_mm\":[237.73,123.89,551.07],\"step_mm\":0.943},{\"frame\":171,\"left_xyz_mm\":[238.14,124.17,550.8],\"step_mm\":0.554},{\"frame\":172,\"left_xyz_mm\":[238.27,124.23,550.74],\"step_mm\":0.163},{\"frame\":173,\"left_xyz_mm\":[238.36,124.33,550.74],\"step_mm\":0.135},{\"frame\":174,\"left_xyz_mm\":[238.31,124.37,550.8],\"step_mm\":0.091},{\"frame\":175,\"left_xyz_mm\":[237.89,124.74,550.94],\"step_mm\":0.579},{\"frame\":176,\"left_xyz_mm\":[237.25,125.45,551.07],\"step_mm\":0.964},{\"frame\":177,\"left_xyz_mm\":[235.9,126.48,551.98],\"step_mm\":1.931},{\"frame\":178,\"left_xyz_mm\":[233.99,128.0,554.21],\"step_mm\":3.31},{\"frame\":179,\"left_xyz_mm\":[231.8,129.99,557.1],\"step_mm\":4.134},{\"frame\":180,\"left_xyz_mm\":[229.61,131.92,558.58],\"step_mm\":3.274},{\"frame\":181,\"left_xyz_mm\":[227.16,134.11,560.99],\"step_mm\":4.069},{\"frame\":182,\"left_xyz_mm\":[224.41,136.4,562.83],\"step_mm\":4.024},{\"frame\":183,\"left_xyz_mm\":[221.59,138.66,564.81],\"step_mm\":4.124},{\"frame\":184,\"left_xyz_mm\":[219.13,140.88,566.45],\"step_mm\":3.694},{\"frame\":185,\"left_xyz_mm\":[216.73,143.21,568.24],\"step_mm\":3.793},{\"frame\":186,\"left_xyz_mm\":[214.12,145.56,570.12],\"step_mm\":3.982},{\"frame\":187,\"left_xyz_mm\":[211.39,148.02,571.94],\"step_mm\":4.105},{\"frame\":188,\"left_xyz_mm\":[208.72,150.42,573.25],\"step_mm\":3.822},{\"frame\":189,\"left_xyz_mm\":[205.74,154.02,574.33],\"step_mm\":4.793},{\"frame\":190,\"left_xyz_mm\":[204.21,158.07,574.35],\"step_mm\":4.33},{\"frame\":191,\"left_xyz_mm\":[202.89,162.99,574.4],\"step_mm\":5.096},{\"frame\":192,\"left_xyz_mm\":[201.49,169.07,574.11],\"step_mm\":6.243},{\"frame\":193,\"left_xyz_mm\":[200.01,175.45,573.47],\"step_mm\":6.581},{\"frame\":194,\"left_xyz_mm\":[198.01,182.53,573.12],\"step_mm\":7.367},{\"frame\":195,\"left_xyz_mm\":[195.76,189.98,572.21],\"step_mm\":7.833},{\"frame\":196,\"left_xyz_mm\":[193.37,197.78,570.93],\"step_mm\":8.265},{\"frame\":197,\"left_xyz_mm\":[191.12,206.21,569.16],\"step_mm\":8.894},{\"frame\":198,\"left_xyz_mm\":[188.94,215.58,566.22],\"step_mm\":10.065},{\"frame\":199,\"left_xyz_mm\":[186.85,225.2,562.97],\"step_mm\":10.367},{\"frame\":200,\"left_xyz_mm\":[185.28,233.9,559.78],\"step_mm\":9.397},{\"frame\":201,\"left_xyz_mm\":[183.93,244.34,556.23],\"step_mm\":11.113},{\"frame\":202,\"left_xyz_mm\":[182.96,253.97,552.93],\"step_mm\":10.222},{\"frame\":203,\"left_xyz_mm\":[182.26,263.61,550.13],\"step_mm\":10.06},{\"frame\":204,\"left_xyz_mm\":[181.81,275.28,546.77],\"step_mm\":12.153},{\"frame\":205,\"left_xyz_mm\":[181.53,284.92,543.48],\"step_mm\":10.191},{\"frame\":206,\"left_xyz_mm\":[180.65,296.07,538.58],\"step_mm\":12.217},{\"frame\":207,\"left_xyz_mm\":[179.41,306.81,532.55],\"step_mm\":12.374}]\n输出 {\"segments\":[{\"start_frame\":0,\"end_frame\":1,\"skill_id\":\"reach\",\"arm_used\":\"left\",\"action\":\"中文\",\"evidence\":\"具体相对位置、运动和接触证据及帧号\",\"uncertain\":true}],\"boundary_uncertainty\":[{\"frame\":0,\"earliest\":0,\"latest\":0,\"reason\":\"不确定依据\"}],\"screen_changes\":[],\"missed_action_check\":\"是否有遗漏独立技能\"}。严格覆盖本窗口所有帧，闭区间连续无重叠。不要根据任务文字补全未观察的动作，不要编造精度。",
+  "frames": [
+    168,
+    169,
+    170,
+    171,
+    172,
+    173,
+    174,
+    175,
+    176,
+    177,
+    178,
+    179,
+    180,
+    181,
+    182,
+    183,
+    184,
+    185,
+    186,
+    187,
+    188,
+    189,
+    190,
+    191,
+    192,
+    193,
+    194,
+    195,
+    196,
+    197,
+    198,
+    199,
+    200,
+    201,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207
+  ],
+  "usage": {
+    "image_tokens": 19280,
+    "input_tokens": 22150,
+    "input_tokens_details": {
+      "image_tokens": 19280,
+      "text_tokens": 2870
+    },
+    "output_tokens": 388,
+    "output_tokens_details": {
+      "text_tokens": 388
+    },
+    "total_tokens": 22538
+  },
+  "request_id": "4450ebc0-5555-9857-be4d-dcb008bbfaf3",
+  "result": {
+    "segments": [
+      {
+        "start_frame": 168,
+        "end_frame": 174,
+        "skill_id": "press",
+        "arm_used": "left",
+        "action": "按压温度上调按钮",
+        "evidence": "从frame 168到174，腕部相机视角中夹爪持续靠近并接触温控面板右上角的三角形升温按钮，同时屏幕温度从19.0°C升至20.0°C，运动数据左末端持续向右下方移动（x减小、y增大），表明连续按压动作。",
+        "uncertain": false
+      },
+      {
+        "start_frame": 175,
+        "end_frame": 177,
+        "skill_id": "press",
+        "arm_used": "left",
+        "action": "按压温度上调按钮",
+        "evidence": "frame 175-177，腕部相机视角中夹爪仍保持在升温按钮位置，屏幕温度从20.0°C升至20.5°C，运动数据左末端继续小幅移动，表明持续按压。",
+        "uncertain": false
+      },
+      {
+        "start_frame": 178,
+        "end_frame": 207,
+        "skill_id": "move",
+        "arm_used": "left",
+        "action": "撤离并后退远离温控面板",
+        "evidence": "从frame 178开始，腕部相机视角中夹爪明显远离温控面板，面板在视野中缩小；头部视角显示机械臂整体向左后方移动，左末端xyz坐标持续向左（x减小）、向下（y增大）、向后（z减小）移动，无接触证据。",
+        "uncertain": false
+      }
+    ],
+    "boundary_uncertainty": [],
+    "screen_changes": [
+      {
+        "frame": 171,
+        "value": "19.5°C"
+      },
+      {
+        "frame": 174,
+        "value": "20.0°C"
+      },
+      {
+        "frame": 177,
+        "value": "20.5°C"
+      }
+    ],
+    "missed_action_check": "无遗漏独立技能"
+  },
+  "proposal_checks": {
+    "structurally_consistent": true,
+    "issues": [],
+    "semantic_accuracy_verified": false,
+    "exact_boundaries_verified": false,
+    "eligible_for_final_delivery": false
+  }
+}

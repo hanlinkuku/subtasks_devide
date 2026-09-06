@@ -1,0 +1,98 @@
+{
+  "model": "qwen3-vl-32b-instruct",
+  "prompt": "你是机器人轨迹原子动作标注员。每张图上下两格是同一原始帧的头部head_rgb视角与左腕left_wrist_rgb视角，不是两个时间点。机械臂左右以机器人本体为准，不按屏幕左右。图片上标有原始frame_index，必须使用这些原始编号，不是图片序号。帧率15fps。只根据可见证据，不臆测接触、按压次数、温度读数或成功状态。技能可用reach/grasp/move/rotate/press/pull/push/release/wait；撤离用move并在动作描述中说明。一个子任务一个主要原子动作，不能把接近、按压、撤离合并。连续相同目的的运动不任意拆段。区分按压保持和新的独立按压。只输出JSON，不加代码围栏。\n关键：腕部相机固定在机械臂上！因此夹爪在腕部图中的像素位置固定完全不意味着机械臂静止。必须看墙面、门框、面板相对腕部相机的变化，并交叉看固定头部视角。以下还提供同帧左末端位置，单位毫米，是实际运动的辅助证据（不直接证明接触或任务成功）。不要把手臂返回途中判成wait。持续向同一按钮靠近是一个reach，不要分成move再reach。屏幕数值变化不等于新按压：长按自动连增温度可能属于一次press，不得按每次数字跳变切片。只在实际松开再按或换按钮等证据下拆分。接触不清晰则明确uncertain=true。\n逐帧审核范围[436,463]，所有帧均提供。运动数据：[{\"frame\":436,\"left_xyz_mm\":[221.49,84.06,552.3],\"step_mm\":1.031},{\"frame\":437,\"left_xyz_mm\":[221.8,84.01,551.48],\"step_mm\":0.883},{\"frame\":438,\"left_xyz_mm\":[223.23,85.19,551.41],\"step_mm\":1.858},{\"frame\":439,\"left_xyz_mm\":[224.54,86.2,551.56],\"step_mm\":1.66},{\"frame\":440,\"left_xyz_mm\":[226.23,87.73,551.52],\"step_mm\":2.278},{\"frame\":441,\"left_xyz_mm\":[227.88,89.08,551.37],\"step_mm\":2.139},{\"frame\":442,\"left_xyz_mm\":[229.23,90.33,551.5],\"step_mm\":1.837},{\"frame\":443,\"left_xyz_mm\":[229.97,91.03,551.9],\"step_mm\":1.099},{\"frame\":444,\"left_xyz_mm\":[230.63,91.45,552.67],\"step_mm\":1.098},{\"frame\":445,\"left_xyz_mm\":[231.06,91.24,553.54],\"step_mm\":0.993},{\"frame\":446,\"left_xyz_mm\":[231.53,90.72,553.34],\"step_mm\":0.73},{\"frame\":447,\"left_xyz_mm\":[231.75,90.47,552.73],\"step_mm\":0.696},{\"frame\":448,\"left_xyz_mm\":[231.73,90.46,552.19],\"step_mm\":0.546},{\"frame\":449,\"left_xyz_mm\":[231.62,90.57,551.71],\"step_mm\":0.503},{\"frame\":450,\"left_xyz_mm\":[231.09,90.82,551.88],\"step_mm\":0.609},{\"frame\":451,\"left_xyz_mm\":[230.37,91.38,552.55],\"step_mm\":1.132},{\"frame\":452,\"left_xyz_mm\":[229.11,92.32,553.63],\"step_mm\":1.903},{\"frame\":453,\"left_xyz_mm\":[227.19,93.88,554.94],\"step_mm\":2.803},{\"frame\":454,\"left_xyz_mm\":[224.73,96.62,557.74],\"step_mm\":4.623},{\"frame\":455,\"left_xyz_mm\":[222.19,99.67,557.38],\"step_mm\":3.988},{\"frame\":456,\"left_xyz_mm\":[219.68,102.45,557.24],\"step_mm\":3.746},{\"frame\":457,\"left_xyz_mm\":[217.13,105.27,557.55],\"step_mm\":3.819},{\"frame\":458,\"left_xyz_mm\":[214.19,108.29,558.27],\"step_mm\":4.276},{\"frame\":459,\"left_xyz_mm\":[210.93,111.74,559.54],\"step_mm\":4.913},{\"frame\":460,\"left_xyz_mm\":[208.01,114.98,560.86],\"step_mm\":4.555},{\"frame\":461,\"left_xyz_mm\":[204.89,118.62,562.3],\"step_mm\":5.011},{\"frame\":462,\"left_xyz_mm\":[201.06,123.09,563.68],\"step_mm\":6.044},{\"frame\":463,\"left_xyz_mm\":[197.29,127.72,564.2],\"step_mm\":5.997}]\n输出 {\"segments\":[{\"start_frame\":0,\"end_frame\":1,\"skill_id\":\"reach\",\"arm_used\":\"left\",\"action\":\"中文\",\"evidence\":\"具体相对位置、运动和接触证据及帧号\",\"uncertain\":true}],\"boundary_uncertainty\":[{\"frame\":0,\"earliest\":0,\"latest\":0,\"reason\":\"不确定依据\"}],\"screen_changes\":[],\"missed_action_check\":\"是否有遗漏独立技能\"}。严格覆盖本窗口所有帧，闭区间连续无重叠。不要根据任务文字补全未观察的动作，不要编造精度。",
+  "frames": [
+    436,
+    437,
+    438,
+    439,
+    440,
+    441,
+    442,
+    443,
+    444,
+    445,
+    446,
+    447,
+    448,
+    449,
+    450,
+    451,
+    452,
+    453,
+    454,
+    455,
+    456,
+    457,
+    458,
+    459,
+    460,
+    461,
+    462,
+    463
+  ],
+  "usage": {
+    "image_tokens": 13496,
+    "input_tokens": 15621,
+    "input_tokens_details": {
+      "image_tokens": 13496,
+      "text_tokens": 2125
+    },
+    "output_tokens": 699,
+    "output_tokens_details": {
+      "text_tokens": 699
+    },
+    "total_tokens": 16320
+  },
+  "request_id": "250b350f-f0cf-9ef9-a180-4a840741b90c",
+  "result": {
+    "segments": [
+      {
+        "start_frame": 436,
+        "end_frame": 440,
+        "skill_id": "reach",
+        "arm_used": "left",
+        "action": "左臂向控制面板的圆形按钮靠近，夹爪未接触按钮",
+        "evidence": "从frame 436到440，腕部相机视角中控制面板逐渐放大，显示夹爪正持续向右上方移动接近圆形按钮；头部视角中机械臂位置相对稳定，但腕部相机因手臂运动导致墙面和门框在画面中发生位移；末端位置数据x从221.49mm增至226.23mm，y从84.06mm增至87.73mm，z从552.3mm降至551.52mm，表明手臂在三维空间中持续向目标靠近。",
+        "uncertain": false
+      },
+      {
+        "start_frame": 441,
+        "end_frame": 443,
+        "skill_id": "press",
+        "arm_used": "left",
+        "action": "左臂夹爪按压控制面板上的圆形按钮",
+        "evidence": "frame 441-443中，腕部相机视角显示夹爪已覆盖圆形按钮区域，且控制面板屏幕亮度明显降低并出现模糊（可能为触控反馈或背光变化），同时夹爪与按钮保持接触无明显撤离迹象；末端位置数据x从227.88mm增至229.97mm，y从89.08mm增至91.03mm，z从551.37mm升至551.9mm，表明手臂仍在施加压力进行按压操作。",
+        "uncertain": false
+      },
+      {
+        "start_frame": 444,
+        "end_frame": 450,
+        "skill_id": "wait",
+        "arm_used": "left",
+        "action": "左臂夹爪保持按压圆形按钮状态，无明显运动",
+        "evidence": "frame 444-450中，腕部相机视角下夹爪与按钮接触位置稳定，控制面板屏幕维持模糊状态；末端位置数据x从230.63mm微调至231.09mm，y从91.45mm微调至90.82mm，z从552.67mm微调至551.88mm，变化极小，符合按压保持期间的微调或抖动，整体无显著位移。",
+        "uncertain": false
+      },
+      {
+        "start_frame": 451,
+        "end_frame": 463,
+        "skill_id": "move",
+        "arm_used": "left",
+        "action": "左臂夹爪撤离圆形按钮并向左下方移动，远离控制面板",
+        "evidence": "frame 451起，腕部相机视角中夹爪开始从按钮区域移开，控制面板屏幕恢复清晰；frame 453后，控制面板在画面中逐渐缩小，表明手臂正在后退；末端位置数据x从230.37mm减至197.29mm，y从91.38mm增至127.72mm，z从552.55mm增至564.2mm，显示手臂沿左下方轨迹撤离。",
+        "uncertain": false
+      }
+    ],
+    "boundary_uncertainty": [],
+    "screen_changes": [],
+    "missed_action_check": "无遗漏独立技能"
+  },
+  "proposal_checks": {
+    "structurally_consistent": true,
+    "issues": [],
+    "semantic_accuracy_verified": false,
+    "exact_boundaries_verified": false,
+    "eligible_for_final_delivery": false
+  }
+}

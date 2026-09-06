@@ -1,0 +1,326 @@
+{
+  "trajectory_id": "episode_000000",
+  "source_dataset": "E:\\new_things\\sub_task_devide_v2\\光象-博彦-子任务标注-demo需求\\Turn_On_And_Off_The_Air_Conditioner_raw_lerobot",
+  "source_episode": {
+    "episode_index": 0,
+    "tasks": [
+      "unqualified",
+      "本体无动作@Body remain still.",
+      "qualified",
+      "左手将空调温度调至20.5°@Set the air conditioner temperature to 20.5° with the left hand.",
+      "左手关闭空调开关@Turn off the air conditioner with your left hand.",
+      "本体无动作@Body remain motionless.",
+      "左手打开空调开关@Turn on the air conditioner with your left hand.",
+      "turn on and off the air conditioner"
+    ],
+    "length": 596,
+    "raw_file_name": "S2RL1009P25149_20250802161609680_RAW.bag"
+  },
+  "model": "qwen3-vl-32b-instruct",
+  "adjudication": "assistant_visual_and_telemetry_review",
+  "model_only_output": false,
+  "sample_specific_adjudication": true,
+  "frame_count": 596,
+  "fps": 15,
+  "frame_interval_convention": "inclusive",
+  "time_convention": "timestamp of indexed frame; not exclusive clip-end time",
+  "structural_checks": {
+    "all_four_views_complete": true,
+    "source_indices_match": true,
+    "timestamps_match": true,
+    "no_gap_or_overlap": true
+  },
+  "quality_gate": {
+    "accepted": false,
+    "acceptance_basis": "previous_exact_frame_interpretation_withdrawn",
+    "scope": "subtask_segmentation_and_candidate_frame_boundaries",
+    "semantic_precision": null,
+    "semantic_recall": null,
+    "boundary_error_frames": null,
+    "automated_generalization_verified": false
+  },
+  "unresolved_boundaries": [],
+  "rejected_model_proposals": [
+    {
+      "file": "coarse.json",
+      "start_frame": 0,
+      "end_frame": 30,
+      "reason": "wait_conflicts_with_left_end_effector_motion",
+      "excursion_mm": 175.992
+    },
+    {
+      "file": "coarse.json",
+      "start_frame": 120,
+      "end_frame": 195,
+      "reason": "wait_conflicts_with_left_end_effector_motion",
+      "excursion_mm": 60.195
+    },
+    {
+      "file": "coarse.json",
+      "start_frame": 210,
+      "end_frame": 375,
+      "reason": "wait_conflicts_with_left_end_effector_motion",
+      "excursion_mm": 266.716
+    },
+    {
+      "file": "coarse.json",
+      "start_frame": 450,
+      "end_frame": 480,
+      "reason": "wait_conflicts_with_left_end_effector_motion",
+      "excursion_mm": 239.206
+    },
+    {
+      "file": "dense_000000_000059.json",
+      "start_frame": 0,
+      "end_frame": 32,
+      "reason": "wait_conflicts_with_left_end_effector_motion",
+      "excursion_mm": 211.647
+    },
+    {
+      "file": "dense_000096_000155.json",
+      "start_frame": 96,
+      "end_frame": 155,
+      "reason": "wait_conflicts_with_left_end_effector_motion",
+      "excursion_mm": 30.695
+    },
+    {
+      "file": "dense_000240_000299.json",
+      "start_frame": 240,
+      "end_frame": 299,
+      "reason": "wait_conflicts_with_left_end_effector_motion",
+      "excursion_mm": 93.065
+    },
+    {
+      "file": "dense_000288_000347.json",
+      "start_frame": 288,
+      "end_frame": 347,
+      "reason": "wait_conflicts_with_left_end_effector_motion",
+      "excursion_mm": 94.545
+    },
+    {
+      "file": "dense_000336_000395.json",
+      "start_frame": 336,
+      "end_frame": 354,
+      "reason": "wait_conflicts_with_left_end_effector_motion",
+      "excursion_mm": 145.258
+    },
+    {
+      "file": "dense_000480_000539.json",
+      "start_frame": 480,
+      "end_frame": 539,
+      "reason": "wait_conflicts_with_left_end_effector_motion",
+      "excursion_mm": 233.227
+    },
+    {
+      "file": "dense_000528_000587.json",
+      "start_frame": 528,
+      "end_frame": 587,
+      "reason": "wait_conflicts_with_left_end_effector_motion",
+      "excursion_mm": 30.624
+    },
+    {
+      "file": "video_000076_000087_082c9032bbf4.json",
+      "start_frame": 76,
+      "end_frame": 86,
+      "reason": "wait_conflicts_with_left_end_effector_motion",
+      "excursion_mm": 12.29
+    },
+    {
+      "file": "video_000088_000099_cc10bd887d4b.json",
+      "start_frame": 88,
+      "end_frame": 98,
+      "reason": "wait_conflicts_with_left_end_effector_motion",
+      "excursion_mm": 20.599
+    },
+    {
+      "file": "video_000432_000447_c40ba555ca06.json",
+      "start_frame": 432,
+      "end_frame": 446,
+      "reason": "wait_conflicts_with_left_end_effector_motion",
+      "excursion_mm": 12.664
+    }
+  ],
+  "excluded_non_32b_evidence": [
+    "model235_probe.json"
+  ],
+  "prior_to_human_review": {
+    "quality_gate": {
+      "accepted": false,
+      "semantic_precision": null,
+      "semantic_recall": null,
+      "boundary_error_frames": null,
+      "reason": "No independent ground truth; physical contact boundaries unresolved"
+    },
+    "unresolved_boundaries": [
+      {
+        "subtask_id": 2,
+        "boundary": "start",
+        "candidate_frame": 12,
+        "earliest_frame": 12,
+        "latest_frame": 15,
+        "reason": "接触遮挡或运动由微动逐渐过渡，缺少独立参考标注，不能确认单帧边界。"
+      },
+      {
+        "subtask_id": 3,
+        "boundary": "start",
+        "candidate_frame": 76,
+        "earliest_frame": 76,
+        "latest_frame": 80,
+        "reason": "接触遮挡或运动由微动逐渐过渡，缺少独立参考标注，不能确认单帧边界。"
+      },
+      {
+        "subtask_id": 4,
+        "boundary": "start",
+        "candidate_frame": 91,
+        "earliest_frame": 89,
+        "latest_frame": 95,
+        "reason": "接触遮挡或运动由微动逐渐过渡，缺少独立参考标注，不能确认单帧边界。"
+      },
+      {
+        "subtask_id": 5,
+        "boundary": "start",
+        "candidate_frame": 152,
+        "earliest_frame": 139,
+        "latest_frame": 154,
+        "reason": "接触遮挡或运动由微动逐渐过渡，缺少独立参考标注，不能确认单帧边界。"
+      },
+      {
+        "subtask_id": 6,
+        "boundary": "start",
+        "candidate_frame": 176,
+        "earliest_frame": 174,
+        "latest_frame": 179,
+        "reason": "接触遮挡或运动由微动逐渐过渡，缺少独立参考标注，不能确认单帧边界。"
+      },
+      {
+        "subtask_id": 7,
+        "boundary": "start",
+        "candidate_frame": 284,
+        "earliest_frame": 279,
+        "latest_frame": 287,
+        "reason": "接触遮挡或运动由微动逐渐过渡，缺少独立参考标注，不能确认单帧边界。"
+      },
+      {
+        "subtask_id": 8,
+        "boundary": "start",
+        "candidate_frame": 331,
+        "earliest_frame": 331,
+        "latest_frame": 336,
+        "reason": "接触遮挡或运动由微动逐渐过渡，缺少独立参考标注，不能确认单帧边界。"
+      },
+      {
+        "subtask_id": 9,
+        "boundary": "start",
+        "candidate_frame": 438,
+        "earliest_frame": 436,
+        "latest_frame": 441,
+        "reason": "接触遮挡或运动由微动逐渐过渡，缺少独立参考标注，不能确认单帧边界。"
+      },
+      {
+        "subtask_id": 10,
+        "boundary": "start",
+        "candidate_frame": 451,
+        "earliest_frame": 448,
+        "latest_frame": 454,
+        "reason": "接触遮挡或运动由微动逐渐过渡，缺少独立参考标注，不能确认单帧边界。"
+      },
+      {
+        "subtask_id": 11,
+        "boundary": "start",
+        "candidate_frame": 574,
+        "earliest_frame": 568,
+        "latest_frame": 574,
+        "reason": "接触遮挡或运动由微动逐渐过渡，缺少独立参考标注，不能确认单帧边界。"
+      }
+    ]
+  },
+  "resolved_by_human_review": [
+    {
+      "subtask_id": 2,
+      "boundary": "start",
+      "candidate_frame": 12,
+      "earliest_frame": 12,
+      "latest_frame": 15,
+      "reason": "接触遮挡或运动由微动逐渐过渡，缺少独立参考标注，不能确认单帧边界。"
+    },
+    {
+      "subtask_id": 3,
+      "boundary": "start",
+      "candidate_frame": 76,
+      "earliest_frame": 76,
+      "latest_frame": 80,
+      "reason": "接触遮挡或运动由微动逐渐过渡，缺少独立参考标注，不能确认单帧边界。"
+    },
+    {
+      "subtask_id": 4,
+      "boundary": "start",
+      "candidate_frame": 91,
+      "earliest_frame": 89,
+      "latest_frame": 95,
+      "reason": "接触遮挡或运动由微动逐渐过渡，缺少独立参考标注，不能确认单帧边界。"
+    },
+    {
+      "subtask_id": 5,
+      "boundary": "start",
+      "candidate_frame": 152,
+      "earliest_frame": 139,
+      "latest_frame": 154,
+      "reason": "接触遮挡或运动由微动逐渐过渡，缺少独立参考标注，不能确认单帧边界。"
+    },
+    {
+      "subtask_id": 6,
+      "boundary": "start",
+      "candidate_frame": 176,
+      "earliest_frame": 174,
+      "latest_frame": 179,
+      "reason": "接触遮挡或运动由微动逐渐过渡，缺少独立参考标注，不能确认单帧边界。"
+    },
+    {
+      "subtask_id": 7,
+      "boundary": "start",
+      "candidate_frame": 284,
+      "earliest_frame": 279,
+      "latest_frame": 287,
+      "reason": "接触遮挡或运动由微动逐渐过渡，缺少独立参考标注，不能确认单帧边界。"
+    },
+    {
+      "subtask_id": 8,
+      "boundary": "start",
+      "candidate_frame": 331,
+      "earliest_frame": 331,
+      "latest_frame": 336,
+      "reason": "接触遮挡或运动由微动逐渐过渡，缺少独立参考标注，不能确认单帧边界。"
+    },
+    {
+      "subtask_id": 9,
+      "boundary": "start",
+      "candidate_frame": 438,
+      "earliest_frame": 436,
+      "latest_frame": 441,
+      "reason": "接触遮挡或运动由微动逐渐过渡，缺少独立参考标注，不能确认单帧边界。"
+    },
+    {
+      "subtask_id": 10,
+      "boundary": "start",
+      "candidate_frame": 451,
+      "earliest_frame": 448,
+      "latest_frame": 454,
+      "reason": "接触遮挡或运动由微动逐渐过渡，缺少独立参考标注，不能确认单帧边界。"
+    },
+    {
+      "subtask_id": 11,
+      "boundary": "start",
+      "candidate_frame": 574,
+      "earliest_frame": 568,
+      "latest_frame": 574,
+      "reason": "接触遮挡或运动由微动逐渐过渡，缺少独立参考标注，不能确认单帧边界。"
+    }
+  ],
+  "human_review_record": "outputs/confirmed/human_review.json",
+  "interpretation_correction": {
+    "prior_exact_frame_acceptance_withdrawn": true,
+    "reason": "User clarified that earlier approval concerned candidate boundaries, not exact start/end frames.",
+    "current_working_reference": "outputs/ground_truth/v2/manifest.json"
+  },
+  "exact_frame_truth_claimed": false
+}

@@ -1,0 +1,72 @@
+{
+  "model": "qwen3-vl-32b-instruct",
+  "prompt": "你是机器人轨迹原子动作标注员。每张图上下两格是同一原始帧的头部head_rgb视角与左腕left_wrist_rgb视角，不是两个时间点。机械臂左右以机器人本体为准，不按屏幕左右。图片上标有原始frame_index，必须使用这些原始编号，不是图片序号。帧率15fps。只根据可见证据，不臆测接触、按压次数、温度读数或成功状态。技能可用reach/grasp/move/rotate/press/pull/push/release/wait；撤离用move并在动作描述中说明。一个子任务一个主要原子动作，不能把接近、按压、撤离合并。连续相同目的的运动不任意拆段。区分按压保持和新的独立按压。只输出JSON，不加代码围栏。\n关键：腕部相机固定在机械臂上！因此夹爪在腕部图中的像素位置固定完全不意味着机械臂静止。必须看墙面、门框、面板相对腕部相机的变化，并交叉看固定头部视角。以下还提供同帧左末端位置，单位毫米，是实际运动的辅助证据（不直接证明接触或任务成功）。不要把手臂返回途中判成wait。持续向同一按钮靠近是一个reach，不要分成move再reach。屏幕数值变化不等于新按压：长按自动连增温度可能属于一次press，不得按每次数字跳变切片。只在实际松开再按或换按钮等证据下拆分。接触不清晰则明确uncertain=true。\n逐帧审核范围[272,291]，所有帧均提供。运动数据：[{\"frame\":272,\"left_xyz_mm\":[-22.16,334.66,339.74],\"step_mm\":4.361},{\"frame\":273,\"left_xyz_mm\":[-23.0,335.19,337.25],\"step_mm\":2.684},{\"frame\":274,\"left_xyz_mm\":[-23.58,335.3,336.68],\"step_mm\":0.821},{\"frame\":275,\"left_xyz_mm\":[-24.04,335.31,336.01],\"step_mm\":0.806},{\"frame\":276,\"left_xyz_mm\":[-24.35,335.33,335.53],\"step_mm\":0.574},{\"frame\":277,\"left_xyz_mm\":[-24.56,335.33,335.19],\"step_mm\":0.401},{\"frame\":278,\"left_xyz_mm\":[-24.63,335.33,334.83],\"step_mm\":0.366},{\"frame\":279,\"left_xyz_mm\":[-24.71,335.33,334.7],\"step_mm\":0.151},{\"frame\":280,\"left_xyz_mm\":[-24.74,335.34,334.54],\"step_mm\":0.168},{\"frame\":281,\"left_xyz_mm\":[-24.83,335.35,334.47],\"step_mm\":0.109},{\"frame\":282,\"left_xyz_mm\":[-24.86,335.34,334.37],\"step_mm\":0.105},{\"frame\":283,\"left_xyz_mm\":[-24.86,335.32,334.22],\"step_mm\":0.151},{\"frame\":284,\"left_xyz_mm\":[-24.87,335.32,334.15],\"step_mm\":0.068},{\"frame\":285,\"left_xyz_mm\":[-24.87,335.32,334.09],\"step_mm\":0.063},{\"frame\":286,\"left_xyz_mm\":[-24.87,335.33,334.13],\"step_mm\":0.045},{\"frame\":287,\"left_xyz_mm\":[-24.87,335.33,334.13],\"step_mm\":0.001},{\"frame\":288,\"left_xyz_mm\":[-24.87,335.33,334.18],\"step_mm\":0.044},{\"frame\":289,\"left_xyz_mm\":[-24.87,335.33,334.18],\"step_mm\":0.0},{\"frame\":290,\"left_xyz_mm\":[-24.87,335.34,334.2],\"step_mm\":0.019},{\"frame\":291,\"left_xyz_mm\":[-24.87,335.33,334.18],\"step_mm\":0.019}]\n输出 {\"segments\":[{\"start_frame\":0,\"end_frame\":1,\"skill_id\":\"reach\",\"arm_used\":\"left\",\"action\":\"中文\",\"evidence\":\"具体相对位置、运动和接触证据及帧号\",\"uncertain\":true}],\"boundary_uncertainty\":[{\"frame\":0,\"earliest\":0,\"latest\":0,\"reason\":\"不确定依据\"}],\"screen_changes\":[],\"missed_action_check\":\"是否有遗漏独立技能\"}。严格覆盖本窗口所有帧，闭区间连续无重叠。不要根据任务文字补全未观察的动作，不要编造精度。",
+  "frames": [
+    272,
+    273,
+    274,
+    275,
+    276,
+    277,
+    278,
+    279,
+    280,
+    281,
+    282,
+    283,
+    284,
+    285,
+    286,
+    287,
+    288,
+    289,
+    290,
+    291
+  ],
+  "usage": {
+    "image_tokens": 9640,
+    "input_tokens": 11288,
+    "input_tokens_details": {
+      "image_tokens": 9640,
+      "text_tokens": 1648
+    },
+    "output_tokens": 343,
+    "output_tokens_details": {
+      "text_tokens": 343
+    },
+    "total_tokens": 11631
+  },
+  "request_id": "3319cfe7-f2e0-9411-8ee3-7023bbe97826",
+  "result": {
+    "segments": [
+      {
+        "start_frame": 272,
+        "end_frame": 287,
+        "skill_id": "reach",
+        "arm_used": "left",
+        "action": "左臂向墙面温控面板靠近，末端持续前移至接近按钮位置",
+        "evidence": "从frame 272到287，左腕视角中墙面与门框相对位置无明显变化，表明机械臂未大幅移动；但左末端xyz坐标持续前移（z轴从339.74mm减至334.13mm），步长逐步减小，显示为持续逼近动作。head_rgb视角中温控面板在画面中位置稳定，说明机械臂未发生旋转或横向位移，仅沿直线靠近。夹爪在腕部图中位置固定，符合运动趋势。未见接触证据，故判定为reach而非press。",
+        "uncertain": false
+      },
+      {
+        "start_frame": 288,
+        "end_frame": 291,
+        "skill_id": "wait",
+        "arm_used": "left",
+        "action": "左臂末端保持在接近温控面板的位置，无明显运动",
+        "evidence": "frame 288-291左末端xyz坐标基本稳定（z轴334.18mm左右微变，step_mm=0.0~0.019mm），且head_rgb与left_wrist_rgb视角中墙面、门框及温控面板相对位置均无变化，表明机械臂处于静止状态。此阶段无进一步运动或接触迹象，符合wait定义。",
+        "uncertain": false
+      }
+    ],
+    "boundary_uncertainty": [],
+    "screen_changes": [],
+    "missed_action_check": "无遗漏独立技能"
+  },
+  "proposal_checks": {
+    "structurally_consistent": true,
+    "issues": [],
+    "semantic_accuracy_verified": false,
+    "exact_boundaries_verified": false,
+    "eligible_for_final_delivery": false
+  }
+}

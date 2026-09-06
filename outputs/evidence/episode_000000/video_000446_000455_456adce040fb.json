@@ -1,0 +1,83 @@
+{
+  "model": "qwen3-vl-32b-instruct",
+  "prompt": "这是左腕相机的视频片段，原视频15fps，帧范围446至455。画面标注的是原始帧号。\n接口播放帧率为10，仅供时序观察；不要使用接口播放秒数定位，必须使用画面上的原始帧号。\n相机固定在左臂，黑色夹爪位置固定是正常现象，须看目标相对夹爪的运动。\n只依据实际图像作答。无法确定接触的时刻时给范围，禁止凭屏幕变化断定物理接触起始。\n只分析夹爪尖端与按钮的接触关系：接近、按住、松开或移向另一个按钮。不要把屏幕数字变化当成独立动作。请给首次能看见接触和首次能看见脱离的帧号；如果被遮挡、深度不可见或不能确定，必须在uncertain_boundaries中说明，不得杜撰接触时刻。\n只输出JSON对象，格式为：{\"observations\":[{\"frame\":0,\"description\":\"可见事实\"}],\"actions\":[{\"start_frame\":0,\"end_frame\":1,\"skill_id\":\"reach/press/move/wait之一\",\"description\":\"动作\",\"confidence\":\"high/medium/low之一\"}],\"uncertain_boundaries\":[{\"earliest_frame\":0,\"latest_frame\":1,\"reason\":\"原因\"}]}。\n不要猜测品牌、无法辨认的数字或未看到的动作；动作起止采用闭区间。",
+  "frames": [
+    446,
+    447,
+    448,
+    449,
+    450,
+    451,
+    452,
+    453,
+    454,
+    455
+  ],
+  "usage": {
+    "input_tokens": 3273,
+    "input_tokens_details": {
+      "text_tokens": 301,
+      "video_tokens": 2972
+    },
+    "output_tokens": 334,
+    "output_tokens_details": {
+      "text_tokens": 334
+    },
+    "total_tokens": 3607,
+    "video_tokens": 2972
+  },
+  "request_id": "0ed8d88f-e907-9a51-8588-cbb8c1fac5ad",
+  "result": {
+    "observations": [
+      {
+        "frame": 446,
+        "description": "夹爪尖端位于TOSHIBA控制面板右侧，未接触任何按钮。"
+      },
+      {
+        "frame": 450,
+        "description": "夹爪尖端仍位于控制面板右侧，与按钮无接触。"
+      },
+      {
+        "frame": 452,
+        "description": "夹爪尖端位置未变，仍未接触按钮。"
+      },
+      {
+        "frame": 454,
+        "description": "夹爪尖端开始向控制面板移动，接近最上方的电源按钮，但尚未接触。"
+      },
+      {
+        "frame": 455,
+        "description": "夹爪尖端与电源按钮接触，可见轻微压入迹象。"
+      }
+    ],
+    "actions": [
+      {
+        "start_frame": 454,
+        "end_frame": 455,
+        "skill_id": "reach",
+        "description": "夹爪尖端从初始位置移向电源按钮，并在455帧首次接触。",
+        "confidence": "high"
+      }
+    ],
+    "uncertain_boundaries": [
+      {
+        "earliest_frame": 454,
+        "latest_frame": 455,
+        "reason": "接触发生在454至455帧之间，454帧仅见接近，455帧可见接触痕迹，无法精确确定接触起始帧。"
+      }
+    ]
+  },
+  "proposal_checks": {
+    "structurally_consistent": false,
+    "issues": [
+      {
+        "segment": 0,
+        "reason": "gap_or_overlap",
+        "expected_start": 446
+      }
+    ],
+    "semantic_accuracy_verified": false,
+    "exact_boundaries_verified": false,
+    "eligible_for_final_delivery": false
+  }
+}

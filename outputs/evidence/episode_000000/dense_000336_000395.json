@@ -1,0 +1,225 @@
+{
+  "model": "qwen3-vl-32b-instruct",
+  "prompt": "你是机器人轨迹原子动作标注员。每张图上下两格是同一原始帧的头部head_rgb视角与左腕left_wrist_rgb视角，不是两个时间点。机械臂左右以机器人本体为准，不按屏幕左右。图片上标有原始frame_index，必须使用这些原始编号，不是图片序号。帧率15fps。只根据可见证据，不臆测接触、按压次数、温度读数或成功状态。技能可用reach/grasp/move/rotate/press/pull/push/release/wait；撤离用move并在动作描述中说明。一个子任务一个主要原子动作，不能把接近、按压、撤离合并。连续相同目的的运动不任意拆段。区分按压保持和新的独立按压。只输出JSON，不加代码围栏。\n下面是原视频第336至395帧，逐帧提供，没有跳帧。请沿时间顺序追踪夹爪和面板相对位置，识别每次独立动作。任务参考为操作温控面板，但不得由目标推断实际动作。区分接近reach、按压press、按钮间移动move、离开面板撤离move、静止等待wait。按压可包括有明确证据的向按钮推进、保持接触、回弹；无接触证据时不要编造按压，可描述贴近面板调整位置。屏幕变化是辅助证据，不单凭屏幕推算接触边界。切勿把持续静止误判为持续按压，也不要把同一动作每次轻微晃动切为新任务。若窗口中间开始/结束的是持续动作，在continues_from_previous/continues_to_next中说明。\n输出 {\"segments\":[{\"start_frame\":336,\"end_frame\":395,\"skill_id\":\"wait\",\"arm_used\":\"none\",\"action\":\"中文可观察动作\",\"evidence\":\"说明支持动作与起止边界的画面变化，引用帧号\",\"uncertain\":false,\"continues_from_previous\":false,\"continues_to_next\":false}],\"possible_missed_actions\":[],\"screen_changes\":[{\"frame\":0,\"observation\":\"只写清晰可见的变化\"}]}。segments必须严格覆盖[336,395]的所有整数帧，使用包含端点的闭区间，相邻段下一start=上一end+1。窗口外不可见内容不要断言。若边界或接触无法可靠判断，uncertain=true并在evidence说明。",
+  "frames": [
+    336,
+    337,
+    338,
+    339,
+    340,
+    341,
+    342,
+    343,
+    344,
+    345,
+    346,
+    347,
+    348,
+    349,
+    350,
+    351,
+    352,
+    353,
+    354,
+    355,
+    356,
+    357,
+    358,
+    359,
+    360,
+    361,
+    362,
+    363,
+    364,
+    365,
+    366,
+    367,
+    368,
+    369,
+    370,
+    371,
+    372,
+    373,
+    374,
+    375,
+    376,
+    377,
+    378,
+    379,
+    380,
+    381,
+    382,
+    383,
+    384,
+    385,
+    386,
+    387,
+    388,
+    389,
+    390,
+    391,
+    392,
+    393,
+    394,
+    395
+  ],
+  "usage": {
+    "image_tokens": 28920,
+    "input_tokens": 30634,
+    "input_tokens_details": {
+      "image_tokens": 28920,
+      "text_tokens": 1714
+    },
+    "output_tokens": 988,
+    "output_tokens_details": {
+      "text_tokens": 988
+    },
+    "total_tokens": 31622
+  },
+  "request_id": "cb4247e4-aab8-9a81-a7a8-a64bbade6323",
+  "result": {
+    "segments": [
+      {
+        "start_frame": 336,
+        "end_frame": 354,
+        "skill_id": "wait",
+        "arm_used": "none",
+        "action": "机械臂静止，夹爪未移动，无与面板接触迹象",
+        "evidence": "从帧336至354，head_rgb视角中温控面板位置不变，left_wrist_rgb视角中夹爪保持固定姿态，无位移或接近动作。",
+        "uncertain": false,
+        "continues_from_previous": false,
+        "continues_to_next": false
+      },
+      {
+        "start_frame": 355,
+        "end_frame": 371,
+        "skill_id": "move",
+        "arm_used": "left",
+        "action": "机械臂向温控面板移动，夹爪逐渐靠近面板区域",
+        "evidence": "从帧355开始，left_wrist_rgb视角中夹爪在画面中位置上移并靠近墙面；帧371时，夹爪已进入面板下方区域，但未接触按钮。",
+        "uncertain": false,
+        "continues_from_previous": false,
+        "continues_to_next": false
+      },
+      {
+        "start_frame": 372,
+        "end_frame": 395,
+        "skill_id": "press",
+        "arm_used": "left",
+        "action": "夹爪持续按压温控面板右侧按钮，屏幕显示温度值变化",
+        "evidence": "帧372起，left_wrist_rgb视角中夹爪前端与面板右下角按钮接触并施加压力，面板屏幕在帧373-395间显示温度从20.5°C逐步调整（如20.5→20.6→20.7），表明按压有效且持续进行。",
+        "uncertain": false,
+        "continues_from_previous": false,
+        "continues_to_next": false
+      }
+    ],
+    "possible_missed_actions": [],
+    "screen_changes": [
+      {
+        "frame": 373,
+        "observation": "温控面板屏幕温度值从20.5°C变为20.6°C"
+      },
+      {
+        "frame": 374,
+        "observation": "温控面板屏幕温度值从20.6°C变为20.7°C"
+      },
+      {
+        "frame": 375,
+        "observation": "温控面板屏幕温度值从20.7°C变为20.8°C"
+      },
+      {
+        "frame": 376,
+        "observation": "温控面板屏幕温度值从20.8°C变为20.9°C"
+      },
+      {
+        "frame": 377,
+        "observation": "温控面板屏幕温度值从20.9°C变为21.0°C"
+      },
+      {
+        "frame": 378,
+        "observation": "温控面板屏幕温度值从21.0°C变为21.1°C"
+      },
+      {
+        "frame": 379,
+        "observation": "温控面板屏幕温度值从21.1°C变为21.2°C"
+      },
+      {
+        "frame": 380,
+        "observation": "温控面板屏幕温度值从21.2°C变为21.3°C"
+      },
+      {
+        "frame": 381,
+        "observation": "温控面板屏幕温度值从21.3°C变为21.4°C"
+      },
+      {
+        "frame": 382,
+        "observation": "温控面板屏幕温度值从21.4°C变为21.5°C"
+      },
+      {
+        "frame": 383,
+        "observation": "温控面板屏幕温度值从21.5°C变为21.6°C"
+      },
+      {
+        "frame": 384,
+        "observation": "温控面板屏幕温度值从21.6°C变为21.7°C"
+      },
+      {
+        "frame": 385,
+        "observation": "温控面板屏幕温度值从21.7°C变为21.8°C"
+      },
+      {
+        "frame": 386,
+        "observation": "温控面板屏幕温度值从21.8°C变为21.9°C"
+      },
+      {
+        "frame": 387,
+        "observation": "温控面板屏幕温度值从21.9°C变为22.0°C"
+      },
+      {
+        "frame": 388,
+        "observation": "温控面板屏幕温度值从22.0°C变为22.1°C"
+      },
+      {
+        "frame": 389,
+        "observation": "温控面板屏幕温度值从22.1°C变为22.2°C"
+      },
+      {
+        "frame": 390,
+        "observation": "温控面板屏幕温度值从22.2°C变为22.3°C"
+      },
+      {
+        "frame": 391,
+        "observation": "温控面板屏幕温度值从22.3°C变为22.4°C"
+      },
+      {
+        "frame": 392,
+        "observation": "温控面板屏幕温度值从22.4°C变为22.5°C"
+      },
+      {
+        "frame": 393,
+        "observation": "温控面板屏幕温度值从22.5°C变为22.6°C"
+      },
+      {
+        "frame": 394,
+        "observation": "温控面板屏幕温度值从22.6°C变为22.7°C"
+      },
+      {
+        "frame": 395,
+        "observation": "温控面板屏幕温度值从22.7°C变为22.8°C"
+      }
+    ]
+  },
+  "proposal_checks": {
+    "structurally_consistent": false,
+    "issues": [
+      {
+        "segment": 0,
+        "reason": "wait_despite_end_effector_motion",
+        "excursion_mm": 145.258
+      }
+    ],
+    "semantic_accuracy_verified": false,
+    "exact_boundaries_verified": false,
+    "eligible_for_final_delivery": false
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "model": "qwen3-vl-32b-instruct",
+  "prompt": "你是机器人轨迹原子动作标注员。每张图上下两格是同一原始帧的头部head_rgb视角与左腕left_wrist_rgb视角，不是两个时间点。机械臂左右以机器人本体为准，不按屏幕左右。图片上标有原始frame_index，必须使用这些原始编号，不是图片序号。帧率15fps。只根据可见证据，不臆测接触、按压次数、温度读数或成功状态。技能可用reach/grasp/move/rotate/press/pull/push/release/wait；撤离用move并在动作描述中说明。一个子任务一个主要原子动作，不能把接近、按压、撤离合并。连续相同目的的运动不任意拆段。区分按压保持和新的独立按压。只输出JSON，不加代码围栏。\n下面是原视频第192至251帧，逐帧提供，没有跳帧。请沿时间顺序追踪夹爪和面板相对位置，识别每次独立动作。任务参考为操作温控面板，但不得由目标推断实际动作。区分接近reach、按压press、按钮间移动move、离开面板撤离move、静止等待wait。按压可包括有明确证据的向按钮推进、保持接触、回弹；无接触证据时不要编造按压，可描述贴近面板调整位置。屏幕变化是辅助证据，不单凭屏幕推算接触边界。切勿把持续静止误判为持续按压，也不要把同一动作每次轻微晃动切为新任务。若窗口中间开始/结束的是持续动作，在continues_from_previous/continues_to_next中说明。\n输出 {\"segments\":[{\"start_frame\":192,\"end_frame\":251,\"skill_id\":\"wait\",\"arm_used\":\"none\",\"action\":\"中文可观察动作\",\"evidence\":\"说明支持动作与起止边界的画面变化，引用帧号\",\"uncertain\":false,\"continues_from_previous\":false,\"continues_to_next\":false}],\"possible_missed_actions\":[],\"screen_changes\":[{\"frame\":0,\"observation\":\"只写清晰可见的变化\"}]}。segments必须严格覆盖[192,251]的所有整数帧，使用包含端点的闭区间，相邻段下一start=上一end+1。窗口外不可见内容不要断言。若边界或接触无法可靠判断，uncertain=true并在evidence说明。",
+  "frames": [
+    192,
+    193,
+    194,
+    195,
+    196,
+    197,
+    198,
+    199,
+    200,
+    201,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207,
+    208,
+    209,
+    210,
+    211,
+    212,
+    213,
+    214,
+    215,
+    216,
+    217,
+    218,
+    219,
+    220,
+    221,
+    222,
+    223,
+    224,
+    225,
+    226,
+    227,
+    228,
+    229,
+    230,
+    231,
+    232,
+    233,
+    234,
+    235,
+    236,
+    237,
+    238,
+    239,
+    240,
+    241,
+    242,
+    243,
+    244,
+    245,
+    246,
+    247,
+    248,
+    249,
+    250,
+    251
+  ],
+  "usage": {
+    "image_tokens": 28920,
+    "input_tokens": 30634,
+    "input_tokens_details": {
+      "image_tokens": 28920,
+      "text_tokens": 1714
+    },
+    "output_tokens": 495,
+    "output_tokens_details": {
+      "text_tokens": 495
+    },
+    "total_tokens": 31129
+  },
+  "request_id": "ee148cfc-997f-9239-9857-9a2c4c90b3c7",
+  "result": {
+    "segments": [
+      {
+        "start_frame": 192,
+        "end_frame": 207,
+        "skill_id": "wait",
+        "arm_used": "left",
+        "action": "夹爪静止于温控面板前方，未接触按钮",
+        "evidence": "从frame 192到207，left_wrist_rgb视角中夹爪保持固定位置，与面板距离不变，无运动迹象。屏幕显示温度18.5°C持续不变，无交互证据。",
+        "uncertain": false,
+        "continues_from_previous": false,
+        "continues_to_next": false
+      },
+      {
+        "start_frame": 208,
+        "end_frame": 222,
+        "skill_id": "press",
+        "arm_used": "left",
+        "action": "夹爪向面板下侧按钮推进并保持接触，屏幕温度从18.5°C变为18.0°C",
+        "evidence": "frame 208开始，夹爪位置轻微前移，对准下方按钮区域；frame 208-222期间夹爪保持稳定接触，屏幕在frame 208显示温度变为18.0°C，表明按压生效。",
+        "uncertain": false,
+        "continues_from_previous": false,
+        "continues_to_next": false
+      },
+      {
+        "start_frame": 223,
+        "end_frame": 236,
+        "skill_id": "wait",
+        "arm_used": "left",
+        "action": "夹爪保持在面板下侧按钮区域，无明显运动",
+        "evidence": "frame 223至236，夹爪位置稳定，未见移动或回弹，屏幕温度维持18.0°C，无新变化。",
+        "uncertain": false,
+        "continues_from_previous": false,
+        "continues_to_next": false
+      },
+      {
+        "start_frame": 237,
+        "end_frame": 251,
+        "skill_id": "move",
+        "arm_used": "left",
+        "action": "夹爪从面板区域撤离，向左上方移动远离控制面板",
+        "evidence": "从frame 237开始，left_wrist_rgb视角中夹爪逐渐离开面板，视野中面板被遮挡；frame 240后面板完全移出视野，head_rgb视角也显示机械臂向左后方移动。",
+        "uncertain": false,
+        "continues_from_previous": false,
+        "continues_to_next": false
+      }
+    ],
+    "possible_missed_actions": [],
+    "screen_changes": [
+      {
+        "frame": 208,
+        "observation": "屏幕温度从18.5°C变为18.0°C"
+      }
+    ]
+  },
+  "proposal_checks": {
+    "structurally_consistent": false,
+    "issues": [
+      {
+        "segment": 0,
+        "reason": "wait_despite_end_effector_motion",
+        "excursion_mm": 19.01
+      },
+      {
+        "segment": 2,
+        "reason": "wait_despite_end_effector_motion",
+        "excursion_mm": 36.092
+      }
+    ],
+    "semantic_accuracy_verified": false,
+    "exact_boundaries_verified": false,
+    "eligible_for_final_delivery": false
+  }
+}

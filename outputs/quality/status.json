@@ -1,0 +1,18 @@
+{
+  "accepted": false,
+  "acceptance_basis": "user_manual_review_under_current_observation",
+  "scope": "current_two_trajectories_segmentation_and_frame_boundaries",
+  "candidate_trajectories": 2,
+  "accepted_trajectories": 0,
+  "accepted_subtasks": 18,
+  "unresolved_boundaries": 0,
+  "human_review_record": "outputs/confirmed/human_review.json",
+  "automated_generalization_verified": false,
+  "quantitative_accuracy_metrics": null,
+  "interpretation_correction": {
+    "prior_exact_frame_acceptance_withdrawn": true,
+    "reason": "User clarified that earlier approval concerned candidate boundaries, not exact start/end frames.",
+    "current_working_reference": "outputs/ground_truth/v2/manifest.json"
+  },
+  "exact_frame_truth_claimed": false
+}

@@ -1,0 +1,91 @@
+{
+  "events": [
+    {
+      "interaction_supported": true,
+      "start_frame": 118,
+      "end_frame": 152,
+      "action": "按压并保持电源按钮",
+      "evidence": "按压开始：从帧117到118，末端增量从0.779mm骤降至0.322mm，表明减速或接近接触；帧119的位移仅为0.019mm，几乎静止，符合接触后保持的特征。帧120开始有微小位移（0.136mm），但屏幕在帧123才响应，说明接触可能发生在118-119之间。由于视觉上夹爪尖端始终遮挡按钮，无法直接观察接触瞬间，且运动连续无明显过渡，因此判定为不确定，起点范围在117-119帧之间。 结束边界由持续后撤信号定位。 模型给出的待复核起点范围为117—119帧，该范围不是保证误差界。",
+      "additional_actions": [],
+      "uncertain": true,
+      "vlm_end_frame": 149,
+      "previous_start_frame": 101
+    },
+    {
+      "interaction_supported": true,
+      "start_frame": 205,
+      "end_frame": 220,
+      "action": "按压降温按钮",
+      "evidence": "按压开始：从帧196到205，夹爪持续向按钮靠近，z轴位移逐渐减小（从-0.275mm到-0.789mm），表明接近过程。在帧205，夹爪尖端已非常接近或接触下箭头按钮，且屏幕在帧208响应（温度从18.5°C变为18.0°C）。由于视觉上无法明确区分接触瞬间（无明显形变或遮挡变化），且运动连续无可见减速/停留，因此判定为不确定。可能的接触起点范围在204-206帧之间，其中205帧最可能为实际接触开始。 结束边界由持续后撤信号定位。 模型给出的待复核起点范围为204—206帧，该范围不是保证误差界。",
+      "additional_actions": [],
+      "uncertain": true,
+      "vlm_end_frame": 216,
+      "previous_start_frame": 207
+    }
+  ],
+  "details": [
+    {
+      "supported": true,
+      "response_frame": 123,
+      "earlier_flash_checks": [
+        {
+          "cue": {
+            "frame": 123,
+            "luminance_delta": 32.118,
+            "threshold": 12
+          },
+          "check": {
+            "changed": true,
+            "first_changed_frame": 123,
+            "previous_state": "屏幕关闭，无可见数字或背光",
+            "new_state": "屏幕亮起，显示数字'18.5℃'及图标（雪花、温度计等），背光开启",
+            "uncertain": false
+          }
+        }
+      ],
+      "response_uncertain": false,
+      "onset": {
+        "start_frame": 118,
+        "earliest_frame": 117,
+        "latest_frame": 119,
+        "uncertain": true,
+        "evidence": "从帧117到118，末端增量从0.779mm骤降至0.322mm，表明减速或接近接触；帧119的位移仅为0.019mm，几乎静止，符合接触后保持的特征。帧120开始有微小位移（0.136mm），但屏幕在帧123才响应，说明接触可能发生在118-119之间。由于视觉上夹爪尖端始终遮挡按钮，无法直接观察接触瞬间，且运动连续无明显过渡，因此判定为不确定，起点范围在117-119帧之间。"
+      },
+      "original_event": {
+        "start_frame": 101,
+        "end_frame": 152,
+        "skill_id": "press",
+        "arm_used": "left",
+        "proposal_only": true,
+        "contact_verified": false,
+        "peak_frame": 127
+      },
+      "scope": "response-assisted inference, not measured contact time"
+    },
+    {
+      "supported": true,
+      "response_frame": 208,
+      "earlier_flash_checks": [],
+      "response_uncertain": false,
+      "onset": {
+        "start_frame": 205,
+        "earliest_frame": 204,
+        "latest_frame": 206,
+        "uncertain": true,
+        "evidence": "从帧196到205，夹爪持续向按钮靠近，z轴位移逐渐减小（从-0.275mm到-0.789mm），表明接近过程。在帧205，夹爪尖端已非常接近或接触下箭头按钮，且屏幕在帧208响应（温度从18.5°C变为18.0°C）。由于视觉上无法明确区分接触瞬间（无明显形变或遮挡变化），且运动连续无可见减速/停留，因此判定为不确定。可能的接触起点范围在204-206帧之间，其中205帧最可能为实际接触开始。"
+      },
+      "original_event": {
+        "start_frame": 211,
+        "end_frame": 220,
+        "skill_id": "press",
+        "arm_used": "left",
+        "proposal_only": true,
+        "contact_verified": false,
+        "peak_frame": 215
+      },
+      "scope": "response-assisted inference, not measured contact time"
+    }
+  ],
+  "accepted": false,
+  "reference_used_during_inference": false
+}

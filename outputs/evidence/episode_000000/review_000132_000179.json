@@ -1,0 +1,121 @@
+{
+  "model": "qwen3-vl-32b-instruct",
+  "prompt": "你是机器人轨迹原子动作标注员。每张图上下两格是同一原始帧的头部head_rgb视角与左腕left_wrist_rgb视角，不是两个时间点。机械臂左右以机器人本体为准，不按屏幕左右。图片上标有原始frame_index，必须使用这些原始编号，不是图片序号。帧率15fps。只根据可见证据，不臆测接触、按压次数、温度读数或成功状态。技能可用reach/grasp/move/rotate/press/pull/push/release/wait；撤离用move并在动作描述中说明。一个子任务一个主要原子动作，不能把接近、按压、撤离合并。连续相同目的的运动不任意拆段。区分按压保持和新的独立按压。只输出JSON，不加代码围栏。\n关键：腕部相机固定在机械臂上！因此夹爪在腕部图中的像素位置固定完全不意味着机械臂静止。必须看墙面、门框、面板相对腕部相机的变化，并交叉看固定头部视角。以下还提供同帧左末端位置，单位毫米，是实际运动的辅助证据（不直接证明接触或任务成功）。不要把手臂返回途中判成wait。持续向同一按钮靠近是一个reach，不要分成move再reach。屏幕数值变化不等于新按压：长按自动连增温度可能属于一次press，不得按每次数字跳变切片。只在实际松开再按或换按钮等证据下拆分。接触不清晰则明确uncertain=true。\n逐帧审核范围[132,179]，所有帧均提供。运动数据：[{\"frame\":132,\"left_xyz_mm\":[226.58,127.02,553.08],\"step_mm\":1.347},{\"frame\":133,\"left_xyz_mm\":[226.81,125.82,553.53],\"step_mm\":1.306},{\"frame\":134,\"left_xyz_mm\":[227.28,124.74,554.02],\"step_mm\":1.279},{\"frame\":135,\"left_xyz_mm\":[227.66,123.73,553.68],\"step_mm\":1.125},{\"frame\":136,\"left_xyz_mm\":[227.97,122.45,552.95],\"step_mm\":1.51},{\"frame\":137,\"left_xyz_mm\":[228.77,121.51,552.4],\"step_mm\":1.344},{\"frame\":138,\"left_xyz_mm\":[229.69,120.68,552.06],\"step_mm\":1.292},{\"frame\":139,\"left_xyz_mm\":[230.5,119.92,551.36],\"step_mm\":1.31},{\"frame\":140,\"left_xyz_mm\":[231.11,119.36,550.64],\"step_mm\":1.096},{\"frame\":141,\"left_xyz_mm\":[231.6,118.93,550.02],\"step_mm\":0.903},{\"frame\":142,\"left_xyz_mm\":[231.89,118.59,550.53],\"step_mm\":0.686},{\"frame\":143,\"left_xyz_mm\":[232.22,118.4,550.48],\"step_mm\":0.379},{\"frame\":144,\"left_xyz_mm\":[232.42,118.22,551.02],\"step_mm\":0.6},{\"frame\":145,\"left_xyz_mm\":[232.71,118.17,551.12],\"step_mm\":0.312},{\"frame\":146,\"left_xyz_mm\":[232.96,118.13,551.65],\"step_mm\":0.58},{\"frame\":147,\"left_xyz_mm\":[233.15,118.33,552.29],\"step_mm\":0.7},{\"frame\":148,\"left_xyz_mm\":[233.29,118.66,552.51],\"step_mm\":0.418},{\"frame\":149,\"left_xyz_mm\":[233.25,118.69,552.47],\"step_mm\":0.066},{\"frame\":150,\"left_xyz_mm\":[233.26,118.7,552.51],\"step_mm\":0.043},{\"frame\":151,\"left_xyz_mm\":[233.34,118.99,552.51],\"step_mm\":0.295},{\"frame\":152,\"left_xyz_mm\":[233.89,119.98,551.38],\"step_mm\":1.602},{\"frame\":153,\"left_xyz_mm\":[234.75,120.94,550.5],\"step_mm\":1.563},{\"frame\":154,\"left_xyz_mm\":[235.42,121.48,550.17],\"step_mm\":0.919},{\"frame\":155,\"left_xyz_mm\":[236.14,121.87,550.53],\"step_mm\":0.893},{\"frame\":156,\"left_xyz_mm\":[236.31,121.95,550.92],\"step_mm\":0.432},{\"frame\":157,\"left_xyz_mm\":[236.49,121.96,550.95],\"step_mm\":0.182},{\"frame\":158,\"left_xyz_mm\":[236.59,122.07,551.06],\"step_mm\":0.178},{\"frame\":159,\"left_xyz_mm\":[236.67,122.16,551.2],\"step_mm\":0.194},{\"frame\":160,\"left_xyz_mm\":[236.68,122.17,551.18],\"step_mm\":0.022},{\"frame\":161,\"left_xyz_mm\":[236.67,122.16,551.18],\"step_mm\":0.005},{\"frame\":162,\"left_xyz_mm\":[236.58,122.25,551.34],\"step_mm\":0.202},{\"frame\":163,\"left_xyz_mm\":[236.43,122.36,551.58],\"step_mm\":0.311},{\"frame\":164,\"left_xyz_mm\":[236.14,122.62,551.77],\"step_mm\":0.43},{\"frame\":165,\"left_xyz_mm\":[236.0,122.75,551.97],\"step_mm\":0.276},{\"frame\":166,\"left_xyz_mm\":[236.0,122.75,552.01],\"step_mm\":0.044},{\"frame\":167,\"left_xyz_mm\":[236.09,122.85,552.14],\"step_mm\":0.183},{\"frame\":168,\"left_xyz_mm\":[236.51,123.13,552.06],\"step_mm\":0.509},{\"frame\":169,\"left_xyz_mm\":[237.26,123.69,551.86],\"step_mm\":0.959},{\"frame\":170,\"left_xyz_mm\":[237.73,123.89,551.07],\"step_mm\":0.943},{\"frame\":171,\"left_xyz_mm\":[238.14,124.17,550.8],\"step_mm\":0.554},{\"frame\":172,\"left_xyz_mm\":[238.27,124.23,550.74],\"step_mm\":0.163},{\"frame\":173,\"left_xyz_mm\":[238.36,124.33,550.74],\"step_mm\":0.135},{\"frame\":174,\"left_xyz_mm\":[238.31,124.37,550.8],\"step_mm\":0.091},{\"frame\":175,\"left_xyz_mm\":[237.89,124.74,550.94],\"step_mm\":0.579},{\"frame\":176,\"left_xyz_mm\":[237.25,125.45,551.07],\"step_mm\":0.964},{\"frame\":177,\"left_xyz_mm\":[235.9,126.48,551.98],\"step_mm\":1.931},{\"frame\":178,\"left_xyz_mm\":[233.99,128.0,554.21],\"step_mm\":3.31},{\"frame\":179,\"left_xyz_mm\":[231.8,129.99,557.1],\"step_mm\":4.134}]\n输出 {\"segments\":[{\"start_frame\":0,\"end_frame\":1,\"skill_id\":\"reach\",\"arm_used\":\"left\",\"action\":\"中文\",\"evidence\":\"具体相对位置、运动和接触证据及帧号\",\"uncertain\":true}],\"boundary_uncertainty\":[{\"frame\":0,\"earliest\":0,\"latest\":0,\"reason\":\"不确定依据\"}],\"screen_changes\":[],\"missed_action_check\":\"是否有遗漏独立技能\"}。严格覆盖本窗口所有帧，闭区间连续无重叠。不要根据任务文字补全未观察的动作，不要编造精度。",
+  "frames": [
+    132,
+    133,
+    134,
+    135,
+    136,
+    137,
+    138,
+    139,
+    140,
+    141,
+    142,
+    143,
+    144,
+    145,
+    146,
+    147,
+    148,
+    149,
+    150,
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160,
+    161,
+    162,
+    163,
+    164,
+    165,
+    166,
+    167,
+    168,
+    169,
+    170,
+    171,
+    172,
+    173,
+    174,
+    175,
+    176,
+    177,
+    178,
+    179
+  ],
+  "usage": {
+    "image_tokens": 23136,
+    "input_tokens": 26448,
+    "input_tokens_details": {
+      "image_tokens": 23136,
+      "text_tokens": 3312
+    },
+    "output_tokens": 361,
+    "output_tokens_details": {
+      "text_tokens": 361
+    },
+    "total_tokens": 26809
+  },
+  "request_id": "e65c488c-d0ec-9989-ae07-5071ac7c3f52",
+  "result": {
+    "segments": [
+      {
+        "start_frame": 132,
+        "end_frame": 150,
+        "skill_id": "press",
+        "arm_used": "left",
+        "action": "持续按压温度上调按钮",
+        "evidence": "从frame 132到150，左腕视角中夹爪稳定接触温度上调按钮（三角形向上），屏幕温度从18.0°C逐步上升至18.5°C，且末端位置在132-150帧间持续微小前移（z轴从553.08mm→552.51mm），表明持续施力；frame 151开始夹爪后退，温度未再变化，说明按压结束。",
+        "uncertain": false
+      },
+      {
+        "start_frame": 151,
+        "end_frame": 179,
+        "skill_id": "move",
+        "arm_used": "left",
+        "action": "撤离并后退",
+        "evidence": "从frame 151开始，左腕视角中夹爪明显后撤，与按钮分离，同时末端位置z轴从552.51mm持续增加至557.1mm，表明机械臂正在后退撤离；head_rgb视角中墙面和门框相对位置无显著变化，说明无横向移动，仅为直线后退。",
+        "uncertain": false
+      }
+    ],
+    "boundary_uncertainty": [],
+    "screen_changes": [
+      {
+        "frame": 154,
+        "value": "18.5°C"
+      },
+      {
+        "frame": 168,
+        "value": "19.0°C"
+      },
+      {
+        "frame": 171,
+        "value": "19.5°C"
+      },
+      {
+        "frame": 174,
+        "value": "20.0°C"
+      },
+      {
+        "frame": 177,
+        "value": "20.5°C"
+      }
+    ],
+    "missed_action_check": "无遗漏独立技能"
+  },
+  "proposal_checks": {
+    "structurally_consistent": true,
+    "issues": [],
+    "semantic_accuracy_verified": false,
+    "exact_boundaries_verified": false,
+    "eligible_for_final_delivery": false
+  }
+}

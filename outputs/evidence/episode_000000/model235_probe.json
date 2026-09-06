@@ -1,0 +1,39 @@
+{
+  "model": "qwen3-vl-235b-a22b-instruct",
+  "prompt": "请比较这三帧中温控器屏幕的变化。每张上下两格为同一时间的头部和腕部视角。只输出JSON对象，包含observations数组，每项有frame和observation。",
+  "frames": [
+    78,
+    80,
+    83
+  ],
+  "usage": {
+    "image_tokens": 1446,
+    "input_tokens": 1539,
+    "input_tokens_details": {
+      "image_tokens": 1446,
+      "text_tokens": 93
+    },
+    "output_tokens": 124,
+    "output_tokens_details": {
+      "text_tokens": 124
+    },
+    "total_tokens": 1663
+  },
+  "request_id": "a861487c-e685-9e15-a963-f468fe28c53a",
+  "result": {
+    "observations": [
+      {
+        "frame": 78,
+        "observation": "温控器屏幕显示温度为13.2°C，屏幕内容清晰可见。"
+      },
+      {
+        "frame": 80,
+        "observation": "温控器屏幕变为空白或待机状态，无任何数字或图标显示。"
+      },
+      {
+        "frame": 83,
+        "observation": "温控器屏幕重新亮起，显示温度为18.0°C，并伴有太阳和风扇图标。"
+      }
+    ]
+  }
+}

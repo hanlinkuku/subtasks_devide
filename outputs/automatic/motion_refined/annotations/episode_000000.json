@@ -1,0 +1,228 @@
+{
+  "trajectory_id": "episode_000000",
+  "trajectory_start": 0,
+  "trajectory_end": 595,
+  "task_name": "用左臂操作温控面板并调节温度",
+  "subtasks": [
+    {
+      "id": 1,
+      "standard_action_text": "机械臂在初始位置保持静止。",
+      "skill_id": "wait",
+      "arm_used": "none",
+      "notes": "自动生成，尚未通过人工边界验收。",
+      "start_frame": 0,
+      "end_frame": 11,
+      "start_time": 0.0,
+      "end_time": 0.733333,
+      "target_object_attribute": {
+        "name": "",
+        "colors": [],
+        "shapes": [],
+        "materials": [],
+        "sizes": [],
+        "others": [],
+        "description": ""
+      }
+    },
+    {
+      "id": 2,
+      "standard_action_text": "左臂接近温控面板按钮区域。",
+      "skill_id": "reach",
+      "arm_used": "left",
+      "notes": "自动生成，尚未通过人工边界验收。",
+      "start_frame": 12,
+      "end_frame": 77,
+      "start_time": 0.8,
+      "end_time": 5.133333,
+      "target_object_attribute": {
+        "name": "温控面板",
+        "colors": [],
+        "shapes": [],
+        "materials": [],
+        "sizes": [],
+        "others": [],
+        "description": ""
+      }
+    },
+    {
+      "id": 3,
+      "standard_action_text": "按压并保持按钮",
+      "skill_id": "press",
+      "arm_used": "left",
+      "notes": "自动生成，尚未通过人工边界验收。从帧78开始，夹爪尖端持续靠近面板右侧按钮区域（被遮挡），同时屏幕在帧80发生明显变化（显示变暗、内容消失），随后在帧85恢复显示且模式图标变为雪花（制冷模式），表明触发了按钮操作。结合夹爪位置的微小推进（xyz_mm从78帧到82帧Z轴下降约3.8mm）和屏幕响应，可推断为一次按压并保持的操作。帧89后夹爪未立即回撤，但屏幕稳定，说明按压结束。整个过程无松开再按行为，不拆分。 结束边界由持续后撤的水平位移信号细化。",
+      "start_frame": 78,
+      "end_frame": 90,
+      "start_time": 5.2,
+      "end_time": 6.0,
+      "target_object_attribute": {
+        "name": "温控面板",
+        "colors": [],
+        "shapes": [],
+        "materials": [],
+        "sizes": [],
+        "others": [],
+        "description": ""
+      }
+    },
+    {
+      "id": 4,
+      "standard_action_text": "左臂移动并调整按钮操作位置。",
+      "skill_id": "move",
+      "arm_used": "left",
+      "notes": "自动生成，尚未通过人工边界验收。",
+      "start_frame": 91,
+      "end_frame": 137,
+      "start_time": 6.066667,
+      "end_time": 9.133333,
+      "target_object_attribute": {
+        "name": "温控面板",
+        "colors": [],
+        "shapes": [],
+        "materials": [],
+        "sizes": [],
+        "others": [],
+        "description": ""
+      }
+    },
+    {
+      "id": 5,
+      "standard_action_text": "按压升温按钮并保持",
+      "skill_id": "press",
+      "arm_used": "left",
+      "notes": "自动生成，尚未通过人工边界验收。从帧138至174，夹爪左侧尖端持续遮挡面板右侧按钮区域（推测为升温按钮），期间屏幕温度值从18.0°C逐步上升至20.0°C（帧174），显示连续变化。结合夹爪在Z轴方向的微小推进（xyz_mm数据：138帧z=552.06mm → 142帧z=550.53mm → 146帧z=551.65mm → 149/150帧z=552.47/552.51mm → 154帧z=550.17mm → 174帧z=550.8mm），呈现短距离推进-回撤-再推进的典型按压与保持模式。虽按钮被遮挡，但屏幕响应与末端位置变化共同支持按压操作。帧178后温度继续上升至20.5°C（帧182）和20.7°C（帧186），但夹爪已明显移开，故不计入当前按压段。 结束边界由持续后撤的水平位移信号细化。",
+      "start_frame": 138,
+      "end_frame": 175,
+      "start_time": 9.2,
+      "end_time": 11.666667,
+      "target_object_attribute": {
+        "name": "温控面板",
+        "colors": [],
+        "shapes": [],
+        "materials": [],
+        "sizes": [],
+        "others": [],
+        "description": ""
+      }
+    },
+    {
+      "id": 6,
+      "standard_action_text": "左臂撤回初始位置。",
+      "skill_id": "move",
+      "arm_used": "left",
+      "notes": "自动生成，尚未通过人工边界验收。",
+      "start_frame": 176,
+      "end_frame": 283,
+      "start_time": 11.733333,
+      "end_time": 18.866667,
+      "target_object_attribute": {
+        "name": "温控面板",
+        "colors": [],
+        "shapes": [],
+        "materials": [],
+        "sizes": [],
+        "others": [],
+        "description": ""
+      }
+    },
+    {
+      "id": 7,
+      "standard_action_text": "机械臂在初始位置保持静止。",
+      "skill_id": "wait",
+      "arm_used": "none",
+      "notes": "自动生成，尚未通过人工边界验收。",
+      "start_frame": 284,
+      "end_frame": 330,
+      "start_time": 18.933333,
+      "end_time": 22.0,
+      "target_object_attribute": {
+        "name": "",
+        "colors": [],
+        "shapes": [],
+        "materials": [],
+        "sizes": [],
+        "others": [],
+        "description": ""
+      }
+    },
+    {
+      "id": 8,
+      "standard_action_text": "左臂接近温控面板按钮区域。",
+      "skill_id": "reach",
+      "arm_used": "left",
+      "notes": "自动生成，尚未通过人工边界验收。",
+      "start_frame": 331,
+      "end_frame": 431,
+      "start_time": 22.066667,
+      "end_time": 28.733333,
+      "target_object_attribute": {
+        "name": "温控面板",
+        "colors": [],
+        "shapes": [],
+        "materials": [],
+        "sizes": [],
+        "others": [],
+        "description": ""
+      }
+    },
+    {
+      "id": 9,
+      "standard_action_text": "按压并保持电源按钮",
+      "skill_id": "press",
+      "arm_used": "left",
+      "notes": "自动生成，尚未通过人工边界验收。从帧432开始，夹爪左侧尖端持续遮挡面板右侧区域（电源按钮位置），同时屏幕在帧441发生明显变化：数字显示消失，屏幕变白并出现网格线，表明进入待机或关机状态。此变化与电源按钮被按压的典型响应一致。结合夹爪在432-447帧间位置基本稳定（xyz_mm变化极小），可推断为按压并保持操作。后续帧449起夹爪开始后撤，说明松开动作已发生。 结束边界由持续后撤的水平位移信号细化。",
+      "start_frame": 432,
+      "end_frame": 450,
+      "start_time": 28.8,
+      "end_time": 30.0,
+      "target_object_attribute": {
+        "name": "温控面板",
+        "colors": [],
+        "shapes": [],
+        "materials": [],
+        "sizes": [],
+        "others": [],
+        "description": ""
+      }
+    },
+    {
+      "id": 10,
+      "standard_action_text": "左臂撤回初始位置。",
+      "skill_id": "move",
+      "arm_used": "left",
+      "notes": "自动生成，尚未通过人工边界验收。",
+      "start_frame": 451,
+      "end_frame": 573,
+      "start_time": 30.066667,
+      "end_time": 38.2,
+      "target_object_attribute": {
+        "name": "温控面板",
+        "colors": [],
+        "shapes": [],
+        "materials": [],
+        "sizes": [],
+        "others": [],
+        "description": ""
+      }
+    },
+    {
+      "id": 11,
+      "standard_action_text": "机械臂在初始位置保持静止。",
+      "skill_id": "wait",
+      "arm_used": "none",
+      "notes": "自动生成，尚未通过人工边界验收。",
+      "start_frame": 574,
+      "end_frame": 595,
+      "start_time": 38.266667,
+      "end_time": 39.666667,
+      "target_object_attribute": {
+        "name": "",
+        "colors": [],
+        "shapes": [],
+        "materials": [],
+        "sizes": [],
+        "others": [],
+        "description": ""
+      }
+    }
+  ]
+}

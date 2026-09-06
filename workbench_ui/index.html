@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>轨迹 · 子任务标注工作台</title><link rel="stylesheet" href="/style.css"></head>
+<body>
+<header><a class="brand" href="/" aria-label="工作台首页"><span class="brand-mark">▥</span> 轨迹 <small>ANNOTATION STUDIO</small></a><span class="scope">温控面板 · 左臂操作</span><span class="local"><i></i> 本地工作台</span></header>
+<main>
+<section class="toolbar"><div><span class="eyebrow">WORKSPACE / 子任务划分</span><h1>把每个动作，落到帧。</h1></div><div class="toolbar-actions"><button id="autoOpen" class="primary">✦ 自动划分</button><button id="save">保存修订</button><button id="export">导出 JSON ↗</button></div></section>
+<section class="episode-bar"><label>当前轨迹 <select id="episode" aria-label="当前轨迹"></select></label><span id="meta" class="mono"></span><span id="source" class="badge">正在加载</span><span id="dirty"></span><button id="reload" class="text-button">加载自动结果</button></section>
+<div id="job" class="job" hidden><span id="jobText" role="status"></span><button id="jobLoad" hidden>加载本次结果</button></div>
+<div class="workspace">
+<section class="viewer-panel" aria-label="多视角播放器">
+<div class="panel-heading dark"><span>01 <b>同步画面</b></span><span id="viewStatus" class="mono">原始帧 · 4 VIEWS</span></div>
+<div id="views" class="views"></div>
+<div class="playback"><div class="transport"><button id="back10" title="后退 10 帧">−10</button><button id="back" title="上一帧（←）">‹</button><button id="play" class="play" title="播放 / 暂停（空格）">▶</button><button id="forward" title="下一帧（→）">›</button><button id="forward10" title="前进 10 帧">+10</button></div><label class="frame-label">帧 <input id="frame" type="number" min="0" value="0" aria-label="当前帧号"><span id="lastFrame"></span></label><span id="time" class="mono">0.000 s</span><select id="speed" aria-label="播放速度"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select></div>
+<div class="timeline-wrap"><div class="timeline-heading"><span>动作时间线 <small>点击定位 · 滑杆逐帧查看</small></span><span id="count"></span></div><div id="timeline" class="timeline"></div><input id="scrub" aria-label="轨迹帧位置" type="range" min="0" value="0"><div class="ruler"><span>0</span><span id="midFrame"></span><span id="endFrame"></span></div><div class="legend"><span class="reach">接近</span><span class="press">按压</span><span class="move">移动</span><span class="wait">停留</span><span class="shortcut">← → 逐帧 · 空格 播放 · 双击画面放大</span></div></div>
+</section>
+<aside class="inspector"><div class="panel-heading"><span>02 <b>人工修正</b></span><div><button id="undo" class="icon-button" title="撤销（Ctrl+Z）">↶</button><button id="redo" class="icon-button" title="重做（Ctrl+Shift+Z）">↷</button></div></div><div id="empty">选择子任务以编辑</div><div id="editor" hidden>
+<div class="selected-title"><span id="selectedId" class="mono"></span><span id="selectedDuration"></span></div>
+<label>动作描述<textarea id="action" rows="2"></textarea></label>
+<div class="fields"><label>动作类型<select id="skill"></select></label><label>使用机械臂<select id="arm"></select></label></div>
+<div class="boundary-title">起止帧 <span>闭区间，包含两端帧</span></div><div class="fields"><label>开始帧<input id="start" type="number"><button id="setStart" class="text-button">以当前帧设为开始</button></label><label>结束帧<input id="end" type="number"><button id="setEnd" class="text-button">以当前帧设为结束</button></label></div>
+<p class="hint">边界调整会同步相邻子任务，保持整条轨迹连续。首帧与末帧固定。</p>
+<div class="edit-actions"><button id="split">在当前帧拆分</button><button id="merge">与下一段合并</button></div>
+<label>复核备注<textarea id="notes" rows="3" placeholder="记录遮挡、边界不确定性或修改依据"></textarea></label>
+<details><summary>目标物体属性</summary><label>物体名称<input id="targetName"></label><label>描述<textarea id="targetDescription" rows="2"></textarea></label><div id="attributes"></div></details>
+<p class="review-note">自动边界是推断结果；屏幕变化提供辅助证据，不等于物理接触开始。保存修订也不自动宣称精确 ground truth。</p>
+</div></aside>
+<section class="segments-panel"><div class="panel-heading"><span>03 <b>子任务序列</b></span><span class="muted">选择一行，检查与修正对应动作</span></div><div class="table-scroll"><table><thead><tr><th>序号</th><th>动作</th><th>类型 / 机械臂</th><th>帧范围</th><th>时间 / 秒</th><th>帧数</th></tr></thead><tbody id="segments"></tbody></table></div></section>
+</div>
+<footer><span>Qwen3-VL · 32B</span><span>自动结果与人工修订分开保存 · 帧号从 0 开始</span></footer>
+</main>
+<dialog id="autoDialog"><form id="autoForm"><span class="eyebrow">AUTOMATIC SEGMENTATION</span><h2>运行自动划分</h2><p>依次完成运动检测、视觉识别和边界细化。相同输入复用已保存的推理结果；人工修订会保留。</p><label>轨迹<select id="jobEpisode"></select></label><label>API Key <small>仅本次运行使用，不保存</small><input id="apiKey" type="password" autocomplete="off" placeholder="已有推理缓存时可留空"></label><p class="hint">当前支持本数据集的左臂温控面板操作。模型固定为 qwen3-vl-32b-instruct。</p><div class="dialog-actions"><button type="button" id="cancelAuto">取消</button><button type="submit" class="primary">开始划分</button></div></form></dialog>
+<dialog id="zoomDialog"><button id="closeZoom" autofocus>关闭放大视图 ×</button><img id="zoomImage" alt="放大的当前画面"></dialog>
+<dialog id="discardDialog"><h2>当前修改尚未保存</h2><p>加载其他结果会放弃当前草稿。你可以先取消，保存修订或导出 JSON。</p><div class="dialog-actions"><button id="keepDraft">保留草稿</button><button id="discardDraft" class="primary">放弃并加载</button></div></dialog>
+<div id="toast" role="status" hidden></div>
+<script src="/editor.js"></script><script src="/app.js"></script>
+</body></html>

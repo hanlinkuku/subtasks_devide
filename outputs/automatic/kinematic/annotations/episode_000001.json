@@ -1,0 +1,148 @@
+{
+  "trajectory_id": "episode_000001",
+  "trajectory_start": 0,
+  "trajectory_end": 393,
+  "task_name": "用左臂操作温控面板并调节温度",
+  "subtasks": [
+    {
+      "id": 1,
+      "standard_action_text": "机械臂在初始位置保持静止。",
+      "skill_id": "wait",
+      "arm_used": "none",
+      "notes": "自动生成，尚未通过人工边界验收。",
+      "start_frame": 0,
+      "end_frame": 11,
+      "start_time": 0.0,
+      "end_time": 0.733333,
+      "target_object_attribute": {
+        "name": "",
+        "colors": [],
+        "shapes": [],
+        "materials": [],
+        "sizes": [],
+        "others": [],
+        "description": ""
+      }
+    },
+    {
+      "id": 2,
+      "standard_action_text": "左臂接近温控面板按钮区域。",
+      "skill_id": "reach",
+      "arm_used": "left",
+      "notes": "自动生成，尚未通过人工边界验收。",
+      "start_frame": 12,
+      "end_frame": 100,
+      "start_time": 0.8,
+      "end_time": 6.666667,
+      "target_object_attribute": {
+        "name": "温控面板",
+        "colors": [],
+        "shapes": [],
+        "materials": [],
+        "sizes": [],
+        "others": [],
+        "description": ""
+      }
+    },
+    {
+      "id": 3,
+      "standard_action_text": "左臂操作温控面板按钮。",
+      "skill_id": "press",
+      "arm_used": "left",
+      "notes": "自动生成，尚未通过人工边界验收。运动信号候选，未经视觉确认。",
+      "start_frame": 101,
+      "end_frame": 149,
+      "start_time": 6.733333,
+      "end_time": 9.933333,
+      "target_object_attribute": {
+        "name": "温控面板",
+        "colors": [],
+        "shapes": [],
+        "materials": [],
+        "sizes": [],
+        "others": [],
+        "description": ""
+      }
+    },
+    {
+      "id": 4,
+      "standard_action_text": "左臂移动并调整按钮操作位置。",
+      "skill_id": "move",
+      "arm_used": "left",
+      "notes": "自动生成，尚未通过人工边界验收。",
+      "start_frame": 150,
+      "end_frame": 210,
+      "start_time": 10.0,
+      "end_time": 14.0,
+      "target_object_attribute": {
+        "name": "温控面板",
+        "colors": [],
+        "shapes": [],
+        "materials": [],
+        "sizes": [],
+        "others": [],
+        "description": ""
+      }
+    },
+    {
+      "id": 5,
+      "standard_action_text": "左臂操作温控面板按钮。",
+      "skill_id": "press",
+      "arm_used": "left",
+      "notes": "自动生成，尚未通过人工边界验收。运动信号候选，未经视觉确认。",
+      "start_frame": 211,
+      "end_frame": 216,
+      "start_time": 14.066667,
+      "end_time": 14.4,
+      "target_object_attribute": {
+        "name": "温控面板",
+        "colors": [],
+        "shapes": [],
+        "materials": [],
+        "sizes": [],
+        "others": [],
+        "description": ""
+      }
+    },
+    {
+      "id": 6,
+      "standard_action_text": "左臂撤回初始位置。",
+      "skill_id": "move",
+      "arm_used": "left",
+      "notes": "自动生成，尚未通过人工边界验收。",
+      "start_frame": 217,
+      "end_frame": 363,
+      "start_time": 14.466667,
+      "end_time": 24.2,
+      "target_object_attribute": {
+        "name": "温控面板",
+        "colors": [],
+        "shapes": [],
+        "materials": [],
+        "sizes": [],
+        "others": [],
+        "description": ""
+      }
+    },
+    {
+      "id": 7,
+      "standard_action_text": "机械臂在初始位置保持静止。",
+      "skill_id": "wait",
+      "arm_used": "none",
+      "notes": "自动生成，尚未通过人工边界验收。",
+      "start_frame": 364,
+      "end_frame": 393,
+      "start_time": 24.266667,
+      "end_time": 26.2,
+      "target_object_attribute": {
+        "name": "",
+        "colors": [],
+        "shapes": [],
+        "materials": [],
+        "sizes": [],
+        "others": [],
+        "description": ""
+      }
+    }
+  ]
+}

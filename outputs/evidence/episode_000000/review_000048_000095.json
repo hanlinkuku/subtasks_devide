@@ -1,0 +1,122 @@
+{
+  "model": "qwen3-vl-32b-instruct",
+  "prompt": "你是机器人轨迹原子动作标注员。每张图上下两格是同一原始帧的头部head_rgb视角与左腕left_wrist_rgb视角，不是两个时间点。机械臂左右以机器人本体为准，不按屏幕左右。图片上标有原始frame_index，必须使用这些原始编号，不是图片序号。帧率15fps。只根据可见证据，不臆测接触、按压次数、温度读数或成功状态。技能可用reach/grasp/move/rotate/press/pull/push/release/wait；撤离用move并在动作描述中说明。一个子任务一个主要原子动作，不能把接近、按压、撤离合并。连续相同目的的运动不任意拆段。区分按压保持和新的独立按压。只输出JSON，不加代码围栏。\n关键：腕部相机固定在机械臂上！因此夹爪在腕部图中的像素位置固定完全不意味着机械臂静止。必须看墙面、门框、面板相对腕部相机的变化，并交叉看固定头部视角。以下还提供同帧左末端位置，单位毫米，是实际运动的辅助证据（不直接证明接触或任务成功）。不要把手臂返回途中判成wait。持续向同一按钮靠近是一个reach，不要分成move再reach。屏幕数值变化不等于新按压：长按自动连增温度可能属于一次press，不得按每次数字跳变切片。只在实际松开再按或换按钮等证据下拆分。接触不清晰则明确uncertain=true。\n逐帧审核范围[48,95]，所有帧均提供。运动数据：[{\"frame\":48,\"left_xyz_mm\":[163.03,180.4,578.57],\"step_mm\":10.482},{\"frame\":49,\"left_xyz_mm\":[166.71,172.31,577.93],\"step_mm\":8.914},{\"frame\":50,\"left_xyz_mm\":[169.94,165.76,576.55],\"step_mm\":7.43},{\"frame\":51,\"left_xyz_mm\":[172.92,160.8,574.69],\"step_mm\":6.081},{\"frame\":52,\"left_xyz_mm\":[175.89,156.95,572.08],\"step_mm\":5.516},{\"frame\":53,\"left_xyz_mm\":[178.89,153.27,569.12],\"step_mm\":5.598},{\"frame\":54,\"left_xyz_mm\":[181.52,150.1,567.78],\"step_mm\":4.33},{\"frame\":55,\"left_xyz_mm\":[184.25,147.42,567.1],\"step_mm\":3.889},{\"frame\":56,\"left_xyz_mm\":[187.76,144.22,566.65],\"step_mm\":4.764},{\"frame\":57,\"left_xyz_mm\":[191.57,140.76,567.38],\"step_mm\":5.208},{\"frame\":58,\"left_xyz_mm\":[195.82,137.01,568.53],\"step_mm\":5.779},{\"frame\":59,\"left_xyz_mm\":[200.13,133.37,570.51],\"step_mm\":5.978},{\"frame\":60,\"left_xyz_mm\":[203.96,130.34,571.29],\"step_mm\":4.947},{\"frame\":61,\"left_xyz_mm\":[206.9,127.78,570.47],\"step_mm\":3.984},{\"frame\":62,\"left_xyz_mm\":[209.07,125.7,569.2],\"step_mm\":3.262},{\"frame\":63,\"left_xyz_mm\":[210.87,123.89,568.19],\"step_mm\":2.745},{\"frame\":64,\"left_xyz_mm\":[212.62,122.12,566.65],\"step_mm\":2.927},{\"frame\":65,\"left_xyz_mm\":[214.51,120.2,565.82],\"step_mm\":2.827},{\"frame\":66,\"left_xyz_mm\":[216.56,117.92,565.34],\"step_mm\":3.097},{\"frame\":67,\"left_xyz_mm\":[218.37,115.62,565.52],\"step_mm\":2.935},{\"frame\":68,\"left_xyz_mm\":[220.37,113.61,565.06],\"step_mm\":2.875},{\"frame\":69,\"left_xyz_mm\":[221.87,112.11,564.34],\"step_mm\":2.234},{\"frame\":70,\"left_xyz_mm\":[222.79,111.18,563.2],\"step_mm\":1.739},{\"frame\":71,\"left_xyz_mm\":[223.49,110.49,562.26],\"step_mm\":1.36},{\"frame\":72,\"left_xyz_mm\":[224.04,110.1,561.46],\"step_mm\":1.049},{\"frame\":73,\"left_xyz_mm\":[225.05,109.63,559.97],\"step_mm\":1.857},{\"frame\":74,\"left_xyz_mm\":[226.18,108.93,558.71],\"step_mm\":1.827},{\"frame\":75,\"left_xyz_mm\":[227.45,107.86,558.2],\"step_mm\":1.741},{\"frame\":76,\"left_xyz_mm\":[228.71,106.69,558.08],\"step_mm\":1.723},{\"frame\":77,\"left_xyz_mm\":[230.0,105.52,557.86],\"step_mm\":1.756},{\"frame\":78,\"left_xyz_mm\":[231.44,104.62,558.6],\"step_mm\":1.846},{\"frame\":79,\"left_xyz_mm\":[232.98,103.67,559.59],\"step_mm\":2.07},{\"frame\":80,\"left_xyz_mm\":[234.36,102.84,559.68],\"step_mm\":1.609},{\"frame\":81,\"left_xyz_mm\":[235.34,102.3,558.68],\"step_mm\":1.494},{\"frame\":82,\"left_xyz_mm\":[236.33,102.01,556.82],\"step_mm\":2.129},{\"frame\":83,\"left_xyz_mm\":[237.33,102.21,555.3],\"step_mm\":1.831},{\"frame\":84,\"left_xyz_mm\":[238.34,102.8,554.39],\"step_mm\":1.488},{\"frame\":85,\"left_xyz_mm\":[239.23,103.35,553.72],\"step_mm\":1.235},{\"frame\":86,\"left_xyz_mm\":[239.68,103.64,553.44],\"step_mm\":0.607},{\"frame\":87,\"left_xyz_mm\":[239.9,103.86,553.31],\"step_mm\":0.337},{\"frame\":88,\"left_xyz_mm\":[239.9,103.87,553.06],\"step_mm\":0.249},{\"frame\":89,\"left_xyz_mm\":[239.72,104.05,553.26],\"step_mm\":0.319},{\"frame\":90,\"left_xyz_mm\":[239.41,104.35,553.75],\"step_mm\":0.662},{\"frame\":91,\"left_xyz_mm\":[238.86,104.79,554.55],\"step_mm\":1.06},{\"frame\":92,\"left_xyz_mm\":[238.14,105.5,555.13],\"step_mm\":1.168},{\"frame\":93,\"left_xyz_mm\":[236.92,106.71,555.55],\"step_mm\":1.768},{\"frame\":94,\"left_xyz_mm\":[235.16,108.53,555.24],\"step_mm\":2.551},{\"frame\":95,\"left_xyz_mm\":[232.83,110.81,554.19],\"step_mm\":3.421}]\n输出 {\"segments\":[{\"start_frame\":0,\"end_frame\":1,\"skill_id\":\"reach\",\"arm_used\":\"left\",\"action\":\"中文\",\"evidence\":\"具体相对位置、运动和接触证据及帧号\",\"uncertain\":true}],\"boundary_uncertainty\":[{\"frame\":0,\"earliest\":0,\"latest\":0,\"reason\":\"不确定依据\"}],\"screen_changes\":[],\"missed_action_check\":\"是否有遗漏独立技能\"}。严格覆盖本窗口所有帧，闭区间连续无重叠。不要根据任务文字补全未观察的动作，不要编造精度。",
+  "frames": [
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95
+  ],
+  "usage": {
+    "image_tokens": 23136,
+    "input_tokens": 26321,
+    "input_tokens_details": {
+      "image_tokens": 23136,
+      "text_tokens": 3185
+    },
+    "output_tokens": 640,
+    "output_tokens_details": {
+      "text_tokens": 640
+    },
+    "total_tokens": 26961
+  },
+  "request_id": "a89faeba-b3a0-965b-a833-95e7966e3435",
+  "result": {
+    "segments": [
+      {
+        "start_frame": 48,
+        "end_frame": 72,
+        "skill_id": "press",
+        "arm_used": "left",
+        "action": "持续按压温度上调按钮，屏幕温度从18.0°C逐步上升至19.0°C，期间机械臂末端持续靠近并接触按钮区域",
+        "evidence": "从frame 48到72，腕部相机视角显示夹爪稳定对准温控面板右侧上箭头按钮，头部视角可见机械臂未大幅移动；运动数据中left_xyz_mm在X轴从163.03mm增至224.04mm，Y轴从180.4mm减至110.1mm，Z轴从578.57mm降至561.46mm，表明持续向按钮靠近并保持接触；屏幕温度在frame 54首次显示19.0°C，后续帧维持该值，符合长按自动连增行为",
+        "uncertain": false
+      },
+      {
+        "start_frame": 73,
+        "end_frame": 80,
+        "skill_id": "press",
+        "arm_used": "left",
+        "action": "持续按压温度下调按钮，屏幕温度从19.0°C下降至18.0°C，随后屏幕变暗",
+        "evidence": "frame 73起腕部相机视角夹爪移向温控面板右侧下箭头按钮，头部视角显示机械臂位置微调；运动数据中left_xyz_mm在X轴从225.05mm增至234.36mm，Y轴从109.63mm减至102.84mm，Z轴从559.97mm升至559.68mm，表明向下方按钮移动并保持接触；frame 75屏幕温度变为18.0°C，frame 80屏幕变暗，符合按压后温度调整及界面变化",
+        "uncertain": false
+      },
+      {
+        "start_frame": 81,
+        "end_frame": 95,
+        "skill_id": "wait",
+        "arm_used": "left",
+        "action": "机械臂末端保持在温控面板附近静止，屏幕显示18.0°C且无进一步操作",
+        "evidence": "frame 81至95，腕部相机视角夹爪位置固定于温控面板右侧按钮区域，头部视角机械臂无明显位移；运动数据中left_xyz_mm变化极小（X轴235.34→232.83mm，Y轴102.3→110.81mm，Z轴558.68→554.19mm），步长均小于1.5mm，表明静止状态；屏幕持续显示18.0°C，无新交互发生",
+        "uncertain": false
+      }
+    ],
+    "boundary_uncertainty": [],
+    "screen_changes": [
+      {
+        "frame": 54,
+        "value": "19.0°C"
+      },
+      {
+        "frame": 75,
+        "value": "18.0°C"
+      },
+      {
+        "frame": 80,
+        "value": "屏幕变暗"
+      }
+    ],
+    "missed_action_check": "无遗漏独立技能"
+  },
+  "proposal_checks": {
+    "structurally_consistent": true,
+    "issues": [],
+    "semantic_accuracy_verified": false,
+    "exact_boundaries_verified": false,
+    "eligible_for_final_delivery": false
+  }
+}

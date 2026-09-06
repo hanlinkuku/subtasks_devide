@@ -1,0 +1,99 @@
+{
+  "model": "qwen3-vl-32b-instruct",
+  "prompt": "你是机器人轨迹原子动作标注员。每张图上下两格是同一原始帧的头部head_rgb视角与左腕left_wrist_rgb视角，不是两个时间点。机械臂左右以机器人本体为准，不按屏幕左右。图片上标有原始frame_index，必须使用这些原始编号，不是图片序号。帧率15fps。只根据可见证据，不臆测接触、按压次数、温度读数或成功状态。技能可用reach/grasp/move/rotate/press/pull/push/release/wait；撤离用move并在动作描述中说明。一个子任务一个主要原子动作，不能把接近、按压、撤离合并。连续相同目的的运动不任意拆段。区分按压保持和新的独立按压。只输出JSON，不加代码围栏。\n关键：腕部相机固定在机械臂上！因此夹爪在腕部图中的像素位置固定完全不意味着机械臂静止。必须看墙面、门框、面板相对腕部相机的变化，并交叉看固定头部视角。以下还提供同帧左末端位置，单位毫米，是实际运动的辅助证据（不直接证明接触或任务成功）。不要把手臂返回途中判成wait。持续向同一按钮靠近是一个reach，不要分成move再reach。屏幕数值变化不等于新按压：长按自动连增温度可能属于一次press，不得按每次数字跳变切片。只在实际松开再按或换按钮等证据下拆分。接触不清晰则明确uncertain=true。\n逐帧审核范围[0,35]，所有帧均提供。运动数据：[{\"frame\":0,\"left_xyz_mm\":[-22.77,335.4,332.74],\"step_mm\":0.0},{\"frame\":1,\"left_xyz_mm\":[-22.77,335.4,332.74],\"step_mm\":0.005},{\"frame\":2,\"left_xyz_mm\":[-22.77,335.39,332.74],\"step_mm\":0.01},{\"frame\":3,\"left_xyz_mm\":[-22.77,335.39,332.79],\"step_mm\":0.044},{\"frame\":4,\"left_xyz_mm\":[-22.77,335.39,332.79],\"step_mm\":0.006},{\"frame\":5,\"left_xyz_mm\":[-22.77,335.39,332.74],\"step_mm\":0.044},{\"frame\":6,\"left_xyz_mm\":[-22.77,335.4,332.74],\"step_mm\":0.01},{\"frame\":7,\"left_xyz_mm\":[-22.77,335.4,332.74],\"step_mm\":0.0},{\"frame\":8,\"left_xyz_mm\":[-22.77,335.4,332.77],\"step_mm\":0.025},{\"frame\":9,\"left_xyz_mm\":[-22.77,335.39,332.74],\"step_mm\":0.029},{\"frame\":10,\"left_xyz_mm\":[-22.77,335.38,332.74],\"step_mm\":0.004},{\"frame\":11,\"left_xyz_mm\":[-22.77,335.37,332.74],\"step_mm\":0.015},{\"frame\":12,\"left_xyz_mm\":[-22.77,335.37,332.83],\"step_mm\":0.087},{\"frame\":13,\"left_xyz_mm\":[-22.77,335.37,332.99],\"step_mm\":0.158},{\"frame\":14,\"left_xyz_mm\":[-22.77,335.35,333.13],\"step_mm\":0.14},{\"frame\":15,\"left_xyz_mm\":[-22.91,335.32,334.25],\"step_mm\":1.131},{\"frame\":16,\"left_xyz_mm\":[-23.49,335.26,336.28],\"step_mm\":2.116},{\"frame\":17,\"left_xyz_mm\":[-25.0,335.09,340.92],\"step_mm\":4.886},{\"frame\":18,\"left_xyz_mm\":[-27.76,334.6,348.77],\"step_mm\":8.327},{\"frame\":19,\"left_xyz_mm\":[-30.6,333.72,355.54],\"step_mm\":7.398},{\"frame\":20,\"left_xyz_mm\":[-33.76,332.52,364.99],\"step_mm\":10.039},{\"frame\":21,\"left_xyz_mm\":[-35.2,331.25,372.97],\"step_mm\":8.207},{\"frame\":22,\"left_xyz_mm\":[-34.97,330.21,382.09],\"step_mm\":9.179},{\"frame\":23,\"left_xyz_mm\":[-33.07,329.41,392.95],\"step_mm\":11.051},{\"frame\":24,\"left_xyz_mm\":[-29.18,328.9,405.57],\"step_mm\":13.223},{\"frame\":25,\"left_xyz_mm\":[-23.5,328.47,420.31],\"step_mm\":15.798},{\"frame\":26,\"left_xyz_mm\":[-14.93,327.98,435.21],\"step_mm\":17.2},{\"frame\":27,\"left_xyz_mm\":[-4.59,327.38,451.64],\"step_mm\":19.42},{\"frame\":28,\"left_xyz_mm\":[7.02,326.66,466.67],\"step_mm\":18.999},{\"frame\":29,\"left_xyz_mm\":[19.58,325.88,482.81],\"step_mm\":20.473},{\"frame\":30,\"left_xyz_mm\":[33.23,325.0,499.26],\"step_mm\":21.396},{\"frame\":31,\"left_xyz_mm\":[45.71,324.07,513.81],\"step_mm\":19.192},{\"frame\":32,\"left_xyz_mm\":[58.74,322.61,527.65],\"step_mm\":19.059},{\"frame\":33,\"left_xyz_mm\":[71.14,319.71,540.49],\"step_mm\":18.087},{\"frame\":34,\"left_xyz_mm\":[83.03,314.76,549.86],\"step_mm\":15.932},{\"frame\":35,\"left_xyz_mm\":[95.15,307.55,557.64],\"step_mm\":16.102}]\n输出 {\"segments\":[{\"start_frame\":0,\"end_frame\":1,\"skill_id\":\"reach\",\"arm_used\":\"left\",\"action\":\"中文\",\"evidence\":\"具体相对位置、运动和接触证据及帧号\",\"uncertain\":true}],\"boundary_uncertainty\":[{\"frame\":0,\"earliest\":0,\"latest\":0,\"reason\":\"不确定依据\"}],\"screen_changes\":[],\"missed_action_check\":\"是否有遗漏独立技能\"}。严格覆盖本窗口所有帧，闭区间连续无重叠。不要根据任务文字补全未观察的动作，不要编造精度。",
+  "frames": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35
+  ],
+  "usage": {
+    "image_tokens": 17352,
+    "input_tokens": 19809,
+    "input_tokens_details": {
+      "image_tokens": 17352,
+      "text_tokens": 2457
+    },
+    "output_tokens": 333,
+    "output_tokens_details": {
+      "text_tokens": 333
+    },
+    "total_tokens": 20142
+  },
+  "request_id": "39d1e988-8a93-924d-9c50-0cc32aa40901",
+  "result": {
+    "segments": [
+      {
+        "start_frame": 0,
+        "end_frame": 14,
+        "skill_id": "wait",
+        "arm_used": "left",
+        "action": "左臂末端静止，无明显运动，夹爪未接触温控面板，腕部相机视角中背景物体（如门框、地板）无位移，头部视角中温控器位置稳定，机械臂处于等待状态",
+        "uncertain": false
+      },
+      {
+        "start_frame": 15,
+        "end_frame": 35,
+        "skill_id": "reach",
+        "arm_used": "left",
+        "action": "左臂持续向右前方移动，从腕部相机视角可见背景中的门框和地板逐渐向左偏移，表明机械臂正在接近墙上的温控面板；头部视角中温控器在画面中位置逐渐变大，佐证接近动作；末端位置数据从frame15的[-22.91,335.32,334.25]连续变化至frame35的[95.15,307.55,557.64]，显示持续向前运动，未见接触或按压证据",
+        "uncertain": false
+      }
+    ],
+    "boundary_uncertainty": [
+      {
+        "frame": 0,
+        "earliest": 0,
+        "latest": 0,
+        "reason": "初始帧机械臂静止，无运动迹象，判定为wait起点"
+      },
+      {
+        "frame": 15,
+        "earliest": 15,
+        "latest": 15,
+        "reason": "frame15开始末端位置发生显著位移，且视觉上背景开始移动，判定为reach起始点"
+      }
+    ],
+    "screen_changes": [],
+    "missed_action_check": "无遗漏独立技能"
+  },
+  "proposal_checks": {
+    "structurally_consistent": true,
+    "issues": [],
+    "semantic_accuracy_verified": false,
+    "exact_boundaries_verified": false,
+    "eligible_for_final_delivery": false
+  }
+}

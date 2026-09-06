@@ -1,0 +1,92 @@
+{
+  "model": "qwen3-vl-32b-instruct",
+  "prompt": "这是左腕相机的视频片段，原视频15fps，帧范围214至229。画面标注的是原始帧号。\n接口播放帧率为10，仅供时序观察；不要使用接口播放秒数定位，必须使用画面上的原始帧号。\n相机固定在左臂，黑色夹爪位置固定是正常现象，须看目标相对夹爪的运动。\n只依据实际图像作答。无法确定接触的时刻时给范围，禁止凭屏幕变化断定物理接触起始。\n只分析夹爪尖端与按钮的接触关系：接近、按住、松开或移向另一个按钮。不要把屏幕数字变化当成独立动作。请给首次能看见接触和首次能看见脱离的帧号；如果被遮挡、深度不可见或不能确定，必须在uncertain_boundaries中说明，不得杜撰接触时刻。\n只输出JSON对象，格式为：{\"observations\":[{\"frame\":0,\"description\":\"可见事实\"}],\"actions\":[{\"start_frame\":0,\"end_frame\":1,\"skill_id\":\"reach/press/move/wait之一\",\"description\":\"动作\",\"confidence\":\"high/medium/low之一\"}],\"uncertain_boundaries\":[{\"earliest_frame\":0,\"latest_frame\":1,\"reason\":\"原因\"}]}。\n不要猜测品牌、无法辨认的数字或未看到的动作；动作起止采用闭区间。",
+  "frames": [
+    214,
+    215,
+    216,
+    217,
+    218,
+    219,
+    220,
+    221,
+    222,
+    223,
+    224,
+    225,
+    226,
+    227,
+    228,
+    229
+  ],
+  "usage": {
+    "input_tokens": 5055,
+    "input_tokens_details": {
+      "text_tokens": 301,
+      "video_tokens": 4754
+    },
+    "output_tokens": 314,
+    "output_tokens_details": {
+      "text_tokens": 314
+    },
+    "total_tokens": 5369,
+    "video_tokens": 4754
+  },
+  "request_id": "76298324-7745-9e6b-8777-8c28b48a47a4",
+  "result": {
+    "observations": [
+      {
+        "frame": 214,
+        "description": "夹爪尖端位于空调遥控器下方，未接触任何按钮。"
+      },
+      {
+        "frame": 220,
+        "description": "夹爪尖端开始向上移动，接近遥控器的向下箭头按钮。"
+      },
+      {
+        "frame": 223,
+        "description": "夹爪尖端与向下箭头按钮接触，按钮被轻微按压。"
+      },
+      {
+        "frame": 225,
+        "description": "夹爪尖端持续按住向下箭头按钮，按钮处于被按压状态。"
+      },
+      {
+        "frame": 228,
+        "description": "夹爪尖端仍接触向下箭头按钮，无明显脱离迹象。"
+      }
+    ],
+    "actions": [
+      {
+        "start_frame": 223,
+        "end_frame": 228,
+        "skill_id": "press",
+        "description": "夹爪尖端按住向下箭头按钮。",
+        "confidence": "high"
+      }
+    ],
+    "uncertain_boundaries": [
+      {
+        "earliest_frame": 229,
+        "latest_frame": 229,
+        "reason": "视频片段结束于帧229，无法确定夹爪是否在该帧或之后脱离按钮。"
+      }
+    ]
+  },
+  "proposal_checks": {
+    "structurally_consistent": false,
+    "issues": [
+      {
+        "segment": 0,
+        "reason": "gap_or_overlap",
+        "expected_start": 214
+      },
+      {
+        "reason": "uncovered_tail"
+      }
+    ],
+    "semantic_accuracy_verified": false,
+    "exact_boundaries_verified": false,
+    "eligible_for_final_delivery": false
+  }
+}

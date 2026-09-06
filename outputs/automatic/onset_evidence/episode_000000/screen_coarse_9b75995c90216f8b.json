@@ -1,0 +1,57 @@
+{
+  "model": "qwen3-vl-32b-instruct",
+  "prompt": "这是墙面温控面板的腕部相机逐时图，图片FRAME标签是原始帧号。只比较屏幕可见状态，不判断机械臂动作。\n找出相对于本窗口第一张图的第一次明确界面变化：数字出现/消失、背光明显切换、设定值首次改变。\n不要把面板随相机移动、反光或模糊误认为内容变化；不要猜看不清的数字。只选实际提供的帧号。\n输出JSON：{\"changed\":true,\"first_changed_frame\":0,\"previous_state\":\"\",\"new_state\":\"\",\"uncertain\":false}。\n若没有清晰变化，changed=false，first_changed_frame=null。",
+  "frames": [
+    123,
+    127,
+    131,
+    135,
+    139,
+    143,
+    147,
+    151,
+    155,
+    159,
+    163,
+    167,
+    171,
+    175
+  ],
+  "image_sha256": [
+    "4b57926ac65b8f5c2a99a557dc131802d221cd88127d6944144858103979431a",
+    "adf16488ff1db1f4d9b68a47e920f9082fa6e06909953496901189b5985336d1",
+    "2a6d28ab89e3963688c284f0086589074dea097ddd358eae54b425a2a03aa32b",
+    "91d399bc08c8ee580892cbd2dfd3c7a7e55d1bedaaba628e54f669cd8461e46e",
+    "763f63acfe4d8ac4bc97b536d4764b13bc1b80a176de64a8550004d3d936f010",
+    "e4ad3d33e159919d1be47bc76811bc94fb5cae6d72a21088da033ac8ccac0e27",
+    "6a0b38e21f63418f5a015dc060f121ccce177999fdddfe31e6db068fc8309caf",
+    "8d076653d3bba366a085775547b72d31f60e8a301e9487d62a26bb657edbf2a3",
+    "e5e64de7a51fc112cfc38ab4b09c3b578f9ad494a9224b8665b349f3db9fa4a6",
+    "ba7e8ea56761f7abc64fc405f216bdd8ba468922e3a32294a875081e8147a562",
+    "7aab9ab9272c76245c034da4dbcfca7ba72bea7dab12b87a915214ace766db11",
+    "44fcfd47f39fd415643c2e570223c355241e960754fe98ca7073d5ec24eb2cd9",
+    "08baf3ec07f8a3eecc9f601551ef34fb7b32d647bf242d4cb4434d9b368fd5ab",
+    "fbad81b5d2a186f6d0bd5024f2470ce33dd02736446f0f12d0347855b358d384"
+  ],
+  "result": {
+    "changed": true,
+    "first_changed_frame": 155,
+    "previous_state": "18.0°C",
+    "new_state": "18.5°C",
+    "uncertain": false
+  },
+  "usage": {
+    "image_tokens": 12348,
+    "input_tokens": 12486,
+    "input_tokens_details": {
+      "image_tokens": 12348,
+      "text_tokens": 138
+    },
+    "output_tokens": 51,
+    "output_tokens_details": {
+      "text_tokens": 51
+    },
+    "total_tokens": 12537
+  },
+  "reference_used_during_inference": false
+}

@@ -1,0 +1,70 @@
+{
+  "model": "qwen3-vl-32b-instruct",
+  "prompt": "你是机器人轨迹原子动作标注员。每张图上下两格是同一原始帧的头部head_rgb视角与左腕left_wrist_rgb视角，不是两个时间点。机械臂左右以机器人本体为准，不按屏幕左右。图片上标有原始frame_index，必须使用这些原始编号，不是图片序号。帧率15fps。只根据可见证据，不臆测接触、按压次数、温度读数或成功状态。技能可用reach/grasp/move/rotate/press/pull/push/release/wait；撤离用move并在动作描述中说明。一个子任务一个主要原子动作，不能把接近、按压、撤离合并。连续相同目的的运动不任意拆段。区分按压保持和新的独立按压。只输出JSON，不加代码围栏。\n关键：腕部相机固定在机械臂上！因此夹爪在腕部图中的像素位置固定完全不意味着机械臂静止。必须看墙面、门框、面板相对腕部相机的变化，并交叉看固定头部视角。以下还提供同帧左末端位置，单位毫米，是实际运动的辅助证据（不直接证明接触或任务成功）。不要把手臂返回途中判成wait。持续向同一按钮靠近是一个reach，不要分成move再reach。屏幕数值变化不等于新按压：长按自动连增温度可能属于一次press，不得按每次数字跳变切片。只在实际松开再按或换按钮等证据下拆分。接触不清晰则明确uncertain=true。\n逐帧审核范围[324,351]，所有帧均提供。运动数据：[{\"frame\":324,\"left_xyz_mm\":[-24.99,335.33,334.42],\"step_mm\":0.024},{\"frame\":325,\"left_xyz_mm\":[-24.99,335.33,334.39],\"step_mm\":0.024},{\"frame\":326,\"left_xyz_mm\":[-24.99,335.33,334.39],\"step_mm\":0.0},{\"frame\":327,\"left_xyz_mm\":[-24.99,335.33,334.39],\"step_mm\":0.0},{\"frame\":328,\"left_xyz_mm\":[-24.99,335.33,334.39],\"step_mm\":0.0},{\"frame\":329,\"left_xyz_mm\":[-24.99,335.32,334.39],\"step_mm\":0.01},{\"frame\":330,\"left_xyz_mm\":[-24.99,335.31,334.39],\"step_mm\":0.017},{\"frame\":331,\"left_xyz_mm\":[-25.02,335.3,334.51],\"step_mm\":0.122},{\"frame\":332,\"left_xyz_mm\":[-25.09,335.28,334.66],\"step_mm\":0.163},{\"frame\":333,\"left_xyz_mm\":[-25.14,335.26,334.78],\"step_mm\":0.133},{\"frame\":334,\"left_xyz_mm\":[-25.21,335.23,334.96],\"step_mm\":0.197},{\"frame\":335,\"left_xyz_mm\":[-25.29,335.15,335.15],\"step_mm\":0.226},{\"frame\":336,\"left_xyz_mm\":[-25.69,334.89,336.04],\"step_mm\":1.005},{\"frame\":337,\"left_xyz_mm\":[-27.08,334.4,340.87],\"step_mm\":5.053},{\"frame\":338,\"left_xyz_mm\":[-28.8,333.75,347.45],\"step_mm\":6.831},{\"frame\":339,\"left_xyz_mm\":[-30.11,333.21,354.73],\"step_mm\":7.412},{\"frame\":340,\"left_xyz_mm\":[-30.98,332.9,363.39],\"step_mm\":8.714},{\"frame\":341,\"left_xyz_mm\":[-31.15,332.66,372.18],\"step_mm\":8.797},{\"frame\":342,\"left_xyz_mm\":[-30.94,332.33,381.16],\"step_mm\":8.99},{\"frame\":343,\"left_xyz_mm\":[-30.2,331.82,392.15],\"step_mm\":11.02},{\"frame\":344,\"left_xyz_mm\":[-28.17,331.3,399.67],\"step_mm\":7.808},{\"frame\":345,\"left_xyz_mm\":[-26.99,330.78,411.03],\"step_mm\":11.433},{\"frame\":346,\"left_xyz_mm\":[-24.69,330.12,419.69],\"step_mm\":8.983},{\"frame\":347,\"left_xyz_mm\":[-22.46,329.32,428.5],\"step_mm\":9.127},{\"frame\":348,\"left_xyz_mm\":[-19.64,328.35,435.07],\"step_mm\":7.214},{\"frame\":349,\"left_xyz_mm\":[-16.61,327.39,441.12],\"step_mm\":6.831},{\"frame\":350,\"left_xyz_mm\":[-13.15,326.63,446.63],\"step_mm\":6.552},{\"frame\":351,\"left_xyz_mm\":[-8.95,326.09,452.87],\"step_mm\":7.542}]\n输出 {\"segments\":[{\"start_frame\":0,\"end_frame\":1,\"skill_id\":\"reach\",\"arm_used\":\"left\",\"action\":\"中文\",\"evidence\":\"具体相对位置、运动和接触证据及帧号\",\"uncertain\":true}],\"boundary_uncertainty\":[{\"frame\":0,\"earliest\":0,\"latest\":0,\"reason\":\"不确定依据\"}],\"screen_changes\":[],\"missed_action_check\":\"是否有遗漏独立技能\"}。严格覆盖本窗口所有帧，闭区间连续无重叠。不要根据任务文字补全未观察的动作，不要编造精度。",
+  "frames": [
+    324,
+    325,
+    326,
+    327,
+    328,
+    329,
+    330,
+    331,
+    332,
+    333,
+    334,
+    335,
+    336,
+    337,
+    338,
+    339,
+    340,
+    341,
+    342,
+    343,
+    344,
+    345,
+    346,
+    347,
+    348,
+    349,
+    350,
+    351
+  ],
+  "usage": {
+    "image_tokens": 13496,
+    "input_tokens": 15607,
+    "input_tokens_details": {
+      "image_tokens": 13496,
+      "text_tokens": 2111
+    },
+    "output_tokens": 145,
+    "output_tokens_details": {
+      "text_tokens": 145
+    },
+    "total_tokens": 15752
+  },
+  "request_id": "47a8e61d-7f39-9b79-a19d-feb6d630326f",
+  "result": {
+    "segments": [
+      {
+        "start_frame": 324,
+        "end_frame": 351,
+        "skill_id": "move",
+        "arm_used": "left",
+        "action": "左臂向右前方移动，远离墙面温控面板区域，末端位置从[-24.99,335.33,334.42]移动至[-8.95,326.09,452.87]，腕部相机视角中背景物体（如地板、门框）持续向左后方移动，表明机械臂在执行撤离动作",
+        "uncertain": false
+      }
+    ],
+    "boundary_uncertainty": [],
+    "screen_changes": [],
+    "missed_action_check": "无遗漏独立技能"
+  },
+  "proposal_checks": {
+    "structurally_consistent": true,
+    "issues": [],
+    "semantic_accuracy_verified": false,
+    "exact_boundaries_verified": false,
+    "eligible_for_final_delivery": false
+  }
+}

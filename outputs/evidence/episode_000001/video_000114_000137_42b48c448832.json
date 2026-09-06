@@ -1,0 +1,83 @@
+{
+  "model": "qwen3-vl-32b-instruct",
+  "prompt": "这是左腕相机的视频片段，原视频15fps，帧范围114至137。画面标注的是原始帧号。\n接口播放帧率为10，仅供时序观察；不要使用接口播放秒数定位，必须使用画面上的原始帧号。\n相机固定在左臂，黑色夹爪位置固定是正常现象，须看目标相对夹爪的运动。\n只依据实际图像作答。无法确定接触的时刻时给范围，禁止凭屏幕变化断定物理接触起始。\n只分析夹爪尖端与按钮的接触关系：接近、按住、松开或移向另一个按钮。不要把屏幕数字变化当成独立动作。请给首次能看见接触和首次能看见脱离的帧号；如果被遮挡、深度不可见或不能确定，必须在uncertain_boundaries中说明，不得杜撰接触时刻。\n只输出JSON对象，格式为：{\"observations\":[{\"frame\":0,\"description\":\"可见事实\"}],\"actions\":[{\"start_frame\":0,\"end_frame\":1,\"skill_id\":\"reach/press/move/wait之一\",\"description\":\"动作\",\"confidence\":\"high/medium/low之一\"}],\"uncertain_boundaries\":[{\"earliest_frame\":0,\"latest_frame\":1,\"reason\":\"原因\"}]}。\n不要猜测品牌、无法辨认的数字或未看到的动作；动作起止采用闭区间。",
+  "frames": [
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134,
+    135,
+    136,
+    137
+  ],
+  "usage": {
+    "input_tokens": 7431,
+    "input_tokens_details": {
+      "text_tokens": 301,
+      "video_tokens": 7130
+    },
+    "output_tokens": 316,
+    "output_tokens_details": {
+      "text_tokens": 316
+    },
+    "total_tokens": 7747,
+    "video_tokens": 7130
+  },
+  "request_id": "7f7dbb94-9f76-945f-abbc-b941529978ac",
+  "result": {
+    "observations": [
+      {
+        "frame": 114,
+        "description": "画面中可见一个白色TOSHIBA品牌的空调遥控器，屏幕关闭，右侧有黑色夹爪固定在设备上。夹爪位于遥控器右侧边缘，未接触任何按钮。"
+      },
+      {
+        "frame": 125,
+        "description": "遥控器屏幕亮起，显示温度18.5°C、风扇图标和太阳图标，表明设备被激活。夹爪位置未变，仍未接触按钮。"
+      },
+      {
+        "frame": 137,
+        "description": "屏幕内容保持不变，夹爪位置稳定，无明显移动或接触按钮的迹象。"
+      }
+    ],
+    "actions": [
+      {
+        "start_frame": 114,
+        "end_frame": 137,
+        "skill_id": "wait",
+        "description": "夹爪在整个帧范围内保持静止，未与任何按钮发生接触或移动。",
+        "confidence": "high"
+      }
+    ],
+    "uncertain_boundaries": [
+      {
+        "earliest_frame": 114,
+        "latest_frame": 137,
+        "reason": "夹爪始终位于遥控器右侧边缘，未观察到其尖端与任何按钮发生物理接触或接近；屏幕点亮可能由外部遥控或内部定时触发，无法确认是否由夹爪操作引起。"
+      }
+    ]
+  },
+  "proposal_checks": {
+    "structurally_consistent": true,
+    "issues": [],
+    "semantic_accuracy_verified": false,
+    "exact_boundaries_verified": false,
+    "eligible_for_final_delivery": false
+  }
+}

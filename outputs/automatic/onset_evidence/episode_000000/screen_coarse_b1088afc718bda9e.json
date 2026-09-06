@@ -1,0 +1,65 @@
+{
+  "model": "qwen3-vl-32b-instruct",
+  "prompt": "这是墙面温控面板的腕部相机逐时图，图片FRAME标签是原始帧号。只比较屏幕可见状态，不判断机械臂动作。\n找出相对于本窗口第一张图的第一次明确界面变化：数字出现/消失、背光明显切换、设定值首次改变。\n不要把面板随相机移动、反光或模糊误认为内容变化；不要猜看不清的数字。只选实际提供的帧号。\n输出JSON：{\"changed\":true,\"first_changed_frame\":0,\"previous_state\":\"\",\"new_state\":\"\",\"uncertain\":false}。\n若没有清晰变化，changed=false，first_changed_frame=null。",
+  "frames": [
+    417,
+    419,
+    421,
+    423,
+    425,
+    427,
+    429,
+    431,
+    433,
+    435,
+    437,
+    439,
+    441,
+    443,
+    445,
+    447,
+    449,
+    450
+  ],
+  "image_sha256": [
+    "7c5c06b8501fbfc90946341c88505479d972448778b2f9141c0104716589f367",
+    "4df509ae46234ed0f1226416237d3fb260a6b327cadfe6e4d3f6a9fbd826d1c2",
+    "37a48bc8ecfb7af301891b27c927eb5c15fb2fcb32ebc78b937177f0f60b5670",
+    "95d0f7214eec085c91b5124a33a4815289ae8253369d2cabca438bdae776b801",
+    "e42e20764a3206c6a2cba8c4088ea3cc0d978bb055d9a56e580344a3628b9300",
+    "43e3549f850503d1aacf53240ae7c7ace7fd8f9d665f456a7c5d1033dfe0b3d9",
+    "c96f0587f5802f32067c6d3a32a4f2e3217178af3c3e870f82689b73c024c563",
+    "8fbb6bc2bcf77a950fc27cb95b4eafd40bc766ceb43cfa529e1aa13f8b7338fc",
+    "51b63a5a13cbbc3fed32fd6d32ee01783318e0d6a5437c6856deb713bbf1e603",
+    "89e3b0aaf65142e6dc42710f899280d66b0fb2ba5beb5641c2a4b22c0d130a0b",
+    "445d2707ccddcd06158dee4ccc8c536b555eccee9583058abeabe62ef281be16",
+    "c750005d8bd04da9a15d75cc133404345cf63f452661746aeaf6b1b15b0fe957",
+    "08b473fef05a0c00ba18d074288ef3774aa22458d47638dd3c3dbcbaaaf476ad",
+    "cb92294cc6f45e44e3d02958d3e0e8ea66b2d59e69553bf2de9c9b97fca4f6ac",
+    "2dcf210a62aabcd46c3d8cdc62a196550cf96ffd111ad462ca98d2630d334004",
+    "c692e9d762ddc28c1217556c5903bb4e02319fc851e9ae5f0c5f7c959b758c23",
+    "477779143f9aed331d5aafa26196cbd17d570a225c3df3b48378af017104d22c",
+    "fa7624f9aead842be5c8a810afa48b36230294e7adc403c6daaf35eaaceeef8f"
+  ],
+  "result": {
+    "changed": true,
+    "first_changed_frame": 441,
+    "previous_state": "屏幕显示数字20.5°C，背光开启",
+    "new_state": "屏幕变亮，数字消失，背光关闭或屏幕熄灭",
+    "uncertain": false
+  },
+  "usage": {
+    "image_tokens": 15876,
+    "input_tokens": 16014,
+    "input_tokens_details": {
+      "image_tokens": 15876,
+      "text_tokens": 138
+    },
+    "output_tokens": 67,
+    "output_tokens_details": {
+      "text_tokens": 67
+    },
+    "total_tokens": 16081
+  },
+  "reference_used_during_inference": false
+}

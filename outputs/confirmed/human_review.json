@@ -1,0 +1,30 @@
+{
+  "reviewed_at": "2026-09-05T12:31:46.311578+00:00",
+  "reviewer": "user",
+  "statement": "经过人工校对，子任务的划分和候选帧在目前的观察下都是正确的",
+  "scope": "当前两条轨迹的子任务划分及候选起止帧；依据当前人工观察确认",
+  "automated_generalization_verified": false,
+  "quantitative_accuracy_metrics": null,
+  "trajectories": [
+    {
+      "trajectory_id": "episode_000000",
+      "subtasks": 11,
+      "candidate_sha256": "75f02abcf990facd113c08ade937182384bb8519f618f91b6f7f7359dcf44718",
+      "confirmed_sha256": "ebefdb3db656b603055633da30351b25586ed1a22cd4066a8413e70aee0a7ff6",
+      "file": "outputs/confirmed/episode_000000.json"
+    },
+    {
+      "trajectory_id": "episode_000001",
+      "subtasks": 7,
+      "candidate_sha256": "72e537a9ab2fbf3e543a7b9be55435b8366cf786f755379e67ab50e85e57cf64",
+      "confirmed_sha256": "cf48e5a0fe71e0dccdd62f6f83850e1bc7bba709cf8eb1d20347c642ff79f1c7",
+      "file": "outputs/confirmed/episode_000001.json"
+    }
+  ],
+  "interpretation_correction": {
+    "prior_exact_frame_acceptance_withdrawn": true,
+    "reason": "User clarified that earlier approval concerned candidate boundaries, not exact start/end frames.",
+    "current_working_reference": "outputs/ground_truth/v2/manifest.json"
+  },
+  "exact_frame_truth_claimed": false
+}

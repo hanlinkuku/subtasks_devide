@@ -1,0 +1,148 @@
+{
+  "trajectory_id": "episode_000001",
+  "trajectory_start": 0,
+  "trajectory_end": 393,
+  "task_name": "用左臂操作温控面板并调节温度",
+  "subtasks": [
+    {
+      "id": 1,
+      "standard_action_text": "机械臂在初始位置保持静止。",
+      "skill_id": "wait",
+      "arm_used": "none",
+      "notes": "自动生成，尚未通过人工边界验收。",
+      "start_frame": 0,
+      "end_frame": 11,
+      "start_time": 0.0,
+      "end_time": 0.733333,
+      "target_object_attribute": {
+        "name": "",
+        "colors": [],
+        "shapes": [],
+        "materials": [],
+        "sizes": [],
+        "others": [],
+        "description": ""
+      }
+    },
+    {
+      "id": 2,
+      "standard_action_text": "左臂接近温控面板按钮区域。",
+      "skill_id": "reach",
+      "arm_used": "left",
+      "notes": "自动生成，尚未通过人工边界验收。",
+      "start_frame": 12,
+      "end_frame": 100,
+      "start_time": 0.8,
+      "end_time": 6.666667,
+      "target_object_attribute": {
+        "name": "温控面板",
+        "colors": [],
+        "shapes": [],
+        "materials": [],
+        "sizes": [],
+        "others": [],
+        "description": ""
+      }
+    },
+    {
+      "id": 3,
+      "standard_action_text": "按压并保持电源按钮",
+      "skill_id": "press",
+      "arm_used": "left",
+      "notes": "自动生成，尚未通过人工边界验收。从帧101开始，夹爪左侧尖端持续靠近面板右侧的电源按钮区域，虽被遮挡但可见其位置稳定且无明显回撤。在帧123时屏幕首次亮起（显示模糊界面），随后在帧147-149屏幕清晰显示18.5℃及制冷模式，表明设备已启动。结合夹爪在101-149帧间持续接近、无松开迹象，以及屏幕响应变化，推断为对电源按钮的长按操作。夹爪未完全离开按钮区域直至149帧后才开始后退（151帧后），符合按压保持行为。",
+      "start_frame": 101,
+      "end_frame": 149,
+      "start_time": 6.733333,
+      "end_time": 9.933333,
+      "target_object_attribute": {
+        "name": "温控面板",
+        "colors": [],
+        "shapes": [],
+        "materials": [],
+        "sizes": [],
+        "others": [],
+        "description": ""
+      }
+    },
+    {
+      "id": 4,
+      "standard_action_text": "左臂移动并调整按钮操作位置。",
+      "skill_id": "move",
+      "arm_used": "left",
+      "notes": "自动生成，尚未通过人工边界验收。",
+      "start_frame": 150,
+      "end_frame": 206,
+      "start_time": 10.0,
+      "end_time": 13.733333,
+      "target_object_attribute": {
+        "name": "温控面板",
+        "colors": [],
+        "shapes": [],
+        "materials": [],
+        "sizes": [],
+        "others": [],
+        "description": ""
+      }
+    },
+    {
+      "id": 5,
+      "standard_action_text": "按压降温按钮",
+      "skill_id": "press",
+      "arm_used": "left",
+      "notes": "自动生成，尚未通过人工边界验收。从FRAME 207到FRAME 209，面板显示温度从18.5°C变为18.0°C，同时夹爪尖端持续靠近并接触下方三角形降温按钮（被遮挡），符合按压推进及接触保持的特征。在FRAME 211至216期间，温度维持18.0°C且夹爪位置稳定，表明按压后保持接触。后续帧中夹爪开始回撤，说明松开离开。整个过程无其他按钮响应，可确认为一次长按操作。",
+      "start_frame": 207,
+      "end_frame": 216,
+      "start_time": 13.8,
+      "end_time": 14.4,
+      "target_object_attribute": {
+        "name": "温控面板",
+        "colors": [],
+        "shapes": [],
+        "materials": [],
+        "sizes": [],
+        "others": [],
+        "description": ""
+      }
+    },
+    {
+      "id": 6,
+      "standard_action_text": "左臂撤回初始位置。",
+      "skill_id": "move",
+      "arm_used": "left",
+      "notes": "自动生成，尚未通过人工边界验收。",
+      "start_frame": 217,
+      "end_frame": 363,
+      "start_time": 14.466667,
+      "end_time": 24.2,
+      "target_object_attribute": {
+        "name": "温控面板",
+        "colors": [],
+        "shapes": [],
+        "materials": [],
+        "sizes": [],
+        "others": [],
+        "description": ""
+      }
+    },
+    {
+      "id": 7,
+      "standard_action_text": "机械臂在初始位置保持静止。",
+      "skill_id": "wait",
+      "arm_used": "none",
+      "notes": "自动生成，尚未通过人工边界验收。",
+      "start_frame": 364,
+      "end_frame": 393,
+      "start_time": 24.266667,
+      "end_time": 26.2,
+      "target_object_attribute": {
+        "name": "",
+        "colors": [],
+        "shapes": [],
+        "materials": [],
+        "sizes": [],
+        "others": [],
+        "description": ""
+      }
+    }
+  ]
+}

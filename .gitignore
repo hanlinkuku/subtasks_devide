@@ -1,0 +1,40 @@
+# Local Python runtime and temporary files
+.runtime/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.tmp
+*.log
+
+# Credentials and machine-specific settings
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Original recordings remain available locally
+**/Turn_On_And_Off_The_Air_Conditioner_raw_lerobot/
+
+# Generated media; retain lightweight annotations and inference evidence
+*.mp4
+*.avi
+*.mov
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.zip
+
+# Replay requests duplicate Base64 media. Preserve the readable context and index.
+outputs/replays/*
+!outputs/replays/*/
+outputs/replays/*/*
+!outputs/replays/*/all_contexts.md
+!outputs/replays/*/manifest.json
+
+# Future personal scratch files
+.DS_Store
+Thumbs.db

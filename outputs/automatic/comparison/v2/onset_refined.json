@@ -1,0 +1,187 @@
+{
+  "stage": "onset_refined",
+  "scope": "deviation from the selected working reference; not exact physical-contact error or held-out generalization",
+  "reference_manifest": "outputs/ground_truth/v2/manifest.json",
+  "exact_frame_truth_claimed": false,
+  "boundary_tolerance_frames": null,
+  "tolerance_counts_are_descriptive_not_acceptance": true,
+  "reference_used_during_inference": false,
+  "quantitative_metrics_do_not_cover_action_text_or_object_attributes": true,
+  "boundary_count": 16,
+  "exact_boundaries": 9,
+  "boundaries_within_1_frame": 14,
+  "boundaries_within_3_frames": 16,
+  "boundaries_within_5_frames": 16,
+  "deviation_by_transition": {
+    "into_press": {
+      "count": 5,
+      "mean_absolute_deviation_frames": 1.4,
+      "max_absolute_deviation_frames": 3
+    },
+    "out_of_press": {
+      "count": 5,
+      "mean_absolute_deviation_frames": 0.0,
+      "max_absolute_deviation_frames": 0
+    },
+    "other": {
+      "count": 6,
+      "mean_absolute_deviation_frames": 0.5,
+      "max_absolute_deviation_frames": 1
+    }
+  },
+  "mean_absolute_boundary_error_frames": 0.625,
+  "max_absolute_boundary_error_frames": 3,
+  "frame_skill_and_arm_accuracy": 0.98989898989899,
+  "trajectories": [
+    {
+      "trajectory_id": "episode_000000",
+      "reference_subtasks": 11,
+      "automatic_subtasks": 11,
+      "skill_and_arm_sequence_match": true,
+      "boundary_errors": [
+        {
+          "subtask_id": 2,
+          "skill_id": "reach",
+          "reference_frame": 12,
+          "automatic_frame": 12,
+          "signed_error_frames": 0,
+          "absolute_error_frames": 0
+        },
+        {
+          "subtask_id": 3,
+          "skill_id": "press",
+          "reference_frame": 76,
+          "automatic_frame": 75,
+          "signed_error_frames": -1,
+          "absolute_error_frames": 1
+        },
+        {
+          "subtask_id": 4,
+          "skill_id": "move",
+          "reference_frame": 91,
+          "automatic_frame": 91,
+          "signed_error_frames": 0,
+          "absolute_error_frames": 0
+        },
+        {
+          "subtask_id": 5,
+          "skill_id": "press",
+          "reference_frame": 152,
+          "automatic_frame": 149,
+          "signed_error_frames": -3,
+          "absolute_error_frames": 3
+        },
+        {
+          "subtask_id": 6,
+          "skill_id": "move",
+          "reference_frame": 176,
+          "automatic_frame": 176,
+          "signed_error_frames": 0,
+          "absolute_error_frames": 0
+        },
+        {
+          "subtask_id": 7,
+          "skill_id": "wait",
+          "reference_frame": 284,
+          "automatic_frame": 284,
+          "signed_error_frames": 0,
+          "absolute_error_frames": 0
+        },
+        {
+          "subtask_id": 8,
+          "skill_id": "reach",
+          "reference_frame": 330,
+          "automatic_frame": 331,
+          "signed_error_frames": 1,
+          "absolute_error_frames": 1
+        },
+        {
+          "subtask_id": 9,
+          "skill_id": "press",
+          "reference_frame": 438,
+          "automatic_frame": 436,
+          "signed_error_frames": -2,
+          "absolute_error_frames": 2
+        },
+        {
+          "subtask_id": 10,
+          "skill_id": "move",
+          "reference_frame": 451,
+          "automatic_frame": 451,
+          "signed_error_frames": 0,
+          "absolute_error_frames": 0
+        },
+        {
+          "subtask_id": 11,
+          "skill_id": "wait",
+          "reference_frame": 575,
+          "automatic_frame": 574,
+          "signed_error_frames": -1,
+          "absolute_error_frames": 1
+        }
+      ],
+      "frame_skill_and_arm_accuracy": 0.9865771812080537,
+      "prediction_sha256": "724abfc75aaff929d73ce835593e08aa0bbb99ae9961e8aef9100acb61399a70"
+    },
+    {
+      "trajectory_id": "episode_000001",
+      "reference_subtasks": 7,
+      "automatic_subtasks": 7,
+      "skill_and_arm_sequence_match": true,
+      "boundary_errors": [
+        {
+          "subtask_id": 2,
+          "skill_id": "reach",
+          "reference_frame": 12,
+          "automatic_frame": 12,
+          "signed_error_frames": 0,
+          "absolute_error_frames": 0
+        },
+        {
+          "subtask_id": 3,
+          "skill_id": "press",
+          "reference_frame": 118,
+          "automatic_frame": 118,
+          "signed_error_frames": 0,
+          "absolute_error_frames": 0
+        },
+        {
+          "subtask_id": 4,
+          "skill_id": "move",
+          "reference_frame": 153,
+          "automatic_frame": 153,
+          "signed_error_frames": 0,
+          "absolute_error_frames": 0
+        },
+        {
+          "subtask_id": 5,
+          "skill_id": "press",
+          "reference_frame": 206,
+          "automatic_frame": 205,
+          "signed_error_frames": -1,
+          "absolute_error_frames": 1
+        },
+        {
+          "subtask_id": 6,
+          "skill_id": "move",
+          "reference_frame": 221,
+          "automatic_frame": 221,
+          "signed_error_frames": 0,
+          "absolute_error_frames": 0
+        },
+        {
+          "subtask_id": 7,
+          "skill_id": "wait",
+          "reference_frame": 365,
+          "automatic_frame": 364,
+          "signed_error_frames": -1,
+          "absolute_error_frames": 1
+        }
+      ],
+      "frame_skill_and_arm_accuracy": 0.9949238578680203,
+      "prediction_sha256": "e4fa8e7d3e84464166a2843c4634185c3180ccabcb78ec9a5b4cef0c0e641a96"
+    }
+  ],
+  "accepted": false,
+  "matches_reference_partition": false
+}

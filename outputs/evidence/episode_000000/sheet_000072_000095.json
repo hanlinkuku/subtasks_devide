@@ -1,0 +1,207 @@
+{
+  "model": "qwen3-vl-32b-instruct",
+  "prompt": "你要读机器人腕部相机的逐帧接触图。图片是时间序列拼图，按从左到右、从上到下顺序，每格FRAME数字是原始帧号，不要混淆。相机固定于左臂，因此黑色夹爪固定在画面中；需要看面板相对夹爪的距离和遮挡。逐格比较，不要套用预想的动作。先列出屏幕背光或内容变化的首次帧号，再判断是否有明显的靠近/触碰/退离。屏幕变化本身不确定机械接触起始时刻；无法确定必须给不确定区间。不要从反光把数字读错，不清晰就写看不清。不要把长按的每次数字跳变拆成独立按压。输出JSON {\"observations\":[{\"frame\":0,\"observation\":\"具体看到什么变化\"}],\"segments\":[{\"start_frame\":0,\"end_frame\":1,\"skill_id\":\"reach/press/move/wait中选一\",\"action\":\"中文动作\",\"evidence\":\"可见证据\",\"uncertain\":true}],\"boundary_uncertainty\":[{\"frame\":0,\"earliest\":0,\"latest\":0,\"reason\":\"\"}]}。范围内闭区间连续覆盖，不能臆测窗口外的动作。",
+  "frames": [
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95
+  ],
+  "usage": {
+    "image_tokens": 2304,
+    "input_tokens": 2675,
+    "input_tokens_details": {
+      "image_tokens": 2304,
+      "text_tokens": 371
+    },
+    "output_tokens": 1457,
+    "output_tokens_details": {
+      "text_tokens": 1457
+    },
+    "total_tokens": 4132
+  },
+  "request_id": "05532618-aa67-90e1-9365-9326ae22673b",
+  "result": {
+    "observations": [
+      {
+        "frame": 72,
+        "observation": "屏幕显示温度为18.0°C，背光开启，面板与夹爪无接触，夹爪位于画面右侧。"
+      },
+      {
+        "frame": 73,
+        "observation": "屏幕显示温度仍为18.0°C，无变化，面板位置稳定，无遮挡或靠近迹象。"
+      },
+      {
+        "frame": 74,
+        "observation": "屏幕显示温度变为19.0°C，背光持续亮起，面板未见明显移动或接触。"
+      },
+      {
+        "frame": 75,
+        "observation": "屏幕显示温度仍为19.0°C，无变化，面板位置稳定。"
+      },
+      {
+        "frame": 76,
+        "observation": "屏幕显示温度仍为19.0°C，无变化，面板位置稳定。"
+      },
+      {
+        "frame": 77,
+        "observation": "屏幕显示温度仍为19.0°C，无变化，面板位置稳定。"
+      },
+      {
+        "frame": 78,
+        "observation": "屏幕显示温度仍为19.0°C，无变化，面板位置稳定。"
+      },
+      {
+        "frame": 79,
+        "observation": "屏幕显示温度变为18.0°C，背光持续亮起，面板位置稳定。"
+      },
+      {
+        "frame": 80,
+        "observation": "屏幕内容变为纯白背景带网格线，背光开启，无数字显示，面板未见接触。"
+      },
+      {
+        "frame": 81,
+        "observation": "屏幕内容仍为纯白背景带网格线，无变化，面板位置稳定。"
+      },
+      {
+        "frame": 82,
+        "observation": "屏幕内容仍为纯白背景带网格线，无变化，面板位置稳定。"
+      },
+      {
+        "frame": 83,
+        "observation": "屏幕显示温度为18.0°C，同时出现太阳图标和“S-SET”字样，背光开启，面板位置稳定。"
+      },
+      {
+        "frame": 84,
+        "observation": "屏幕显示温度为18.0°C，太阳图标和“S-SET”字样仍在，面板位置稳定。"
+      },
+      {
+        "frame": 85,
+        "observation": "屏幕内容与前帧一致，无变化，面板位置稳定。"
+      },
+      {
+        "frame": 86,
+        "observation": "屏幕内容与前帧一致，无变化，面板位置稳定。"
+      },
+      {
+        "frame": 87,
+        "observation": "屏幕内容与前帧一致，无变化，面板位置稳定。"
+      },
+      {
+        "frame": 88,
+        "observation": "屏幕内容与前帧一致，无变化，面板位置稳定。"
+      },
+      {
+        "frame": 89,
+        "observation": "屏幕内容与前帧一致，无变化，面板位置稳定。"
+      },
+      {
+        "frame": 90,
+        "observation": "屏幕内容与前帧一致，无变化，面板位置稳定。"
+      },
+      {
+        "frame": 91,
+        "observation": "屏幕内容与前帧一致，无变化，面板位置稳定。"
+      },
+      {
+        "frame": 92,
+        "observation": "屏幕内容与前帧一致，无变化，面板位置稳定。"
+      },
+      {
+        "frame": 93,
+        "observation": "屏幕内容与前帧一致，无变化，面板位置稳定。"
+      },
+      {
+        "frame": 94,
+        "observation": "屏幕内容与前帧一致，无变化，面板位置稳定。"
+      },
+      {
+        "frame": 95,
+        "observation": "屏幕内容与前帧一致，无变化，面板位置稳定。"
+      }
+    ],
+    "segments": [
+      {
+        "start_frame": 72,
+        "end_frame": 73,
+        "skill_id": "wait",
+        "action": "等待，屏幕显示18.0°C，无动作发生",
+        "evidence": "屏幕数字稳定，面板与夹爪无相对运动或遮挡",
+        "uncertain": false
+      },
+      {
+        "start_frame": 74,
+        "end_frame": 75,
+        "skill_id": "press",
+        "action": "按压操作导致屏幕温度从18.0°C跳变至19.0°C",
+        "evidence": "屏幕数字从18.0变为19.0，无物理接触可见，但数值变化表明按键被触发",
+        "uncertain": true
+      },
+      {
+        "start_frame": 76,
+        "end_frame": 79,
+        "skill_id": "wait",
+        "action": "等待，屏幕保持19.0°C，无进一步操作",
+        "evidence": "屏幕数字稳定，无面板移动或遮挡",
+        "uncertain": false
+      },
+      {
+        "start_frame": 80,
+        "end_frame": 82,
+        "skill_id": "press",
+        "action": "按压操作导致屏幕进入设置界面（纯白网格）",
+        "evidence": "屏幕内容从数字显示切换为纯白网格，表明进入菜单或设置模式",
+        "uncertain": true
+      },
+      {
+        "start_frame": 83,
+        "end_frame": 95,
+        "skill_id": "wait",
+        "action": "等待，屏幕显示18.0°C及设置图标，无进一步操作",
+        "evidence": "屏幕内容稳定，无面板移动或遮挡",
+        "uncertain": false
+      }
+    ],
+    "boundary_uncertainty": [
+      {
+        "frame": 74,
+        "earliest": 74,
+        "latest": 74,
+        "reason": "屏幕温度从18.0°C跳变至19.0°C，此帧是首次变化，但无物理接触证据，因此无法确定确切按压时刻，仅能确认在该帧发生状态改变。"
+      },
+      {
+        "frame": 80,
+        "earliest": 80,
+        "latest": 80,
+        "reason": "屏幕内容从数字显示切换为纯白网格，此帧是首次变化，但无物理接触证据，因此无法确定确切按压时刻，仅能确认在该帧发生状态改变。"
+      }
+    ]
+  },
+  "proposal_checks": {
+    "structurally_consistent": true,
+    "issues": [],
+    "semantic_accuracy_verified": false,
+    "exact_boundaries_verified": false,
+    "eligible_for_final_delivery": false
+  }
+}

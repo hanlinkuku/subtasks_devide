@@ -1,0 +1,122 @@
+{
+  "version": "v2",
+  "created_at": "2026-09-06T05:22:46.368961+00:00",
+  "reference_role": "user_selected_working_reference",
+  "exact_frame_truth_claimed": false,
+  "boundary_tolerance_frames": null,
+  "fps": 15,
+  "frame_interval_convention": "inclusive",
+  "selection_rule": "All transitions into or out of press use the previous assistant candidate; other user-edited boundaries are retained.",
+  "trajectories": [
+    {
+      "trajectory_id": "episode_000000",
+      "file": "outputs/ground_truth/v2/episode_000000.json",
+      "sha256": "1c7a7b5c1c658dbdbaf6c2a3417293cc0a72448110d02c8da8d3e8fa263f2ba3",
+      "ready_for_comparison": true,
+      "structural_issues": [],
+      "press_boundary_selections": [
+        {
+          "from_subtask_id": 2,
+          "to_subtask_id": 3,
+          "user_previous_end": 77,
+          "user_next_start": 78,
+          "selected_next_start": 76,
+          "source": "previous_assistant_candidate",
+          "exactness_confirmed": false
+        },
+        {
+          "from_subtask_id": 3,
+          "to_subtask_id": 4,
+          "user_previous_end": 91,
+          "user_next_start": 92,
+          "selected_next_start": 91,
+          "source": "previous_assistant_candidate",
+          "exactness_confirmed": false
+        },
+        {
+          "from_subtask_id": 4,
+          "to_subtask_id": 5,
+          "user_previous_end": 153,
+          "user_next_start": 152,
+          "selected_next_start": 152,
+          "source": "previous_assistant_candidate",
+          "exactness_confirmed": false
+        },
+        {
+          "from_subtask_id": 5,
+          "to_subtask_id": 6,
+          "user_previous_end": 175,
+          "user_next_start": 176,
+          "selected_next_start": 176,
+          "source": "previous_assistant_candidate",
+          "exactness_confirmed": false
+        },
+        {
+          "from_subtask_id": 8,
+          "to_subtask_id": 9,
+          "user_previous_end": 433,
+          "user_next_start": 433,
+          "selected_next_start": 438,
+          "source": "previous_assistant_candidate",
+          "exactness_confirmed": false
+        },
+        {
+          "from_subtask_id": 9,
+          "to_subtask_id": 10,
+          "user_previous_end": 451,
+          "user_next_start": 452,
+          "selected_next_start": 451,
+          "source": "previous_assistant_candidate",
+          "exactness_confirmed": false
+        }
+      ],
+      "prior_candidate_sha256": "75f02abcf990facd113c08ade937182384bb8519f618f91b6f7f7359dcf44718"
+    },
+    {
+      "trajectory_id": "episode_000001",
+      "file": "outputs/ground_truth/v2/episode_000001.json",
+      "sha256": "2e23f3ee4fbcc1b7746cb17efdc88bed757d2206bb0688a980cedd653aaf1a71",
+      "ready_for_comparison": true,
+      "structural_issues": [],
+      "press_boundary_selections": [
+        {
+          "from_subtask_id": 2,
+          "to_subtask_id": 3,
+          "user_previous_end": 116,
+          "user_next_start": 117,
+          "selected_next_start": 118,
+          "source": "previous_assistant_candidate",
+          "exactness_confirmed": false
+        },
+        {
+          "from_subtask_id": 3,
+          "to_subtask_id": 4,
+          "user_previous_end": 152,
+          "user_next_start": 153,
+          "selected_next_start": 153,
+          "source": "previous_assistant_candidate",
+          "exactness_confirmed": false
+        },
+        {
+          "from_subtask_id": 4,
+          "to_subtask_id": 5,
+          "user_previous_end": 205,
+          "user_next_start": 206,
+          "selected_next_start": 206,
+          "source": "previous_assistant_candidate",
+          "exactness_confirmed": false
+        },
+        {
+          "from_subtask_id": 5,
+          "to_subtask_id": 6,
+          "user_previous_end": 221,
+          "user_next_start": 222,
+          "selected_next_start": 221,
+          "source": "previous_assistant_candidate",
+          "exactness_confirmed": false
+        }
+      ],
+      "prior_candidate_sha256": "72e537a9ab2fbf3e543a7b9be55435b8366cf786f755379e67ab50e85e57cf64"
+    }
+  ]
+}

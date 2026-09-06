@@ -1,0 +1,92 @@
+{
+  "model": "qwen3-vl-32b-instruct",
+  "prompt": "这是左腕相机的视频片段，原视频15fps，帧范围76至87。画面标注的是原始帧号。\n接口播放帧率为10，仅供时序观察；不要使用接口播放秒数定位，必须使用画面上的原始帧号。\n相机固定在左臂，黑色夹爪位置固定是正常现象，须看目标相对夹爪的运动。\n只依据实际图像作答。无法确定接触的时刻时给范围，禁止凭屏幕变化断定物理接触起始。\n只分析夹爪尖端与按钮的接触关系：接近、按住、松开或移向另一个按钮。不要把屏幕数字变化当成独立动作。请给首次能看见接触和首次能看见脱离的帧号；如果被遮挡、深度不可见或不能确定，必须在uncertain_boundaries中说明，不得杜撰接触时刻。\n只输出JSON对象，格式为：{\"observations\":[{\"frame\":0,\"description\":\"可见事实\"}],\"actions\":[{\"start_frame\":0,\"end_frame\":1,\"skill_id\":\"reach/press/move/wait之一\",\"description\":\"动作\",\"confidence\":\"high/medium/low之一\"}],\"uncertain_boundaries\":[{\"earliest_frame\":0,\"latest_frame\":1,\"reason\":\"原因\"}]}。\n不要猜测品牌、无法辨认的数字或未看到的动作；动作起止采用闭区间。",
+  "frames": [
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87
+  ],
+  "usage": {
+    "input_tokens": 3865,
+    "input_tokens_details": {
+      "text_tokens": 299,
+      "video_tokens": 3566
+    },
+    "output_tokens": 421,
+    "output_tokens_details": {
+      "text_tokens": 421
+    },
+    "total_tokens": 4286,
+    "video_tokens": 3566
+  },
+  "request_id": "fa6f3c99-dde6-9f24-a887-b747b273cae9",
+  "result": {
+    "observations": [
+      {
+        "frame": 76,
+        "description": "白色TOSHIBA温控器显示18.0°C，屏幕亮起，右侧有黑色夹爪部分遮挡，未见夹爪与按钮接触。"
+      },
+      {
+        "frame": 78,
+        "description": "温控器屏幕仍显示18.0°C，夹爪位置未变，无明显接触迹象。"
+      },
+      {
+        "frame": 80,
+        "description": "温控器屏幕变暗或关闭，仅显示空白界面，夹爪位置不变，无接触。"
+      },
+      {
+        "frame": 82,
+        "description": "温控器屏幕重新点亮，显示18.0°C，太阳图标和风扇图标可见，夹爪位置未变，无接触。"
+      },
+      {
+        "frame": 84,
+        "description": "屏幕内容同前，夹爪位置固定，未见与任何按钮接触。"
+      },
+      {
+        "frame": 86,
+        "description": "屏幕内容同前，夹爪位置固定，未见与任何按钮接触。"
+      }
+    ],
+    "actions": [
+      {
+        "start_frame": 76,
+        "end_frame": 86,
+        "skill_id": "wait",
+        "description": "夹爪保持静止，未与任何按钮发生接触或移动。",
+        "confidence": "high"
+      }
+    ],
+    "uncertain_boundaries": [
+      {
+        "earliest_frame": 76,
+        "latest_frame": 86,
+        "reason": "夹爪始终位于温控器右侧，但其尖端与按钮之间无可见接触或位移；屏幕变化（如熄灭/点亮）不构成物理接触证据，且夹爪与按钮间存在深度遮挡，无法确认是否发生接触。"
+      }
+    ]
+  },
+  "proposal_checks": {
+    "structurally_consistent": false,
+    "issues": [
+      {
+        "segment": 0,
+        "reason": "wait_despite_end_effector_motion",
+        "excursion_mm": 12.29
+      },
+      {
+        "reason": "uncovered_tail"
+      }
+    ],
+    "semantic_accuracy_verified": false,
+    "exact_boundaries_verified": false,
+    "eligible_for_final_delivery": false
+  }
+}

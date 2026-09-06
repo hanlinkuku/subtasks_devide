@@ -1,0 +1,422 @@
+{
+  "trajectory_id": "episode_000000",
+  "created_at": "2026-09-06T06:16:59.670634+00:00",
+  "mode": "offline_cached_answer_replay",
+  "network_requests": 0,
+  "frame_count": 596,
+  "fps": 15.0,
+  "calls": [
+    {
+      "id": 1,
+      "kind": "event",
+      "label": "交互语义核实",
+      "directory": "calls/01_event",
+      "mode": "offline_cached_answer_replay",
+      "images": 18,
+      "frames_in_image_order": [
+        81,
+        66,
+        68,
+        71,
+        73,
+        75,
+        78,
+        80,
+        81,
+        82,
+        85,
+        87,
+        89,
+        92,
+        94,
+        96,
+        99,
+        101
+      ],
+      "model": "qwen3-vl-32b-instruct",
+      "parameters": {
+        "temperature": 0.1,
+        "max_tokens": 2500
+      },
+      "cache_source": "outputs\\automatic\\evidence\\episode_000000\\event_81_31e404f62a78.json",
+      "cache_sha256": "dcceba29299ecb020fcf6098894bec2cc1f5bc17b567e7371c6dbe84030f1bd5",
+      "historical_source_image_hashes_available": false
+    },
+    {
+      "id": 2,
+      "kind": "event",
+      "label": "交互语义核实",
+      "directory": "calls/02_event",
+      "mode": "offline_cached_answer_replay",
+      "images": 18,
+      "frames_in_image_order": [
+        149,
+        126,
+        130,
+        134,
+        138,
+        142,
+        146,
+        149,
+        150,
+        154,
+        158,
+        162,
+        166,
+        170,
+        174,
+        178,
+        182,
+        186
+      ],
+      "model": "qwen3-vl-32b-instruct",
+      "parameters": {
+        "temperature": 0.1,
+        "max_tokens": 2500
+      },
+      "cache_source": "outputs\\automatic\\evidence\\episode_000000\\event_149_28a963a7f8e8.json",
+      "cache_sha256": "722a7f1c73e9a963e287eb2c17191b8b82ee00deb7b91ba88593e1abd1fb6727",
+      "historical_source_image_hashes_available": false
+    },
+    {
+      "id": 3,
+      "kind": "event",
+      "label": "交互语义核实",
+      "directory": "calls/03_event",
+      "mode": "offline_cached_answer_replay",
+      "images": 19,
+      "frames_in_image_order": [
+        447,
+        420,
+        423,
+        425,
+        428,
+        430,
+        432,
+        433,
+        436,
+        438,
+        441,
+        443,
+        446,
+        447,
+        449,
+        451,
+        454,
+        456,
+        459
+      ],
+      "model": "qwen3-vl-32b-instruct",
+      "parameters": {
+        "temperature": 0.1,
+        "max_tokens": 2500
+      },
+      "cache_source": "outputs\\automatic\\evidence\\episode_000000\\event_447_c01d02ba460f.json",
+      "cache_sha256": "1c6646d49d89a99c8f7bc9555ce496c75ab294278ef2152892c6be09da72ebe4",
+      "historical_source_image_hashes_available": false
+    },
+    {
+      "id": 4,
+      "kind": "screen_coarse",
+      "label": "屏幕响应粗定位",
+      "directory": "calls/04_screen_coarse",
+      "mode": "offline_cached_answer_replay",
+      "images": 15,
+      "frames_in_image_order": [
+        63,
+        65,
+        67,
+        69,
+        71,
+        73,
+        75,
+        77,
+        79,
+        81,
+        83,
+        85,
+        87,
+        89,
+        90
+      ],
+      "model": "qwen3-vl-32b-instruct",
+      "parameters": {
+        "temperature": 0.01,
+        "max_tokens": 1600
+      },
+      "cache_source": "outputs\\automatic\\onset_evidence\\episode_000000\\screen_coarse_61a14ba782c45d21.json",
+      "cache_sha256": "02468aeb7c90c01b7d5d20629a0352389dc78ebd94c759d1ca296ed6767a0c1b",
+      "historical_source_image_hashes_available": true
+    },
+    {
+      "id": 5,
+      "kind": "screen_fine",
+      "label": "屏幕响应逐帧复查",
+      "directory": "calls/05_screen_fine",
+      "mode": "offline_cached_answer_replay",
+      "images": 3,
+      "frames_in_image_order": [
+        79,
+        80,
+        81
+      ],
+      "model": "qwen3-vl-32b-instruct",
+      "parameters": {
+        "temperature": 0.01,
+        "max_tokens": 1600
+      },
+      "cache_source": "outputs\\automatic\\onset_evidence\\episode_000000\\screen_fine_2cc39613ffc3b48a.json",
+      "cache_sha256": "6da8b845541ad1f6af85287a8072c4e085a4f361d3fb1b416469ad0b1fc2cf90",
+      "historical_source_image_hashes_available": true
+    },
+    {
+      "id": 6,
+      "kind": "onset",
+      "label": "按压起点逐帧细化",
+      "directory": "calls/06_onset",
+      "mode": "offline_cached_answer_replay",
+      "images": 18,
+      "frames_in_image_order": [
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82
+      ],
+      "model": "qwen3-vl-32b-instruct",
+      "parameters": {
+        "temperature": 0.01,
+        "max_tokens": 1600
+      },
+      "cache_source": "outputs\\automatic\\onset_evidence\\episode_000000\\onset_9f8e9449b6074f8a.json",
+      "cache_sha256": "e7c0c69e6a94cdec504d3c297ca49f73a8dba44fcf59064268ce547205b1a402",
+      "historical_source_image_hashes_available": true
+    },
+    {
+      "id": 7,
+      "kind": "screen_coarse",
+      "label": "屏幕响应粗定位",
+      "directory": "calls/07_screen_coarse",
+      "mode": "offline_cached_answer_replay",
+      "images": 14,
+      "frames_in_image_order": [
+        123,
+        127,
+        131,
+        135,
+        139,
+        143,
+        147,
+        151,
+        155,
+        159,
+        163,
+        167,
+        171,
+        175
+      ],
+      "model": "qwen3-vl-32b-instruct",
+      "parameters": {
+        "temperature": 0.01,
+        "max_tokens": 1600
+      },
+      "cache_source": "outputs\\automatic\\onset_evidence\\episode_000000\\screen_coarse_9b75995c90216f8b.json",
+      "cache_sha256": "b47f5e49960d0f7e408c07513d9e1936abef288b105a875a3942515babe458be",
+      "historical_source_image_hashes_available": true
+    },
+    {
+      "id": 8,
+      "kind": "screen_fine",
+      "label": "屏幕响应逐帧复查",
+      "directory": "calls/08_screen_fine",
+      "mode": "offline_cached_answer_replay",
+      "images": 5,
+      "frames_in_image_order": [
+        151,
+        152,
+        153,
+        154,
+        155
+      ],
+      "model": "qwen3-vl-32b-instruct",
+      "parameters": {
+        "temperature": 0.01,
+        "max_tokens": 1600
+      },
+      "cache_source": "outputs\\automatic\\onset_evidence\\episode_000000\\screen_fine_b10947787621fae0.json",
+      "cache_sha256": "10df1232821ee832e12e752749db07291ddf582d895278d562a66eaee19a4269",
+      "historical_source_image_hashes_available": true
+    },
+    {
+      "id": 9,
+      "kind": "onset",
+      "label": "按压起点逐帧细化",
+      "directory": "calls/09_onset",
+      "mode": "offline_cached_answer_replay",
+      "images": 18,
+      "frames_in_image_order": [
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156
+      ],
+      "model": "qwen3-vl-32b-instruct",
+      "parameters": {
+        "temperature": 0.01,
+        "max_tokens": 1600
+      },
+      "cache_source": "outputs\\automatic\\onset_evidence\\episode_000000\\onset_3b675753e9fb45b5.json",
+      "cache_sha256": "09e4116745947b2231c2a489bb49398cfdcbeedeb3fdf8e7ca02cd9490042e5c",
+      "historical_source_image_hashes_available": true
+    },
+    {
+      "id": 10,
+      "kind": "screen_coarse",
+      "label": "屏幕响应粗定位",
+      "directory": "calls/10_screen_coarse",
+      "mode": "offline_cached_answer_replay",
+      "images": 18,
+      "frames_in_image_order": [
+        417,
+        419,
+        421,
+        423,
+        425,
+        427,
+        429,
+        431,
+        433,
+        435,
+        437,
+        439,
+        441,
+        443,
+        445,
+        447,
+        449,
+        450
+      ],
+      "model": "qwen3-vl-32b-instruct",
+      "parameters": {
+        "temperature": 0.01,
+        "max_tokens": 1600
+      },
+      "cache_source": "outputs\\automatic\\onset_evidence\\episode_000000\\screen_coarse_b1088afc718bda9e.json",
+      "cache_sha256": "8aaed115e263c60d28f0742e019faa57dc3d2b9877b10845e52e0c6617ffff4d",
+      "historical_source_image_hashes_available": true
+    },
+    {
+      "id": 11,
+      "kind": "screen_fine",
+      "label": "屏幕响应逐帧复查",
+      "directory": "calls/11_screen_fine",
+      "mode": "offline_cached_answer_replay",
+      "images": 3,
+      "frames_in_image_order": [
+        439,
+        440,
+        441
+      ],
+      "model": "qwen3-vl-32b-instruct",
+      "parameters": {
+        "temperature": 0.01,
+        "max_tokens": 1600
+      },
+      "cache_source": "outputs\\automatic\\onset_evidence\\episode_000000\\screen_fine_f240023a9cba9e0e.json",
+      "cache_sha256": "46f2d89012cc1553878983586d14a3c6e1033b83d29bf9b9a236734d149638c7",
+      "historical_source_image_hashes_available": true
+    },
+    {
+      "id": 12,
+      "kind": "onset",
+      "label": "按压起点逐帧细化",
+      "directory": "calls/12_onset",
+      "mode": "offline_cached_answer_replay",
+      "images": 18,
+      "frames_in_image_order": [
+        425,
+        426,
+        427,
+        428,
+        429,
+        430,
+        431,
+        432,
+        433,
+        434,
+        435,
+        436,
+        437,
+        438,
+        439,
+        440,
+        441,
+        442
+      ],
+      "model": "qwen3-vl-32b-instruct",
+      "parameters": {
+        "temperature": 0.01,
+        "max_tokens": 1600
+      },
+      "cache_source": "outputs\\automatic\\onset_evidence\\episode_000000\\onset_12424aa60fe878b7.json",
+      "cache_sha256": "e44cd975c3e17dbb68e886dbcf8953682bcb914683a2cb05354ff0b40cfb5ebd",
+      "historical_source_image_hashes_available": true
+    }
+  ],
+  "image_count": 167,
+  "final_matches_current_automatic_output": true,
+  "subtasks": 11,
+  "source_videos": [
+    {
+      "path": "videos\\chunk-000\\observation.images.head_rgb\\episode_000000.mp4",
+      "sha256": "7c43a62d6ba7b909a95f8eca7d639beddd3b7a5f07c8fe7fe54cad7808f1f068"
+    },
+    {
+      "path": "videos\\chunk-000\\observation.images.head_right_rgb\\episode_000000.mp4",
+      "sha256": "84cdc2cd176541a6c629eba2da924ea1f31bca12c50f096948faf8371205a6e6"
+    },
+    {
+      "path": "videos\\chunk-000\\observation.images.left_wrist_rgb\\episode_000000.mp4",
+      "sha256": "d2fd64f67bd34a4e18c574514611cfc7f27119b3d28d75b92088d12e2cc83e02"
+    },
+    {
+      "path": "videos\\chunk-000\\observation.images.right_wrist_rgb\\episode_000000.mp4",
+      "sha256": "e1637cdf1b99e3ac0c8e4c18b456280828f14ccded0c1dfb57313dd37742611a"
+    }
+  ],
+  "telemetry_sha256": "08463eeadaee4ad2d4a415689a87cad9a29166ac40b03c1de47e4961d3d7763c",
+  "notes": [
+    "Request payloads and labeled images reconstructed by current production functions.",
+    "Parsed cached answers replayed; original raw HTTP responses were not retained.",
+    "Semantic-check caches have no historical input-image hashes; exact historical pixel identity cannot be proven.",
+    "Onset-stage source-image hashes verified against cached hashes.",
+    "No human reference annotations used; no exact-contact accuracy claim."
+  ]
+}

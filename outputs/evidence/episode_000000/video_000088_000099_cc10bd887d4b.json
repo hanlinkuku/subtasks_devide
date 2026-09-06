@@ -1,0 +1,86 @@
+{
+  "model": "qwen3-vl-32b-instruct",
+  "prompt": "这是左腕相机的视频片段，原视频15fps，帧范围88至99。画面标注的是原始帧号。\n接口播放帧率为10，仅供时序观察；不要使用接口播放秒数定位，必须使用画面上的原始帧号。\n相机固定在左臂，黑色夹爪位置固定是正常现象，须看目标相对夹爪的运动。\n只依据实际图像作答。无法确定接触的时刻时给范围，禁止凭屏幕变化断定物理接触起始。\n只分析夹爪尖端与按钮的接触关系：接近、按住、松开或移向另一个按钮。不要把屏幕数字变化当成独立动作。请给首次能看见接触和首次能看见脱离的帧号；如果被遮挡、深度不可见或不能确定，必须在uncertain_boundaries中说明，不得杜撰接触时刻。\n只输出JSON对象，格式为：{\"observations\":[{\"frame\":0,\"description\":\"可见事实\"}],\"actions\":[{\"start_frame\":0,\"end_frame\":1,\"skill_id\":\"reach/press/move/wait之一\",\"description\":\"动作\",\"confidence\":\"high/medium/low之一\"}],\"uncertain_boundaries\":[{\"earliest_frame\":0,\"latest_frame\":1,\"reason\":\"原因\"}]}。\n不要猜测品牌、无法辨认的数字或未看到的动作；动作起止采用闭区间。",
+  "frames": [
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98,
+    99
+  ],
+  "usage": {
+    "input_tokens": 3865,
+    "input_tokens_details": {
+      "text_tokens": 299,
+      "video_tokens": 3566
+    },
+    "output_tokens": 291,
+    "output_tokens_details": {
+      "text_tokens": 291
+    },
+    "total_tokens": 4156,
+    "video_tokens": 3566
+  },
+  "request_id": "7317b730-863a-900f-a4d0-5735074cceee",
+  "result": {
+    "observations": [
+      {
+        "frame": 88,
+        "description": "夹爪位于空调遥控器右侧，未接触任何按钮。屏幕显示18.0°C，雪花图标表示制冷模式。"
+      },
+      {
+        "frame": 90,
+        "description": "夹爪位置未变，仍与遥控器无接触。屏幕显示不变。"
+      },
+      {
+        "frame": 92,
+        "description": "夹爪位置稳定，未接触遥控器。屏幕显示不变。"
+      },
+      {
+        "frame": 94,
+        "description": "夹爪位置稳定，未接触遥控器。屏幕显示不变。"
+      },
+      {
+        "frame": 96,
+        "description": "夹爪位置稳定，未接触遥控器。屏幕显示不变。"
+      },
+      {
+        "frame": 98,
+        "description": "夹爪位置稳定，未接触遥控器。屏幕显示不变。"
+      }
+    ],
+    "actions": [
+      {
+        "start_frame": 88,
+        "end_frame": 98,
+        "skill_id": "wait",
+        "description": "夹爪保持静止，未与遥控器上的任何按钮发生接触。",
+        "confidence": "high"
+      }
+    ],
+    "uncertain_boundaries": []
+  },
+  "proposal_checks": {
+    "structurally_consistent": false,
+    "issues": [
+      {
+        "segment": 0,
+        "reason": "wait_despite_end_effector_motion",
+        "excursion_mm": 20.599
+      },
+      {
+        "reason": "uncovered_tail"
+      }
+    ],
+    "semantic_accuracy_verified": false,
+    "exact_boundaries_verified": false,
+    "eligible_for_final_delivery": false
+  }
+}

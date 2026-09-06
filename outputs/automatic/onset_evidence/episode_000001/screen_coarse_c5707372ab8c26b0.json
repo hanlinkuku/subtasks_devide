@@ -1,0 +1,65 @@
+{
+  "model": "qwen3-vl-32b-instruct",
+  "prompt": "这是墙面温控面板的腕部相机逐时图，图片FRAME标签是原始帧号。只比较屏幕可见状态，不判断机械臂动作。\n找出相对于本窗口第一张图的第一次明确界面变化：数字出现/消失、背光明显切换、设定值首次改变。\n不要把面板随相机移动、反光或模糊误认为内容变化；不要猜看不清的数字。只选实际提供的帧号。\n输出JSON：{\"changed\":true,\"first_changed_frame\":0,\"previous_state\":\"\",\"new_state\":\"\",\"uncertain\":false}。\n若没有清晰变化，changed=false，first_changed_frame=null。",
+  "frames": [
+    86,
+    90,
+    94,
+    98,
+    102,
+    106,
+    110,
+    114,
+    118,
+    122,
+    126,
+    130,
+    134,
+    138,
+    142,
+    146,
+    150,
+    152
+  ],
+  "image_sha256": [
+    "1e04418ec85a93a44a7157d1861399c8a5f2a4c02c16fccc619071a0a2a63290",
+    "7b758ea99d8f4e17bad8bf31e660641b8ff478ff0169d28bfbc5d23f76c4d69d",
+    "cb2cb6b0881ec28a2c06f1c37e391470ba4ef1fce78287d308cc8356455f1cc3",
+    "632ef91ffc6b8e51f66dc35138d4f764168491def7b7201dd1a5808840deffe2",
+    "54c9a8cfe62f02974d2090261082657a3ffde27b676981876845760d8bca0949",
+    "da7de48576fcc1d20f5c182cb37c7787747647d3d495bf6566533aeb2080c028",
+    "82aa62349ed9af81452a2fe08a5a1e7f5f7dd09bb1e014e7f4f172010f2ba5a5",
+    "abb4685bb178d833f21af6aceb1707b303bf3d6f9744a6a3cf9965f743fe2504",
+    "96f62e0dd4e469aa43e3d743062f478cd504e578690ebc741c1f90c0d809312b",
+    "db1e01d13cdc04aa1b1c2dadd3973c9ef0a382693a9973915ee8c82984214875",
+    "db09dc1d6dc922d9b27637d01bc2b81e22d2e0eeb346a6ba6c91a791c5e110f9",
+    "428470610e964008ab4ea6ea55498077d38fe33e1c742d038aa83022490c2e76",
+    "f785b52e8cbb645c7cc2e58a59cffe967d660411738f583c8cff77f2a89857ec",
+    "678390dffad1cebb609c7f71845c4352c86007fb052a1c28aae665692dc22305",
+    "e4e124554f4156d839d1341a206d5511f0a17467c6c98ccc8e5edd164d9888c3",
+    "3de3de1e8ea17651891bc4806fe9bcc0d55c9fb6c059a18237faf4b7dea177f8",
+    "e509965a19546866abcda2628c722c17898eee5da3fadb49859afc0a88aeb2ff",
+    "828402f870de01ecbe72d5e1197782535e77f30b9ac92181d5a6071e57377b97"
+  ],
+  "result": {
+    "changed": true,
+    "first_changed_frame": 146,
+    "previous_state": "屏幕关闭，无显示内容",
+    "new_state": "屏幕亮起，显示温度18.5°C、制冷模式图标、风扇图标及风速条",
+    "uncertain": false
+  },
+  "usage": {
+    "image_tokens": 15876,
+    "input_tokens": 16014,
+    "input_tokens_details": {
+      "image_tokens": 15876,
+      "text_tokens": 138
+    },
+    "output_tokens": 69,
+    "output_tokens_details": {
+      "text_tokens": 69
+    },
+    "total_tokens": 16083
+  },
+  "reference_used_during_inference": false
+}

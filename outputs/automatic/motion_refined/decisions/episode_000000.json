@@ -1,0 +1,37 @@
+{
+  "events": [
+    {
+      "interaction_supported": true,
+      "start_frame": 78,
+      "end_frame": 90,
+      "action": "按压并保持按钮",
+      "evidence": "从帧78开始，夹爪尖端持续靠近面板右侧按钮区域（被遮挡），同时屏幕在帧80发生明显变化（显示变暗、内容消失），随后在帧85恢复显示且模式图标变为雪花（制冷模式），表明触发了按钮操作。结合夹爪位置的微小推进（xyz_mm从78帧到82帧Z轴下降约3.8mm）和屏幕响应，可推断为一次按压并保持的操作。帧89后夹爪未立即回撤，但屏幕稳定，说明按压结束。整个过程无松开再按行为，不拆分。 结束边界由持续后撤的水平位移信号细化。",
+      "additional_actions": [],
+      "uncertain": false,
+      "vlm_end_frame": 89
+    },
+    {
+      "interaction_supported": true,
+      "start_frame": 138,
+      "end_frame": 175,
+      "action": "按压升温按钮并保持",
+      "evidence": "从帧138至174，夹爪左侧尖端持续遮挡面板右侧按钮区域（推测为升温按钮），期间屏幕温度值从18.0°C逐步上升至20.0°C（帧174），显示连续变化。结合夹爪在Z轴方向的微小推进（xyz_mm数据：138帧z=552.06mm → 142帧z=550.53mm → 146帧z=551.65mm → 149/150帧z=552.47/552.51mm → 154帧z=550.17mm → 174帧z=550.8mm），呈现短距离推进-回撤-再推进的典型按压与保持模式。虽按钮被遮挡，但屏幕响应与末端位置变化共同支持按压操作。帧178后温度继续上升至20.5°C（帧182）和20.7°C（帧186），但夹爪已明显移开，故不计入当前按压段。 结束边界由持续后撤的水平位移信号细化。",
+      "additional_actions": [],
+      "uncertain": false,
+      "vlm_end_frame": 174
+    },
+    {
+      "interaction_supported": true,
+      "start_frame": 432,
+      "end_frame": 450,
+      "action": "按压并保持电源按钮",
+      "evidence": "从帧432开始，夹爪左侧尖端持续遮挡面板右侧区域（电源按钮位置），同时屏幕在帧441发生明显变化：数字显示消失，屏幕变白并出现网格线，表明进入待机或关机状态。此变化与电源按钮被按压的典型响应一致。结合夹爪在432-447帧间位置基本稳定（xyz_mm变化极小），可推断为按压并保持操作。后续帧449起夹爪开始后撤，说明松开动作已发生。 结束边界由持续后撤的水平位移信号细化。",
+      "additional_actions": [],
+      "uncertain": false,
+      "vlm_end_frame": 447
+    }
+  ],
+  "accepted": false,
+  "reference_used_during_inference": false,
+  "scope": "left-arm wall-button interactions; not a general contact detector"
+}
