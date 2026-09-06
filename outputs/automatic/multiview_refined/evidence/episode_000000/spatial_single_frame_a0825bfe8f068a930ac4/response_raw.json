@@ -1,0 +1,17 @@
+{
+  "raw_text": "```json\n{\n  \"views\": [\n    {\n      \"view\": \"head_rgb\",\n      \"arm_used\": \"unknown\",\n      \"target_description\": \"可见物体\",\n      \"relation\": \"unclear\",\n      \"evidence\": \"机器人臂和夹爪在图像左侧，但未清晰显示与任何特定物体表面的相对位置，无法判断尖端与目标间是否有空隙或重叠。\"\n    },\n    {\n      \"view\": \"head_right_rgb\",\n      \"arm_used\": \"unknown\",\n      \"target_description\": \"可见物体\",\n      \"relation\": \"unclear\",\n      \"evidence\": \"视角与head_rgb相似，夹爪位于图像左上角，未对准明显可操作物体表面，无法确定与目标的空间关系。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"arm_used\": \"left\",\n      \"target_description\": \"TOSHIBA控制面板\",\n      \"relation\": \"projected_overlap\",\n      \"evidence\": \"夹爪尖端与控制面板右侧按钮区域在图像中轮廓重叠，但无可见背景空隙，无法确认物理接触。\"\n    },\n    {\n      \"view\": \"right_wrist_rgb\",\n      \"arm_used\": \"right\",\n      \"target_description\": \"墙面及远处两个方形物体\",\n      \"relation\": \"not_visible\",\n      \"evidence\": \"夹爪尖端可见，但前方无明确可操作物体表面，仅见白色墙面和远处模糊方块，无目标表面可分析。\"\n    }\n  ],\n  \"limitations\": \"腕部相机视角受限，部分物体表面被遮挡或不在视野内；无法从单帧判断实际接触或运动状态。\"\n}\n```",
+  "usage": {
+    "image_tokens": 962,
+    "input_tokens": 1270,
+    "input_tokens_details": {
+      "image_tokens": 962,
+      "text_tokens": 308
+    },
+    "output_tokens": 364,
+    "output_tokens_details": {
+      "text_tokens": 364
+    },
+    "total_tokens": 1634
+  },
+  "finish_reason": "stop"
+}

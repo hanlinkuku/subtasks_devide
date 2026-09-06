@@ -1,0 +1,38 @@
+{
+  "episode": "episode_000000",
+  "frame": 81,
+  "observations": [
+    {
+      "view": "head_rgb",
+      "arm_used": "unknown",
+      "target_description": "可见物体",
+      "relation": "unclear",
+      "evidence": "夹爪位于图像左侧，目标物体在远处背景中，两者无直接视觉关联，无法判断空间关系。"
+    },
+    {
+      "view": "head_right_rgb",
+      "arm_used": "unknown",
+      "target_description": "可见物体",
+      "relation": "unclear",
+      "evidence": "夹爪位于图像左侧，目标物体在远处背景中，视角与head_rgb相似，无法确定尖端与目标的相对位置。"
+    },
+    {
+      "view": "left_wrist_rgb",
+      "arm_used": "left",
+      "target_description": "TOSHIBA显示屏及按钮区域",
+      "relation": "projected_overlap",
+      "evidence": "夹爪尖端轮廓与显示屏右下角重叠，但无可见空隙或遮挡，无法确认物理接触。"
+    },
+    {
+      "view": "right_wrist_rgb",
+      "arm_used": "right",
+      "target_description": "墙面及两个方形物体",
+      "relation": "not_visible",
+      "evidence": "夹爪尖端清晰可见，但目标物体在图像右侧远处，无明显交互区域，无法观察到尖端与目标表面的关系。"
+    }
+  ],
+  "limitations": "腕部相机视角受限，仅能观察局部区域；头视角距离远，细节模糊；无法通过单帧判断实际物理接触或运动状态。",
+  "contact_confirmed": false,
+  "automatic_annotation_replaced": false,
+  "candidate_labels_provided": false
+}

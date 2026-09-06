@@ -1,0 +1,49 @@
+{
+  "result": {
+    "views": [
+      {
+        "view": "head_rgb",
+        "arm_used": "unknown",
+        "target_description": "白色显示屏设备",
+        "relation": "unclear",
+        "evidence": "夹爪未在视野中，仅见设备部分，无法判断与夹爪的空间关系。"
+      },
+      {
+        "view": "head_right_rgb",
+        "arm_used": "unknown",
+        "target_description": "白色显示屏设备",
+        "relation": "unclear",
+        "evidence": "夹爪未在视野中，设备可见但无夹爪信息，无法判断空间关系。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "arm_used": "left",
+        "target_description": "白色显示屏设备",
+        "relation": "visible_gap",
+        "evidence": "夹爪尖端位于设备右侧，两者之间可见背景空隙，无接触迹象。"
+      },
+      {
+        "view": "right_wrist_rgb",
+        "arm_used": "right",
+        "target_description": "无明确目标物体",
+        "relation": "not_visible",
+        "evidence": "夹爪尖端可见，但无明显物体表面在视野内，无法判断空间关系。"
+      }
+    ],
+    "limitations": "腕部相机视角受限，部分物体或夹爪被遮挡；头视角无法直接观察夹爪与目标的相对位置。"
+  },
+  "raw_text": "{\n  \"views\": [\n    {\n      \"view\": \"head_rgb\",\n      \"arm_used\": \"unknown\",\n      \"target_description\": \"白色显示屏设备\",\n      \"relation\": \"unclear\",\n      \"evidence\": \"夹爪未在视野中，仅见设备部分，无法判断与夹爪的空间关系。\"\n    },\n    {\n      \"view\": \"head_right_rgb\",\n      \"arm_used\": \"unknown\",\n      \"target_description\": \"白色显示屏设备\",\n      \"relation\": \"unclear\",\n      \"evidence\": \"夹爪未在视野中，设备可见但无夹爪信息，无法判断空间关系。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"arm_used\": \"left\",\n      \"target_description\": \"白色显示屏设备\",\n      \"relation\": \"visible_gap\",\n      \"evidence\": \"夹爪尖端位于设备右侧，两者之间可见背景空隙，无接触迹象。\"\n    },\n    {\n      \"view\": \"right_wrist_rgb\",\n      \"arm_used\": \"right\",\n      \"target_description\": \"无明确目标物体\",\n      \"relation\": \"not_visible\",\n      \"evidence\": \"夹爪尖端可见，但无明显物体表面在视野内，无法判断空间关系。\"\n    }\n  ],\n  \"limitations\": \"腕部相机视角受限，部分物体或夹爪被遮挡；头视角无法直接观察夹爪与目标的相对位置。\"\n}\n",
+  "usage": {
+    "image_tokens": 962,
+    "input_tokens": 1270,
+    "input_tokens_details": {
+      "image_tokens": 962,
+      "text_tokens": 308
+    },
+    "output_tokens": 313,
+    "output_tokens_details": {
+      "text_tokens": 313
+    },
+    "total_tokens": 1583
+  }
+}

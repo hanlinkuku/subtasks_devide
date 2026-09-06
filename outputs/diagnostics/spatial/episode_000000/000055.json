@@ -1,0 +1,38 @@
+{
+  "episode": "episode_000000",
+  "frame": 55,
+  "observations": [
+    {
+      "view": "head_rgb",
+      "arm_used": "unknown",
+      "target_description": "白色显示屏设备",
+      "relation": "unclear",
+      "evidence": "夹爪未在视野中，仅见设备部分，无法判断与夹爪的空间关系。"
+    },
+    {
+      "view": "head_right_rgb",
+      "arm_used": "unknown",
+      "target_description": "白色显示屏设备",
+      "relation": "unclear",
+      "evidence": "夹爪未在视野中，设备可见但无夹爪信息，无法判断空间关系。"
+    },
+    {
+      "view": "left_wrist_rgb",
+      "arm_used": "left",
+      "target_description": "白色显示屏设备",
+      "relation": "visible_gap",
+      "evidence": "夹爪尖端位于设备右侧，两者之间可见背景空隙，无接触迹象。"
+    },
+    {
+      "view": "right_wrist_rgb",
+      "arm_used": "right",
+      "target_description": "无明确目标物体",
+      "relation": "not_visible",
+      "evidence": "夹爪尖端可见，但无明显物体表面在视野内，无法判断空间关系。"
+    }
+  ],
+  "limitations": "腕部相机视角受限，部分物体或夹爪被遮挡；头视角无法直接观察夹爪与目标的相对位置。",
+  "contact_confirmed": false,
+  "automatic_annotation_replaced": false,
+  "candidate_labels_provided": false
+}

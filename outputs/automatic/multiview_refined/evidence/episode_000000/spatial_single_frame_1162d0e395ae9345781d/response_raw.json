@@ -1,0 +1,17 @@
+{
+  "raw_text": "```json\n{\n  \"views\": [\n    {\n      \"view\": \"head_rgb\",\n      \"arm_used\": \"unknown\",\n      \"target_description\": \"墙上的白色温控面板\",\n      \"relation\": \"unclear\",\n      \"evidence\": \"夹爪位于画面左侧，温控面板在右侧，两者无直接投影重叠，但夹爪尖端未对准面板，无法判断空间关系。\"\n    },\n    {\n      \"view\": \"head_right_rgb\",\n      \"arm_used\": \"unknown\",\n      \"target_description\": \"墙上的白色温控面板\",\n      \"relation\": \"unclear\",\n      \"evidence\": \"夹爪在画面左侧，温控面板在右侧，两者无直接投影重叠，且夹爪未朝向面板，空间关系不明确。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"arm_used\": \"left\",\n      \"target_description\": \"墙上的白色温控面板\",\n      \"relation\": \"visible_gap\",\n      \"evidence\": \"夹爪尖端位于温控面板下方，两者之间可见白色墙面背景空隙，无接触或遮挡。\"\n    },\n    {\n      \"view\": \"right_wrist_rgb\",\n      \"arm_used\": \"right\",\n      \"target_description\": \"墙上的白色温控面板（部分可见）\",\n      \"relation\": \"occluded\",\n      \"evidence\": \"夹爪尖端占据画面中央，温控面板在右下角被部分遮挡，无法看清尖端与面板间是否有空隙。\"\n    }\n  ],\n  \"limitations\": \"腕部相机视角受限，仅能观察局部区域；头视角中夹爪与目标距离远，难以判断精确空间关系。\"\n}\n```",
+  "usage": {
+    "image_tokens": 962,
+    "input_tokens": 1270,
+    "input_tokens_details": {
+      "image_tokens": 962,
+      "text_tokens": 308
+    },
+    "output_tokens": 371,
+    "output_tokens_details": {
+      "text_tokens": 371
+    },
+    "total_tokens": 1641
+  },
+  "finish_reason": "stop"
+}

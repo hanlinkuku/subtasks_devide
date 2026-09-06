@@ -1,0 +1,38 @@
+{
+  "episode": "episode_000000",
+  "frame": 436,
+  "observations": [
+    {
+      "view": "head_rgb",
+      "arm_used": "unknown",
+      "target_description": "可见物体",
+      "relation": "unclear",
+      "evidence": "夹爪位于画面左侧，目标物体在背景中，两者无直接投影重叠，但因距离远且视角模糊，无法判断是否有空隙或接触。"
+    },
+    {
+      "view": "head_right_rgb",
+      "arm_used": "unknown",
+      "target_description": "可见物体",
+      "relation": "unclear",
+      "evidence": "夹爪在左下角，目标物体在背景中，图像模糊，无法清晰分辨尖端与目标间是否有空隙或遮挡。"
+    },
+    {
+      "view": "left_wrist_rgb",
+      "arm_used": "left",
+      "target_description": "白色显示屏设备",
+      "relation": "visible_gap",
+      "evidence": "夹爪尖端位于显示屏右侧，与屏幕表面之间可见明显背景空隙，未发生接触或遮挡。"
+    },
+    {
+      "view": "right_wrist_rgb",
+      "arm_used": "right",
+      "target_description": "墙面及两个方形贴片",
+      "relation": "not_visible",
+      "evidence": "夹爪尖端可见，但无明确目标物体在视野内，仅见墙面和远处贴片，无法判断与任何物体的空间关系。"
+    }
+  ],
+  "limitations": "腕部相机视角受限，部分目标被遮挡或距离过远；头视角分辨率低，难以精确判断空间关系。",
+  "contact_confirmed": false,
+  "automatic_annotation_replaced": false,
+  "candidate_labels_provided": false
+}

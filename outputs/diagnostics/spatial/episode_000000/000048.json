@@ -1,0 +1,38 @@
+{
+  "episode": "episode_000000",
+  "frame": 48,
+  "observations": [
+    {
+      "view": "head_rgb",
+      "arm_used": "unknown",
+      "target_description": "墙上的白色温控面板",
+      "relation": "unclear",
+      "evidence": "夹爪部分可见于左上角，温控面板在右上方，两者无直接投影重叠，但夹爪尖端与面板间距离远，无法判断是否有空隙或接触。"
+    },
+    {
+      "view": "head_right_rgb",
+      "arm_used": "unknown",
+      "target_description": "墙上的白色温控面板",
+      "relation": "unclear",
+      "evidence": "夹爪位于左侧，温控面板在右侧，两者在图像中无重叠，且夹爪尖端未对准面板，无法判断空间关系。"
+    },
+    {
+      "view": "left_wrist_rgb",
+      "arm_used": "left",
+      "target_description": "墙上的白色温控面板",
+      "relation": "visible_gap",
+      "evidence": "夹爪尖端位于画面下方，温控面板在左上方，两者之间可见背景墙面，存在明显二维空隙。"
+    },
+    {
+      "view": "right_wrist_rgb",
+      "arm_used": "right",
+      "target_description": "墙面",
+      "relation": "not_visible",
+      "evidence": "夹爪尖端清晰可见，但无任何物体表面出现在视野内，无法判断与目标的空间关系。"
+    }
+  ],
+  "limitations": "腕部相机视角受限，仅能观察局部区域；头视角中夹爪与目标距离较远，难以精确判断空间关系。",
+  "contact_confirmed": false,
+  "automatic_annotation_replaced": false,
+  "candidate_labels_provided": false
+}

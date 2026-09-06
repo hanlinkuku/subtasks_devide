@@ -1,0 +1,19 @@
+{
+  "model": "qwen3-vl-32b-instruct",
+  "parameters": {
+    "temperature": 0.01,
+    "max_tokens": 3000
+  },
+  "prompt": "每张图片为同一原始帧的四视角：左上head_rgb，右上head_right_rgb，左下left_wrist_rgb，右下right_wrist_rgb。腕部相机随手运动，夹爪在腕部图中固定不代表手臂静止。请同时检查左右臂和物体变化。\n只记录这一帧中机器人夹爪与可能操作的物体表面的空间关系，不知道前后帧，不判断动作类别、成功与否或显示屏读数。\n分别检查四个视角。能同时看到夹爪尖端和物体表面时，描述它们之间是否有直接可见的空隙。只能报告二维投影：投影重叠不代表物理接触，遮挡不代表按压。\n对每个视角输出一条记录：arm_used为left/right/both/unknown；relation为visible_gap/projected_overlap/occluded/not_visible/unclear。\nvisible_gap必须能看见尖端与目标之间的背景空隙；projected_overlap仅表示轮廓在图像中重叠；无法分辨就unclear。不要补全被遮挡的按钮位置。图中多个尖端或目标不唯一时说明歧义。\n输出完整JSON：{\"views\":[{\"view\":\"head_rgb\",\"arm_used\":\"unknown\",\"target_description\":\"可见物体\",\"relation\":\"unclear\",\"evidence\":\"不超过100字，具体说明尖端和目标的位置、空隙或遮挡\"}],\"limitations\":\"不超过100字\"}。views必须包含四个视角各一次。",
+  "frames": [
+    436
+  ],
+  "source_image_sha256": [
+    "190fb9ba7cadccc6357f1526ff66ec5824b5e240899705578b46790f29785830",
+    "f691fa458fbaa98bd34977b3128d4fbd6023c9b0a0121c6b2f359bb0002d04c2",
+    "9012e6f6060d67b473815236f779a6e35b0da09f2a84a64d361a6e18195d1c3e",
+    "d0920092590534275515877b557fab4903312aad0f3d393111381b056eef3736"
+  ],
+  "version": "fixed-multiview-v1",
+  "reference_used": false
+}
