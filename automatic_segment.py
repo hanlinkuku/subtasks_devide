@@ -171,7 +171,17 @@ def export_prediction(proposal, visual=None, stage=None):
     stage=stage or ('vlm_refined' if visual is not None else 'kinematic')
     events=proposal['interaction_proposals'] if visual is None else visual
     conflicts=[]
+    source_segments=proposal.get('segments',[])+proposal.get('interaction_proposals',[])
+    arms={s.get('arm_used') for s in source_segments if s.get('skill_id')!='wait'}
+    if not arms and proposal.get('arm_used') in {'left','right'}:arms={proposal['arm_used']}
+    no_motion=not proposal['motion_intervals'] and not arms
+    if not no_motion and (len(arms)!=1 or not arms.issubset({'left','right'})):
+        conflicts.append({'reason':'unsupported_or_missing_single_arm','arms':sorted(str(a) for a in arms)})
+    arm=next(iter(arms)) if len(arms)==1 and arms.issubset({'left','right'}) else 'unknown'
+    arm_text={'left':'左臂','right':'右臂','unknown':'机械臂'}[arm]
     for i,event in enumerate(events):
+        if event.get('arm_used') is not None and event['arm_used']!=arm:
+            conflicts.append({'index':i,'reason':'visual_arm_conflicts_with_proposal','event':event})
         if event.get('additional_actions'):
             conflicts.append({'index':i,'reason':'unresolved_additional_actions','event':event})
         if not event.get('interaction_supported',True):continue
@@ -199,19 +209,20 @@ def export_prediction(proposal, visual=None, stage=None):
             if e['start_frame']<last:raise ValueError('Overlapping interaction proposals require review')
             if last<e['start_frame']:
                 skill='reach' if last==start else 'move'
-                action='左臂接近温控面板按钮区域。' if skill=='reach' else '左臂移动并调整按钮操作位置。'
+                action=arm_text+'接近温控面板按钮区域。' if skill=='reach' else arm_text+'移动并调整按钮操作位置。'
                 segments.append((last,e['start_frame']-1,skill,action,''))
-            segments.append((e['start_frame'],e['end_frame'],'press',e.get('action','左臂操作温控面板按钮。'),e.get('evidence','运动信号候选，未经视觉确认。')))
+            segments.append((e['start_frame'],e['end_frame'],'press',e.get('action',arm_text+'操作温控面板按钮。'),e.get('evidence','运动信号候选，未经视觉确认。')))
             last=e['end_frame']+1
-        if last<=end:segments.append((last,end,'move','左臂撤回初始位置。',''))
+        if last<=end:segments.append((last,end,'move',arm_text+'撤回初始位置。',''))
         cursor=end+1
     if cursor<n:segments.append((cursor,n-1,'wait','机械臂在初始位置保持静止。',''))
     obj={'trajectory_id':ep,'trajectory_start':0,'trajectory_end':n-1,
-         'task_name':'用左臂操作温控面板并调节温度','subtasks':[]}
+         'task_name':'用'+arm_text+'操作温控面板并调节温度','subtasks':[]}
+    if no_motion:obj['task_name']='机械臂保持静止'
     for i,(s,e,skill,action,evidence) in enumerate(segments,1):
         active=skill!='wait'
         obj['subtasks'].append({'id':i,'standard_action_text':action,'skill_id':skill,
-            'arm_used':'left' if active else 'none',
+            'arm_used':arm if active else 'none',
             'notes':'自动生成，尚未通过人工边界验收。'+evidence,
             'start_frame':s,'end_frame':e,'start_time':round(s/fps,6),'end_time':round(e/fps,6),
             'target_object_attribute':{'name':'温控面板' if active else '',

@@ -8,7 +8,7 @@ from multiview_review import windows
 @pytest.fixture
 def setup(tmp_path,monkeypatch):
     monkeypatch.setattr(annotate,'OUT',tmp_path)
-    proposal={'trajectory_id':'episode_test','frame_count':40,'fps':15,'motion_intervals':[[5,20],[25,35]]}
+    proposal={'trajectory_id':'episode_test','frame_count':40,'fps':15,'motion_intervals':[[5,20],[25,35]],'arm_used':'left'}
     return proposal,tmp_path
 
 
