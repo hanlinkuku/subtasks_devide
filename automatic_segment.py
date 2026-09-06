@@ -110,7 +110,7 @@ def propose(ep, horizontal_withdrawal=False, arm='left', persist=True):
     return result
 
 
-def refine_event(ep,event,fps,n):
+def refine_event(ep,event,fps,n,scene_prior=True,cache_tag=None):
     points,_,_=annotate.telemetry(ep)
     start=max(0,event['start_frame']-12);end=min(n-1,event['end_frame']+12)
     frame_ids=sorted(set(np.linspace(start,end,min(16,end-start+1)).round().astype(int).tolist()
@@ -125,10 +125,16 @@ def refine_event(ep,event,fps,n):
 长按的数次数字变化并不代表数次独立按压；只有看见松开再按才拆分。
 返回JSON：{{"interaction_supported":true,"start_frame":0,"end_frame":1,"action":"中文动作","evidence":"依据和遮挡说明","additional_actions":[],"uncertain":true}}。
 若证据不支持按钮操作，interaction_supported=false。允许修正边界到提供窗口内；帧号必须是原始帧号。'''
+    if not scene_prior:
+        lines=prompt.splitlines()
+        prompt='观察实际画面确定操作目标、夹爪与目标的关系，不预设物体类型、安装方式、是否抓持或使用哪根尖端。腕部相机刚性固定在左臂，夹爪在腕部图中固定不代表手臂静止。\n'+'\n'.join(lines[2:])
     motion=[{'frame':k,'xyz_mm':np.round(points[k]*1000,2).tolist()} for k in frame_ids]
     prompt+='\n同帧左末端位置：'+json.dumps(motion,separators=(',',':'))
     signature=hashlib.sha256((prompt+str(frame_ids)).encode()).hexdigest()[:12]
     dest=annotate.OUT/'automatic'/'evidence'/ep/f'event_{event["peak_frame"]}_{signature}.json'
+    if cache_tag is not None:
+        if not cache_tag.replace('_','').isalnum():raise ValueError('Invalid experiment cache tag')
+        dest=dest.with_name(dest.stem+'_'+cache_tag+'.json')
     if dest.exists():return json.loads(dest.read_text(encoding='utf-8'))['result']
     content=[{'text':prompt}]
     files=[(annotate.OUT/'frames'/ep/'head_rgb'/f'{event["peak_frame"]:06d}.jpg',event['peak_frame'])]

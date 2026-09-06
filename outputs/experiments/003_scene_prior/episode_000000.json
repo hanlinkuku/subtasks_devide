@@ -1,0 +1,134 @@
+{
+  "trajectory_id": "episode_000000",
+  "results": [
+    {
+      "candidate": {
+        "start_frame": 78,
+        "end_frame": 89,
+        "skill_id": "press",
+        "arm_used": "left",
+        "proposal_only": true,
+        "contact_verified": false,
+        "peak_frame": 81
+      },
+      "baseline": {
+        "interaction_supported": true,
+        "start_frame": 78,
+        "end_frame": 89,
+        "action": "按压并保持按钮",
+        "evidence": "从帧78开始，夹爪尖端持续靠近面板右侧按钮区域（被遮挡），同时屏幕在帧80发生明显变化（显示变暗、内容消失），随后在帧85恢复显示且模式图标变为雪花（制冷模式），表明触发了按钮操作。结合夹爪位置的微小推进（xyz_mm从78帧到82帧Z轴下降约3.8mm）和屏幕响应，可推断为一次按压并保持的操作。帧89后夹爪未立即回撤，但屏幕稳定，说明按压结束。整个过程无松开再按行为，不拆分。",
+        "additional_actions": [],
+        "uncertain": false
+      },
+      "without_scene_prior": {
+        "interaction_supported": true,
+        "start_frame": 78,
+        "end_frame": 82,
+        "action": "按压并保持电源按钮",
+        "evidence": "从帧78开始，夹爪尖端与温控面板右侧的圆形电源按钮区域接触，同时屏幕在帧80发生明显变化（由显示温度变为全屏空白），表明触发了按钮操作。帧81-82中屏幕保持空白状态，且夹爪位置未显著后撤，符合按压保持特征。帧85屏幕恢复显示，说明操作结束。此过程为一次完整的按压-保持-松开动作，非多次独立按压。",
+        "additional_actions": [],
+        "uncertain": false
+      },
+      "fresh_control": {
+        "interaction_supported": true,
+        "start_frame": 78,
+        "end_frame": 89,
+        "action": "按压并保持按钮",
+        "evidence": "从帧78开始，夹爪左侧尖端持续遮挡面板最上方的圆形按钮（电源/模式切换键），同时屏幕在帧80发生明显变化：显示内容由数字温度变为全屏网格，随后在帧85恢复为18.0℃但模式图标变为雪花（制冷模式），表明触发了模式切换或系统重置。结合夹爪位置在78-89帧间无显著回撤（xyz坐标仅微调，未远离按钮区域），且屏幕响应与操作时间高度吻合，可推断此段为一次长按操作。虽按钮被遮挡，但通过相对位置稳定、短距离推进后无松开迹象及屏幕响应，支持按压保持判断。",
+        "additional_actions": [],
+        "uncertain": false
+      },
+      "variant_elapsed_seconds": 0.036,
+      "control_elapsed_seconds": 9.534,
+      "support_unchanged": true,
+      "boundary_unchanged": false
+    },
+    {
+      "candidate": {
+        "start_frame": 138,
+        "end_frame": 174,
+        "skill_id": "press",
+        "arm_used": "left",
+        "proposal_only": true,
+        "contact_verified": false,
+        "peak_frame": 149
+      },
+      "baseline": {
+        "interaction_supported": true,
+        "start_frame": 138,
+        "end_frame": 174,
+        "action": "按压升温按钮并保持",
+        "evidence": "从帧138至174，夹爪左侧尖端持续遮挡面板右侧按钮区域（推测为升温按钮），期间屏幕温度值从18.0°C逐步上升至20.0°C（帧174），显示连续变化。结合夹爪在Z轴方向的微小推进（xyz_mm数据：138帧z=552.06mm → 142帧z=550.53mm → 146帧z=551.65mm → 149/150帧z=552.47/552.51mm → 154帧z=550.17mm → 174帧z=550.8mm），呈现短距离推进-回撤-再推进的典型按压与保持模式。虽按钮被遮挡，但屏幕响应与末端位置变化共同支持按压操作。帧178后温度继续上升至20.5°C（帧182）和20.7°C（帧186），但夹爪已明显移开，故不计入当前按压段。",
+        "additional_actions": [],
+        "uncertain": false
+      },
+      "without_scene_prior": {
+        "interaction_supported": true,
+        "start_frame": 138,
+        "end_frame": 174,
+        "action": "按压升温按钮",
+        "evidence": "从帧138到174，夹爪尖端持续靠近空调面板右侧的三角形升温按钮区域。在帧154时屏幕温度从18.0℃变为18.5℃，帧170变为19.0℃，帧174变为20.0℃，显示连续升温响应。结合夹爪位置在按钮上方保持稳定且无明显回撤，推断为持续按压操作。帧178后夹爪开始移开，温度继续变化至20.5℃（帧182），可能因系统延迟或长按未松开，但主要交互发生在138-174帧。期间无其他按钮被触发，且夹爪未接触其他区域。",
+        "additional_actions": [],
+        "uncertain": false
+      },
+      "fresh_control": {
+        "interaction_supported": true,
+        "start_frame": 138,
+        "end_frame": 174,
+        "action": "按压升温按钮",
+        "evidence": "从帧138到174，夹爪持续靠近面板右侧区域（遮挡了三角形升温按钮），期间屏幕温度从18.0°C逐步上升至20.0°C（帧174），且在帧154、170、174出现连续数字变化，符合长按升温按钮的响应特征。尽管夹爪尖端遮挡了按钮，但结合其位置稳定推进、短距离微调及屏幕连续响应，可推断为对升温按钮的持续按压操作。帧178后夹爪开始回撤，温度继续上升至20.5°C（帧182）和20.7°C（帧186），表明可能仍保持接触或存在延迟响应，但主要按压行为发生在138-174帧区间。",
+        "additional_actions": [],
+        "uncertain": false
+      },
+      "variant_elapsed_seconds": 0.041,
+      "control_elapsed_seconds": 14.103,
+      "support_unchanged": true,
+      "boundary_unchanged": true
+    },
+    {
+      "candidate": {
+        "start_frame": 432,
+        "end_frame": 447,
+        "skill_id": "press",
+        "arm_used": "left",
+        "proposal_only": true,
+        "contact_verified": false,
+        "peak_frame": 447
+      },
+      "baseline": {
+        "interaction_supported": true,
+        "start_frame": 432,
+        "end_frame": 447,
+        "action": "按压并保持电源按钮",
+        "evidence": "从帧432开始，夹爪左侧尖端持续遮挡面板右侧区域（电源按钮位置），同时屏幕在帧441发生明显变化：数字显示消失，屏幕变白并出现网格线，表明进入待机或关机状态。此变化与电源按钮被按压的典型响应一致。结合夹爪在432-447帧间位置基本稳定（xyz_mm变化极小），可推断为按压并保持操作。后续帧449起夹爪开始后撤，说明松开动作已发生。",
+        "additional_actions": [],
+        "uncertain": false
+      },
+      "without_scene_prior": {
+        "interaction_supported": true,
+        "start_frame": 432,
+        "end_frame": 447,
+        "action": "按压并保持电源按钮",
+        "evidence": "从帧432开始，夹爪尖端持续接触面板最上方的圆形电源按钮区域，且在帧441时屏幕由显示温度数值（20.5°C）变为全白界面，表明设备进入待机或关机状态。此变化与电源按钮操作一致。在帧447后，夹爪未立即撤离，但屏幕已无响应，结合后续帧中夹爪位置微调及屏幕保持空白，可推断按压动作在447帧结束。整个过程中无松开再按压行为，故视为一次长按操作。",
+        "additional_actions": [],
+        "uncertain": false
+      },
+      "fresh_control": {
+        "interaction_supported": true,
+        "start_frame": 432,
+        "end_frame": 447,
+        "action": "按压并保持电源按钮",
+        "evidence": "从帧432开始，夹爪左侧尖端持续遮挡面板最上方的电源按钮区域，且在432-447帧间无明显回撤动作，表明处于接触保持状态。同时，屏幕在帧441发生明显变化（由数字显示转为菜单界面），符合电源按钮被长按触发系统切换的响应特征。尽管按钮被遮挡，但结合短距离推进后无松开迹象、屏幕响应及持续遮挡，可推断为一次长按操作。后续帧449起夹爪开始回撤，说明按压结束。",
+        "additional_actions": [],
+        "uncertain": false
+      },
+      "variant_elapsed_seconds": 0.026,
+      "control_elapsed_seconds": 12.546,
+      "support_unchanged": true,
+      "boundary_unchanged": true
+    }
+  ],
+  "automatic_annotation_replaced": false,
+  "reference_used_during_inference": false,
+  "complete": true
+}

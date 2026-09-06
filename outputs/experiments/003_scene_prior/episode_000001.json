@@ -1,0 +1,92 @@
+{
+  "trajectory_id": "episode_000001",
+  "results": [
+    {
+      "candidate": {
+        "start_frame": 101,
+        "end_frame": 149,
+        "skill_id": "press",
+        "arm_used": "left",
+        "proposal_only": true,
+        "contact_verified": false,
+        "peak_frame": 127
+      },
+      "baseline": {
+        "interaction_supported": true,
+        "start_frame": 101,
+        "end_frame": 149,
+        "action": "按压并保持电源按钮",
+        "evidence": "从帧101开始，夹爪左侧尖端持续靠近面板右侧的电源按钮区域，虽被遮挡但可见其位置稳定且无明显回撤。在帧123时屏幕首次亮起（显示模糊界面），随后在帧147-149屏幕清晰显示18.5℃及制冷模式，表明设备已启动。结合夹爪在101-149帧间持续接近、无松开迹象，以及屏幕响应变化，推断为对电源按钮的长按操作。夹爪未完全离开按钮区域直至149帧后才开始后退（151帧后），符合按压保持行为。",
+        "additional_actions": [],
+        "uncertain": false
+      },
+      "without_scene_prior": {
+        "interaction_supported": true,
+        "start_frame": 101,
+        "end_frame": 149,
+        "action": "按压电源按钮并保持",
+        "evidence": "从帧101开始，夹爪尖端持续靠近空调面板最上方的电源按钮区域，位置稳定且无明显回撤。在帧123时屏幕由黑屏变为亮屏（显示模糊界面），帧147时屏幕清晰显示18.5℃及制冷模式，表明设备已启动。此过程无松开再按压动作，且屏幕响应与按压时间吻合，推断为一次长按操作。夹爪未完全遮挡按钮，但因视角和距离限制，无法直接观察到物理接触，故依据相对位置变化和屏幕响应进行推断。",
+        "additional_actions": [],
+        "uncertain": true
+      },
+      "fresh_control": {
+        "interaction_supported": true,
+        "start_frame": 101,
+        "end_frame": 149,
+        "action": "按压并保持电源按钮",
+        "evidence": "从帧101开始，夹爪左侧尖端持续遮挡面板最上方的电源按钮区域，且在帧101至127期间，夹爪位置稳定（xyz变化极小），表明处于按压状态。帧123起屏幕亮起并显示界面，帧147起显示具体温度和模式，说明操作生效。结合夹爪位置与屏幕响应，可推断为对电源按钮的按压及保持。虽未直接看到接触，但短距离推进后长时间稳定、屏幕响应一致，符合按压交互特征。",
+        "additional_actions": [],
+        "uncertain": false
+      },
+      "variant_elapsed_seconds": 0.019,
+      "control_elapsed_seconds": 12.039,
+      "support_unchanged": true,
+      "boundary_unchanged": true
+    },
+    {
+      "candidate": {
+        "start_frame": 211,
+        "end_frame": 216,
+        "skill_id": "press",
+        "arm_used": "left",
+        "proposal_only": true,
+        "contact_verified": false,
+        "peak_frame": 215
+      },
+      "baseline": {
+        "interaction_supported": true,
+        "start_frame": 207,
+        "end_frame": 216,
+        "action": "按压降温按钮",
+        "evidence": "从FRAME 207到FRAME 209，面板显示温度从18.5°C变为18.0°C，同时夹爪尖端持续靠近并接触下方三角形降温按钮（被遮挡），符合按压推进及接触保持的特征。在FRAME 211至216期间，温度维持18.0°C且夹爪位置稳定，表明按压后保持接触。后续帧中夹爪开始回撤，说明松开离开。整个过程无其他按钮响应，可确认为一次长按操作。",
+        "additional_actions": [],
+        "uncertain": false
+      },
+      "without_scene_prior": {
+        "interaction_supported": true,
+        "start_frame": 205,
+        "end_frame": 216,
+        "action": "按压向下箭头按钮",
+        "evidence": "从FRAME 205开始，夹爪尖端持续对准温控面板的向下箭头按钮区域。在FRAME 207至209之间，屏幕温度值从18.5°C变为18.0°C，表明按钮被触发。此变化发生在夹爪保持接近位置期间，且无明显回撤动作，符合按压推进及接触保持特征。后续帧（211-216）中夹爪位置稳定，屏幕数值维持18.0°C，说明按压后保持接触直至松开。整个过程未见松开再按，应视为一次长按操作。尽管部分帧中夹爪遮挡按钮，但结合相对位置、推进趋势和屏幕响应可推断按压行为。",
+        "additional_actions": [],
+        "uncertain": false
+      },
+      "fresh_control": {
+        "interaction_supported": true,
+        "start_frame": 207,
+        "end_frame": 216,
+        "action": "按压向下按钮并保持",
+        "evidence": "从FRAME 207开始，夹爪尖端持续靠近面板右侧的向下三角按钮（温度调节键），在FRAME 209时屏幕温度从18.5°C变为18.0°C，表明按钮被触发。此后至FRAME 216，夹爪位置基本稳定（xyz变化极小），且屏幕温度未再变化，符合长按保持状态。尽管夹爪遮挡了按钮，但结合连续推进、屏幕响应及后续静止位置，可推断为一次按压并保持操作。松开发生在FRAME 218之后，因此按压结束于FRAME 216。",
+        "additional_actions": [],
+        "uncertain": false
+      },
+      "variant_elapsed_seconds": 0.018,
+      "control_elapsed_seconds": 8.973,
+      "support_unchanged": true,
+      "boundary_unchanged": false
+    }
+  ],
+  "automatic_annotation_replaced": false,
+  "reference_used_during_inference": false,
+  "complete": true
+}
