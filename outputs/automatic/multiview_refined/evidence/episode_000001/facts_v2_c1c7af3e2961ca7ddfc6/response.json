@@ -1,0 +1,57 @@
+{
+  "result": {
+    "observations": [
+      {
+        "view": "head_rgb",
+        "start_frame": 148,
+        "end_frame": 166,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "change_present": false,
+        "description": "从帧148到166，head_rgb视角中机械臂主体、连接线缆及背景墙面均无可见位移或形态变化。"
+      },
+      {
+        "view": "head_right_rgb",
+        "start_frame": 148,
+        "end_frame": 166,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "change_present": false,
+        "description": "从帧148到166，head_right_rgb视角中机械臂主体、连接线缆及背景墙面均无可见位移或形态变化。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 148,
+        "end_frame": 166,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "change_present": false,
+        "description": "从帧148到166，left_wrist_rgb视角中夹爪与温控面板相对位置保持不变，面板屏幕显示内容（18.5°C、雪花图标、风扇图标）无变化，按钮区域未见形变或被按压迹象。"
+      },
+      {
+        "view": "right_wrist_rgb",
+        "start_frame": 148,
+        "end_frame": 166,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "change_present": false,
+        "description": "从帧148到166，right_wrist_rgb视角中夹爪尖端位置固定，背景为白色墙面，无可见物体或相机自身运动。"
+      }
+    ],
+    "limitations": "无法从head_rgb和head_right_rgb视角观察到腕部夹爪与温控面板的交互细节；右腕相机视野内无其他物体，无法判断手臂是否运动；左腕相机虽可见夹爪与面板，但未观察到按钮形变或屏幕内容变化，且无明确接触力或释放证据。"
+  },
+  "raw_text": "{\n  \"observations\": [\n    {\n      \"view\": \"head_rgb\",\n      \"start_frame\": 148,\n      \"end_frame\": 166,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"从帧148到166，head_rgb视角中机械臂主体、连接线缆及背景墙面均无可见位移或形态变化。\"\n    },\n    {\n      \"view\": \"head_right_rgb\",\n      \"start_frame\": 148,\n      \"end_frame\": 166,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"从帧148到166，head_right_rgb视角中机械臂主体、连接线缆及背景墙面均无可见位移或形态变化。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 148,\n      \"end_frame\": 166,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"从帧148到166，left_wrist_rgb视角中夹爪与温控面板相对位置保持不变，面板屏幕显示内容（18.5°C、雪花图标、风扇图标）无变化，按钮区域未见形变或被按压迹象。\"\n    },\n    {\n      \"view\": \"right_wrist_rgb\",\n      \"start_frame\": 148,\n      \"end_frame\": 166,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"从帧148到166，right_wrist_rgb视角中夹爪尖端位置固定，背景为白色墙面，无可见物体或相机自身运动。\"\n    }\n  ],\n  \"limitations\": \"无法从head_rgb和head_right_rgb视角观察到腕部夹爪与温控面板的交互细节；右腕相机视野内无其他物体，无法判断手臂是否运动；左腕相机虽可见夹爪与面板，但未观察到按钮形变或屏幕内容变化，且无明确接触力或释放证据。\"\n}",
+  "usage": {
+    "image_tokens": 33192,
+    "input_tokens": 33638,
+    "input_tokens_details": {
+      "image_tokens": 33192,
+      "text_tokens": 446
+    },
+    "output_tokens": 496,
+    "output_tokens_details": {
+      "text_tokens": 496
+    },
+    "total_tokens": 34134
+  }
+}

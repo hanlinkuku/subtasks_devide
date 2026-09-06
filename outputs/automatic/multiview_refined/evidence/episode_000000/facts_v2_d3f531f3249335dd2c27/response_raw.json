@@ -1,0 +1,17 @@
+{
+  "raw_text": "```json\n{\n  \"observations\": [\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 445,\n      \"end_frame\": 452,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"左腕相机视角中，夹爪与TOSHIBA控制面板保持相对静止，面板屏幕无可见变化，按钮区域未见形变或位移。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 453,\n      \"end_frame\": 453,\n      \"kind\": \"relative_motion\",\n      \"visibility\": \"clear\",\n      \"change_present\": true,\n      \"description\": \"左腕相机视角中，夹爪相对于控制面板发生轻微向右移动，导致面板右侧按钮部分被遮挡。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 455,\n      \"end_frame\": 463,\n      \"kind\": \"relative_motion\",\n      \"visibility\": \"clear\",\n      \"change_present\": true,\n      \"description\": \"左腕相机视角中，夹爪持续向右移动，控制面板整体向左偏移，右侧按钮区域逐渐被夹爪完全遮挡。\"\n    },\n    {\n      \"view\": \"head_rgb\",\n      \"start_frame\": 445,\n      \"end_frame\": 463,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"头部相机视角中，机械臂主体位置稳定，未观察到明显运动或姿态变化。\"\n    },\n    {\n      \"view\": \"head_right_rgb\",\n      \"start_frame\": 445,\n      \"end_frame\": 463,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"右头部相机视角中，机械臂结构及背景环境保持不变，无可见相对运动。\"\n    },\n    {\n      \"view\": \"right_wrist_rgb\",\n      \"start_frame\": 445,\n      \"end_frame\": 463,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"右腕相机视角中，仅可见夹爪尖端，无其他物体，画面内容无变化。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 445,\n      \"end_frame\": 463,\n      \"kind\": \"screen_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": null,\n      \"description\": \"控制面板屏幕始终处于关闭状态，显示为灰色，无亮度或内容变化，无法判断是否触发。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 445,\n      \"end_frame\": 463,\n      \"kind\": \"visible_button_deformation\",\n      \"visibility\": \"clear\",\n      \"change_present\": null,\n      \"description\": \"按钮区域在夹爪接触前后均未见可见形变，因夹爪遮挡且无清晰压痕或凹陷证据。\"\n    }\n  ],\n  \"limitations\": \"右腕相机视角无有效物体信息；头部相机视角无法观测夹爪与按钮的局部交互；控制面板屏幕内容模糊，数值不可读；按钮形变需高分辨率特写才能确认，当前帧无法提供。\"\n}\n```",
+  "usage": {
+    "image_tokens": 33192,
+    "input_tokens": 33681,
+    "input_tokens_details": {
+      "image_tokens": 33192,
+      "text_tokens": 489
+    },
+    "output_tokens": 775,
+    "output_tokens_details": {
+      "text_tokens": 775
+    },
+    "total_tokens": 34456
+  },
+  "finish_reason": "stop"
+}

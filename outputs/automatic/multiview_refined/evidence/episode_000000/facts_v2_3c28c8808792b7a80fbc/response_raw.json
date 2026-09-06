@@ -1,0 +1,17 @@
+{
+  "raw_text": "```json\n{\n  \"observations\": [\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 442,\n      \"end_frame\": 450,\n      \"kind\": \"local_tip_motion\",\n      \"visibility\": \"clear\",\n      \"change_present\": true,\n      \"description\": \"左腕视角中，夹爪尖端持续接触控制面板右侧按钮区域，相对按钮无明显位移，但夹爪与面板间存在微小晃动。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 452,\n      \"end_frame\": 460,\n      \"kind\": \"local_tip_motion\",\n      \"visibility\": \"clear\",\n      \"change_present\": true,\n      \"description\": \"左腕视角中，夹爪尖端在控制面板右侧按钮区域有轻微上下移动，按钮未见形变，屏幕内容无变化。\"\n    },\n    {\n      \"view\": \"head_rgb\",\n      \"start_frame\": 442,\n      \"end_frame\": 460,\n      \"kind\": \"relative_motion\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"头部相机视角下，机械臂整体位置稳定，未观察到手臂或末端执行器的显著位移。\"\n    },\n    {\n      \"view\": \"head_right_rgb\",\n      \"start_frame\": 442,\n      \"end_frame\": 460,\n      \"kind\": \"relative_motion\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"右头部相机视角下，机械臂结构及背景物体位置保持不变，无可见运动。\"\n    },\n    {\n      \"view\": \"right_wrist_rgb\",\n      \"start_frame\": 442,\n      \"end_frame\": 460,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"右腕相机视角中，仅可见夹爪前端，无其他物体或环境元素，画面无变化。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 442,\n      \"end_frame\": 460,\n      \"kind\": \"screen_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"控制面板屏幕始终显示模糊分块界面，亮度和内容无可见变化，无法辨识具体数值或图标。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 442,\n      \"end_frame\": 460,\n      \"kind\": \"visible_button_deformation\",\n      \"visibility\": \"clear\",\n      \"change_present\": null,\n      \"description\": \"夹爪尖端紧邻按钮区域，但按钮表面无可见凹陷或形变，因遮挡无法确认是否被按压。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 442,\n      \"end_frame\": 460,\n      \"kind\": \"visible_object_release\",\n      \"visibility\": \"clear\",\n      \"change_present\": null,\n      \"description\": \"夹爪持续接触控制面板，未观察到被抓持物体脱离或释放的迹象。\"\n    }\n  ],\n  \"limitations\": \"右腕相机视野受限，仅见夹爪；头部相机视角无法提供操作细节；控制面板屏幕内容模糊，无法读取数值；按钮形变因遮挡无法确认；未提供441-442帧及460之后帧，无法判断完整动作序列。\"\n}\n```",
+  "usage": {
+    "image_tokens": 33192,
+    "input_tokens": 33681,
+    "input_tokens_details": {
+      "image_tokens": 33192,
+      "text_tokens": 489
+    },
+    "output_tokens": 789,
+    "output_tokens_details": {
+      "text_tokens": 789
+    },
+    "total_tokens": 34470
+  },
+  "finish_reason": "stop"
+}

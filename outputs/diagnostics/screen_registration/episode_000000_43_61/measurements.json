@@ -1,0 +1,250 @@
+{
+  "episode": "episode_000000",
+  "reference_frame": 47,
+  "reference_quad": [
+    504.0,
+    121.0,
+    637.0,
+    202.0,
+    566.0,
+    370.0,
+    425.0,
+    301.0
+  ],
+  "roi_source": "explicit diagnostic coordinates, not automatic detection",
+  "records": [
+    {
+      "frame": 43,
+      "status": "unreliable",
+      "reason": "Insufficient matching features"
+    },
+    {
+      "frame": 44,
+      "status": "registered",
+      "quality": {
+        "matches": 13,
+        "inliers": 8,
+        "median_residual_px": 0.6993406321083147
+      },
+      "mean_luminance": 0.27898124764328663,
+      "quad": [
+        [
+          535.357,
+          45.825
+        ],
+        [
+          656.549,
+          126.343
+        ],
+        [
+          603.289,
+          312.789
+        ],
+        [
+          464.886,
+          209.695
+        ]
+      ]
+    },
+    {
+      "frame": 45,
+      "status": "registered",
+      "quality": {
+        "matches": 22,
+        "inliers": 11,
+        "median_residual_px": 0.7018870382558171
+      },
+      "mean_luminance": 0.25317212214902707,
+      "quad": [
+        [
+          520.606,
+          69.856
+        ],
+        [
+          648.21,
+          150.295
+        ],
+        [
+          581.583,
+          304.057
+        ],
+        [
+          447.901,
+          238.205
+        ]
+      ]
+    },
+    {
+      "frame": 46,
+      "status": "registered",
+      "quality": {
+        "matches": 49,
+        "inliers": 27,
+        "median_residual_px": 0.6704476990720041
+      },
+      "mean_luminance": 0.2445762381212686,
+      "quad": [
+        [
+          508.357,
+          93.641
+        ],
+        [
+          638.426,
+          174.484
+        ],
+        [
+          570.685,
+          338.487
+        ],
+        [
+          436.556,
+          270.878
+        ]
+      ]
+    },
+    {
+      "frame": 47,
+      "status": "registered",
+      "quality": {
+        "inliers": null,
+        "median_residual_px": 0
+      },
+      "mean_luminance": 0.2400102564755706,
+      "quad": [
+        [
+          504.0,
+          121.0
+        ],
+        [
+          637.0,
+          202.0
+        ],
+        [
+          566.0,
+          370.0
+        ],
+        [
+          425.0,
+          301.0
+        ]
+      ]
+    },
+    {
+      "frame": 48,
+      "status": "registered",
+      "quality": {
+        "matches": 28,
+        "inliers": 13,
+        "median_residual_px": 1.0189984193571668
+      },
+      "mean_luminance": 0.3066783365865838,
+      "quad": [
+        [
+          497.001,
+          145.449
+        ],
+        [
+          633.405,
+          226.287
+        ],
+        [
+          559.922,
+          399.352
+        ],
+        [
+          302.365,
+          277.913
+        ]
+      ]
+    },
+    {
+      "frame": 49,
+      "status": "unreliable",
+      "reason": "Unreliable registration"
+    },
+    {
+      "frame": 50,
+      "status": "unreliable",
+      "reason": "Unreliable registration"
+    },
+    {
+      "frame": 51,
+      "status": "unreliable",
+      "reason": "Unreliable registration"
+    },
+    {
+      "frame": 52,
+      "status": "registered",
+      "quality": {
+        "matches": 12,
+        "inliers": 8,
+        "median_residual_px": 0.3958793186851961
+      },
+      "mean_luminance": 0.21398444441290207,
+      "quad": [
+        [
+          420.896,
+          177.805
+        ],
+        [
+          576.411,
+          261.355
+        ],
+        [
+          494.934,
+          457.128
+        ],
+        [
+          314.384,
+          375.57
+        ]
+      ]
+    },
+    {
+      "frame": 53,
+      "status": "unreliable",
+      "reason": "Unreliable registration"
+    },
+    {
+      "frame": 54,
+      "status": "unreliable",
+      "reason": "Unreliable registration"
+    },
+    {
+      "frame": 55,
+      "status": "unreliable",
+      "reason": "Unreliable registration"
+    },
+    {
+      "frame": 56,
+      "status": "unreliable",
+      "reason": "Unreliable registration"
+    },
+    {
+      "frame": 57,
+      "status": "unreliable",
+      "reason": "Insufficient matching features"
+    },
+    {
+      "frame": 58,
+      "status": "unreliable",
+      "reason": "Unreliable registration"
+    },
+    {
+      "frame": 59,
+      "status": "unreliable",
+      "reason": "Insufficient matching features"
+    },
+    {
+      "frame": 60,
+      "status": "unreliable",
+      "reason": "Unreliable registration"
+    },
+    {
+      "frame": 61,
+      "status": "unreliable",
+      "reason": "Unreliable registration"
+    }
+  ],
+  "limitations": "Registration may follow changing screen features; successful registration is not proof of identical content or physical contact."
+}

@@ -1,0 +1,17 @@
+{
+  "raw_text": "```json\n{\n  \"observations\": [\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 148,\n      \"end_frame\": 166,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"左腕视角中，夹爪尖端持续接触温控面板右侧按钮区域，未见相对位移或局部运动。屏幕显示温度18.5℃及制冷图标，内容无变化。\"\n    },\n    {\n      \"view\": \"right_wrist_rgb\",\n      \"start_frame\": 148,\n      \"end_frame\": 166,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"右腕视角中，夹爪保持静止，仅可见其黑色尖端部分，背景为白色墙面，无物体或相机位置变化。\"\n    },\n    {\n      \"view\": \"head_rgb\",\n      \"start_frame\": 148,\n      \"end_frame\": 166,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"头视角中，机械臂主体与周围环境（包括墙角、电源插座）均无可见移动或姿态改变。\"\n    },\n    {\n      \"view\": \"head_right_rgb\",\n      \"start_frame\": 148,\n      \"end_frame\": 166,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"头右视角中，机械臂结构与背景环境保持稳定，无可见的相对运动或物体变化。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 148,\n      \"end_frame\": 166,\n      \"kind\": \"local_tip_motion\",\n      \"visibility\": \"clear\",\n      \"change_present\": null,\n      \"description\": \"左腕细节图中，夹爪尖端紧贴温控面板右侧按钮区域，但未观察到相对于按钮的明显局部位移或形变。\"\n    }\n  ],\n  \"limitations\": \"无法从当前视角确认按钮是否被按压或发生形变；右腕相机视野内无其他物体；头视角未提供关于温控面板的直接信息；所有帧中未见物体脱离或屏幕内容变化。\"\n}\n```",
+  "usage": {
+    "image_tokens": 33192,
+    "input_tokens": 33681,
+    "input_tokens_details": {
+      "image_tokens": 33192,
+      "text_tokens": 489
+    },
+    "output_tokens": 537,
+    "output_tokens_details": {
+      "text_tokens": 537
+    },
+    "total_tokens": 34218
+  },
+  "finish_reason": "stop"
+}

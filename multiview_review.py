@@ -66,8 +66,12 @@ def ask(ep,kind,frames,prompt,detail=False):
         json={'model':annotate.MODEL,'input':{'messages':[{'role':'user','content':content}]},'parameters':parameters},timeout=(30,240))
     response.raise_for_status();data=response.json()
     raw='\n'.join(x.get('text','') for x in data['output']['choices'][0]['message']['content']).strip()
+    annotate.save(dest/'response_raw.json',{'raw_text':raw,'usage':data.get('usage'),'finish_reason':data['output']['choices'][0].get('finish_reason')})
     if raw.startswith('```'):raw=raw.split('\n',1)[1].rsplit('```',1)[0]
-    result=json.loads(raw)
+    try:result=json.loads(raw)
+    except json.JSONDecodeError as error:
+        annotate.save(dest/'failure.json',{'reason':'invalid_or_truncated_json','line':error.lineno,'column':error.colno,'raw_response_preserved':True})
+        raise ValueError('Invalid or truncated model JSON; raw response preserved at '+str(dest)) from error
     annotate.save(cache,{'result':result,'raw_text':raw,'usage':data.get('usage')})
     return result
 

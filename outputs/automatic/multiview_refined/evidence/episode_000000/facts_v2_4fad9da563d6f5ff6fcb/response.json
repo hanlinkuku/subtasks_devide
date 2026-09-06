@@ -1,0 +1,66 @@
+{
+  "result": {
+    "observations": [
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 106,
+        "end_frame": 124,
+        "kind": "screen_change",
+        "visibility": "clear",
+        "change_present": true,
+        "description": "左腕视角中，温控面板屏幕显示温度在18.0°C与18.5°C之间交替变化，屏幕亮度稳定，无明显形变或按钮按压迹象。"
+      },
+      {
+        "view": "head_rgb",
+        "start_frame": 106,
+        "end_frame": 124,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "change_present": false,
+        "description": "头视角中，机械臂及背景环境保持静止，未见物体位移或屏幕内容变化，夹爪位置固定。"
+      },
+      {
+        "view": "head_right_rgb",
+        "start_frame": 106,
+        "end_frame": 124,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "change_present": false,
+        "description": "右头视角中，机械臂结构、背景墙面及温控面板位置均无可见变化，画面稳定。"
+      },
+      {
+        "view": "right_wrist_rgb",
+        "start_frame": 106,
+        "end_frame": 124,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "change_present": false,
+        "description": "右腕视角中，夹爪尖端位置固定，背景为白色墙面，无物体移动或屏幕可见。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 106,
+        "end_frame": 124,
+        "kind": "local_tip_motion",
+        "visibility": "clear",
+        "change_present": null,
+        "description": "左腕视角中，夹爪尖端紧邻温控面板右侧按钮区域，但未观察到相对于按钮的独立运动，整体位置稳定。"
+      }
+    ],
+    "limitations": "无法从头视角或右腕视角确认温控面板按钮状态；右腕相机视野内无目标物体；夹爪在腕部相机中静止不代表手臂整体静止；部分帧细节因分辨率限制难以精确判断。"
+  },
+  "raw_text": "{\n  \"observations\": [\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 106,\n      \"end_frame\": 124,\n      \"kind\": \"screen_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": true,\n      \"description\": \"左腕视角中，温控面板屏幕显示温度在18.0°C与18.5°C之间交替变化，屏幕亮度稳定，无明显形变或按钮按压迹象。\"\n    },\n    {\n      \"view\": \"head_rgb\",\n      \"start_frame\": 106,\n      \"end_frame\": 124,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"头视角中，机械臂及背景环境保持静止，未见物体位移或屏幕内容变化，夹爪位置固定。\"\n    },\n    {\n      \"view\": \"head_right_rgb\",\n      \"start_frame\": 106,\n      \"end_frame\": 124,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"右头视角中，机械臂结构、背景墙面及温控面板位置均无可见变化，画面稳定。\"\n    },\n    {\n      \"view\": \"right_wrist_rgb\",\n      \"start_frame\": 106,\n      \"end_frame\": 124,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"右腕视角中，夹爪尖端位置固定，背景为白色墙面，无物体移动或屏幕可见。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 106,\n      \"end_frame\": 124,\n      \"kind\": \"local_tip_motion\",\n      \"visibility\": \"clear\",\n      \"change_present\": null,\n      \"description\": \"左腕视角中，夹爪尖端紧邻温控面板右侧按钮区域，但未观察到相对于按钮的独立运动，整体位置稳定。\"\n    }\n  ],\n  \"limitations\": \"无法从头视角或右腕视角确认温控面板按钮状态；右腕相机视野内无目标物体；夹爪在腕部相机中静止不代表手臂整体静止；部分帧细节因分辨率限制难以精确判断。\"\n}\n",
+  "usage": {
+    "image_tokens": 33192,
+    "input_tokens": 33681,
+    "input_tokens_details": {
+      "image_tokens": 33192,
+      "text_tokens": 489
+    },
+    "output_tokens": 529,
+    "output_tokens_details": {
+      "text_tokens": 529
+    },
+    "total_tokens": 34210
+  }
+}

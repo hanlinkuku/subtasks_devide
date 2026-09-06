@@ -1,0 +1,93 @@
+{
+  "result": {
+    "observations": [
+      {
+        "view": "head_rgb",
+        "start_frame": 142,
+        "end_frame": 155,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "change_present": false,
+        "description": "从帧142到155，head_rgb视角中机械臂主体、背景墙面及左侧门框区域均无可见位移或形态变化。相机视角保持稳定，未观察到物体相对位置改变。"
+      },
+      {
+        "view": "head_right_rgb",
+        "start_frame": 142,
+        "end_frame": 155,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "change_present": false,
+        "description": "从帧142到155，head_right_rgb视角中机械臂主体、背景墙面及右侧门框区域均无可见位移或形态变化。相机视角保持稳定，未观察到物体相对位置改变。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 142,
+        "end_frame": 142,
+        "kind": "screen_change",
+        "visibility": "clear",
+        "change_present": true,
+        "description": "在帧142，左腕相机视角中的TOSHIBA温控面板屏幕为熄灭状态，显示为深色背景，无数字或图标。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 143,
+        "end_frame": 155,
+        "kind": "screen_change",
+        "visibility": "clear",
+        "change_present": true,
+        "description": "从帧143开始，左腕相机视角中的TOSHIBA温控面板屏幕亮起，显示数字“18.5℃”、风扇图标、制冷图标（雪花）及风速条形图。此状态在后续帧中持续存在，无进一步内容变化。"
+      },
+      {
+        "view": "right_wrist_rgb",
+        "start_frame": 142,
+        "end_frame": 155,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "change_present": false,
+        "description": "从帧142到155，right_wrist_rgb视角中仅可见黑色夹爪尖端和白色墙壁，无其他物体或结构。夹爪在画面中位置固定，未观察到任何运动或姿态变化。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 142,
+        "end_frame": 155,
+        "kind": "local_tip_motion",
+        "visibility": "clear",
+        "change_present": null,
+        "description": "在帧142至155期间，左腕相机视角中夹爪尖端始终位于温控面板的电源按钮（圆形带斜线图标）右侧，与按钮保持近距离接触。由于夹爪本身在画面中位置固定且无明显开合动作，无法判断其尖端相对于按钮有独立的局部运动。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 142,
+        "end_frame": 155,
+        "kind": "visible_button_deformation",
+        "visibility": "clear",
+        "change_present": null,
+        "description": "在帧142至155期间，左腕相机视角中电源按钮被夹爪部分遮挡，但按钮表面未见可辨识的形变或凹陷。由于夹爪紧邻按钮且无明显压力迹象，无法确认按钮是否发生形变。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 142,
+        "end_frame": 155,
+        "kind": "visible_object_release",
+        "visibility": "clear",
+        "change_present": null,
+        "description": "在帧142至155期间，左腕相机视角中夹爪始终与温控面板接触，未观察到任何被抓持物体脱离或释放的直接视觉证据。"
+      }
+    ],
+    "limitations": "右腕相机视角中无可见目标物体，无法评估其与环境的交互。左腕相机视角中夹爪与按钮接触紧密，但因缺乏深度信息和动态变化，无法明确判断是否存在局部运动或按钮形变。屏幕内容变化（亮屏）不等同于物理按压行为。"
+  },
+  "raw_text": "{\n  \"observations\": [\n    {\n      \"view\": \"head_rgb\",\n      \"start_frame\": 142,\n      \"end_frame\": 155,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"从帧142到155，head_rgb视角中机械臂主体、背景墙面及左侧门框区域均无可见位移或形态变化。相机视角保持稳定，未观察到物体相对位置改变。\"\n    },\n    {\n      \"view\": \"head_right_rgb\",\n      \"start_frame\": 142,\n      \"end_frame\": 155,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"从帧142到155，head_right_rgb视角中机械臂主体、背景墙面及右侧门框区域均无可见位移或形态变化。相机视角保持稳定，未观察到物体相对位置改变。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 142,\n      \"end_frame\": 142,\n      \"kind\": \"screen_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": true,\n      \"description\": \"在帧142，左腕相机视角中的TOSHIBA温控面板屏幕为熄灭状态，显示为深色背景，无数字或图标。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 143,\n      \"end_frame\": 155,\n      \"kind\": \"screen_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": true,\n      \"description\": \"从帧143开始，左腕相机视角中的TOSHIBA温控面板屏幕亮起，显示数字“18.5℃”、风扇图标、制冷图标（雪花）及风速条形图。此状态在后续帧中持续存在，无进一步内容变化。\"\n    },\n    {\n      \"view\": \"right_wrist_rgb\",\n      \"start_frame\": 142,\n      \"end_frame\": 155,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"从帧142到155，right_wrist_rgb视角中仅可见黑色夹爪尖端和白色墙壁，无其他物体或结构。夹爪在画面中位置固定，未观察到任何运动或姿态变化。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 142,\n      \"end_frame\": 155,\n      \"kind\": \"local_tip_motion\",\n      \"visibility\": \"clear\",\n      \"change_present\": null,\n      \"description\": \"在帧142至155期间，左腕相机视角中夹爪尖端始终位于温控面板的电源按钮（圆形带斜线图标）右侧，与按钮保持近距离接触。由于夹爪本身在画面中位置固定且无明显开合动作，无法判断其尖端相对于按钮有独立的局部运动。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 142,\n      \"end_frame\": 155,\n      \"kind\": \"visible_button_deformation\",\n      \"visibility\": \"clear\",\n      \"change_present\": null,\n      \"description\": \"在帧142至155期间，左腕相机视角中电源按钮被夹爪部分遮挡，但按钮表面未见可辨识的形变或凹陷。由于夹爪紧邻按钮且无明显压力迹象，无法确认按钮是否发生形变。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 142,\n      \"end_frame\": 155,\n      \"kind\": \"visible_object_release\",\n      \"visibility\": \"clear\",\n      \"change_present\": null,\n      \"description\": \"在帧142至155期间，左腕相机视角中夹爪始终与温控面板接触，未观察到任何被抓持物体脱离或释放的直接视觉证据。\"\n    }\n  ],\n  \"limitations\": \"右腕相机视角中无可见目标物体，无法评估其与环境的交互。左腕相机视角中夹爪与按钮接触紧密，但因缺乏深度信息和动态变化，无法明确判断是否存在局部运动或按钮形变。屏幕内容变化（亮屏）不等同于物理按压行为。\"\n}",
+  "usage": {
+    "image_tokens": 25816,
+    "input_tokens": 26262,
+    "input_tokens_details": {
+      "image_tokens": 25816,
+      "text_tokens": 446
+    },
+    "output_tokens": 996,
+    "output_tokens_details": {
+      "text_tokens": 996
+    },
+    "total_tokens": 27258
+  }
+}

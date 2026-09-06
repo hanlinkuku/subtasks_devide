@@ -1,0 +1,75 @@
+{
+  "result": {
+    "observations": [
+      {
+        "view": "head_rgb",
+        "start_frame": 376,
+        "end_frame": 394,
+        "kind": "relative_motion",
+        "visibility": "clear",
+        "change_present": true,
+        "description": "从帧376到394，左臂（head_rgb视角）的机械臂主体在画面中缓慢向右上方移动，其夹爪部分位置随之改变，但未发生旋转或开合。背景中的温控面板和墙壁保持静止，表明运动来自机械臂本身。"
+      },
+      {
+        "view": "head_right_rgb",
+        "start_frame": 376,
+        "end_frame": 394,
+        "kind": "relative_motion",
+        "visibility": "clear",
+        "change_present": true,
+        "description": "从帧376到394，右臂（head_right_rgb视角）的机械臂主体在画面中缓慢向右上方移动，其夹爪部分位置随之改变，但未发生旋转或开合。背景中的温控面板和墙壁保持静止，表明运动来自机械臂本身。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 376,
+        "end_frame": 394,
+        "kind": "relative_motion",
+        "visibility": "clear",
+        "change_present": true,
+        "description": "从帧376到394，左腕相机视角下，黑色夹爪尖端相对于白色温控面板的位置发生微小变化，整体呈现轻微向上和向右的位移趋势。温控面板屏幕显示数值稳定为20.5°C，无可见形变或内容变化。"
+      },
+      {
+        "view": "right_wrist_rgb",
+        "start_frame": 376,
+        "end_frame": 394,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "change_present": false,
+        "description": "从帧376到394，右腕相机视角下，黑色夹爪尖端在画面中位置基本保持不变，未观察到相对运动。背景墙面及远处两个方形物体也无明显变化。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 376,
+        "end_frame": 394,
+        "kind": "screen_change",
+        "visibility": "clear",
+        "change_present": false,
+        "description": "从帧376到394，左腕相机视角下的温控面板屏幕始终清晰可见，显示温度为20.5°C，屏幕亮度、图标及数字内容均无变化。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 376,
+        "end_frame": 394,
+        "kind": "local_tip_motion",
+        "visibility": "clear",
+        "change_present": true,
+        "description": "从帧376到394，左腕相机视角下，夹爪尖端相对于温控面板上的按钮区域有持续的微小上下和左右摆动，但未与任何按钮发生接触或遮挡。"
+      }
+    ],
+    "limitations": "右腕相机视角（right_wrist_rgb）无法提供关于温控面板或按钮的任何信息，因为其视野完全被夹爪和天花板占据。所有屏幕内容变化仅基于左腕视角，且未观察到任何按钮形变或被抓持物体脱离。"
+  },
+  "raw_text": "{\n  \"observations\": [\n    {\n      \"view\": \"head_rgb\",\n      \"start_frame\": 376,\n      \"end_frame\": 394,\n      \"kind\": \"relative_motion\",\n      \"visibility\": \"clear\",\n      \"change_present\": true,\n      \"description\": \"从帧376到394，左臂（head_rgb视角）的机械臂主体在画面中缓慢向右上方移动，其夹爪部分位置随之改变，但未发生旋转或开合。背景中的温控面板和墙壁保持静止，表明运动来自机械臂本身。\"\n    },\n    {\n      \"view\": \"head_right_rgb\",\n      \"start_frame\": 376,\n      \"end_frame\": 394,\n      \"kind\": \"relative_motion\",\n      \"visibility\": \"clear\",\n      \"change_present\": true,\n      \"description\": \"从帧376到394，右臂（head_right_rgb视角）的机械臂主体在画面中缓慢向右上方移动，其夹爪部分位置随之改变，但未发生旋转或开合。背景中的温控面板和墙壁保持静止，表明运动来自机械臂本身。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 376,\n      \"end_frame\": 394,\n      \"kind\": \"relative_motion\",\n      \"visibility\": \"clear\",\n      \"change_present\": true,\n      \"description\": \"从帧376到394，左腕相机视角下，黑色夹爪尖端相对于白色温控面板的位置发生微小变化，整体呈现轻微向上和向右的位移趋势。温控面板屏幕显示数值稳定为20.5°C，无可见形变或内容变化。\"\n    },\n    {\n      \"view\": \"right_wrist_rgb\",\n      \"start_frame\": 376,\n      \"end_frame\": 394,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"从帧376到394，右腕相机视角下，黑色夹爪尖端在画面中位置基本保持不变，未观察到相对运动。背景墙面及远处两个方形物体也无明显变化。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 376,\n      \"end_frame\": 394,\n      \"kind\": \"screen_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"从帧376到394，左腕相机视角下的温控面板屏幕始终清晰可见，显示温度为20.5°C，屏幕亮度、图标及数字内容均无变化。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 376,\n      \"end_frame\": 394,\n      \"kind\": \"local_tip_motion\",\n      \"visibility\": \"clear\",\n      \"change_present\": true,\n      \"description\": \"从帧376到394，左腕相机视角下，夹爪尖端相对于温控面板上的按钮区域有持续的微小上下和左右摆动，但未与任何按钮发生接触或遮挡。\"\n    }\n  ],\n  \"limitations\": \"右腕相机视角（right_wrist_rgb）无法提供关于温控面板或按钮的任何信息，因为其视野完全被夹爪和天花板占据。所有屏幕内容变化仅基于左腕视角，且未观察到任何按钮形变或被抓持物体脱离。\"\n}",
+  "usage": {
+    "image_tokens": 33192,
+    "input_tokens": 33638,
+    "input_tokens_details": {
+      "image_tokens": 33192,
+      "text_tokens": 446
+    },
+    "output_tokens": 778,
+    "output_tokens_details": {
+      "text_tokens": 778
+    },
+    "total_tokens": 34416
+  }
+}

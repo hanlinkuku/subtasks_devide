@@ -1,0 +1,57 @@
+{
+  "result": {
+    "observations": [
+      {
+        "view": "head_rgb",
+        "start_frame": 106,
+        "end_frame": 124,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "change_present": false,
+        "description": "从帧106到124，head_rgb视角中机器人手臂和墙壁上的温控面板位置保持不变。相机视角稳定，无明显相对运动。"
+      },
+      {
+        "view": "head_right_rgb",
+        "start_frame": 106,
+        "end_frame": 124,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "change_present": false,
+        "description": "从帧106到124，head_right_rgb视角中机器人手臂和墙壁上的温控面板位置保持不变。相机视角稳定，无明显相对运动。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 106,
+        "end_frame": 124,
+        "kind": "screen_change",
+        "visibility": "clear",
+        "change_present": true,
+        "description": "在帧106至124期间，左腕相机视角下的TOSHIBA温控面板屏幕显示内容发生多次变化：温度数值在18.0°C与18.5°C之间交替显示；屏幕右侧的风扇图标状态（高/低）也出现变化；屏幕亮度有轻微波动。夹爪尖端始终位于面板下方，未见相对于按钮的局部移动或接触形变。"
+      },
+      {
+        "view": "right_wrist_rgb",
+        "start_frame": 106,
+        "end_frame": 124,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "change_present": false,
+        "description": "从帧106到124，right_wrist_rgb视角中仅可见黑色夹爪尖端，背景为白色天花板。画面无任何物体或相机位移，保持静态。"
+      }
+    ],
+    "limitations": "无法从head_rgb和head_right_rgb视角直接观察到温控面板的屏幕细节变化。右腕相机视角完全被夹爪遮挡，无法观察到任何目标物体。左腕相机视角虽清晰，但无法确认夹爪是否实际接触按钮或导致按钮形变，仅能观察到屏幕内容变化。"
+  },
+  "raw_text": "{\n  \"observations\": [\n    {\n      \"view\": \"head_rgb\",\n      \"start_frame\": 106,\n      \"end_frame\": 124,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"从帧106到124，head_rgb视角中机器人手臂和墙壁上的温控面板位置保持不变。相机视角稳定，无明显相对运动。\"\n    },\n    {\n      \"view\": \"head_right_rgb\",\n      \"start_frame\": 106,\n      \"end_frame\": 124,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"从帧106到124，head_right_rgb视角中机器人手臂和墙壁上的温控面板位置保持不变。相机视角稳定，无明显相对运动。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 106,\n      \"end_frame\": 124,\n      \"kind\": \"screen_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": true,\n      \"description\": \"在帧106至124期间，左腕相机视角下的TOSHIBA温控面板屏幕显示内容发生多次变化：温度数值在18.0°C与18.5°C之间交替显示；屏幕右侧的风扇图标状态（高/低）也出现变化；屏幕亮度有轻微波动。夹爪尖端始终位于面板下方，未见相对于按钮的局部移动或接触形变。\"\n    },\n    {\n      \"view\": \"right_wrist_rgb\",\n      \"start_frame\": 106,\n      \"end_frame\": 124,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"从帧106到124，right_wrist_rgb视角中仅可见黑色夹爪尖端，背景为白色天花板。画面无任何物体或相机位移，保持静态。\"\n    }\n  ],\n  \"limitations\": \"无法从head_rgb和head_right_rgb视角直接观察到温控面板的屏幕细节变化。右腕相机视角完全被夹爪遮挡，无法观察到任何目标物体。左腕相机视角虽清晰，但无法确认夹爪是否实际接触按钮或导致按钮形变，仅能观察到屏幕内容变化。\"\n}",
+  "usage": {
+    "image_tokens": 33192,
+    "input_tokens": 33638,
+    "input_tokens_details": {
+      "image_tokens": 33192,
+      "text_tokens": 446
+    },
+    "output_tokens": 534,
+    "output_tokens_details": {
+      "text_tokens": 534
+    },
+    "total_tokens": 34172
+  }
+}

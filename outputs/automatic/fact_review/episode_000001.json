@@ -1,5 +1,6 @@
 {
   "trajectory_id": "episode_000001",
+  "version": "explicit-change-v2",
   "method": "label-blind visual facts then deterministic evidence sufficiency gate",
   "results": [
     {
@@ -40,30 +41,33 @@
         {
           "view": "left_wrist_rgb",
           "start_frame": 142,
-          "end_frame": 143,
+          "end_frame": 142,
           "kind": "screen_change",
           "visibility": "clear",
-          "description": "屏幕从无显示变为显示数字'18.5℃'，同时出现风扇图标和信号强度条。",
+          "change_present": true,
+          "description": "左腕视角中，温控面板屏幕从无显示变为亮起，显示数字和图标。",
           "id": "F1",
           "claim_flags": []
         },
         {
           "view": "left_wrist_rgb",
           "start_frame": 143,
-          "end_frame": 144,
+          "end_frame": 155,
           "kind": "screen_change",
           "visibility": "clear",
-          "description": "屏幕内容保持不变，仍显示'18.5℃'、风扇图标和信号强度条，新增一个雪花图标。",
+          "change_present": false,
+          "description": "左腕视角中，温控面板屏幕持续显示18.5℃、风扇图标及模式符号，内容无变化。",
           "id": "F2",
           "claim_flags": []
         },
         {
           "view": "left_wrist_rgb",
-          "start_frame": 144,
+          "start_frame": 142,
           "end_frame": 155,
-          "kind": "no_clear_change",
+          "kind": "local_tip_motion",
           "visibility": "clear",
-          "description": "屏幕内容在所有帧中均保持稳定，持续显示'18.5℃'、雪花图标、风扇图标和信号强度条，无可见变化。",
+          "change_present": null,
+          "description": "夹爪尖端紧贴温控面板右侧按钮区域，未见相对按钮的明显局部位移或形变。",
           "id": "F3",
           "claim_flags": []
         },
@@ -73,7 +77,8 @@
           "end_frame": 155,
           "kind": "no_clear_change",
           "visibility": "clear",
-          "description": "机械臂主体位置和姿态在所有帧中均无可见变化。",
+          "change_present": false,
+          "description": "头视角中，机械臂主体位置稳定，无可见运动或姿态改变。",
           "id": "F4",
           "claim_flags": []
         },
@@ -83,7 +88,8 @@
           "end_frame": 155,
           "kind": "no_clear_change",
           "visibility": "clear",
-          "description": "机械臂主体位置和姿态在所有帧中均无可见变化。",
+          "change_present": false,
+          "description": "右头视角中，机械臂结构与背景保持静止，无可见相对运动。",
           "id": "F5",
           "claim_flags": []
         },
@@ -93,17 +99,37 @@
           "end_frame": 155,
           "kind": "no_clear_change",
           "visibility": "clear",
-          "description": "夹爪在所有帧中均保持静止，未见相对运动或开合变化。",
+          "change_present": false,
+          "description": "右腕视角中，夹爪保持固定姿态，未见开合或移动，背景墙面无变化。",
           "id": "F6",
           "claim_flags": []
+        },
+        {
+          "view": "left_wrist_rgb",
+          "start_frame": 142,
+          "end_frame": 155,
+          "kind": "visible_button_deformation",
+          "visibility": "clear",
+          "change_present": null,
+          "description": "夹爪尖端接触按钮区域，但按钮表面无可见凹陷或形变，无法确认是否被按压。",
+          "id": "F7",
+          "claim_flags": []
+        },
+        {
+          "view": "left_wrist_rgb",
+          "start_frame": 142,
+          "end_frame": 155,
+          "kind": "visible_object_release",
+          "visibility": "clear",
+          "change_present": null,
+          "description": "夹爪持续接触温控面板，未见物体脱离或释放迹象。",
+          "id": "F8",
+          "claim_flags": [
+            "contact_or_action_inference_in_description"
+          ]
         }
       ],
-      "limitations": [
-        "无法从head_rgb和head_right_rgb视角观察到左腕或右腕相机的相对运动。",
-        "右腕相机视角中未显示任何物体或按钮，无法判断其与环境的交互。",
-        "左腕相机视角中，夹爪尖端与按钮区域有部分重叠，但未见明显形变或脱离迹象。",
-        "屏幕数值清晰可读，但无法确认是否因外部操作触发变化，仅记录视觉呈现。"
-      ],
+      "limitations": "右腕相机视角仅显示夹爪，无目标物体；头视角未提供物体细节；无法判断夹爪施加压力或按钮内部状态；屏幕数值清晰但无动态变化证据。",
       "interpretation": {
         "status": "insufficient_evidence",
         "reason": "相对运动、屏幕变化或遮挡本身不足以确认独立物体交互；不等于动作不存在。",
@@ -113,7 +139,9 @@
           "F3",
           "F4",
           "F5",
-          "F6"
+          "F6",
+          "F7",
+          "F8"
         ],
         "new_action_confirmed": false,
         "boundary_replacement_allowed": false
@@ -165,33 +193,14 @@
       "sampling": "uniform_max_18",
       "facts": [
         {
-          "view": "head_rgb",
-          "start_frame": 148,
-          "end_frame": 166,
-          "kind": "no_clear_change",
-          "visibility": "clear",
-          "description": "从帧148到166，head_rgb视角中机械臂主体、连接线缆及背景墙面无可见位置或形态变化。",
-          "id": "F1",
-          "claim_flags": []
-        },
-        {
-          "view": "head_right_rgb",
-          "start_frame": 148,
-          "end_frame": 166,
-          "kind": "no_clear_change",
-          "visibility": "clear",
-          "description": "从帧148到166，head_right_rgb视角中机械臂主体、连接线缆及背景墙面无可见位置或形态变化。",
-          "id": "F2",
-          "claim_flags": []
-        },
-        {
           "view": "left_wrist_rgb",
           "start_frame": 148,
           "end_frame": 166,
-          "kind": "local_tip_motion",
+          "kind": "no_clear_change",
           "visibility": "clear",
-          "description": "从帧148到166，左腕相机视角中，黑色夹爪尖端持续接触白色TOSHIBA温控面板的电源按钮区域，夹爪与按钮之间无明显相对位移，但夹爪尖端有微小抖动或振动。",
-          "id": "F3",
+          "change_present": false,
+          "description": "左腕视角中，夹爪尖端持续接触温控面板右侧按钮区域，未见相对位移或局部运动。屏幕显示温度18.5℃及制冷图标，内容无变化。",
+          "id": "F1",
           "claim_flags": [
             "contact_or_action_inference_in_description"
           ]
@@ -202,18 +211,46 @@
           "end_frame": 166,
           "kind": "no_clear_change",
           "visibility": "clear",
-          "description": "从帧148到166，右腕相机视角中，黑色夹爪保持静止，背景为浅色墙面，无可见物体或相机位置变化。",
+          "change_present": false,
+          "description": "右腕视角中，夹爪保持静止，仅可见其黑色尖端部分，背景为白色墙面，无物体或相机位置变化。",
+          "id": "F2",
+          "claim_flags": []
+        },
+        {
+          "view": "head_rgb",
+          "start_frame": 148,
+          "end_frame": 166,
+          "kind": "no_clear_change",
+          "visibility": "clear",
+          "change_present": false,
+          "description": "头视角中，机械臂主体与周围环境（包括墙角、电源插座）均无可见移动或姿态改变。",
+          "id": "F3",
+          "claim_flags": []
+        },
+        {
+          "view": "head_right_rgb",
+          "start_frame": 148,
+          "end_frame": 166,
+          "kind": "no_clear_change",
+          "visibility": "clear",
+          "change_present": false,
+          "description": "头右视角中，机械臂结构与背景环境保持稳定，无可见的相对运动或物体变化。",
           "id": "F4",
+          "claim_flags": []
+        },
+        {
+          "view": "left_wrist_rgb",
+          "start_frame": 148,
+          "end_frame": 166,
+          "kind": "local_tip_motion",
+          "visibility": "clear",
+          "change_present": null,
+          "description": "左腕细节图中，夹爪尖端紧贴温控面板右侧按钮区域，但未观察到相对于按钮的明显局部位移或形变。",
+          "id": "F5",
           "claim_flags": []
         }
       ],
-      "limitations": [
-        "无法从任何视角直接观察到按钮表面形变。",
-        "屏幕显示内容（如18.5°C）在所有帧中均未发生变化，但未提供足够信息判断其是否因操作而改变。",
-        "右腕相机视角完全被夹爪占据，无法观察到其他物体或环境变化。",
-        "头视角（head_rgb, head_right_rgb）未提供关于温控面板或夹爪的直接视图，因此无法确认其与目标物体的交互细节。",
-        "未提供帧147和167，无法判断该时间段内是否有动作发生。"
-      ],
+      "limitations": "无法从当前视角确认按钮是否被按压或发生形变；右腕相机视野内无其他物体；头视角未提供关于温控面板的直接信息；所有帧中未见物体脱离或屏幕内容变化。",
       "interpretation": {
         "status": "insufficient_evidence",
         "reason": "相对运动、屏幕变化或遮挡本身不足以确认独立物体交互；不等于动作不存在。",
@@ -221,7 +258,8 @@
           "F1",
           "F2",
           "F3",
-          "F4"
+          "F4",
+          "F5"
         ],
         "new_action_confirmed": false,
         "boundary_replacement_allowed": false

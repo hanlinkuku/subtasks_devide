@@ -1,0 +1,117 @@
+{
+  "readings": [
+    {
+      "frame": 43,
+      "value": "18.0"
+    },
+    {
+      "frame": 44,
+      "value": "180"
+    },
+    {
+      "frame": 45,
+      "value": "18.6"
+    },
+    {
+      "frame": 46,
+      "value": null
+    },
+    {
+      "frame": 47,
+      "value": null
+    },
+    {
+      "frame": 48,
+      "value": null
+    },
+    {
+      "frame": 49,
+      "value": null
+    },
+    {
+      "frame": 50,
+      "value": null
+    },
+    {
+      "frame": 51,
+      "value": "18.0"
+    },
+    {
+      "frame": 52,
+      "value": "18.0"
+    },
+    {
+      "frame": 53,
+      "value": "18.0"
+    },
+    {
+      "frame": 54,
+      "value": "18.0"
+    },
+    {
+      "frame": 55,
+      "value": "16.0"
+    },
+    {
+      "frame": 56,
+      "value": "18.0"
+    },
+    {
+      "frame": 57,
+      "value": "18.0"
+    },
+    {
+      "frame": 58,
+      "value": "18.0"
+    },
+    {
+      "frame": 59,
+      "value": "18.0"
+    },
+    {
+      "frame": 60,
+      "value": "18.0"
+    },
+    {
+      "frame": 61,
+      "value": "18.0"
+    }
+  ],
+  "clear_adjacent_numeric_transitions": [
+    {
+      "before_frame": 54,
+      "after_frame": 55,
+      "before": "18.0",
+      "after": "16.0"
+    },
+    {
+      "before_frame": 55,
+      "after_frame": 56,
+      "before": "16.0",
+      "after": "18.0"
+    }
+  ],
+  "reading_format_conflicts": [
+    {
+      "before_frame": 43,
+      "after_frame": 44,
+      "before": "18.0",
+      "after": "180"
+    },
+    {
+      "before_frame": 44,
+      "after_frame": 45,
+      "before": "180",
+      "after": "18.6"
+    }
+  ],
+  "excluded_unclear_frames": [
+    46,
+    47,
+    48,
+    49,
+    50
+  ],
+  "numeric_change_corroborated_by_model_readings": true,
+  "limitation": "Single-frame model readings may still be wrong; absent transitions do not prove absence of screen changes or button interaction."
+}

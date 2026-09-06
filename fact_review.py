@@ -7,6 +7,8 @@ from multiview_review import ask
 
 TYPES={'relative_motion','screen_change','local_tip_motion','visible_button_deformation','visible_object_release','occlusion','no_clear_change','unclear'}
 INFERRED_CONTACT_PHRASES=('持续接触','保持接触','施加压力','按压成功','物理接触','保持按压')
+CHANGE_TYPES={'relative_motion','screen_change','local_tip_motion','visible_button_deformation','visible_object_release'}
+NEGATED_CHANGE=('未发生','没有变化','保持不变','内容保持稳定','未见变化','未见闪烁','无明显位移','未观察到','未观测到','未发生明显位移','无独立运动')
 
 
 def validate_facts(result,frames):
@@ -19,12 +21,18 @@ def validate_facts(result,frames):
         if obs.get('visibility') not in {'clear','occluded','unclear'} or not isinstance(obs.get('description'),str):raise ValueError('Invalid fact evidence')
         obs['id']=f'F{i+1}'
         obs['claim_flags']=['contact_or_action_inference_in_description'] if any(text in obs['description'] for text in INFERRED_CONTACT_PHRASES) else []
+        if obs.get('change_present') not in (True,False,None) or (obs.get('change_present') is not None and type(obs['change_present']) is not bool):
+            raise ValueError('change_present must be true, false or null')
+        if 'change_present' not in obs:
+            obs['claim_flags'].append('legacy_record_without_explicit_change')
+        if obs['kind'] in CHANGE_TYPES and obs.get('change_present') is True and any(text in obs['description'] for text in NEGATED_CHANGE):
+            obs['claim_flags'].append('change_claim_conflicts_with_description')
     return observations
 
 
 def interpret(observations):
     """Evidence sufficiency gate, not a contact classifier or boundary estimator."""
-    clear=[o for o in observations if o['visibility']=='clear' and not o.get('claim_flags')]
+    clear=[o for o in observations if o['visibility']=='clear' and o.get('change_present') is True and not o.get('claim_flags')]
     deformation=[o['id'] for o in clear if o['kind']=='visible_button_deformation']
     release=[o['id'] for o in clear if o['kind']=='visible_object_release']
     tip=[o['id'] for o in clear if o['kind']=='local_tip_motion']
@@ -48,8 +56,10 @@ def review(ep,issue,n):
 逐视角比较提供的图片，描述物体相对相机的位置变化、可见屏幕明暗/内容变化、尖端相对按钮的局部运动、按钮是否能看到形变、是否能直接看到被抓持物体脱离。
 禁止使用“按压成功”“施加压力”“保持接触”等推断充当可见事实。按钮被挡住时记录occlusion，不能声称看见按钮形变。夹爪在腕部相机中不动不能说明手臂静止。屏幕数值看不清则不要转写，屏幕变亮不自动代表触发按钮。
 不需要填满类别，没有可见证据就不列该事实。仅在实际提供的帧中引用端点；采样间未提供的帧不作判断。
-输出JSON：{{"observations":[{{"view":"head_rgb/head_right_rgb/left_wrist_rgb/right_wrist_rgb","start_frame":0,"end_frame":1,"kind":"relative_motion/screen_change/local_tip_motion/visible_button_deformation/visible_object_release/occlusion/no_clear_change/unclear","visibility":"clear/occluded/unclear","description":"具体可见变化，避免动作意图及接触力推断"}}],"limitations":"看不到或无法区分的内容"}}。'''
-    raw=ask(ep,'facts_v1',frames,prompt,detail=True)
+最多输出8条观察，每条description最多100个汉字。同一视角连续稳定的多帧合并为一条，不逐帧重复输出。limitations最多150字，保证完整JSON。
+change_present是核心字段：只有明确看到前后不同才填true；看到保持不变填false；遮挡或无法区分填null。类别名不代表变化发生：不能把“保持不变”或“没有独立位移”标为true。local_tip_motion必须是相对目标的局部运动，整幅画面随相机运动不算。
+输出JSON：{{"observations":[{{"view":"head_rgb/head_right_rgb/left_wrist_rgb/right_wrist_rgb","start_frame":0,"end_frame":1,"kind":"relative_motion/screen_change/local_tip_motion/visible_button_deformation/visible_object_release/occlusion/no_clear_change/unclear","visibility":"clear/occluded/unclear","change_present":null,"description":"具体可见变化，明确前后状态，避免动作意图及接触力推断"}}],"limitations":"看不到或无法区分的内容"}}。'''
+    raw=ask(ep,'facts_v2',frames,prompt,detail=True)
     facts=validate_facts(raw,frames)
     decision=interpret(facts)
     return {'source_observation':issue['observation'],'previous_review':issue['review'],
@@ -65,7 +75,7 @@ def run(ep):
     with ThreadPoolExecutor(max_workers=2) as pool:
         results=list(pool.map(lambda issue:review(ep,issue,n),audit['dispute_reviews']))
     counts={key:sum(r['interpretation']['status']==key for r in results) for key in ['interaction_candidate','object_release_candidate','interaction_hypothesis','insufficient_evidence']}
-    result={'trajectory_id':ep,'method':'label-blind visual facts then deterministic evidence sufficiency gate',
+    result={'trajectory_id':ep,'version':'explicit-change-v2','method':'label-blind visual facts then deterministic evidence sufficiency gate',
             'results':results,'counts':counts,'new_actions_confirmed':0,'automatic_annotation_replaced':False,
             'reference_used':False,'limitations':'Facts are model observations, not verified ground truth; sufficiency rules are conservative and may miss occluded interactions.'}
     annotate.save(annotate.OUT/'automatic/fact_review'/f'{ep}.json',result)

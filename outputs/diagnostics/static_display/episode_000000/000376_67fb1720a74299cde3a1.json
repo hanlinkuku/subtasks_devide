@@ -1,0 +1,36 @@
+{
+  "frame": 376,
+  "episode": "episode_000000",
+  "view": "left_wrist_rgb",
+  "source_image_sha256": "cce0365f3133dc8bafbf26e0b10a31d704196248ba7f86ff7d9e78b841513dbe",
+  "model": "qwen3-vl-32b-instruct",
+  "parameters": {
+    "temperature": 0.01,
+    "max_tokens": 800
+  },
+  "prompt": "只描述这一张图中显示屏的可见内容。不要推断机械臂动作、接触、温度变化趋势或前后状态。没有其他帧。\n若数字方向倾斜，请尝试阅读，但模糊、反光、残缺时宁可填null。只填写直接能辨识的数字，不补全数位。不得凭常识猜测温度。\n返回完整JSON：{\"display_visible\":true,\"numeric_reading\":null,\"readability\":\"clear/partial/unreadable\",\"visible_symbols\":[],\"description\":\"不超过100字的可见内容\",\"uncertainty\":\"不超过100字\"}。",
+  "result": {
+    "display_visible": true,
+    "numeric_reading": "20.5",
+    "readability": "partial",
+    "visible_symbols": [
+      "°C"
+    ],
+    "description": "显示屏为白色背景，显示数字'20.5'，右侧有'°C'符号，屏幕略有倾斜且部分模糊。下方可见三个按钮。",
+    "uncertainty": "数字'20.5'可辨识，但因倾斜和模糊，读数存在轻微不确定性；'°C'符号清晰。"
+  },
+  "raw_text": "{\n  \"display_visible\": true,\n  \"numeric_reading\": \"20.5\",\n  \"readability\": \"partial\",\n  \"visible_symbols\": [\"°C\"],\n  \"description\": \"显示屏为白色背景，显示数字'20.5'，右侧有'°C'符号，屏幕略有倾斜且部分模糊。下方可见三个按钮。\",\n  \"uncertainty\": \"数字'20.5'可辨识，但因倾斜和模糊，读数存在轻微不确定性；'°C'符号清晰。\"\n}",
+  "usage": {
+    "image_tokens": 882,
+    "input_tokens": 1014,
+    "input_tokens_details": {
+      "image_tokens": 882,
+      "text_tokens": 132
+    },
+    "output_tokens": 114,
+    "output_tokens_details": {
+      "text_tokens": 114
+    },
+    "total_tokens": 1128
+  }
+}

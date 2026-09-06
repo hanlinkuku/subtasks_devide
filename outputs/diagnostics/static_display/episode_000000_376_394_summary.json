@@ -1,0 +1,101 @@
+{
+  "readings": [
+    {
+      "frame": 376,
+      "value": null
+    },
+    {
+      "frame": 377,
+      "value": "20.5"
+    },
+    {
+      "frame": 378,
+      "value": null
+    },
+    {
+      "frame": 379,
+      "value": "20.5"
+    },
+    {
+      "frame": 380,
+      "value": "20.5"
+    },
+    {
+      "frame": 381,
+      "value": "20.5"
+    },
+    {
+      "frame": 382,
+      "value": "20.5"
+    },
+    {
+      "frame": 383,
+      "value": "20.5"
+    },
+    {
+      "frame": 384,
+      "value": "205"
+    },
+    {
+      "frame": 385,
+      "value": "20.5"
+    },
+    {
+      "frame": 386,
+      "value": "20.5"
+    },
+    {
+      "frame": 387,
+      "value": "20.5"
+    },
+    {
+      "frame": 388,
+      "value": "20.5"
+    },
+    {
+      "frame": 389,
+      "value": "20.5"
+    },
+    {
+      "frame": 390,
+      "value": "20.5"
+    },
+    {
+      "frame": 391,
+      "value": "20.5"
+    },
+    {
+      "frame": 392,
+      "value": "20.5"
+    },
+    {
+      "frame": 393,
+      "value": "20.5"
+    },
+    {
+      "frame": 394,
+      "value": "20.5"
+    }
+  ],
+  "clear_adjacent_numeric_transitions": [],
+  "reading_format_conflicts": [
+    {
+      "before_frame": 383,
+      "after_frame": 384,
+      "before": "20.5",
+      "after": "205"
+    },
+    {
+      "before_frame": 384,
+      "after_frame": 385,
+      "before": "205",
+      "after": "20.5"
+    }
+  ],
+  "excluded_unclear_frames": [
+    376,
+    378
+  ],
+  "numeric_change_corroborated_by_model_readings": false,
+  "limitation": "Single-frame model readings may still be wrong; absent transitions do not prove absence of screen changes or button interaction."
+}

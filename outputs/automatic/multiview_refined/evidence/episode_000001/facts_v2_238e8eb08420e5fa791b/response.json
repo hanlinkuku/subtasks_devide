@@ -1,0 +1,93 @@
+{
+  "result": {
+    "observations": [
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 142,
+        "end_frame": 142,
+        "kind": "screen_change",
+        "visibility": "clear",
+        "change_present": true,
+        "description": "左腕视角中，温控面板屏幕从无显示变为亮起，显示数字和图标。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 143,
+        "end_frame": 155,
+        "kind": "screen_change",
+        "visibility": "clear",
+        "change_present": false,
+        "description": "左腕视角中，温控面板屏幕持续显示18.5℃、风扇图标及模式符号，内容无变化。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 142,
+        "end_frame": 155,
+        "kind": "local_tip_motion",
+        "visibility": "clear",
+        "change_present": null,
+        "description": "夹爪尖端紧贴温控面板右侧按钮区域，未见相对按钮的明显局部位移或形变。"
+      },
+      {
+        "view": "head_rgb",
+        "start_frame": 142,
+        "end_frame": 155,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "change_present": false,
+        "description": "头视角中，机械臂主体位置稳定，无可见运动或姿态改变。"
+      },
+      {
+        "view": "head_right_rgb",
+        "start_frame": 142,
+        "end_frame": 155,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "change_present": false,
+        "description": "右头视角中，机械臂结构与背景保持静止，无可见相对运动。"
+      },
+      {
+        "view": "right_wrist_rgb",
+        "start_frame": 142,
+        "end_frame": 155,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "change_present": false,
+        "description": "右腕视角中，夹爪保持固定姿态，未见开合或移动，背景墙面无变化。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 142,
+        "end_frame": 155,
+        "kind": "visible_button_deformation",
+        "visibility": "clear",
+        "change_present": null,
+        "description": "夹爪尖端接触按钮区域，但按钮表面无可见凹陷或形变，无法确认是否被按压。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 142,
+        "end_frame": 155,
+        "kind": "visible_object_release",
+        "visibility": "clear",
+        "change_present": null,
+        "description": "夹爪持续接触温控面板，未见物体脱离或释放迹象。"
+      }
+    ],
+    "limitations": "右腕相机视角仅显示夹爪，无目标物体；头视角未提供物体细节；无法判断夹爪施加压力或按钮内部状态；屏幕数值清晰但无动态变化证据。"
+  },
+  "raw_text": "{\n  \"observations\": [\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 142,\n      \"end_frame\": 142,\n      \"kind\": \"screen_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": true,\n      \"description\": \"左腕视角中，温控面板屏幕从无显示变为亮起，显示数字和图标。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 143,\n      \"end_frame\": 155,\n      \"kind\": \"screen_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"左腕视角中，温控面板屏幕持续显示18.5℃、风扇图标及模式符号，内容无变化。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 142,\n      \"end_frame\": 155,\n      \"kind\": \"local_tip_motion\",\n      \"visibility\": \"clear\",\n      \"change_present\": null,\n      \"description\": \"夹爪尖端紧贴温控面板右侧按钮区域，未见相对按钮的明显局部位移或形变。\"\n    },\n    {\n      \"view\": \"head_rgb\",\n      \"start_frame\": 142,\n      \"end_frame\": 155,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"头视角中，机械臂主体位置稳定，无可见运动或姿态改变。\"\n    },\n    {\n      \"view\": \"head_right_rgb\",\n      \"start_frame\": 142,\n      \"end_frame\": 155,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"右头视角中，机械臂结构与背景保持静止，无可见相对运动。\"\n    },\n    {\n      \"view\": \"right_wrist_rgb\",\n      \"start_frame\": 142,\n      \"end_frame\": 155,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"右腕视角中，夹爪保持固定姿态，未见开合或移动，背景墙面无变化。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 142,\n      \"end_frame\": 155,\n      \"kind\": \"visible_button_deformation\",\n      \"visibility\": \"clear\",\n      \"change_present\": null,\n      \"description\": \"夹爪尖端接触按钮区域，但按钮表面无可见凹陷或形变，无法确认是否被按压。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 142,\n      \"end_frame\": 155,\n      \"kind\": \"visible_object_release\",\n      \"visibility\": \"clear\",\n      \"change_present\": null,\n      \"description\": \"夹爪持续接触温控面板，未见物体脱离或释放迹象。\"\n    }\n  ],\n  \"limitations\": \"右腕相机视角仅显示夹爪，无目标物体；头视角未提供物体细节；无法判断夹爪施加压力或按钮内部状态；屏幕数值清晰但无动态变化证据。\"\n}\n",
+  "usage": {
+    "image_tokens": 25816,
+    "input_tokens": 26305,
+    "input_tokens_details": {
+      "image_tokens": 25816,
+      "text_tokens": 489
+    },
+    "output_tokens": 736,
+    "output_tokens_details": {
+      "text_tokens": 736
+    },
+    "total_tokens": 27041
+  }
+}

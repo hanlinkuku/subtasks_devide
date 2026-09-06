@@ -1,0 +1,93 @@
+{
+  "result": {
+    "observations": [
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 43,
+        "end_frame": 61,
+        "kind": "screen_change",
+        "visibility": "clear",
+        "change_present": true,
+        "description": "左腕视角中，温控器屏幕数值从18.0℃波动至18.2℃、18.6℃、19.0℃后回落至18.0℃，并保持稳定。"
+      },
+      {
+        "view": "head_rgb",
+        "start_frame": 43,
+        "end_frame": 61,
+        "kind": "relative_motion",
+        "visibility": "clear",
+        "change_present": true,
+        "description": "头视角中，机械臂夹爪在温控器左侧轻微上下移动，位置有微小变化，未完全接触或离开。"
+      },
+      {
+        "view": "head_right_rgb",
+        "start_frame": 43,
+        "end_frame": 61,
+        "kind": "relative_motion",
+        "visibility": "clear",
+        "change_present": true,
+        "description": "右头视角中，机械臂夹爪在温控器左侧有轻微上下位移，与头视角运动趋势一致。"
+      },
+      {
+        "view": "right_wrist_rgb",
+        "start_frame": 43,
+        "end_frame": 61,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "change_present": false,
+        "description": "右腕视角中，夹爪尖端始终位于画面中央，无明显相对运动，背景墙面和天花板无变化。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 43,
+        "end_frame": 61,
+        "kind": "local_tip_motion",
+        "visibility": "clear",
+        "change_present": true,
+        "description": "左腕视角中，夹爪尖端相对于温控器右侧按钮区域有微小前后移动，但未接触按钮。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 43,
+        "end_frame": 61,
+        "kind": "visible_button_deformation",
+        "visibility": "clear",
+        "change_present": null,
+        "description": "左腕视角中，温控器按钮区域被夹爪部分遮挡，无法观察到按钮表面是否有形变。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 43,
+        "end_frame": 61,
+        "kind": "occlusion",
+        "visibility": "clear",
+        "change_present": true,
+        "description": "左腕视角中，夹爪持续遮挡温控器右侧部分按钮，导致按钮区域可见性受限。"
+      },
+      {
+        "view": "head_rgb",
+        "start_frame": 43,
+        "end_frame": 61,
+        "kind": "occlusion",
+        "visibility": "clear",
+        "change_present": true,
+        "description": "头视角中，机械臂主体部分遮挡温控器左侧，导致温控器左侧边缘及部分按钮被遮挡。"
+      }
+    ],
+    "limitations": "右腕相机视角仅显示夹爪尖端，无法观察到手臂整体运动或物体交互；头视角和头右视角中温控器部分被机械臂遮挡，无法完整观察其状态；无法确认夹爪是否实际接触按钮或施加压力。"
+  },
+  "raw_text": "{\n  \"observations\": [\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 43,\n      \"end_frame\": 61,\n      \"kind\": \"screen_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": true,\n      \"description\": \"左腕视角中，温控器屏幕数值从18.0℃波动至18.2℃、18.6℃、19.0℃后回落至18.0℃，并保持稳定。\"\n    },\n    {\n      \"view\": \"head_rgb\",\n      \"start_frame\": 43,\n      \"end_frame\": 61,\n      \"kind\": \"relative_motion\",\n      \"visibility\": \"clear\",\n      \"change_present\": true,\n      \"description\": \"头视角中，机械臂夹爪在温控器左侧轻微上下移动，位置有微小变化，未完全接触或离开。\"\n    },\n    {\n      \"view\": \"head_right_rgb\",\n      \"start_frame\": 43,\n      \"end_frame\": 61,\n      \"kind\": \"relative_motion\",\n      \"visibility\": \"clear\",\n      \"change_present\": true,\n      \"description\": \"右头视角中，机械臂夹爪在温控器左侧有轻微上下位移，与头视角运动趋势一致。\"\n    },\n    {\n      \"view\": \"right_wrist_rgb\",\n      \"start_frame\": 43,\n      \"end_frame\": 61,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"右腕视角中，夹爪尖端始终位于画面中央，无明显相对运动，背景墙面和天花板无变化。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 43,\n      \"end_frame\": 61,\n      \"kind\": \"local_tip_motion\",\n      \"visibility\": \"clear\",\n      \"change_present\": true,\n      \"description\": \"左腕视角中，夹爪尖端相对于温控器右侧按钮区域有微小前后移动，但未接触按钮。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 43,\n      \"end_frame\": 61,\n      \"kind\": \"visible_button_deformation\",\n      \"visibility\": \"clear\",\n      \"change_present\": null,\n      \"description\": \"左腕视角中，温控器按钮区域被夹爪部分遮挡，无法观察到按钮表面是否有形变。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 43,\n      \"end_frame\": 61,\n      \"kind\": \"occlusion\",\n      \"visibility\": \"clear\",\n      \"change_present\": true,\n      \"description\": \"左腕视角中，夹爪持续遮挡温控器右侧部分按钮，导致按钮区域可见性受限。\"\n    },\n    {\n      \"view\": \"head_rgb\",\n      \"start_frame\": 43,\n      \"end_frame\": 61,\n      \"kind\": \"occlusion\",\n      \"visibility\": \"clear\",\n      \"change_present\": true,\n      \"description\": \"头视角中，机械臂主体部分遮挡温控器左侧，导致温控器左侧边缘及部分按钮被遮挡。\"\n    }\n  ],\n  \"limitations\": \"右腕相机视角仅显示夹爪尖端，无法观察到手臂整体运动或物体交互；头视角和头右视角中温控器部分被机械臂遮挡，无法完整观察其状态；无法确认夹爪是否实际接触按钮或施加压力。\"\n}\n",
+  "usage": {
+    "image_tokens": 33192,
+    "input_tokens": 33679,
+    "input_tokens_details": {
+      "image_tokens": 33192,
+      "text_tokens": 487
+    },
+    "output_tokens": 791,
+    "output_tokens_details": {
+      "text_tokens": 791
+    },
+    "total_tokens": 34470
+  }
+}

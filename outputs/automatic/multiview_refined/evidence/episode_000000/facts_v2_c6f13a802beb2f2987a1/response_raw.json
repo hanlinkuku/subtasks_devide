@@ -1,0 +1,17 @@
+{
+  "raw_text": "```json\n{\n  \"observations\": [\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 376,\n      \"end_frame\": 394,\n      \"kind\": \"local_tip_motion\",\n      \"visibility\": \"clear\",\n      \"change_present\": true,\n      \"description\": \"左腕视角中，夹爪尖端在温控面板右侧按钮区域持续微小移动，位置有轻微上下和左右偏移，未脱离按钮区域。\"\n    },\n    {\n      \"view\": \"head_rgb\",\n      \"start_frame\": 376,\n      \"end_frame\": 394,\n      \"kind\": \"relative_motion\",\n      \"visibility\": \"clear\",\n      \"change_present\": true,\n      \"description\": \"头部左视角中，机械臂主体向右上方缓慢移动，导致其在画面中的位置逐渐上移且更靠近右侧边缘。\"\n    },\n    {\n      \"view\": \"head_right_rgb\",\n      \"start_frame\": 376,\n      \"end_frame\": 394,\n      \"kind\": \"relative_motion\",\n      \"visibility\": \"clear\",\n      \"change_present\": true,\n      \"description\": \"头部右视角中，机械臂主体向右上方缓慢移动，其在画面中的位置逐渐上移且更靠近右侧边缘。\"\n    },\n    {\n      \"view\": \"right_wrist_rgb\",\n      \"start_frame\": 376,\n      \"end_frame\": 394,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"右腕视角中，夹爪保持静止，画面内容无明显变化，仅可见天花板和部分墙壁。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 376,\n      \"end_frame\": 394,\n      \"kind\": \"screen_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": true,\n      \"description\": \"左腕细节图中，温控面板屏幕显示数值从20.5°C短暂变为20.2°C后恢复为20.5°C，屏幕亮度无明显变化。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 376,\n      \"end_frame\": 394,\n      \"kind\": \"visible_button_deformation\",\n      \"visibility\": \"unclear\",\n      \"change_present\": null,\n      \"description\": \"左腕视角中，夹爪尖端紧邻按钮区域，但因距离和角度限制，无法清晰观察到按钮表面是否有形变。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 376,\n      \"end_frame\": 394,\n      \"kind\": \"visible_object_release\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"左腕视角中，夹爪始终闭合，未见任何被抓持物体脱离或释放的迹象。\"\n    },\n    {\n      \"view\": \"head_rgb\",\n      \"start_frame\": 376,\n      \"end_frame\": 394,\n      \"kind\": \"occlusion\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"头部左视角中，温控面板始终完整可见，无被机械臂或其他物体遮挡的情况。\"\n    }\n  ],\n  \"limitations\": \"右腕相机视角仅显示天花板和墙壁，无法提供与目标交互的视觉信息。头部视角中温控面板屏幕内容模糊，无法准确读取所有数值。夹爪与按钮接触处细节不清，无法确认是否发生形变。\"\n}\n```",
+  "usage": {
+    "image_tokens": 33192,
+    "input_tokens": 33681,
+    "input_tokens_details": {
+      "image_tokens": 33192,
+      "text_tokens": 489
+    },
+    "output_tokens": 801,
+    "output_tokens_details": {
+      "text_tokens": 801
+    },
+    "total_tokens": 34482
+  },
+  "finish_reason": "stop"
+}

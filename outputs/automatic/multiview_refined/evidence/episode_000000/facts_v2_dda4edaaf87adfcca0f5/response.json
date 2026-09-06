@@ -1,0 +1,84 @@
+{
+  "result": {
+    "observations": [
+      {
+        "view": "head_rgb",
+        "start_frame": 180,
+        "end_frame": 198,
+        "kind": "relative_motion",
+        "visibility": "clear",
+        "change_present": true,
+        "description": "从帧180到198，左臂（head_rgb视角）相对于墙壁上的温控器有轻微的前后移动和角度调整。夹爪位置在画面中保持相对稳定，但手臂基座与背景中的木质结构相对位置发生微小变化，表明手臂存在小幅运动。"
+      },
+      {
+        "view": "head_right_rgb",
+        "start_frame": 180,
+        "end_frame": 198,
+        "kind": "relative_motion",
+        "visibility": "clear",
+        "change_present": true,
+        "description": "从帧180到198，右臂（head_right_rgb视角）相对于墙壁上的温控器有轻微的前后移动和角度调整。夹爪位置在画面中保持相对稳定，但手臂基座与背景中的木质结构相对位置发生微小变化，表明手臂存在小幅运动。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 180,
+        "end_frame": 198,
+        "kind": "relative_motion",
+        "visibility": "clear",
+        "change_present": true,
+        "description": "从帧180到198，左腕相机视角下，夹爪尖端与温控器屏幕的相对位置持续发生变化。夹爪尖端从紧贴屏幕右侧边缘逐渐向右上方移动，导致温控器屏幕在画面中的可见区域减少，最终在帧198时大部分被遮挡。"
+      },
+      {
+        "view": "right_wrist_rgb",
+        "start_frame": 180,
+        "end_frame": 198,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "change_present": false,
+        "description": "从帧180到198，右腕相机视角下，夹爪尖端在画面中保持固定位置，未观察到任何相对运动或姿态变化。背景墙面和天花板无明显位移，表明该视角下的机械臂末端在此期间静止。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 180,
+        "end_frame": 198,
+        "kind": "screen_change",
+        "visibility": "clear",
+        "change_present": false,
+        "description": "从帧180到198，温控器屏幕显示内容保持不变，始终显示温度为20.5°C，以及风扇图标和模式符号。屏幕亮度无变化，未观察到任何数值或图标更新。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 180,
+        "end_frame": 198,
+        "kind": "local_tip_motion",
+        "visibility": "clear",
+        "change_present": true,
+        "description": "从帧180到198，夹爪尖端相对于温控器按钮区域有明显的局部运动。初始时夹爪尖端位于屏幕右侧按钮区域附近，随后向右上方平移，逐渐远离按钮区域，最终在帧198时完全移出按钮视野范围。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 180,
+        "end_frame": 198,
+        "kind": "occlusion",
+        "visibility": "clear",
+        "change_present": true,
+        "description": "从帧180到198，随着夹爪尖端向右上方移动，温控器屏幕及右侧按钮区域被夹爪逐步遮挡。在帧197-198，温控器主体几乎完全被夹爪遮挡，仅能看到部分边框。"
+      }
+    ],
+    "limitations": "无法从head_rgb和head_right_rgb视角直接观察到温控器屏幕的细节变化；右腕相机视角下无物体交互，无法判断其是否参与操作；所有帧中均未观察到按钮形变或被抓持物体脱离的直接证据。"
+  },
+  "raw_text": "{\n  \"observations\": [\n    {\n      \"view\": \"head_rgb\",\n      \"start_frame\": 180,\n      \"end_frame\": 198,\n      \"kind\": \"relative_motion\",\n      \"visibility\": \"clear\",\n      \"change_present\": true,\n      \"description\": \"从帧180到198，左臂（head_rgb视角）相对于墙壁上的温控器有轻微的前后移动和角度调整。夹爪位置在画面中保持相对稳定，但手臂基座与背景中的木质结构相对位置发生微小变化，表明手臂存在小幅运动。\"\n    },\n    {\n      \"view\": \"head_right_rgb\",\n      \"start_frame\": 180,\n      \"end_frame\": 198,\n      \"kind\": \"relative_motion\",\n      \"visibility\": \"clear\",\n      \"change_present\": true,\n      \"description\": \"从帧180到198，右臂（head_right_rgb视角）相对于墙壁上的温控器有轻微的前后移动和角度调整。夹爪位置在画面中保持相对稳定，但手臂基座与背景中的木质结构相对位置发生微小变化，表明手臂存在小幅运动。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 180,\n      \"end_frame\": 198,\n      \"kind\": \"relative_motion\",\n      \"visibility\": \"clear\",\n      \"change_present\": true,\n      \"description\": \"从帧180到198，左腕相机视角下，夹爪尖端与温控器屏幕的相对位置持续发生变化。夹爪尖端从紧贴屏幕右侧边缘逐渐向右上方移动，导致温控器屏幕在画面中的可见区域减少，最终在帧198时大部分被遮挡。\"\n    },\n    {\n      \"view\": \"right_wrist_rgb\",\n      \"start_frame\": 180,\n      \"end_frame\": 198,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"从帧180到198，右腕相机视角下，夹爪尖端在画面中保持固定位置，未观察到任何相对运动或姿态变化。背景墙面和天花板无明显位移，表明该视角下的机械臂末端在此期间静止。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 180,\n      \"end_frame\": 198,\n      \"kind\": \"screen_change\",\n      \"visibility\": \"clear\",\n      \"change_present\": false,\n      \"description\": \"从帧180到198，温控器屏幕显示内容保持不变，始终显示温度为20.5°C，以及风扇图标和模式符号。屏幕亮度无变化，未观察到任何数值或图标更新。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 180,\n      \"end_frame\": 198,\n      \"kind\": \"local_tip_motion\",\n      \"visibility\": \"clear\",\n      \"change_present\": true,\n      \"description\": \"从帧180到198，夹爪尖端相对于温控器按钮区域有明显的局部运动。初始时夹爪尖端位于屏幕右侧按钮区域附近，随后向右上方平移，逐渐远离按钮区域，最终在帧198时完全移出按钮视野范围。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 180,\n      \"end_frame\": 198,\n      \"kind\": \"occlusion\",\n      \"visibility\": \"clear\",\n      \"change_present\": true,\n      \"description\": \"从帧180到198，随着夹爪尖端向右上方移动，温控器屏幕及右侧按钮区域被夹爪逐步遮挡。在帧197-198，温控器主体几乎完全被夹爪遮挡，仅能看到部分边框。\"\n    }\n  ],\n  \"limitations\": \"无法从head_rgb和head_right_rgb视角直接观察到温控器屏幕的细节变化；右腕相机视角下无物体交互，无法判断其是否参与操作；所有帧中均未观察到按钮形变或被抓持物体脱离的直接证据。\"\n}",
+  "usage": {
+    "image_tokens": 33192,
+    "input_tokens": 33638,
+    "input_tokens_details": {
+      "image_tokens": 33192,
+      "text_tokens": 446
+    },
+    "output_tokens": 939,
+    "output_tokens_details": {
+      "text_tokens": 939
+    },
+    "total_tokens": 34577
+  }
+}

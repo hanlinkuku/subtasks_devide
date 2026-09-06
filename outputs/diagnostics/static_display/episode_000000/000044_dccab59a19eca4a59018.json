@@ -1,0 +1,36 @@
+{
+  "frame": 44,
+  "episode": "episode_000000",
+  "view": "left_wrist_rgb",
+  "source_image_sha256": "76ba11198a1af56092900926f18847f75f049bc2d630b50b3fa377d1a6249266",
+  "model": "qwen3-vl-32b-instruct",
+  "parameters": {
+    "temperature": 0.01,
+    "max_tokens": 800
+  },
+  "prompt": "只描述这一张图中显示屏的可见内容。不要推断机械臂动作、接触、温度变化趋势或前后状态。没有其他帧。\n若数字方向倾斜，请尝试阅读，但模糊、反光、残缺时宁可填null。只填写直接能辨识的数字，不补全数位。不得凭常识猜测温度。\n返回完整JSON：{\"display_visible\":true,\"numeric_reading\":null,\"readability\":\"clear/partial/unreadable\",\"visible_symbols\":[],\"description\":\"不超过100字的可见内容\",\"uncertainty\":\"不超过100字\"}。",
+  "result": {
+    "display_visible": true,
+    "numeric_reading": "180",
+    "readability": "clear",
+    "visible_symbols": [
+      "°C"
+    ],
+    "description": "显示屏为灰白色背景，数字'180'清晰可见，右侧有'°C'符号，屏幕左上角有一个小图标。",
+    "uncertainty": "无明显模糊或反光，数字和符号均清晰可辨，无需补全或猜测。"
+  },
+  "raw_text": "{\"display_visible\":true,\"numeric_reading\":\"180\",\"readability\":\"clear\",\"visible_symbols\":[\"°C\"],\"description\":\"显示屏为灰白色背景，数字'180'清晰可见，右侧有'°C'符号，屏幕左上角有一个小图标。\",\"uncertainty\":\"无明显模糊或反光，数字和符号均清晰可辨，无需补全或猜测。\"}",
+  "usage": {
+    "image_tokens": 882,
+    "input_tokens": 1014,
+    "input_tokens_details": {
+      "image_tokens": 882,
+      "text_tokens": 132
+    },
+    "output_tokens": 84,
+    "output_tokens_details": {
+      "text_tokens": 84
+    },
+    "total_tokens": 1098
+  }
+}

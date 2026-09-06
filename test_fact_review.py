@@ -3,7 +3,7 @@ from fact_review import validate_facts,interpret
 
 
 def fact(kind,visibility='clear'):
-    return {'id':'F1','kind':kind,'visibility':visibility,'view':'left_wrist_rgb','start_frame':10,'end_frame':11,'description':'observed change'}
+    return {'id':'F1','kind':kind,'visibility':visibility,'change_present':True,'view':'left_wrist_rgb','start_frame':10,'end_frame':11,'description':'observed change'}
 
 
 @pytest.mark.parametrize('kind',['screen_change','relative_motion','occlusion','local_tip_motion'])
@@ -36,4 +36,20 @@ def test_contact_claim_is_not_direct_fact():
     raw={'observations':[dict(fact('visible_button_deformation'),description='夹爪持续接触按钮并施加压力')]}
     observations=validate_facts(raw,[10,11])
     assert observations[0]['claim_flags']
+    assert interpret(observations)['status']=='insufficient_evidence'
+
+
+def test_no_change_does_not_create_interaction():
+    assert interpret([dict(fact('screen_change'),change_present=False),fact('local_tip_motion')])['status']=='insufficient_evidence'
+
+
+def test_conflicting_change_description_is_flagged():
+    observations=validate_facts({'observations':[dict(fact('screen_change'),description='屏幕内容保持不变')]},[10,11])
+    assert 'change_claim_conflicts_with_description' in observations[0]['claim_flags']
+    assert interpret(observations+[fact('local_tip_motion')])['status']=='insufficient_evidence'
+
+
+def test_legacy_fact_not_implicitly_positive():
+    old=fact('visible_button_deformation');del old['change_present']
+    observations=validate_facts({'observations':[old]},[10,11])
     assert interpret(observations)['status']=='insufficient_evidence'
