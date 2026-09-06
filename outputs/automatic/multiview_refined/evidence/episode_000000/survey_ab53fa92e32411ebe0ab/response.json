@@ -1,0 +1,45 @@
+{
+  "result": {
+    "actions": [
+      {
+        "skill_id": "press",
+        "arm_used": "left",
+        "start_frame": 180,
+        "end_frame": 188,
+        "evidence": "左腕视角显示夹爪接近并接触温控面板右侧按钮区域，面板屏幕在帧188中出现轻微闪烁或状态变化（如图标亮起），表明可能触发了交互；头视角也显示左臂末端靠近面板。",
+        "uncertain": true
+      },
+      {
+        "skill_id": "move",
+        "arm_used": "left",
+        "start_frame": 196,
+        "end_frame": 204,
+        "evidence": "左腕视角中，夹爪从温控面板处向左下方移动，远离目标物体；头视角显示左臂后撤，背景中的门框和地板逐渐进入视野。",
+        "uncertain": false
+      },
+      {
+        "skill_id": "move",
+        "arm_used": "left",
+        "start_frame": 212,
+        "end_frame": 299,
+        "evidence": "左腕视角持续显示夹爪朝房间内部移动，背景中可见机器人本体、地毯和家具，表明手臂在进行大范围后退或转向运动；右腕视角无明显动作，保持静止。",
+        "uncertain": false
+      }
+    ],
+    "limitations": "右臂在整个观察窗口内未见任何运动，夹爪始终对准天花板方向，无法判断其是否参与操作。左臂在180-188帧的按压动作因采样稀疏且无明确按钮反馈，存在不确定性。温控面板在后续帧中显示状态未变，但初始帧有微小变化，需谨慎判断。"
+  },
+  "raw_text": "{\n  \"actions\": [\n    {\n      \"skill_id\": \"press\",\n      \"arm_used\": \"left\",\n      \"start_frame\": 180,\n      \"end_frame\": 188,\n      \"evidence\": \"左腕视角显示夹爪接近并接触温控面板右侧按钮区域，面板屏幕在帧188中出现轻微闪烁或状态变化（如图标亮起），表明可能触发了交互；头视角也显示左臂末端靠近面板。\",\n      \"uncertain\": true\n    },\n    {\n      \"skill_id\": \"move\",\n      \"arm_used\": \"left\",\n      \"start_frame\": 196,\n      \"end_frame\": 204,\n      \"evidence\": \"左腕视角中，夹爪从温控面板处向左下方移动，远离目标物体；头视角显示左臂后撤，背景中的门框和地板逐渐进入视野。\",\n      \"uncertain\": false\n    },\n    {\n      \"skill_id\": \"move\",\n      \"arm_used\": \"left\",\n      \"start_frame\": 212,\n      \"end_frame\": 299,\n      \"evidence\": \"左腕视角持续显示夹爪朝房间内部移动，背景中可见机器人本体、地毯和家具，表明手臂在进行大范围后退或转向运动；右腕视角无明显动作，保持静止。\",\n      \"uncertain\": false\n    }\n  ],\n  \"limitations\": \"右臂在整个观察窗口内未见任何运动，夹爪始终对准天花板方向，无法判断其是否参与操作。左臂在180-188帧的按压动作因采样稀疏且无明确按钮反馈，存在不确定性。温控面板在后续帧中显示状态未变，但初始帧有微小变化，需谨慎判断。\"\n}\n",
+  "usage": {
+    "image_tokens": 15392,
+    "input_tokens": 15635,
+    "input_tokens_details": {
+      "image_tokens": 15392,
+      "text_tokens": 243
+    },
+    "output_tokens": 395,
+    "output_tokens_details": {
+      "text_tokens": 395
+    },
+    "total_tokens": 16030
+  }
+}

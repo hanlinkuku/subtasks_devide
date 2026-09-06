@@ -1,0 +1,53 @@
+{
+  "result": {
+    "actions": [
+      {
+        "skill_id": "press",
+        "arm_used": "left",
+        "start_frame": 180,
+        "end_frame": 212,
+        "evidence": "左腕视角显示夹爪持续接触温控面板，从帧180到212，面板温度从18.5°C变为18.0°C，表明有按压操作发生。右腕视角无交互，右臂未参与。",
+        "uncertain": false
+      },
+      {
+        "skill_id": "wait",
+        "arm_used": "left",
+        "start_frame": 212,
+        "end_frame": 236,
+        "evidence": "左腕视角中夹爪保持在温控面板前，但面板温度稳定在18.0°C，无进一步变化，表明无新交互，处于等待或保持状态。",
+        "uncertain": false
+      },
+      {
+        "skill_id": "move",
+        "arm_used": "left",
+        "start_frame": 236,
+        "end_frame": 243,
+        "evidence": "左腕视角中夹爪开始后撤，温控面板逐渐移出视野，表明左臂执行了撤离动作。",
+        "uncertain": false
+      },
+      {
+        "skill_id": "move",
+        "arm_used": "left",
+        "start_frame": 243,
+        "end_frame": 299,
+        "evidence": "左腕视角持续显示夹爪远离温控面板，视野转向下方和侧面，表明左臂在移动中，未与任何物体交互。",
+        "uncertain": false
+      }
+    ],
+    "limitations": "右臂在整个观察窗口内无明显运动或交互，其夹爪始终朝向天花板，无法确认是否参与操作。左腕视角是唯一能清晰观察到交互的视角，其他视角（head_rgb, head_right_rgb）因距离远、角度偏，对细节识别有限。稀疏采样可能导致微小动作遗漏，如短暂按压或轻微调整。"
+  },
+  "raw_text": "{\n  \"actions\": [\n    {\n      \"skill_id\": \"press\",\n      \"arm_used\": \"left\",\n      \"start_frame\": 180,\n      \"end_frame\": 212,\n      \"evidence\": \"左腕视角显示夹爪持续接触温控面板，从帧180到212，面板温度从18.5°C变为18.0°C，表明有按压操作发生。右腕视角无交互，右臂未参与。\",\n      \"uncertain\": false\n    },\n    {\n      \"skill_id\": \"wait\",\n      \"arm_used\": \"left\",\n      \"start_frame\": 212,\n      \"end_frame\": 236,\n      \"evidence\": \"左腕视角中夹爪保持在温控面板前，但面板温度稳定在18.0°C，无进一步变化，表明无新交互，处于等待或保持状态。\",\n      \"uncertain\": false\n    },\n    {\n      \"skill_id\": \"move\",\n      \"arm_used\": \"left\",\n      \"start_frame\": 236,\n      \"end_frame\": 243,\n      \"evidence\": \"左腕视角中夹爪开始后撤，温控面板逐渐移出视野，表明左臂执行了撤离动作。\",\n      \"uncertain\": false\n    },\n    {\n      \"skill_id\": \"move\",\n      \"arm_used\": \"left\",\n      \"start_frame\": 243,\n      \"end_frame\": 299,\n      \"evidence\": \"左腕视角持续显示夹爪远离温控面板，视野转向下方和侧面，表明左臂在移动中，未与任何物体交互。\",\n      \"uncertain\": false\n    }\n  ],\n  \"limitations\": \"右臂在整个观察窗口内无明显运动或交互，其夹爪始终朝向天花板，无法确认是否参与操作。左腕视角是唯一能清晰观察到交互的视角，其他视角（head_rgb, head_right_rgb）因距离远、角度偏，对细节识别有限。稀疏采样可能导致微小动作遗漏，如短暂按压或轻微调整。\"\n}\n",
+  "usage": {
+    "image_tokens": 15392,
+    "input_tokens": 15635,
+    "input_tokens_details": {
+      "image_tokens": 15392,
+      "text_tokens": 243
+    },
+    "output_tokens": 462,
+    "output_tokens_details": {
+      "text_tokens": 462
+    },
+    "total_tokens": 16097
+  }
+}

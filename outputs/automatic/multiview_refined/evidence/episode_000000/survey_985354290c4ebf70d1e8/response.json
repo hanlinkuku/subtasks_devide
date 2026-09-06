@@ -1,0 +1,53 @@
+{
+  "result": {
+    "actions": [
+      {
+        "skill_id": "press",
+        "arm_used": "left",
+        "start_frame": 90,
+        "end_frame": 153,
+        "evidence": "左腕视角显示夹爪持续接触温控面板右侧按钮区域，从帧90至153，面板温度从18.0°C逐步上升至19.0°C（帧169），表明在连续按压升温按钮。右腕视角无交互，右臂未参与。",
+        "uncertain": false
+      },
+      {
+        "skill_id": "press",
+        "arm_used": "left",
+        "start_frame": 161,
+        "end_frame": 177,
+        "evidence": "左腕视角中夹爪仍接触面板，温度从18.5°C升至20.5°C，确认继续按压升温按钮。右腕视角无变化，右臂无操作。",
+        "uncertain": false
+      },
+      {
+        "skill_id": "release",
+        "arm_used": "left",
+        "start_frame": 185,
+        "end_frame": 193,
+        "evidence": "左腕视角中夹爪明显后撤，与温控面板分离，面板温度稳定在20.5°C，表明停止按压。右腕视角无动作。",
+        "uncertain": false
+      },
+      {
+        "skill_id": "move",
+        "arm_used": "left",
+        "start_frame": 193,
+        "end_frame": 209,
+        "evidence": "左腕视角中夹爪持续后退，远离温控面板，最终移出画面。右腕视角保持静止，右臂无移动。",
+        "uncertain": false
+      }
+    ],
+    "limitations": "右臂在整个观察窗口内无可见动作，其夹爪始终朝向天花板，未与任何物体交互，无法排除潜在的非视觉操作。左腕视角为唯一可观察到交互的视角，但存在稀疏采样导致精确按压边界不确定的风险。"
+  },
+  "raw_text": "{\n  \"actions\": [\n    {\n      \"skill_id\": \"press\",\n      \"arm_used\": \"left\",\n      \"start_frame\": 90,\n      \"end_frame\": 153,\n      \"evidence\": \"左腕视角显示夹爪持续接触温控面板右侧按钮区域，从帧90至153，面板温度从18.0°C逐步上升至19.0°C（帧169），表明在连续按压升温按钮。右腕视角无交互，右臂未参与。\",\n      \"uncertain\": false\n    },\n    {\n      \"skill_id\": \"press\",\n      \"arm_used\": \"left\",\n      \"start_frame\": 161,\n      \"end_frame\": 177,\n      \"evidence\": \"左腕视角中夹爪仍接触面板，温度从18.5°C升至20.5°C，确认继续按压升温按钮。右腕视角无变化，右臂无操作。\",\n      \"uncertain\": false\n    },\n    {\n      \"skill_id\": \"release\",\n      \"arm_used\": \"left\",\n      \"start_frame\": 185,\n      \"end_frame\": 193,\n      \"evidence\": \"左腕视角中夹爪明显后撤，与温控面板分离，面板温度稳定在20.5°C，表明停止按压。右腕视角无动作。\",\n      \"uncertain\": false\n    },\n    {\n      \"skill_id\": \"move\",\n      \"arm_used\": \"left\",\n      \"start_frame\": 193,\n      \"end_frame\": 209,\n      \"evidence\": \"左腕视角中夹爪持续后退，远离温控面板，最终移出画面。右腕视角保持静止，右臂无移动。\",\n      \"uncertain\": false\n    }\n  ],\n  \"limitations\": \"右臂在整个观察窗口内无可见动作，其夹爪始终朝向天花板，未与任何物体交互，无法排除潜在的非视觉操作。左腕视角为唯一可观察到交互的视角，但存在稀疏采样导致精确按压边界不确定的风险。\"\n}\n",
+  "usage": {
+    "image_tokens": 15392,
+    "input_tokens": 15634,
+    "input_tokens_details": {
+      "image_tokens": 15392,
+      "text_tokens": 242
+    },
+    "output_tokens": 466,
+    "output_tokens_details": {
+      "text_tokens": 466
+    },
+    "total_tokens": 16100
+  }
+}

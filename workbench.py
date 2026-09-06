@@ -112,7 +112,12 @@ def get_annotation(ep: str, source: str = 'latest'):
     path = manual if source == 'latest' and manual.exists() else automatic_path(ep)
     if not path.exists():
         raise HTTPException(404, '尚无标注，请运行自动划分')
-    return {'annotation': validate_annotation(json.loads(path.read_text(encoding='utf-8')), meta),
+    review_path=annotate.OUT/'automatic/multiview_refined/decisions'/f'{ep}.json'
+    review=json.loads(review_path.read_text(encoding='utf-8')) if review_path.exists() else None
+    facts_path=annotate.OUT/'automatic/fact_review'/f'{ep}.json'
+    if review and facts_path.exists():
+        review['fact_review']=json.loads(facts_path.read_text(encoding='utf-8'))
+    return {'annotation': validate_annotation(json.loads(path.read_text(encoding='utf-8')), meta), 'review':review,
             'source': 'manual' if path == manual else 'automatic', 'revision': revision(manual)}
 
 
@@ -172,9 +177,10 @@ def run_job(job_id, ep, key):
             code = proc.wait()
         if code:
             raise RuntimeError('推理未完成。请检查 API Key、网络和源数据；已有标注保持可用。')
-        get_annotation(ep, 'automatic')
+        result=get_annotation(ep, 'automatic')
+        needs_review=result.get('review') and result['review'].get('status')=='review_required'
         with lock:
-            jobs[job_id].update(status='complete', message='自动划分完成；可加载结果，人工修订已保留')
+            jobs[job_id].update(status='complete', message='自动划分完成；多视角复核存在分歧，请加载结果查看报告' if needs_review else '自动划分完成；可加载结果，人工修订已保留')
     except Exception:
         with lock:
             jobs[job_id].update(status='failed', message='推理未完成。请检查 API Key、网络和源数据；已有标注保持可用。')

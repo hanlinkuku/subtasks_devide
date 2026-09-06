@@ -1,0 +1,93 @@
+{
+  "result": {
+    "observations": [
+      {
+        "view": "head_rgb",
+        "start_frame": 180,
+        "end_frame": 198,
+        "kind": "relative_motion",
+        "visibility": "clear",
+        "description": "从帧180到198，左臂（head_rgb视角）的机械臂末端夹爪相对于温控面板有轻微向右和向下的移动趋势，但整体位置变化极小。"
+      },
+      {
+        "view": "head_right_rgb",
+        "start_frame": 180,
+        "end_frame": 198,
+        "kind": "relative_motion",
+        "visibility": "clear",
+        "description": "从帧180到198，右臂（head_right_rgb视角）的机械臂末端夹爪相对于温控面板有轻微向右和向下的移动趋势，但整体位置变化极小。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 180,
+        "end_frame": 198,
+        "kind": "relative_motion",
+        "visibility": "clear",
+        "description": "从帧180到198，左腕相机视角下，夹爪尖端与温控面板保持近距离接触，夹爪本身无明显开合或位移，但温控面板在画面中逐渐向右下方移动，表明手臂或腕部有微小调整。"
+      },
+      {
+        "view": "right_wrist_rgb",
+        "start_frame": 180,
+        "end_frame": 198,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "description": "从帧180到198，右腕相机视角下，夹爪尖端始终朝向白色墙壁，未见任何物体或环境变化，夹爪位置固定。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 180,
+        "end_frame": 198,
+        "kind": "screen_change",
+        "visibility": "clear",
+        "description": "从帧180到198，温控面板屏幕持续显示“20.5℃”，屏幕亮度稳定，无闪烁或内容变化。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 180,
+        "end_frame": 198,
+        "kind": "local_tip_motion",
+        "visibility": "clear",
+        "description": "从帧180到198，夹爪尖端紧贴温控面板右侧边缘，未观察到夹爪尖端相对于按钮区域的独立运动或位移。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 180,
+        "end_frame": 198,
+        "kind": "occlusion",
+        "visibility": "clear",
+        "description": "从帧180到198，夹爪尖端部分遮挡了温控面板右侧的圆形按钮和三角形按钮，导致这些按钮无法被完整观察。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 180,
+        "end_frame": 198,
+        "kind": "visible_button_deformation",
+        "visibility": "unclear",
+        "description": "从帧180到198，由于夹爪尖端遮挡且无清晰形变迹象，无法判断按钮是否发生形变。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 180,
+        "end_frame": 198,
+        "kind": "visible_object_release",
+        "visibility": "unclear",
+        "description": "从帧180到198，未观察到任何被抓持物体脱离夹爪的直接视觉证据。"
+      }
+    ],
+    "limitations": "无法确定夹爪是否对按钮施加压力或产生形变；右腕相机视角无有效交互对象；温控面板屏幕数值虽可读，但无动态变化；部分按钮因遮挡无法观察其状态。"
+  },
+  "raw_text": "{\n  \"observations\": [\n    {\n      \"view\": \"head_rgb\",\n      \"start_frame\": 180,\n      \"end_frame\": 198,\n      \"kind\": \"relative_motion\",\n      \"visibility\": \"clear\",\n      \"description\": \"从帧180到198，左臂（head_rgb视角）的机械臂末端夹爪相对于温控面板有轻微向右和向下的移动趋势，但整体位置变化极小。\"\n    },\n    {\n      \"view\": \"head_right_rgb\",\n      \"start_frame\": 180,\n      \"end_frame\": 198,\n      \"kind\": \"relative_motion\",\n      \"visibility\": \"clear\",\n      \"description\": \"从帧180到198，右臂（head_right_rgb视角）的机械臂末端夹爪相对于温控面板有轻微向右和向下的移动趋势，但整体位置变化极小。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 180,\n      \"end_frame\": 198,\n      \"kind\": \"relative_motion\",\n      \"visibility\": \"clear\",\n      \"description\": \"从帧180到198，左腕相机视角下，夹爪尖端与温控面板保持近距离接触，夹爪本身无明显开合或位移，但温控面板在画面中逐渐向右下方移动，表明手臂或腕部有微小调整。\"\n    },\n    {\n      \"view\": \"right_wrist_rgb\",\n      \"start_frame\": 180,\n      \"end_frame\": 198,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"从帧180到198，右腕相机视角下，夹爪尖端始终朝向白色墙壁，未见任何物体或环境变化，夹爪位置固定。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 180,\n      \"end_frame\": 198,\n      \"kind\": \"screen_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"从帧180到198，温控面板屏幕持续显示“20.5℃”，屏幕亮度稳定，无闪烁或内容变化。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 180,\n      \"end_frame\": 198,\n      \"kind\": \"local_tip_motion\",\n      \"visibility\": \"clear\",\n      \"description\": \"从帧180到198，夹爪尖端紧贴温控面板右侧边缘，未观察到夹爪尖端相对于按钮区域的独立运动或位移。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 180,\n      \"end_frame\": 198,\n      \"kind\": \"occlusion\",\n      \"visibility\": \"clear\",\n      \"description\": \"从帧180到198，夹爪尖端部分遮挡了温控面板右侧的圆形按钮和三角形按钮，导致这些按钮无法被完整观察。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 180,\n      \"end_frame\": 198,\n      \"kind\": \"visible_button_deformation\",\n      \"visibility\": \"unclear\",\n      \"description\": \"从帧180到198，由于夹爪尖端遮挡且无清晰形变迹象，无法判断按钮是否发生形变。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 180,\n      \"end_frame\": 198,\n      \"kind\": \"visible_object_release\",\n      \"visibility\": \"unclear\",\n      \"description\": \"从帧180到198，未观察到任何被抓持物体脱离夹爪的直接视觉证据。\"\n    }\n  ],\n  \"limitations\": \"无法确定夹爪是否对按钮施加压力或产生形变；右腕相机视角无有效交互对象；温控面板屏幕数值虽可读，但无动态变化；部分按钮因遮挡无法观察其状态。\"\n}",
+  "usage": {
+    "image_tokens": 33192,
+    "input_tokens": 33558,
+    "input_tokens_details": {
+      "image_tokens": 33192,
+      "text_tokens": 366
+    },
+    "output_tokens": 920,
+    "output_tokens_details": {
+      "text_tokens": 920
+    },
+    "total_tokens": 34478
+  }
+}

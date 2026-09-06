@@ -1,0 +1,157 @@
+{
+  "result": {
+    "observations": [
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 106,
+        "end_frame": 107,
+        "kind": "screen_change",
+        "visibility": "clear",
+        "description": "温控器屏幕显示温度从18.0°C变为18.2°C，其他图标（如风扇、模式）无可见变化。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 107,
+        "end_frame": 108,
+        "kind": "screen_change",
+        "visibility": "clear",
+        "description": "温控器屏幕显示温度从18.2°C变为18.0°C，其他图标无可见变化。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 108,
+        "end_frame": 109,
+        "kind": "screen_change",
+        "visibility": "clear",
+        "description": "温控器屏幕显示温度从18.0°C变为18.5°C，其他图标无可见变化。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 109,
+        "end_frame": 110,
+        "kind": "screen_change",
+        "visibility": "clear",
+        "description": "温控器屏幕显示温度从18.5°C变为18.0°C，其他图标无可见变化。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 110,
+        "end_frame": 111,
+        "kind": "screen_change",
+        "visibility": "clear",
+        "description": "温控器屏幕显示温度从18.0°C变为18.5°C，其他图标无可见变化。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 111,
+        "end_frame": 112,
+        "kind": "screen_change",
+        "visibility": "clear",
+        "description": "温控器屏幕显示温度从18.5°C变为18.0°C，其他图标无可见变化。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 112,
+        "end_frame": 113,
+        "kind": "screen_change",
+        "visibility": "clear",
+        "description": "温控器屏幕显示温度从18.0°C变为18.0°C，数值未变，但屏幕亮度或对比度有轻微波动，其他图标无可见变化。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 113,
+        "end_frame": 114,
+        "kind": "screen_change",
+        "visibility": "clear",
+        "description": "温控器屏幕显示温度从18.0°C变为18.0°C，数值未变，屏幕亮度或对比度有轻微波动，其他图标无可见变化。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 114,
+        "end_frame": 116,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "description": "温控器屏幕持续显示18.0°C，无可见数值或图标变化。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 116,
+        "end_frame": 117,
+        "kind": "screen_change",
+        "visibility": "clear",
+        "description": "温控器屏幕显示温度从18.0°C变为18.5°C，其他图标无可见变化。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 117,
+        "end_frame": 118,
+        "kind": "screen_change",
+        "visibility": "clear",
+        "description": "温控器屏幕显示温度从18.5°C变为18.0°C，其他图标无可见变化。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 118,
+        "end_frame": 119,
+        "kind": "screen_change",
+        "visibility": "clear",
+        "description": "温控器屏幕显示温度从18.0°C变为18.0°C，数值未变，屏幕亮度或对比度有轻微波动，其他图标无可见变化。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 119,
+        "end_frame": 120,
+        "kind": "screen_change",
+        "visibility": "clear",
+        "description": "温控器屏幕显示温度从18.0°C变为18.0°C，数值未变，屏幕亮度或对比度有轻微波动，其他图标无可见变化。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 120,
+        "end_frame": 121,
+        "kind": "screen_change",
+        "visibility": "clear",
+        "description": "温控器屏幕显示温度从18.0°C变为18.0°C，数值未变，屏幕亮度或对比度有轻微波动，其他图标无可见变化。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 121,
+        "end_frame": 122,
+        "kind": "screen_change",
+        "visibility": "clear",
+        "description": "温控器屏幕显示温度从18.0°C变为18.0°C，数值未变，屏幕亮度或对比度有轻微波动，其他图标无可见变化。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 122,
+        "end_frame": 123,
+        "kind": "screen_change",
+        "visibility": "clear",
+        "description": "温控器屏幕显示温度从18.0°C变为18.0°C，数值未变，屏幕亮度或对比度有轻微波动，其他图标无可见变化。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 123,
+        "end_frame": 124,
+        "kind": "screen_change",
+        "visibility": "clear",
+        "description": "温控器屏幕显示温度从18.0°C变为18.0°C，数值未变，屏幕亮度或对比度有轻微波动，其他图标无可见变化。"
+      }
+    ],
+    "limitations": "head_rgb和head_right_rgb视角中，温控器被机械臂部分遮挡，无法清晰观察其屏幕内容；right_wrist_rgb视角中，仅可见夹爪尖端，无物体交互或环境信息；所有帧中均未见按钮形变或物体脱离的直接证据；腕部相机位置相对固定，但无法排除手臂微小运动。"
+  },
+  "raw_text": "{\n  \"observations\": [\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 106,\n      \"end_frame\": 107,\n      \"kind\": \"screen_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"温控器屏幕显示温度从18.0°C变为18.2°C，其他图标（如风扇、模式）无可见变化。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 107,\n      \"end_frame\": 108,\n      \"kind\": \"screen_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"温控器屏幕显示温度从18.2°C变为18.0°C，其他图标无可见变化。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 108,\n      \"end_frame\": 109,\n      \"kind\": \"screen_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"温控器屏幕显示温度从18.0°C变为18.5°C，其他图标无可见变化。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 109,\n      \"end_frame\": 110,\n      \"kind\": \"screen_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"温控器屏幕显示温度从18.5°C变为18.0°C，其他图标无可见变化。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 110,\n      \"end_frame\": 111,\n      \"kind\": \"screen_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"温控器屏幕显示温度从18.0°C变为18.5°C，其他图标无可见变化。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 111,\n      \"end_frame\": 112,\n      \"kind\": \"screen_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"温控器屏幕显示温度从18.5°C变为18.0°C，其他图标无可见变化。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 112,\n      \"end_frame\": 113,\n      \"kind\": \"screen_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"温控器屏幕显示温度从18.0°C变为18.0°C，数值未变，但屏幕亮度或对比度有轻微波动，其他图标无可见变化。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 113,\n      \"end_frame\": 114,\n      \"kind\": \"screen_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"温控器屏幕显示温度从18.0°C变为18.0°C，数值未变，屏幕亮度或对比度有轻微波动，其他图标无可见变化。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 114,\n      \"end_frame\": 116,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"温控器屏幕持续显示18.0°C，无可见数值或图标变化。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 116,\n      \"end_frame\": 117,\n      \"kind\": \"screen_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"温控器屏幕显示温度从18.0°C变为18.5°C，其他图标无可见变化。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 117,\n      \"end_frame\": 118,\n      \"kind\": \"screen_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"温控器屏幕显示温度从18.5°C变为18.0°C，其他图标无可见变化。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 118,\n      \"end_frame\": 119,\n      \"kind\": \"screen_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"温控器屏幕显示温度从18.0°C变为18.0°C，数值未变，屏幕亮度或对比度有轻微波动，其他图标无可见变化。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 119,\n      \"end_frame\": 120,\n      \"kind\": \"screen_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"温控器屏幕显示温度从18.0°C变为18.0°C，数值未变，屏幕亮度或对比度有轻微波动，其他图标无可见变化。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 120,\n      \"end_frame\": 121,\n      \"kind\": \"screen_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"温控器屏幕显示温度从18.0°C变为18.0°C，数值未变，屏幕亮度或对比度有轻微波动，其他图标无可见变化。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 121,\n      \"end_frame\": 122,\n      \"kind\": \"screen_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"温控器屏幕显示温度从18.0°C变为18.0°C，数值未变，屏幕亮度或对比度有轻微波动，其他图标无可见变化。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 122,\n      \"end_frame\": 123,\n      \"kind\": \"screen_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"温控器屏幕显示温度从18.0°C变为18.0°C，数值未变，屏幕亮度或对比度有轻微波动，其他图标无可见变化。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 123,\n      \"end_frame\": 124,\n      \"kind\": \"screen_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"温控器屏幕显示温度从18.0°C变为18.0°C，数值未变，屏幕亮度或对比度有轻微波动，其他图标无可见变化。\"\n    }\n  ],\n  \"limitations\": \"head_rgb和head_right_rgb视角中，温控器被机械臂部分遮挡，无法清晰观察其屏幕内容；right_wrist_rgb视角中，仅可见夹爪尖端，无物体交互或环境信息；所有帧中均未见按钮形变或物体脱离的直接证据；腕部相机位置相对固定，但无法排除手臂微小运动。\"\n}",
+  "usage": {
+    "image_tokens": 33192,
+    "input_tokens": 33558,
+    "input_tokens_details": {
+      "image_tokens": 33192,
+      "text_tokens": 366
+    },
+    "output_tokens": 1560,
+    "output_tokens_details": {
+      "text_tokens": 1560
+    },
+    "total_tokens": 35118
+  }
+}

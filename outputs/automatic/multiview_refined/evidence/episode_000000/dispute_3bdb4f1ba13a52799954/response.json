@@ -1,0 +1,22 @@
+{
+  "result": {
+    "verdict": "supported",
+    "evidence": "在帧43-56期间，左腕视角中夹爪持续接触温控面板，且面板屏幕显示温度从18.0°C短暂变化至18.7°C（帧47）后恢复为18.0°C（帧51起），同时夹爪保持接触状态。头视角（head_rgb, head_right_rgb）也显示左臂末端与面板紧密接触，无明显撤回动作。该交互独立于普通接近/对准/撤回，表现为局部按压推进与保持。",
+    "skill_id": "press",
+    "arm_used": "left"
+  },
+  "raw_text": "{\"verdict\": \"supported\", \"evidence\": \"在帧43-56期间，左腕视角中夹爪持续接触温控面板，且面板屏幕显示温度从18.0°C短暂变化至18.7°C（帧47）后恢复为18.0°C（帧51起），同时夹爪保持接触状态。头视角（head_rgb, head_right_rgb）也显示左臂末端与面板紧密接触，无明显撤回动作。该交互独立于普通接近/对准/撤回，表现为局部按压推进与保持。\", \"skill_id\": \"press\", \"arm_used\": \"left\"}",
+  "usage": {
+    "image_tokens": 33192,
+    "input_tokens": 34493,
+    "input_tokens_details": {
+      "image_tokens": 33192,
+      "text_tokens": 1301
+    },
+    "output_tokens": 141,
+    "output_tokens_details": {
+      "text_tokens": 141
+    },
+    "total_tokens": 34634
+  }
+}

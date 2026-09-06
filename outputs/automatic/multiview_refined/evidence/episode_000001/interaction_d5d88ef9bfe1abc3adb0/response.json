@@ -1,0 +1,34 @@
+{
+  "result": {
+    "interaction_supported": true,
+    "start_frame": 122,
+    "end_frame": 123,
+    "arm_used": "left",
+    "action": "左臂夹爪按压温控面板上的电源按钮",
+    "evidence": "在FRAME 122 | left_wrist_rgb视角中，夹爪前端对准并接触电源按钮（圆形图标），屏幕仍为黑屏；在FRAME 123 | left_wrist_rgb视角中，屏幕亮起并显示界面，表明按钮被成功按压。此为局部按压推进及保持的开始与结束帧。",
+    "uncertain": false,
+    "additional_actions": [
+      {
+        "start_frame": 147,
+        "end_frame": 150,
+        "arm_used": "left",
+        "action": "左臂夹爪按压温控面板上的向上箭头按钮",
+        "evidence": "在FRAME 147 | left_wrist_rgb视角中，夹爪对准向上箭头按钮；从FRAME 147到150，屏幕温度数值从18.0°C变为18.5°C，且夹爪位置保持稳定，符合按压操作定义。"
+      }
+    ]
+  },
+  "raw_text": "{\n  \"interaction_supported\": true,\n  \"start_frame\": 122,\n  \"end_frame\": 123,\n  \"arm_used\": \"left\",\n  \"action\": \"左臂夹爪按压温控面板上的电源按钮\",\n  \"evidence\": \"在FRAME 122 | left_wrist_rgb视角中，夹爪前端对准并接触电源按钮（圆形图标），屏幕仍为黑屏；在FRAME 123 | left_wrist_rgb视角中，屏幕亮起并显示界面，表明按钮被成功按压。此为局部按压推进及保持的开始与结束帧。\",\n  \"uncertain\": false,\n  \"additional_actions\": [\n    {\n      \"start_frame\": 147,\n      \"end_frame\": 150,\n      \"arm_used\": \"left\",\n      \"action\": \"左臂夹爪按压温控面板上的向上箭头按钮\",\n      \"evidence\": \"在FRAME 147 | left_wrist_rgb视角中，夹爪对准向上箭头按钮；从FRAME 147到150，屏幕温度数值从18.0°C变为18.5°C，且夹爪位置保持稳定，符合按压操作定义。\"\n    }\n  ]\n}\n",
+  "usage": {
+    "image_tokens": 28860,
+    "input_tokens": 29144,
+    "input_tokens_details": {
+      "image_tokens": 28860,
+      "text_tokens": 284
+    },
+    "output_tokens": 278,
+    "output_tokens_details": {
+      "text_tokens": 278
+    },
+    "total_tokens": 29422
+  }
+}

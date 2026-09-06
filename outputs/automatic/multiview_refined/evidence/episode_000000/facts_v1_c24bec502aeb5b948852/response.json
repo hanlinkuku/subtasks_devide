@@ -1,0 +1,67 @@
+{
+  "result": {
+    "observations": [
+      {
+        "view": "head_rgb",
+        "start_frame": 371,
+        "end_frame": 421,
+        "kind": "relative_motion",
+        "visibility": "clear",
+        "description": "从帧371到421，左臂（在head_rgb视角中可见）持续向右移动并靠近墙上的温控面板。机械臂主体在画面左侧逐渐进入视野，并在后续帧中保持相对稳定的位置，但其夹爪部分未发生明显开合或位移。"
+      },
+      {
+        "view": "head_right_rgb",
+        "start_frame": 371,
+        "end_frame": 421,
+        "kind": "relative_motion",
+        "visibility": "clear",
+        "description": "从帧371到421，左臂在head_right_rgb视角中同样向右移动并接近温控面板。与head_rgb视角一致，机械臂主体在画面左侧出现并保持位置，夹爪无明显运动。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 371,
+        "end_frame": 421,
+        "kind": "relative_motion",
+        "visibility": "clear",
+        "description": "从帧371到421，夹爪尖端相对于温控面板的按钮区域有轻微的前后和左右微调运动。在帧374起，夹爪尖端更靠近面板右侧按钮区域，且在后续帧中保持该相对位置，未见明显开合动作。"
+      },
+      {
+        "view": "right_wrist_rgb",
+        "start_frame": 371,
+        "end_frame": 421,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "description": "从帧371到421，右腕相机视角始终对准天花板，未观察到任何物体或手臂运动。夹爪在画面中静止不动，但无法据此推断手臂整体状态。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 371,
+        "end_frame": 421,
+        "kind": "screen_change",
+        "visibility": "clear",
+        "description": "从帧371到421，在left_wrist_rgb视角中，温控面板屏幕显示内容发生变化：初始显示为'20.5°C'，在帧374后屏幕亮度增强，数值清晰可见；在帧403后，屏幕亮度显著降低，变为深色背光，但数字'20.5°C'仍可辨认。"
+      }
+    ],
+    "limitations": [
+      "无法直接观察到按钮是否发生形变。",
+      "无法确认夹爪是否与按钮发生物理接触或施加压力。",
+      "右腕相机视角未提供关于左臂或温控面板的任何信息。",
+      "屏幕数值变化不等同于触发事件，仅记录视觉变化。",
+      "夹爪在腕部相机中静止不能说明手臂整体静止。"
+    ]
+  },
+  "raw_text": "{\n  \"observations\": [\n    {\n      \"view\": \"head_rgb\",\n      \"start_frame\": 371,\n      \"end_frame\": 421,\n      \"kind\": \"relative_motion\",\n      \"visibility\": \"clear\",\n      \"description\": \"从帧371到421，左臂（在head_rgb视角中可见）持续向右移动并靠近墙上的温控面板。机械臂主体在画面左侧逐渐进入视野，并在后续帧中保持相对稳定的位置，但其夹爪部分未发生明显开合或位移。\"\n    },\n    {\n      \"view\": \"head_right_rgb\",\n      \"start_frame\": 371,\n      \"end_frame\": 421,\n      \"kind\": \"relative_motion\",\n      \"visibility\": \"clear\",\n      \"description\": \"从帧371到421，左臂在head_right_rgb视角中同样向右移动并接近温控面板。与head_rgb视角一致，机械臂主体在画面左侧出现并保持位置，夹爪无明显运动。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 371,\n      \"end_frame\": 421,\n      \"kind\": \"relative_motion\",\n      \"visibility\": \"clear\",\n      \"description\": \"从帧371到421，夹爪尖端相对于温控面板的按钮区域有轻微的前后和左右微调运动。在帧374起，夹爪尖端更靠近面板右侧按钮区域，且在后续帧中保持该相对位置，未见明显开合动作。\"\n    },\n    {\n      \"view\": \"right_wrist_rgb\",\n      \"start_frame\": 371,\n      \"end_frame\": 421,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"从帧371到421，右腕相机视角始终对准天花板，未观察到任何物体或手臂运动。夹爪在画面中静止不动，但无法据此推断手臂整体状态。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 371,\n      \"end_frame\": 421,\n      \"kind\": \"screen_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"从帧371到421，在left_wrist_rgb视角中，温控面板屏幕显示内容发生变化：初始显示为'20.5°C'，在帧374后屏幕亮度增强，数值清晰可见；在帧403后，屏幕亮度显著降低，变为深色背光，但数字'20.5°C'仍可辨认。\"\n    }\n  ],\n  \"limitations\": [\n    \"无法直接观察到按钮是否发生形变。\",\n    \"无法确认夹爪是否与按钮发生物理接触或施加压力。\",\n    \"右腕相机视角未提供关于左臂或温控面板的任何信息。\",\n    \"屏幕数值变化不等同于触发事件，仅记录视觉变化。\",\n    \"夹爪在腕部相机中静止不能说明手臂整体静止。\"\n  ]\n}\n",
+  "usage": {
+    "image_tokens": 33192,
+    "input_tokens": 33558,
+    "input_tokens_details": {
+      "image_tokens": 33192,
+      "text_tokens": 366
+    },
+    "output_tokens": 688,
+    "output_tokens_details": {
+      "text_tokens": 688
+    },
+    "total_tokens": 34246
+  }
+}

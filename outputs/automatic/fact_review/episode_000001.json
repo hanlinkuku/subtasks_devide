@@ -1,0 +1,242 @@
+{
+  "trajectory_id": "episode_000001",
+  "method": "label-blind visual facts then deterministic evidence sufficiency gate",
+  "results": [
+    {
+      "source_observation": {
+        "reason": "additional_action",
+        "event": {
+          "start_frame": 147,
+          "end_frame": 150,
+          "arm_used": "left",
+          "action": "左臂夹爪按压温控面板上的向上箭头按钮",
+          "evidence": "在FRAME 147 | left_wrist_rgb视角中，夹爪对准向上箭头按钮；从FRAME 147到150，屏幕温度数值从18.0°C变为18.5°C，且夹爪位置保持稳定，符合按压操作定义。"
+        }
+      },
+      "previous_review": {
+        "verdict": "supported",
+        "evidence": "在FRAME 142中，left_wrist_rgb视角显示夹爪对准温控面板的向上箭头按钮，屏幕未显示数值。从FRAME 143开始，屏幕显示温度为18.5°C，且该数值在FRAME 143至155期间保持不变。在此期间，左腕相机视角中夹爪持续稳定地覆盖在向上箭头按钮上，无明显位移（结合位移数据，left_delta_xyz_mm在147-150帧间微小变化，符合按压后保持状态）。虽然无法直接观测到物理接触或力反馈，但夹爪位置与屏幕数值变化的时间一致性，以及后续长时间保持稳定，支持按压操作的发生。右臂无交互。",
+        "skill_id": "press",
+        "arm_used": "left"
+      },
+      "frames": [
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155
+      ],
+      "sampling": "all_frames",
+      "facts": [
+        {
+          "view": "left_wrist_rgb",
+          "start_frame": 142,
+          "end_frame": 143,
+          "kind": "screen_change",
+          "visibility": "clear",
+          "description": "屏幕从无显示变为显示数字'18.5℃'，同时出现风扇图标和信号强度条。",
+          "id": "F1",
+          "claim_flags": []
+        },
+        {
+          "view": "left_wrist_rgb",
+          "start_frame": 143,
+          "end_frame": 144,
+          "kind": "screen_change",
+          "visibility": "clear",
+          "description": "屏幕内容保持不变，仍显示'18.5℃'、风扇图标和信号强度条，新增一个雪花图标。",
+          "id": "F2",
+          "claim_flags": []
+        },
+        {
+          "view": "left_wrist_rgb",
+          "start_frame": 144,
+          "end_frame": 155,
+          "kind": "no_clear_change",
+          "visibility": "clear",
+          "description": "屏幕内容在所有帧中均保持稳定，持续显示'18.5℃'、雪花图标、风扇图标和信号强度条，无可见变化。",
+          "id": "F3",
+          "claim_flags": []
+        },
+        {
+          "view": "head_rgb",
+          "start_frame": 142,
+          "end_frame": 155,
+          "kind": "no_clear_change",
+          "visibility": "clear",
+          "description": "机械臂主体位置和姿态在所有帧中均无可见变化。",
+          "id": "F4",
+          "claim_flags": []
+        },
+        {
+          "view": "head_right_rgb",
+          "start_frame": 142,
+          "end_frame": 155,
+          "kind": "no_clear_change",
+          "visibility": "clear",
+          "description": "机械臂主体位置和姿态在所有帧中均无可见变化。",
+          "id": "F5",
+          "claim_flags": []
+        },
+        {
+          "view": "right_wrist_rgb",
+          "start_frame": 142,
+          "end_frame": 155,
+          "kind": "no_clear_change",
+          "visibility": "clear",
+          "description": "夹爪在所有帧中均保持静止，未见相对运动或开合变化。",
+          "id": "F6",
+          "claim_flags": []
+        }
+      ],
+      "limitations": [
+        "无法从head_rgb和head_right_rgb视角观察到左腕或右腕相机的相对运动。",
+        "右腕相机视角中未显示任何物体或按钮，无法判断其与环境的交互。",
+        "左腕相机视角中，夹爪尖端与按钮区域有部分重叠，但未见明显形变或脱离迹象。",
+        "屏幕数值清晰可读，但无法确认是否因外部操作触发变化，仅记录视觉呈现。"
+      ],
+      "interpretation": {
+        "status": "insufficient_evidence",
+        "reason": "相对运动、屏幕变化或遮挡本身不足以确认独立物体交互；不等于动作不存在。",
+        "fact_ids": [
+          "F1",
+          "F2",
+          "F3",
+          "F4",
+          "F5",
+          "F6"
+        ],
+        "new_action_confirmed": false,
+        "boundary_replacement_allowed": false
+      },
+      "candidate_label_provided_to_fact_extractor": false
+    },
+    {
+      "source_observation": {
+        "reason": "unmatched_global_observation",
+        "window": [
+          90,
+          209
+        ],
+        "event": {
+          "skill_id": "press",
+          "arm_used": "left",
+          "start_frame": 153,
+          "end_frame": 161,
+          "evidence": "左腕视角显示，夹爪持续接触TOSHIBA温控器的圆形按钮（右上角），从帧153到161，屏幕状态无变化但夹爪保持接触，符合按压动作特征。右腕视角无交互。",
+          "uncertain": true
+        }
+      },
+      "previous_review": {
+        "verdict": "supported",
+        "evidence": "从帧153到161，左腕视角中夹爪持续接触TOSHIBA温控器右上角的圆形按钮（电源/模式键），且夹爪位置无明显移动，表明保持按压状态。同时，屏幕显示内容（18.5°C、风扇图标等）在该期间内未发生任何变化，符合按压动作特征而非简单接近或对准。右腕视角全程无交互。尽管屏幕未刷新，但夹爪与按钮的持续物理接触在多帧细节图中清晰可见，支持按压行为的存在。",
+        "skill_id": "press",
+        "arm_used": "left"
+      },
+      "frames": [
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163,
+        164,
+        165,
+        166
+      ],
+      "sampling": "uniform_max_18",
+      "facts": [
+        {
+          "view": "head_rgb",
+          "start_frame": 148,
+          "end_frame": 166,
+          "kind": "no_clear_change",
+          "visibility": "clear",
+          "description": "从帧148到166，head_rgb视角中机械臂主体、连接线缆及背景墙面无可见位置或形态变化。",
+          "id": "F1",
+          "claim_flags": []
+        },
+        {
+          "view": "head_right_rgb",
+          "start_frame": 148,
+          "end_frame": 166,
+          "kind": "no_clear_change",
+          "visibility": "clear",
+          "description": "从帧148到166，head_right_rgb视角中机械臂主体、连接线缆及背景墙面无可见位置或形态变化。",
+          "id": "F2",
+          "claim_flags": []
+        },
+        {
+          "view": "left_wrist_rgb",
+          "start_frame": 148,
+          "end_frame": 166,
+          "kind": "local_tip_motion",
+          "visibility": "clear",
+          "description": "从帧148到166，左腕相机视角中，黑色夹爪尖端持续接触白色TOSHIBA温控面板的电源按钮区域，夹爪与按钮之间无明显相对位移，但夹爪尖端有微小抖动或振动。",
+          "id": "F3",
+          "claim_flags": [
+            "contact_or_action_inference_in_description"
+          ]
+        },
+        {
+          "view": "right_wrist_rgb",
+          "start_frame": 148,
+          "end_frame": 166,
+          "kind": "no_clear_change",
+          "visibility": "clear",
+          "description": "从帧148到166，右腕相机视角中，黑色夹爪保持静止，背景为浅色墙面，无可见物体或相机位置变化。",
+          "id": "F4",
+          "claim_flags": []
+        }
+      ],
+      "limitations": [
+        "无法从任何视角直接观察到按钮表面形变。",
+        "屏幕显示内容（如18.5°C）在所有帧中均未发生变化，但未提供足够信息判断其是否因操作而改变。",
+        "右腕相机视角完全被夹爪占据，无法观察到其他物体或环境变化。",
+        "头视角（head_rgb, head_right_rgb）未提供关于温控面板或夹爪的直接视图，因此无法确认其与目标物体的交互细节。",
+        "未提供帧147和167，无法判断该时间段内是否有动作发生。"
+      ],
+      "interpretation": {
+        "status": "insufficient_evidence",
+        "reason": "相对运动、屏幕变化或遮挡本身不足以确认独立物体交互；不等于动作不存在。",
+        "fact_ids": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "new_action_confirmed": false,
+        "boundary_replacement_allowed": false
+      },
+      "candidate_label_provided_to_fact_extractor": false
+    }
+  ],
+  "counts": {
+    "interaction_candidate": 0,
+    "object_release_candidate": 0,
+    "interaction_hypothesis": 0,
+    "insufficient_evidence": 2
+  },
+  "new_actions_confirmed": 0,
+  "automatic_annotation_replaced": false,
+  "reference_used": false,
+  "limitations": "Facts are model observations, not verified ground truth; sufficiency rules are conservative and may miss occluded interactions."
+}

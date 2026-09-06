@@ -1,0 +1,22 @@
+{
+  "result": {
+    "verdict": "supported",
+    "evidence": "从帧447开始，左腕视角中夹爪明显后退，与面板分离（如447-450帧细节图所示），同时头视角显示左臂持续撤回（447-460帧head_rgb）。此过程无按压或保持迹象，符合释放动作。右臂全程静止，无交互。",
+    "skill_id": "release",
+    "arm_used": "left"
+  },
+  "raw_text": "{\"verdict\":\"supported\",\"evidence\":\"从帧447开始，左腕视角中夹爪明显后退，与面板分离（如447-450帧细节图所示），同时头视角显示左臂持续撤回（447-460帧head_rgb）。此过程无按压或保持迹象，符合释放动作。右臂全程静止，无交互。\",\"skill_id\":\"release\",\"arm_used\":\"left\"}",
+  "usage": {
+    "image_tokens": 33192,
+    "input_tokens": 34478,
+    "input_tokens_details": {
+      "image_tokens": 33192,
+      "text_tokens": 1286
+    },
+    "output_tokens": 98,
+    "output_tokens_details": {
+      "text_tokens": 98
+    },
+    "total_tokens": 34576
+  }
+}

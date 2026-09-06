@@ -8,6 +8,8 @@ import imageio_ffmpeg
 import annotate
 import automatic_segment as automatic
 import refine_onsets
+import multiview_review
+import fact_review
 
 
 def progress(message):
@@ -51,7 +53,11 @@ def run(ep):
     automatic.reconcile_withdrawal(automatic.propose(ep, horizontal_withdrawal=True), visual)
     progress('逐帧检查画面响应与按压起点')
     refine_onsets.run(ep)
-    progress('自动划分完成，等待人工复核')
+    progress('固定四视角全程观察与局部分歧复查')
+    audit=multiview_review.run(ep)
+    progress('提取分歧窗口的可见事实，检查交互证据充分性')
+    fact_review.run(ep)
+    progress('自动划分完成；多视角报告含待复核分歧，精细边界未被覆盖' if audit['status']=='review_required' else '自动划分与多视角复核完成')
 
 
 if __name__ == '__main__':

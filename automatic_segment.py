@@ -162,9 +162,28 @@ def run_visual(proposal):
 
 def export_prediction(proposal, visual=None, stage=None):
     ep=proposal['trajectory_id'];n=proposal['frame_count'];fps=proposal['fps']
+    stage=stage or ('vlm_refined' if visual is not None else 'kinematic')
     events=proposal['interaction_proposals'] if visual is None else visual
+    conflicts=[]
+    for i,event in enumerate(events):
+        if event.get('additional_actions'):
+            conflicts.append({'index':i,'reason':'unresolved_additional_actions','event':event})
+        if not event.get('interaction_supported',True):continue
+        s,e=event.get('start_frame'),event.get('end_frame')
+        if type(s)!=int or type(e)!=int or not 0<=s<=e<n:
+            conflicts.append({'index':i,'reason':'invalid_frame_interval','event':event})
+        elif not any(a<=s<=e<=b for a,b in proposal['motion_intervals']):
+            conflicts.append({'index':i,'reason':'interaction_outside_motion_intervals','event':event})
+    audit_path=annotate.OUT/'automatic'/stage/'export_audit'/f'{ep}.json'
+    if conflicts:
+        annotate.save(audit_path,{'status':'blocked','conflicts':conflicts,'previous_annotation_preserved':True})
+        raise ValueError('Unresolved interaction conflicts; see '+str(audit_path))
     events=[e for e in events if e.get('interaction_supported',True)]
     events=sorted(events,key=lambda e:e['start_frame'])
+    overlaps=[{'previous':a,'next':b} for a,b in zip(events,events[1:]) if b['start_frame']<=a['end_frame']]
+    if overlaps:
+        annotate.save(audit_path,{'status':'blocked','conflicts':overlaps,'previous_annotation_preserved':True})
+        raise ValueError('Overlapping interaction proposals require review')
     segments=[];cursor=0
     for start,end in proposal['motion_intervals']:
         if cursor<start:segments.append((cursor,start-1,'wait','机械臂在初始位置保持静止。',''))
@@ -196,7 +215,7 @@ def export_prediction(proposal, visual=None, stage=None):
         if seg['start_frame']!=cursor or seg['end_frame']<cursor:raise ValueError('Invalid output coverage')
         cursor=seg['end_frame']+1
     if cursor!=n:raise ValueError('Incomplete output coverage')
-    stage=stage or ('vlm_refined' if visual is not None else 'kinematic')
+    annotate.save(audit_path,{'status':'passed','supported_interactions':len(events),'exported_interactions':sum(s['skill_id']=='press' for s in obj['subtasks']),'conflicts':[]})
     annotate.save(annotate.OUT/'automatic'/stage/'annotations'/f'{ep}.json',obj)
     return obj
 

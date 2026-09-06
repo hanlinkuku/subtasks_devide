@@ -1,0 +1,69 @@
+{
+  "result": {
+    "actions": [
+      {
+        "skill_id": "reach",
+        "arm_used": "left",
+        "start_frame": 32,
+        "end_frame": 40,
+        "evidence": "左腕视角显示机械臂从下方接近墙上的温控面板，夹爪朝向面板移动。头视角中可见左臂结构逐渐进入画面并靠近目标。",
+        "uncertain": false
+      },
+      {
+        "skill_id": "press",
+        "arm_used": "left",
+        "start_frame": 48,
+        "end_frame": 56,
+        "evidence": "左腕视角中，夹爪已接触温控面板，面板屏幕在帧48-56间显示温度从18.0°C变为18.0°C（可能为确认或模式切换），且夹爪保持接触状态。头视角显示左臂末端与面板紧密接触。",
+        "uncertain": true
+      },
+      {
+        "skill_id": "press",
+        "arm_used": "left",
+        "start_frame": 63,
+        "end_frame": 71,
+        "evidence": "左腕视角中，夹爪持续接触面板，屏幕温度从18.0°C变为12.0°C，表明按钮被按压以调整设定值。头视角显示左臂稳定在面板前。",
+        "uncertain": false
+      },
+      {
+        "skill_id": "press",
+        "arm_used": "left",
+        "start_frame": 79,
+        "end_frame": 87,
+        "evidence": "左腕视角中，夹爪仍接触面板，屏幕温度从12.0°C变回18.0°C，表明再次按压按钮进行调整。头视角显示左臂位置未变，持续交互。",
+        "uncertain": false
+      },
+      {
+        "skill_id": "press",
+        "arm_used": "left",
+        "start_frame": 95,
+        "end_frame": 103,
+        "evidence": "左腕视角中，夹爪接触面板，屏幕显示18.0°C，但界面出现图标变化（如风扇/模式指示），表明进行了功能选择或确认操作。头视角显示左臂保持接触。",
+        "uncertain": true
+      },
+      {
+        "skill_id": "press",
+        "arm_used": "left",
+        "start_frame": 111,
+        "end_frame": 119,
+        "evidence": "左腕视角中，夹爪仍在面板上，屏幕温度从18.0°C变为12.0°C，再次调整设定值。头视角显示左臂持续交互。",
+        "uncertain": false
+      }
+    ],
+    "limitations": "右臂在整个序列中无明显运动，其腕部相机视角始终对准天花板，无法观察到任何交互行为。左臂操作主要通过左腕视角和头视角确认，但部分按压动作的精确边界因稀疏采样而存在不确定性。温控面板的响应（如温度变化）是判断按压的关键依据，但无法完全排除其他触发方式（如遥控）。"
+  },
+  "raw_text": "{\n  \"actions\": [\n    {\n      \"skill_id\": \"reach\",\n      \"arm_used\": \"left\",\n      \"start_frame\": 32,\n      \"end_frame\": 40,\n      \"evidence\": \"左腕视角显示机械臂从下方接近墙上的温控面板，夹爪朝向面板移动。头视角中可见左臂结构逐渐进入画面并靠近目标。\",\n      \"uncertain\": false\n    },\n    {\n      \"skill_id\": \"press\",\n      \"arm_used\": \"left\",\n      \"start_frame\": 48,\n      \"end_frame\": 56,\n      \"evidence\": \"左腕视角中，夹爪已接触温控面板，面板屏幕在帧48-56间显示温度从18.0°C变为18.0°C（可能为确认或模式切换），且夹爪保持接触状态。头视角显示左臂末端与面板紧密接触。\",\n      \"uncertain\": true\n    },\n    {\n      \"skill_id\": \"press\",\n      \"arm_used\": \"left\",\n      \"start_frame\": 63,\n      \"end_frame\": 71,\n      \"evidence\": \"左腕视角中，夹爪持续接触面板，屏幕温度从18.0°C变为12.0°C，表明按钮被按压以调整设定值。头视角显示左臂稳定在面板前。\",\n      \"uncertain\": false\n    },\n    {\n      \"skill_id\": \"press\",\n      \"arm_used\": \"left\",\n      \"start_frame\": 79,\n      \"end_frame\": 87,\n      \"evidence\": \"左腕视角中，夹爪仍接触面板，屏幕温度从12.0°C变回18.0°C，表明再次按压按钮进行调整。头视角显示左臂位置未变，持续交互。\",\n      \"uncertain\": false\n    },\n    {\n      \"skill_id\": \"press\",\n      \"arm_used\": \"left\",\n      \"start_frame\": 95,\n      \"end_frame\": 103,\n      \"evidence\": \"左腕视角中，夹爪接触面板，屏幕显示18.0°C，但界面出现图标变化（如风扇/模式指示），表明进行了功能选择或确认操作。头视角显示左臂保持接触。\",\n      \"uncertain\": true\n    },\n    {\n      \"skill_id\": \"press\",\n      \"arm_used\": \"left\",\n      \"start_frame\": 111,\n      \"end_frame\": 119,\n      \"evidence\": \"左腕视角中，夹爪仍在面板上，屏幕温度从18.0°C变为12.0°C，再次调整设定值。头视角显示左臂持续交互。\",\n      \"uncertain\": false\n    }\n  ],\n  \"limitations\": \"右臂在整个序列中无明显运动，其腕部相机视角始终对准天花板，无法观察到任何交互行为。左臂操作主要通过左腕视角和头视角确认，但部分按压动作的精确边界因稀疏采样而存在不确定性。温控面板的响应（如温度变化）是判断按压的关键依据，但无法完全排除其他触发方式（如遥控）。\"\n}\n",
+  "usage": {
+    "image_tokens": 15392,
+    "input_tokens": 15633,
+    "input_tokens_details": {
+      "image_tokens": 15392,
+      "text_tokens": 241
+    },
+    "output_tokens": 690,
+    "output_tokens_details": {
+      "text_tokens": 690
+    },
+    "total_tokens": 16323
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "result": {
+    "actions": [
+      {
+        "skill_id": "wait",
+        "arm_used": "both",
+        "start_frame": 540,
+        "end_frame": 595,
+        "evidence": "在所有腕部视角中，夹爪保持静止且未接触任何物体；头部视角显示墙面开关无变化，无明显交互发生。左腕和右腕相机均无显著运动，表明手臂处于等待或静止状态。",
+        "uncertain": false
+      }
+    ],
+    "limitations": "由于腕部相机视角主要朝下，无法观察到手臂末端是否接近或接触墙上的开关或其他物体；稀疏采样（每4帧一帧）可能遗漏微小动作；背景中的设备（如机器人）有轻微移动，但与当前主体无关，未构成交互。"
+  },
+  "raw_text": "{\n  \"actions\": [\n    {\n      \"skill_id\": \"wait\",\n      \"arm_used\": \"both\",\n      \"start_frame\": 540,\n      \"end_frame\": 595,\n      \"evidence\": \"在所有腕部视角中，夹爪保持静止且未接触任何物体；头部视角显示墙面开关无变化，无明显交互发生。左腕和右腕相机均无显著运动，表明手臂处于等待或静止状态。\",\n      \"uncertain\": false\n    }\n  ],\n  \"limitations\": \"由于腕部相机视角主要朝下，无法观察到手臂末端是否接近或接触墙上的开关或其他物体；稀疏采样（每4帧一帧）可能遗漏微小动作；背景中的设备（如机器人）有轻微移动，但与当前主体无关，未构成交互。\"\n}\n",
+  "usage": {
+    "image_tokens": 15392,
+    "input_tokens": 15635,
+    "input_tokens_details": {
+      "image_tokens": 15392,
+      "text_tokens": 243
+    },
+    "output_tokens": 186,
+    "output_tokens_details": {
+      "text_tokens": 186
+    },
+    "total_tokens": 15821
+  }
+}

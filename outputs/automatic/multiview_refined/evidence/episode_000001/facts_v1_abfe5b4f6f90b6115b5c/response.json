@@ -1,0 +1,74 @@
+{
+  "result": {
+    "observations": [
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 142,
+        "end_frame": 143,
+        "kind": "screen_change",
+        "visibility": "clear",
+        "description": "屏幕从无显示变为显示数字'18.5℃'，同时出现风扇图标和信号强度条。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 143,
+        "end_frame": 144,
+        "kind": "screen_change",
+        "visibility": "clear",
+        "description": "屏幕内容保持不变，仍显示'18.5℃'、风扇图标和信号强度条，新增一个雪花图标。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 144,
+        "end_frame": 155,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "description": "屏幕内容在所有帧中均保持稳定，持续显示'18.5℃'、雪花图标、风扇图标和信号强度条，无可见变化。"
+      },
+      {
+        "view": "head_rgb",
+        "start_frame": 142,
+        "end_frame": 155,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "description": "机械臂主体位置和姿态在所有帧中均无可见变化。"
+      },
+      {
+        "view": "head_right_rgb",
+        "start_frame": 142,
+        "end_frame": 155,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "description": "机械臂主体位置和姿态在所有帧中均无可见变化。"
+      },
+      {
+        "view": "right_wrist_rgb",
+        "start_frame": 142,
+        "end_frame": 155,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "description": "夹爪在所有帧中均保持静止，未见相对运动或开合变化。"
+      }
+    ],
+    "limitations": [
+      "无法从head_rgb和head_right_rgb视角观察到左腕或右腕相机的相对运动。",
+      "右腕相机视角中未显示任何物体或按钮，无法判断其与环境的交互。",
+      "左腕相机视角中，夹爪尖端与按钮区域有部分重叠，但未见明显形变或脱离迹象。",
+      "屏幕数值清晰可读，但无法确认是否因外部操作触发变化，仅记录视觉呈现。"
+    ]
+  },
+  "raw_text": "{\n  \"observations\": [\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 142,\n      \"end_frame\": 143,\n      \"kind\": \"screen_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"屏幕从无显示变为显示数字'18.5℃'，同时出现风扇图标和信号强度条。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 143,\n      \"end_frame\": 144,\n      \"kind\": \"screen_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"屏幕内容保持不变，仍显示'18.5℃'、风扇图标和信号强度条，新增一个雪花图标。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 144,\n      \"end_frame\": 155,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"屏幕内容在所有帧中均保持稳定，持续显示'18.5℃'、雪花图标、风扇图标和信号强度条，无可见变化。\"\n    },\n    {\n      \"view\": \"head_rgb\",\n      \"start_frame\": 142,\n      \"end_frame\": 155,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"机械臂主体位置和姿态在所有帧中均无可见变化。\"\n    },\n    {\n      \"view\": \"head_right_rgb\",\n      \"start_frame\": 142,\n      \"end_frame\": 155,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"机械臂主体位置和姿态在所有帧中均无可见变化。\"\n    },\n    {\n      \"view\": \"right_wrist_rgb\",\n      \"start_frame\": 142,\n      \"end_frame\": 155,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"夹爪在所有帧中均保持静止，未见相对运动或开合变化。\"\n    }\n  ],\n  \"limitations\": [\n    \"无法从head_rgb和head_right_rgb视角观察到左腕或右腕相机的相对运动。\",\n    \"右腕相机视角中未显示任何物体或按钮，无法判断其与环境的交互。\",\n    \"左腕相机视角中，夹爪尖端与按钮区域有部分重叠，但未见明显形变或脱离迹象。\",\n    \"屏幕数值清晰可读，但无法确认是否因外部操作触发变化，仅记录视觉呈现。\"\n  ]\n}\n",
+  "usage": {
+    "image_tokens": 25816,
+    "input_tokens": 26182,
+    "input_tokens_details": {
+      "image_tokens": 25816,
+      "text_tokens": 366
+    },
+    "output_tokens": 586,
+    "output_tokens_details": {
+      "text_tokens": 586
+    },
+    "total_tokens": 26768
+  }
+}

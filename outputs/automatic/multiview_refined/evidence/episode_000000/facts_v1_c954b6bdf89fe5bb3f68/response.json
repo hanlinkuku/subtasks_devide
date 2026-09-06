@@ -1,0 +1,61 @@
+{
+  "result": {
+    "observations": [
+      {
+        "view": "head_rgb",
+        "start_frame": 376,
+        "end_frame": 394,
+        "kind": "relative_motion",
+        "visibility": "clear",
+        "description": "从头视角左上，机械臂主体在画面左侧，夹爪朝向右侧墙壁上的温控面板。在帧376至394期间，机械臂有轻微的上下和左右移动，但整体位置基本保持不变，夹爪未接触面板。"
+      },
+      {
+        "view": "head_right_rgb",
+        "start_frame": 376,
+        "end_frame": 394,
+        "kind": "relative_motion",
+        "visibility": "clear",
+        "description": "从头视角右上，与左上视角类似，机械臂主体位于画面左侧，夹爪对准右侧墙壁上的温控面板。在帧376至394期间，机械臂有轻微的上下和左右移动，但整体位置稳定，夹爪未接触面板。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 376,
+        "end_frame": 394,
+        "kind": "local_tip_motion",
+        "visibility": "clear",
+        "description": "从左腕视角，黑色夹爪尖端位于画面下方，正对着墙上的白色温控面板。在帧376至394期间，夹爪尖端相对于面板有微小的前后和左右摆动，但始终未接触面板表面。"
+      },
+      {
+        "view": "right_wrist_rgb",
+        "start_frame": 376,
+        "end_frame": 394,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "description": "从右腕视角，黑色夹爪尖端位于画面中央偏下，背景为白色墙壁和天花板。在帧376至394期间，夹爪尖端位置基本固定，无明显运动，未观察到与任何物体的交互。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 376,
+        "end_frame": 394,
+        "kind": "screen_change",
+        "visibility": "clear",
+        "description": "在左腕视角的细节图中，温控面板屏幕显示数值“20.5°C”，并伴有其他图标（如风扇、模式符号）。在帧376至394期间，屏幕内容保持不变，亮度稳定，未见闪烁或数值变化。"
+      }
+    ],
+    "limitations": "无法从当前视角判断机械臂是否施加了压力或按压动作；右腕相机视角中未出现温控面板，因此无法观察其状态变化；所有视角均未直接观察到被抓持物体的脱离。"
+  },
+  "raw_text": "{\n  \"observations\": [\n    {\n      \"view\": \"head_rgb\",\n      \"start_frame\": 376,\n      \"end_frame\": 394,\n      \"kind\": \"relative_motion\",\n      \"visibility\": \"clear\",\n      \"description\": \"从头视角左上，机械臂主体在画面左侧，夹爪朝向右侧墙壁上的温控面板。在帧376至394期间，机械臂有轻微的上下和左右移动，但整体位置基本保持不变，夹爪未接触面板。\"\n    },\n    {\n      \"view\": \"head_right_rgb\",\n      \"start_frame\": 376,\n      \"end_frame\": 394,\n      \"kind\": \"relative_motion\",\n      \"visibility\": \"clear\",\n      \"description\": \"从头视角右上，与左上视角类似，机械臂主体位于画面左侧，夹爪对准右侧墙壁上的温控面板。在帧376至394期间，机械臂有轻微的上下和左右移动，但整体位置稳定，夹爪未接触面板。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 376,\n      \"end_frame\": 394,\n      \"kind\": \"local_tip_motion\",\n      \"visibility\": \"clear\",\n      \"description\": \"从左腕视角，黑色夹爪尖端位于画面下方，正对着墙上的白色温控面板。在帧376至394期间，夹爪尖端相对于面板有微小的前后和左右摆动，但始终未接触面板表面。\"\n    },\n    {\n      \"view\": \"right_wrist_rgb\",\n      \"start_frame\": 376,\n      \"end_frame\": 394,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"从右腕视角，黑色夹爪尖端位于画面中央偏下，背景为白色墙壁和天花板。在帧376至394期间，夹爪尖端位置基本固定，无明显运动，未观察到与任何物体的交互。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 376,\n      \"end_frame\": 394,\n      \"kind\": \"screen_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"在左腕视角的细节图中，温控面板屏幕显示数值“20.5°C”，并伴有其他图标（如风扇、模式符号）。在帧376至394期间，屏幕内容保持不变，亮度稳定，未见闪烁或数值变化。\"\n    }\n  ],\n  \"limitations\": \"无法从当前视角判断机械臂是否施加了压力或按压动作；右腕相机视角中未出现温控面板，因此无法观察其状态变化；所有视角均未直接观察到被抓持物体的脱离。\"\n}",
+  "usage": {
+    "image_tokens": 33192,
+    "input_tokens": 33558,
+    "input_tokens_details": {
+      "image_tokens": 33192,
+      "text_tokens": 366
+    },
+    "output_tokens": 629,
+    "output_tokens_details": {
+      "text_tokens": 629
+    },
+    "total_tokens": 34187
+  }
+}

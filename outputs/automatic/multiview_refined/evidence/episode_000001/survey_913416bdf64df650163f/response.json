@@ -1,0 +1,37 @@
+{
+  "result": {
+    "actions": [
+      {
+        "skill_id": "press",
+        "arm_used": "left",
+        "start_frame": 153,
+        "end_frame": 161,
+        "evidence": "左腕视角显示，夹爪持续接触TOSHIBA温控器的圆形按钮（右上角），从帧153到161，屏幕状态无变化但夹爪保持接触，符合按压动作特征。右腕视角无交互。",
+        "uncertain": true
+      },
+      {
+        "skill_id": "press",
+        "arm_used": "left",
+        "start_frame": 201,
+        "end_frame": 209,
+        "evidence": "左腕视角中，夹爪在帧201-209期间持续接触温控器右侧按钮区域，同时屏幕温度从18.5°C变为18.0°C，表明按钮被有效按压。右腕视角无交互。",
+        "uncertain": false
+      }
+    ],
+    "limitations": "右臂在整个观察窗口内未见任何移动或交互，其腕部相机视角始终对准空白墙面，无法确认是否参与操作。左臂操作主要通过腕部相机视角判断，存在因稀疏采样导致的边界模糊风险。温控器屏幕响应可能滞后，需结合连续帧确认按压有效性。"
+  },
+  "raw_text": "{\n  \"actions\": [\n    {\n      \"skill_id\": \"press\",\n      \"arm_used\": \"left\",\n      \"start_frame\": 153,\n      \"end_frame\": 161,\n      \"evidence\": \"左腕视角显示，夹爪持续接触TOSHIBA温控器的圆形按钮（右上角），从帧153到161，屏幕状态无变化但夹爪保持接触，符合按压动作特征。右腕视角无交互。\",\n      \"uncertain\": true\n    },\n    {\n      \"skill_id\": \"press\",\n      \"arm_used\": \"left\",\n      \"start_frame\": 201,\n      \"end_frame\": 209,\n      \"evidence\": \"左腕视角中，夹爪在帧201-209期间持续接触温控器右侧按钮区域，同时屏幕温度从18.5°C变为18.0°C，表明按钮被有效按压。右腕视角无交互。\",\n      \"uncertain\": false\n    }\n  ],\n  \"limitations\": \"右臂在整个观察窗口内未见任何移动或交互，其腕部相机视角始终对准空白墙面，无法确认是否参与操作。左臂操作主要通过腕部相机视角判断，存在因稀疏采样导致的边界模糊风险。温控器屏幕响应可能滞后，需结合连续帧确认按压有效性。\"\n}\n",
+  "usage": {
+    "image_tokens": 15392,
+    "input_tokens": 15634,
+    "input_tokens_details": {
+      "image_tokens": 15392,
+      "text_tokens": 242
+    },
+    "output_tokens": 307,
+    "output_tokens_details": {
+      "text_tokens": 307
+    },
+    "total_tokens": 15941
+  }
+}

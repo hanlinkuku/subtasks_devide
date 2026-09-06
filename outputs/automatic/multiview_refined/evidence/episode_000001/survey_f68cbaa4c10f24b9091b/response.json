@@ -1,0 +1,29 @@
+{
+  "result": {
+    "actions": [
+      {
+        "skill_id": "wait",
+        "arm_used": "both",
+        "start_frame": 360,
+        "end_frame": 393,
+        "evidence": "在head_rgb和head_right_rgb视角中，墙上的温控器显示18.0°C且无变化；左腕和右腕视角中，夹爪保持静止，未发生开合或位移，手臂无明显运动迹象。",
+        "uncertain": false
+      }
+    ],
+    "limitations": "由于所有视角均无显著动作发生，且腕部相机固定，无法确认是否存在微小的、未被采样捕捉到的运动。此外，温控器界面未显示交互反馈，无法判断是否发生按压等操作。"
+  },
+  "raw_text": "{\n  \"actions\": [\n    {\n      \"skill_id\": \"wait\",\n      \"arm_used\": \"both\",\n      \"start_frame\": 360,\n      \"end_frame\": 393,\n      \"evidence\": \"在head_rgb和head_right_rgb视角中，墙上的温控器显示18.0°C且无变化；左腕和右腕视角中，夹爪保持静止，未发生开合或位移，手臂无明显运动迹象。\",\n      \"uncertain\": false\n    }\n  ],\n  \"limitations\": \"由于所有视角均无显著动作发生，且腕部相机固定，无法确认是否存在微小的、未被采样捕捉到的运动。此外，温控器界面未显示交互反馈，无法判断是否发生按压等操作。\"\n}\n",
+  "usage": {
+    "image_tokens": 15392,
+    "input_tokens": 15635,
+    "input_tokens_details": {
+      "image_tokens": 15392,
+      "text_tokens": 243
+    },
+    "output_tokens": 177,
+    "output_tokens_details": {
+      "text_tokens": 177
+    },
+    "total_tokens": 15812
+  }
+}

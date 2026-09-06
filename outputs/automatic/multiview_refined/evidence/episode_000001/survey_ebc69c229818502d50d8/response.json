@@ -1,0 +1,37 @@
+{
+  "result": {
+    "actions": [
+      {
+        "skill_id": "reach",
+        "arm_used": "left",
+        "start_frame": 40,
+        "end_frame": 56,
+        "evidence": "左腕视角显示机械臂从下方接近墙上的白色设备（温控器），在FRAME 56时夹爪已非常靠近设备表面，且head_rgb视角中可见左臂移动至设备前方。",
+        "uncertain": false
+      },
+      {
+        "skill_id": "press",
+        "arm_used": "left",
+        "start_frame": 56,
+        "end_frame": 119,
+        "evidence": "左腕视角中，夹爪持续接触并压住白色设备的按钮区域（如FRAME 79、87、95等），设备屏幕无明显变化但夹爪保持稳定压力；head_rgb视角显示左臂末端紧贴设备。此为连续按压动作，非短暂接触。",
+        "uncertain": true
+      }
+    ],
+    "limitations": "右臂在整个序列中未见任何运动或交互，其腕部相机视角始终固定对准天花板，无法判断是否参与操作。左臂操作对象为墙上的温控器，但因视角限制，无法确认具体按压哪个按钮或是否有响应。稀疏采样可能导致按压起始/结束帧不精确。"
+  },
+  "raw_text": "{\n  \"actions\": [\n    {\n      \"skill_id\": \"reach\",\n      \"arm_used\": \"left\",\n      \"start_frame\": 40,\n      \"end_frame\": 56,\n      \"evidence\": \"左腕视角显示机械臂从下方接近墙上的白色设备（温控器），在FRAME 56时夹爪已非常靠近设备表面，且head_rgb视角中可见左臂移动至设备前方。\",\n      \"uncertain\": false\n    },\n    {\n      \"skill_id\": \"press\",\n      \"arm_used\": \"left\",\n      \"start_frame\": 56,\n      \"end_frame\": 119,\n      \"evidence\": \"左腕视角中，夹爪持续接触并压住白色设备的按钮区域（如FRAME 79、87、95等），设备屏幕无明显变化但夹爪保持稳定压力；head_rgb视角显示左臂末端紧贴设备。此为连续按压动作，非短暂接触。\",\n      \"uncertain\": true\n    }\n  ],\n  \"limitations\": \"右臂在整个序列中未见任何运动或交互，其腕部相机视角始终固定对准天花板，无法判断是否参与操作。左臂操作对象为墙上的温控器，但因视角限制，无法确认具体按压哪个按钮或是否有响应。稀疏采样可能导致按压起始/结束帧不精确。\"\n}\n",
+  "usage": {
+    "image_tokens": 15392,
+    "input_tokens": 15633,
+    "input_tokens_details": {
+      "image_tokens": 15392,
+      "text_tokens": 241
+    },
+    "output_tokens": 304,
+    "output_tokens_details": {
+      "text_tokens": 304
+    },
+    "total_tokens": 15937
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "result": {
+    "observations": [
+      {
+        "view": "head_rgb",
+        "start_frame": 442,
+        "end_frame": 460,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "description": "从头视角观察，机械臂整体位置和姿态在帧序列中无明显变化。背景中的白色墙面、木质结构及远处的设备均保持静止，未见物体相对相机发生位移。"
+      },
+      {
+        "view": "head_right_rgb",
+        "start_frame": 442,
+        "end_frame": 460,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "description": "右头视角与左头视角一致，机械臂及其周围环境在所有帧中均无可见运动或变化。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 442,
+        "end_frame": 452,
+        "kind": "local_tip_motion",
+        "visibility": "clear",
+        "description": "夹爪尖端持续接触控制面板右侧按钮区域。在帧442至452期间，夹爪尖端相对于按钮有微小前后移动，但未脱离按钮区域。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 453,
+        "end_frame": 460,
+        "kind": "relative_motion",
+        "visibility": "clear",
+        "description": "夹爪尖端与控制面板之间的相对位置发生变化。从帧453开始，夹爪尖端向右上方移动，导致控制面板在画面中向左下方倾斜，部分按钮（如电源键）逐渐移出视野。"
+      },
+      {
+        "view": "right_wrist_rgb",
+        "start_frame": 442,
+        "end_frame": 460,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "description": "右腕相机视角中，仅显示黑色夹爪尖端，背景为白色墙面。在整个序列中，夹爪尖端位置固定，未见任何运动或变化。"
+      }
+    ],
+    "limitations": [
+      "无法从任何视角直接观察到按钮是否发生形变。",
+      "控制面板屏幕内容模糊，无法辨认具体数值或界面变化。",
+      "右腕相机视角完全被夹爪遮挡，无法观察到其周围环境或物体。",
+      "帧442至452期间，左腕视角中夹爪尖端与按钮的接触状态未发生可识别的分离或显著形变。",
+      "帧453至460期间，由于夹爪移动，部分按钮被遮挡，无法确认其完整状态。"
+    ]
+  },
+  "raw_text": "{\n  \"observations\": [\n    {\n      \"view\": \"head_rgb\",\n      \"start_frame\": 442,\n      \"end_frame\": 460,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"从头视角观察，机械臂整体位置和姿态在帧序列中无明显变化。背景中的白色墙面、木质结构及远处的设备均保持静止，未见物体相对相机发生位移。\"\n    },\n    {\n      \"view\": \"head_right_rgb\",\n      \"start_frame\": 442,\n      \"end_frame\": 460,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"右头视角与左头视角一致，机械臂及其周围环境在所有帧中均无可见运动或变化。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 442,\n      \"end_frame\": 452,\n      \"kind\": \"local_tip_motion\",\n      \"visibility\": \"clear\",\n      \"description\": \"夹爪尖端持续接触控制面板右侧按钮区域。在帧442至452期间，夹爪尖端相对于按钮有微小前后移动，但未脱离按钮区域。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 453,\n      \"end_frame\": 460,\n      \"kind\": \"relative_motion\",\n      \"visibility\": \"clear\",\n      \"description\": \"夹爪尖端与控制面板之间的相对位置发生变化。从帧453开始，夹爪尖端向右上方移动，导致控制面板在画面中向左下方倾斜，部分按钮（如电源键）逐渐移出视野。\"\n    },\n    {\n      \"view\": \"right_wrist_rgb\",\n      \"start_frame\": 442,\n      \"end_frame\": 460,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"右腕相机视角中，仅显示黑色夹爪尖端，背景为白色墙面。在整个序列中，夹爪尖端位置固定，未见任何运动或变化。\"\n    }\n  ],\n  \"limitations\": [\n    \"无法从任何视角直接观察到按钮是否发生形变。\",\n    \"控制面板屏幕内容模糊，无法辨认具体数值或界面变化。\",\n    \"右腕相机视角完全被夹爪遮挡，无法观察到其周围环境或物体。\",\n    \"帧442至452期间，左腕视角中夹爪尖端与按钮的接触状态未发生可识别的分离或显著形变。\",\n    \"帧453至460期间，由于夹爪移动，部分按钮被遮挡，无法确认其完整状态。\"\n  ]\n}\n",
+  "usage": {
+    "image_tokens": 33192,
+    "input_tokens": 33558,
+    "input_tokens_details": {
+      "image_tokens": 33192,
+      "text_tokens": 366
+    },
+    "output_tokens": 615,
+    "output_tokens_details": {
+      "text_tokens": 615
+    },
+    "total_tokens": 34173
+  }
+}

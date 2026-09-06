@@ -1,0 +1,30 @@
+{
+  "result": {
+    "interaction_supported": true,
+    "start_frame": 154,
+    "end_frame": 174,
+    "arm_used": "left",
+    "action": "左臂夹爪按压温度上调按钮，将温度从18.0°C逐步调至20.0°C",
+    "evidence": [
+      "FRAME 154 | left_wrist_rgb: 温度显示从18.0°C变为18.5°C，夹爪对准并接触向上箭头按钮。",
+      "FRAME 170 | left_wrist_rgb: 温度显示为19.0°C，夹爪持续接触向上箭头按钮。",
+      "FRAME 174 | left_wrist_rgb: 温度显示为20.0°C，夹爪仍保持在按钮上，完成按压操作。"
+    ],
+    "uncertain": false,
+    "additional_actions": []
+  },
+  "raw_text": "{\n  \"interaction_supported\": true,\n  \"start_frame\": 154,\n  \"end_frame\": 174,\n  \"arm_used\": \"left\",\n  \"action\": \"左臂夹爪按压温度上调按钮，将温度从18.0°C逐步调至20.0°C\",\n  \"evidence\": [\n    \"FRAME 154 | left_wrist_rgb: 温度显示从18.0°C变为18.5°C，夹爪对准并接触向上箭头按钮。\",\n    \"FRAME 170 | left_wrist_rgb: 温度显示为19.0°C，夹爪持续接触向上箭头按钮。\",\n    \"FRAME 174 | left_wrist_rgb: 温度显示为20.0°C，夹爪仍保持在按钮上，完成按压操作。\"\n  ],\n  \"uncertain\": false,\n  \"additional_actions\": []\n}\n",
+  "usage": {
+    "image_tokens": 28860,
+    "input_tokens": 29144,
+    "input_tokens_details": {
+      "image_tokens": 28860,
+      "text_tokens": 284
+    },
+    "output_tokens": 207,
+    "output_tokens_details": {
+      "text_tokens": 207
+    },
+    "total_tokens": 29351
+  }
+}

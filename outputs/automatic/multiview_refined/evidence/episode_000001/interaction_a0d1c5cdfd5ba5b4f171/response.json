@@ -1,0 +1,26 @@
+{
+  "result": {
+    "interaction_supported": true,
+    "start_frame": 207,
+    "end_frame": 208,
+    "arm_used": "left",
+    "action": "左臂夹爪按压温控器上的向下箭头按钮，将温度从18.5°C下调至18.0°C",
+    "evidence": "在FRAME 207的left_wrist_rgb视角中，夹爪对准温控器下方的向下箭头按钮并保持接触；在FRAME 208中，屏幕显示温度已变为18.0°C，且夹爪位置未发生明显撤离动作，符合按压及保持的操作定义。",
+    "uncertain": false,
+    "additional_actions": []
+  },
+  "raw_text": "{\n  \"interaction_supported\": true,\n  \"start_frame\": 207,\n  \"end_frame\": 208,\n  \"arm_used\": \"left\",\n  \"action\": \"左臂夹爪按压温控器上的向下箭头按钮，将温度从18.5°C下调至18.0°C\",\n  \"evidence\": \"在FRAME 207的left_wrist_rgb视角中，夹爪对准温控器下方的向下箭头按钮并保持接触；在FRAME 208中，屏幕显示温度已变为18.0°C，且夹爪位置未发生明显撤离动作，符合按压及保持的操作定义。\",\n  \"uncertain\": false,\n  \"additional_actions\": []\n}\n",
+  "usage": {
+    "image_tokens": 26936,
+    "input_tokens": 27220,
+    "input_tokens_details": {
+      "image_tokens": 26936,
+      "text_tokens": 284
+    },
+    "output_tokens": 165,
+    "output_tokens_details": {
+      "text_tokens": 165
+    },
+    "total_tokens": 27385
+  }
+}

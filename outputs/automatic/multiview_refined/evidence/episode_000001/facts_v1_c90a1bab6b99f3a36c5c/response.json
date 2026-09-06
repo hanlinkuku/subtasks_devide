@@ -1,0 +1,59 @@
+{
+  "result": {
+    "observations": [
+      {
+        "view": "head_rgb",
+        "start_frame": 148,
+        "end_frame": 166,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "description": "从帧148到166，head_rgb视角中机械臂主体、连接线缆及背景墙面无可见位置或形态变化。"
+      },
+      {
+        "view": "head_right_rgb",
+        "start_frame": 148,
+        "end_frame": 166,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "description": "从帧148到166，head_right_rgb视角中机械臂主体、连接线缆及背景墙面无可见位置或形态变化。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 148,
+        "end_frame": 166,
+        "kind": "local_tip_motion",
+        "visibility": "clear",
+        "description": "从帧148到166，左腕相机视角中，黑色夹爪尖端持续接触白色TOSHIBA温控面板的电源按钮区域，夹爪与按钮之间无明显相对位移，但夹爪尖端有微小抖动或振动。"
+      },
+      {
+        "view": "right_wrist_rgb",
+        "start_frame": 148,
+        "end_frame": 166,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "description": "从帧148到166，右腕相机视角中，黑色夹爪保持静止，背景为浅色墙面，无可见物体或相机位置变化。"
+      }
+    ],
+    "limitations": [
+      "无法从任何视角直接观察到按钮表面形变。",
+      "屏幕显示内容（如18.5°C）在所有帧中均未发生变化，但未提供足够信息判断其是否因操作而改变。",
+      "右腕相机视角完全被夹爪占据，无法观察到其他物体或环境变化。",
+      "头视角（head_rgb, head_right_rgb）未提供关于温控面板或夹爪的直接视图，因此无法确认其与目标物体的交互细节。",
+      "未提供帧147和167，无法判断该时间段内是否有动作发生。"
+    ]
+  },
+  "raw_text": "{\n  \"observations\": [\n    {\n      \"view\": \"head_rgb\",\n      \"start_frame\": 148,\n      \"end_frame\": 166,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"从帧148到166，head_rgb视角中机械臂主体、连接线缆及背景墙面无可见位置或形态变化。\"\n    },\n    {\n      \"view\": \"head_right_rgb\",\n      \"start_frame\": 148,\n      \"end_frame\": 166,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"从帧148到166，head_right_rgb视角中机械臂主体、连接线缆及背景墙面无可见位置或形态变化。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 148,\n      \"end_frame\": 166,\n      \"kind\": \"local_tip_motion\",\n      \"visibility\": \"clear\",\n      \"description\": \"从帧148到166，左腕相机视角中，黑色夹爪尖端持续接触白色TOSHIBA温控面板的电源按钮区域，夹爪与按钮之间无明显相对位移，但夹爪尖端有微小抖动或振动。\"\n    },\n    {\n      \"view\": \"right_wrist_rgb\",\n      \"start_frame\": 148,\n      \"end_frame\": 166,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"从帧148到166，右腕相机视角中，黑色夹爪保持静止，背景为浅色墙面，无可见物体或相机位置变化。\"\n    }\n  ],\n  \"limitations\": [\n    \"无法从任何视角直接观察到按钮表面形变。\",\n    \"屏幕显示内容（如18.5°C）在所有帧中均未发生变化，但未提供足够信息判断其是否因操作而改变。\",\n    \"右腕相机视角完全被夹爪占据，无法观察到其他物体或环境变化。\",\n    \"头视角（head_rgb, head_right_rgb）未提供关于温控面板或夹爪的直接视图，因此无法确认其与目标物体的交互细节。\",\n    \"未提供帧147和167，无法判断该时间段内是否有动作发生。\"\n  ]\n}",
+  "usage": {
+    "image_tokens": 33192,
+    "input_tokens": 33558,
+    "input_tokens_details": {
+      "image_tokens": 33192,
+      "text_tokens": 366
+    },
+    "output_tokens": 527,
+    "output_tokens_details": {
+      "text_tokens": 527
+    },
+    "total_tokens": 34085
+  }
+}

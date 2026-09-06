@@ -1,0 +1,61 @@
+{
+  "result": {
+    "actions": [
+      {
+        "skill_id": "reach",
+        "arm_used": "left",
+        "start_frame": 360,
+        "end_frame": 376,
+        "evidence": "左腕视角显示机械臂从下方接近墙上的温控面板，夹爪朝向面板但未接触；头视角可见左臂移动至面板前方。",
+        "uncertain": false
+      },
+      {
+        "skill_id": "press",
+        "arm_used": "left",
+        "start_frame": 376,
+        "end_frame": 416,
+        "evidence": "左腕视角中，夹爪与温控面板紧密接触，面板屏幕在384帧后显示变化（如温度数值或菜单切换），表明有按压交互发生；头视角显示左臂稳定在面板前。",
+        "uncertain": true
+      },
+      {
+        "skill_id": "wait",
+        "arm_used": "left",
+        "start_frame": 416,
+        "end_frame": 447,
+        "evidence": "左腕视角中夹爪持续接触面板，面板屏幕保持变化后的状态（如20.2°C），无明显位移或操作动作。",
+        "uncertain": false
+      },
+      {
+        "skill_id": "release",
+        "arm_used": "left",
+        "start_frame": 447,
+        "end_frame": 455,
+        "evidence": "左腕视角中夹爪开始后退，与面板分离；头视角显示左臂开始撤回。",
+        "uncertain": false
+      },
+      {
+        "skill_id": "move",
+        "arm_used": "left",
+        "start_frame": 455,
+        "end_frame": 479,
+        "evidence": "左腕视角中夹爪完全离开面板，手臂向左后方移动；头视角显示左臂逐渐远离墙面。",
+        "uncertain": false
+      }
+    ],
+    "limitations": "右臂在整个观察窗口内无明显运动，其腕部相机视角始终对准天花板，无法确认是否参与操作。左臂操作主要基于左腕视角和头视角推断，存在因稀疏采样导致的边界模糊风险。温控面板的响应可能由其他方式触发，但结合夹爪接触和屏幕变化，按压可能性较高。"
+  },
+  "raw_text": "{\n  \"actions\": [\n    {\n      \"skill_id\": \"reach\",\n      \"arm_used\": \"left\",\n      \"start_frame\": 360,\n      \"end_frame\": 376,\n      \"evidence\": \"左腕视角显示机械臂从下方接近墙上的温控面板，夹爪朝向面板但未接触；头视角可见左臂移动至面板前方。\",\n      \"uncertain\": false\n    },\n    {\n      \"skill_id\": \"press\",\n      \"arm_used\": \"left\",\n      \"start_frame\": 376,\n      \"end_frame\": 416,\n      \"evidence\": \"左腕视角中，夹爪与温控面板紧密接触，面板屏幕在384帧后显示变化（如温度数值或菜单切换），表明有按压交互发生；头视角显示左臂稳定在面板前。\",\n      \"uncertain\": true\n    },\n    {\n      \"skill_id\": \"wait\",\n      \"arm_used\": \"left\",\n      \"start_frame\": 416,\n      \"end_frame\": 447,\n      \"evidence\": \"左腕视角中夹爪持续接触面板，面板屏幕保持变化后的状态（如20.2°C），无明显位移或操作动作。\",\n      \"uncertain\": false\n    },\n    {\n      \"skill_id\": \"release\",\n      \"arm_used\": \"left\",\n      \"start_frame\": 447,\n      \"end_frame\": 455,\n      \"evidence\": \"左腕视角中夹爪开始后退，与面板分离；头视角显示左臂开始撤回。\",\n      \"uncertain\": false\n    },\n    {\n      \"skill_id\": \"move\",\n      \"arm_used\": \"left\",\n      \"start_frame\": 455,\n      \"end_frame\": 479,\n      \"evidence\": \"左腕视角中夹爪完全离开面板，手臂向左后方移动；头视角显示左臂逐渐远离墙面。\",\n      \"uncertain\": false\n    }\n  ],\n  \"limitations\": \"右臂在整个观察窗口内无明显运动，其腕部相机视角始终对准天花板，无法确认是否参与操作。左臂操作主要基于左腕视角和头视角推断，存在因稀疏采样导致的边界模糊风险。温控面板的响应可能由其他方式触发，但结合夹爪接触和屏幕变化，按压可能性较高。\"\n}\n",
+  "usage": {
+    "image_tokens": 15392,
+    "input_tokens": 15635,
+    "input_tokens_details": {
+      "image_tokens": 15392,
+      "text_tokens": 243
+    },
+    "output_tokens": 526,
+    "output_tokens_details": {
+      "text_tokens": 526
+    },
+    "total_tokens": 16161
+  }
+}

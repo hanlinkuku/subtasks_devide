@@ -1,0 +1,67 @@
+{
+  "result": {
+    "observations": [
+      {
+        "view": "head_rgb",
+        "start_frame": 43,
+        "end_frame": 61,
+        "kind": "relative_motion",
+        "visibility": "clear",
+        "description": "从帧43到61，左臂机械结构在头视角中持续向右上方移动，夹爪位置逐渐靠近墙上的温控器。"
+      },
+      {
+        "view": "head_right_rgb",
+        "start_frame": 43,
+        "end_frame": 61,
+        "kind": "relative_motion",
+        "visibility": "clear",
+        "description": "从帧43到61，左臂机械结构在右侧头视角中持续向右上方移动，夹爪位置逐渐靠近墙上的温控器。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 43,
+        "end_frame": 61,
+        "kind": "local_tip_motion",
+        "visibility": "clear",
+        "description": "从帧43到61，夹爪尖端在温控器按钮区域保持近距离对准，未发生明显位移或开合动作。"
+      },
+      {
+        "view": "right_wrist_rgb",
+        "start_frame": 43,
+        "end_frame": 61,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "description": "从帧43到61，右腕相机视角中仅显示夹爪尖端，无其他物体或背景变化，夹爪保持静止。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 43,
+        "end_frame": 61,
+        "kind": "screen_change",
+        "visibility": "clear",
+        "description": "从帧43到61，温控器屏幕数字在细节图中可见波动：43-45帧显示18.0，46-47帧显示18.6，48帧显示18.9，49-51帧显示18.0，53-61帧稳定显示18.0。"
+      }
+    ],
+    "limitations": [
+      "无法从任何视角直接观察到按钮的形变。",
+      "右腕相机视角中无温控器或其他物体，无法判断其状态变化。",
+      "头视角和头右视角中温控器屏幕内容模糊，无法清晰读取数值。",
+      "夹爪在腕部相机中静止不能说明手臂整体静止，但本序列中左臂相对运动可由头视角确认。",
+      "未见被抓持物体脱离的直接证据。"
+    ]
+  },
+  "raw_text": "{\n  \"observations\": [\n    {\n      \"view\": \"head_rgb\",\n      \"start_frame\": 43,\n      \"end_frame\": 61,\n      \"kind\": \"relative_motion\",\n      \"visibility\": \"clear\",\n      \"description\": \"从帧43到61，左臂机械结构在头视角中持续向右上方移动，夹爪位置逐渐靠近墙上的温控器。\"\n    },\n    {\n      \"view\": \"head_right_rgb\",\n      \"start_frame\": 43,\n      \"end_frame\": 61,\n      \"kind\": \"relative_motion\",\n      \"visibility\": \"clear\",\n      \"description\": \"从帧43到61，左臂机械结构在右侧头视角中持续向右上方移动，夹爪位置逐渐靠近墙上的温控器。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 43,\n      \"end_frame\": 61,\n      \"kind\": \"local_tip_motion\",\n      \"visibility\": \"clear\",\n      \"description\": \"从帧43到61，夹爪尖端在温控器按钮区域保持近距离对准，未发生明显位移或开合动作。\"\n    },\n    {\n      \"view\": \"right_wrist_rgb\",\n      \"start_frame\": 43,\n      \"end_frame\": 61,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"从帧43到61，右腕相机视角中仅显示夹爪尖端，无其他物体或背景变化，夹爪保持静止。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 43,\n      \"end_frame\": 61,\n      \"kind\": \"screen_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"从帧43到61，温控器屏幕数字在细节图中可见波动：43-45帧显示18.0，46-47帧显示18.6，48帧显示18.9，49-51帧显示18.0，53-61帧稳定显示18.0。\"\n    }\n  ],\n  \"limitations\": [\n    \"无法从任何视角直接观察到按钮的形变。\",\n    \"右腕相机视角中无温控器或其他物体，无法判断其状态变化。\",\n    \"头视角和头右视角中温控器屏幕内容模糊，无法清晰读取数值。\",\n    \"夹爪在腕部相机中静止不能说明手臂整体静止，但本序列中左臂相对运动可由头视角确认。\",\n    \"未见被抓持物体脱离的直接证据。\"\n  ]\n}\n",
+  "usage": {
+    "image_tokens": 33192,
+    "input_tokens": 33556,
+    "input_tokens_details": {
+      "image_tokens": 33192,
+      "text_tokens": 364
+    },
+    "output_tokens": 597,
+    "output_tokens_details": {
+      "text_tokens": 597
+    },
+    "total_tokens": 34153
+  }
+}

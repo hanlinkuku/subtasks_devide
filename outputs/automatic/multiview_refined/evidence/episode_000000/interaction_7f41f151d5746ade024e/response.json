@@ -1,0 +1,26 @@
+{
+  "result": {
+    "interaction_supported": true,
+    "start_frame": 439,
+    "end_frame": 440,
+    "arm_used": "left",
+    "action": "按压空调遥控器的电源按钮",
+    "evidence": "在FRAME 439 left_wrist_rgb中，夹爪对准遥控器右上角的圆形电源按钮；在FRAME 440 left_wrist_rgb中，夹爪明显向按钮推进并保持接触，同时遥控器屏幕从显示温度变为全屏亮起，符合press操作定义。",
+    "uncertain": false,
+    "additional_actions": []
+  },
+  "raw_text": "{\n  \"interaction_supported\": true,\n  \"start_frame\": 439,\n  \"end_frame\": 440,\n  \"arm_used\": \"left\",\n  \"action\": \"按压空调遥控器的电源按钮\",\n  \"evidence\": \"在FRAME 439 left_wrist_rgb中，夹爪对准遥控器右上角的圆形电源按钮；在FRAME 440 left_wrist_rgb中，夹爪明显向按钮推进并保持接触，同时遥控器屏幕从显示温度变为全屏亮起，符合press操作定义。\",\n  \"uncertain\": false,\n  \"additional_actions\": []\n}\n",
+  "usage": {
+    "image_tokens": 26936,
+    "input_tokens": 27220,
+    "input_tokens_details": {
+      "image_tokens": 26936,
+      "text_tokens": 284
+    },
+    "output_tokens": 141,
+    "output_tokens_details": {
+      "text_tokens": 141
+    },
+    "total_tokens": 27361
+  }
+}

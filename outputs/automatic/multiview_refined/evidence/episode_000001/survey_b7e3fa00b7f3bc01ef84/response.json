@@ -1,0 +1,29 @@
+{
+  "result": {
+    "actions": [
+      {
+        "skill_id": "move",
+        "arm_used": "left",
+        "start_frame": 270,
+        "end_frame": 389,
+        "evidence": "左腕视角中，夹爪持续朝向右下方移动，背景中的地板和门框逐渐进入视野，表明左臂在进行移动操作。右腕视角无明显运动，夹爪保持静止。",
+        "uncertain": false
+      }
+    ],
+    "limitations": "右臂在整个观察窗口内未见明显动作，夹爪始终固定，无法确认是否有目的操作。左臂的移动路径和目标物体不明确，仅能确认运动发生。头视角中温控器无变化，未观察到按钮按压或交互。"
+  },
+  "raw_text": "{\n  \"actions\": [\n    {\n      \"skill_id\": \"move\",\n      \"arm_used\": \"left\",\n      \"start_frame\": 270,\n      \"end_frame\": 389,\n      \"evidence\": \"左腕视角中，夹爪持续朝向右下方移动，背景中的地板和门框逐渐进入视野，表明左臂在进行移动操作。右腕视角无明显运动，夹爪保持静止。\",\n      \"uncertain\": false\n    }\n  ],\n  \"limitations\": \"右臂在整个观察窗口内未见明显动作，夹爪始终固定，无法确认是否有目的操作。左臂的移动路径和目标物体不明确，仅能确认运动发生。头视角中温控器无变化，未观察到按钮按压或交互。\"\n}\n",
+  "usage": {
+    "image_tokens": 15392,
+    "input_tokens": 15635,
+    "input_tokens_details": {
+      "image_tokens": 15392,
+      "text_tokens": 243
+    },
+    "output_tokens": 175,
+    "output_tokens_details": {
+      "text_tokens": 175
+    },
+    "total_tokens": 15810
+  }
+}

@@ -1,0 +1,209 @@
+{
+  "baseline_events": [
+    {
+      "interaction_supported": true,
+      "start_frame": 118,
+      "end_frame": 152,
+      "action": "按压并保持电源按钮",
+      "evidence": "按压开始：从帧117到118，末端增量从0.779mm骤降至0.322mm，表明减速或接近接触；帧119的位移仅为0.019mm，几乎静止，符合接触后保持的特征。帧120开始有微小位移（0.136mm），但屏幕在帧123才响应，说明接触可能发生在118-119之间。由于视觉上夹爪尖端始终遮挡按钮，无法直接观察接触瞬间，且运动连续无明显过渡，因此判定为不确定，起点范围在117-119帧之间。 结束边界由持续后撤信号定位。 模型给出的待复核起点范围为117—119帧，该范围不是保证误差界。",
+      "additional_actions": [],
+      "uncertain": true,
+      "vlm_end_frame": 149,
+      "previous_start_frame": 101
+    },
+    {
+      "interaction_supported": true,
+      "start_frame": 205,
+      "end_frame": 220,
+      "action": "按压降温按钮",
+      "evidence": "按压开始：从帧196到205，夹爪持续向按钮靠近，z轴位移逐渐减小（从-0.275mm到-0.789mm），表明接近过程。在帧205，夹爪尖端已非常接近或接触下箭头按钮，且屏幕在帧208响应（温度从18.5°C变为18.0°C）。由于视觉上无法明确区分接触瞬间（无明显形变或遮挡变化），且运动连续无可见减速/停留，因此判定为不确定。可能的接触起点范围在204-206帧之间，其中205帧最可能为实际接触开始。 结束边界由持续后撤信号定位。 模型给出的待复核起点范围为204—206帧，该范围不是保证误差界。",
+      "additional_actions": [],
+      "uncertain": true,
+      "vlm_end_frame": 216,
+      "previous_start_frame": 207
+    }
+  ],
+  "reviewed_events": [
+    {
+      "interaction_supported": true,
+      "start_frame": 122,
+      "end_frame": 123,
+      "arm_used": "left",
+      "action": "左臂夹爪按压温控面板上的电源按钮",
+      "evidence": "在FRAME 122 | left_wrist_rgb视角中，夹爪前端对准并接触电源按钮（圆形图标），屏幕仍为黑屏；在FRAME 123 | left_wrist_rgb视角中，屏幕亮起并显示界面，表明按钮被成功按压。此为局部按压推进及保持的开始与结束帧。",
+      "uncertain": false,
+      "additional_actions": [
+        {
+          "start_frame": 147,
+          "end_frame": 150,
+          "arm_used": "left",
+          "action": "左臂夹爪按压温控面板上的向上箭头按钮",
+          "evidence": "在FRAME 147 | left_wrist_rgb视角中，夹爪对准向上箭头按钮；从FRAME 147到150，屏幕温度数值从18.0°C变为18.5°C，且夹爪位置保持稳定，符合按压操作定义。"
+        }
+      ]
+    },
+    {
+      "interaction_supported": true,
+      "start_frame": 207,
+      "end_frame": 208,
+      "arm_used": "left",
+      "action": "左臂夹爪按压温控器上的向下箭头按钮，将温度从18.5°C下调至18.0°C",
+      "evidence": "在FRAME 207的left_wrist_rgb视角中，夹爪对准温控器下方的向下箭头按钮并保持接触；在FRAME 208中，屏幕显示温度已变为18.0°C，且夹爪位置未发生明显撤离动作，符合按压及保持的操作定义。",
+      "uncertain": false,
+      "additional_actions": []
+    }
+  ],
+  "initial_conflicts": [
+    {
+      "reason": "local_review_disagreement",
+      "index": 0,
+      "event": {
+        "interaction_supported": true,
+        "start_frame": 122,
+        "end_frame": 123,
+        "arm_used": "left",
+        "action": "左臂夹爪按压温控面板上的电源按钮",
+        "evidence": "在FRAME 122 | left_wrist_rgb视角中，夹爪前端对准并接触电源按钮（圆形图标），屏幕仍为黑屏；在FRAME 123 | left_wrist_rgb视角中，屏幕亮起并显示界面，表明按钮被成功按压。此为局部按压推进及保持的开始与结束帧。",
+        "uncertain": false,
+        "additional_actions": [
+          {
+            "start_frame": 147,
+            "end_frame": 150,
+            "arm_used": "left",
+            "action": "左臂夹爪按压温控面板上的向上箭头按钮",
+            "evidence": "在FRAME 147 | left_wrist_rgb视角中，夹爪对准向上箭头按钮；从FRAME 147到150，屏幕温度数值从18.0°C变为18.5°C，且夹爪位置保持稳定，符合按压操作定义。"
+          }
+        ]
+      }
+    },
+    {
+      "reason": "unmatched_global_observation",
+      "window": [
+        90,
+        209
+      ],
+      "event": {
+        "skill_id": "press",
+        "arm_used": "left",
+        "start_frame": 153,
+        "end_frame": 161,
+        "evidence": "左腕视角显示，夹爪持续接触TOSHIBA温控器的圆形按钮（右上角），从帧153到161，屏幕状态无变化但夹爪保持接触，符合按压动作特征。右腕视角无交互。",
+        "uncertain": true
+      }
+    }
+  ],
+  "dispute_reviews": [
+    {
+      "observation": {
+        "reason": "additional_action",
+        "event": {
+          "start_frame": 147,
+          "end_frame": 150,
+          "arm_used": "left",
+          "action": "左臂夹爪按压温控面板上的向上箭头按钮",
+          "evidence": "在FRAME 147 | left_wrist_rgb视角中，夹爪对准向上箭头按钮；从FRAME 147到150，屏幕温度数值从18.0°C变为18.5°C，且夹爪位置保持稳定，符合按压操作定义。"
+        }
+      },
+      "review": {
+        "verdict": "supported",
+        "evidence": "在FRAME 142中，left_wrist_rgb视角显示夹爪对准温控面板的向上箭头按钮，屏幕未显示数值。从FRAME 143开始，屏幕显示温度为18.5°C，且该数值在FRAME 143至155期间保持不变。在此期间，左腕相机视角中夹爪持续稳定地覆盖在向上箭头按钮上，无明显位移（结合位移数据，left_delta_xyz_mm在147-150帧间微小变化，符合按压后保持状态）。虽然无法直接观测到物理接触或力反馈，但夹爪位置与屏幕数值变化的时间一致性，以及后续长时间保持稳定，支持按压操作的发生。右臂无交互。",
+        "skill_id": "press",
+        "arm_used": "left"
+      }
+    },
+    {
+      "observation": {
+        "reason": "unmatched_global_observation",
+        "window": [
+          90,
+          209
+        ],
+        "event": {
+          "skill_id": "press",
+          "arm_used": "left",
+          "start_frame": 153,
+          "end_frame": 161,
+          "evidence": "左腕视角显示，夹爪持续接触TOSHIBA温控器的圆形按钮（右上角），从帧153到161，屏幕状态无变化但夹爪保持接触，符合按压动作特征。右腕视角无交互。",
+          "uncertain": true
+        }
+      },
+      "review": {
+        "verdict": "supported",
+        "evidence": "从帧153到161，左腕视角中夹爪持续接触TOSHIBA温控器右上角的圆形按钮（电源/模式键），且夹爪位置无明显移动，表明保持按压状态。同时，屏幕显示内容（18.5°C、风扇图标等）在该期间内未发生任何变化，符合按压动作特征而非简单接近或对准。右腕视角全程无交互。尽管屏幕未刷新，但夹爪与按钮的持续物理接触在多帧细节图中清晰可见，支持按压行为的存在。",
+        "skill_id": "press",
+        "arm_used": "left"
+      }
+    }
+  ],
+  "unresolved": [
+    {
+      "observation": {
+        "reason": "additional_action",
+        "event": {
+          "start_frame": 147,
+          "end_frame": 150,
+          "arm_used": "left",
+          "action": "左臂夹爪按压温控面板上的向上箭头按钮",
+          "evidence": "在FRAME 147 | left_wrist_rgb视角中，夹爪对准向上箭头按钮；从FRAME 147到150，屏幕温度数值从18.0°C变为18.5°C，且夹爪位置保持稳定，符合按压操作定义。"
+        }
+      },
+      "review": {
+        "verdict": "supported",
+        "evidence": "在FRAME 142中，left_wrist_rgb视角显示夹爪对准温控面板的向上箭头按钮，屏幕未显示数值。从FRAME 143开始，屏幕显示温度为18.5°C，且该数值在FRAME 143至155期间保持不变。在此期间，左腕相机视角中夹爪持续稳定地覆盖在向上箭头按钮上，无明显位移（结合位移数据，left_delta_xyz_mm在147-150帧间微小变化，符合按压后保持状态）。虽然无法直接观测到物理接触或力反馈，但夹爪位置与屏幕数值变化的时间一致性，以及后续长时间保持稳定，支持按压操作的发生。右臂无交互。",
+        "skill_id": "press",
+        "arm_used": "left"
+      }
+    },
+    {
+      "observation": {
+        "reason": "unmatched_global_observation",
+        "window": [
+          90,
+          209
+        ],
+        "event": {
+          "skill_id": "press",
+          "arm_used": "left",
+          "start_frame": 153,
+          "end_frame": 161,
+          "evidence": "左腕视角显示，夹爪持续接触TOSHIBA温控器的圆形按钮（右上角），从帧153到161，屏幕状态无变化但夹爪保持接触，符合按压动作特征。右腕视角无交互。",
+          "uncertain": true
+        }
+      },
+      "review": {
+        "verdict": "supported",
+        "evidence": "从帧153到161，左腕视角中夹爪持续接触TOSHIBA温控器右上角的圆形按钮（电源/模式键），且夹爪位置无明显移动，表明保持按压状态。同时，屏幕显示内容（18.5°C、风扇图标等）在该期间内未发生任何变化，符合按压动作特征而非简单接近或对准。右腕视角全程无交互。尽管屏幕未刷新，但夹爪与按钮的持续物理接触在多帧细节图中清晰可见，支持按压行为的存在。",
+        "skill_id": "press",
+        "arm_used": "left"
+      }
+    }
+  ],
+  "boundary_changes": [
+    {
+      "index": 0,
+      "baseline": [
+        118,
+        152
+      ],
+      "proposed": [
+        122,
+        123
+      ]
+    },
+    {
+      "index": 1,
+      "baseline": [
+        205,
+        220
+      ],
+      "proposed": [
+        207,
+        208
+      ]
+    }
+  ],
+  "status": "review_required",
+  "automatic_annotation_replaced": false,
+  "reference_used": false,
+  "scope": "fixed four-view coarse coverage and local review; not a short-action recall guarantee"
+}

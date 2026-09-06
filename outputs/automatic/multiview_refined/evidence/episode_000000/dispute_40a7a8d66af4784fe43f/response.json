@@ -1,0 +1,22 @@
+{
+  "result": {
+    "verdict": "supported",
+    "evidence": "在FRAME 381至389的左腕视角中，夹爪持续紧贴温控器表面，且温控器屏幕在FRAME 381、382、383、384、386、387、388、389中多次显示界面刷新（如图标变化、数值微调），表明存在按压交互。右腕视角无变化，右臂未参与。尽管屏幕数值未显著改变，但界面动态变化与夹爪稳定接触共同支持按压行为。",
+    "skill_id": "press",
+    "arm_used": "left"
+  },
+  "raw_text": "{\"verdict\": \"supported\", \"evidence\": \"在FRAME 381至389的左腕视角中，夹爪持续紧贴温控器表面，且温控器屏幕在FRAME 381、382、383、384、386、387、388、389中多次显示界面刷新（如图标变化、数值微调），表明存在按压交互。右腕视角无变化，右臂未参与。尽管屏幕数值未显著改变，但界面动态变化与夹爪稳定接触共同支持按压行为。\", \"skill_id\": \"press\", \"arm_used\": \"left\"}",
+  "usage": {
+    "image_tokens": 33192,
+    "input_tokens": 34518,
+    "input_tokens_details": {
+      "image_tokens": 33192,
+      "text_tokens": 1326
+    },
+    "output_tokens": 146,
+    "output_tokens_details": {
+      "text_tokens": 146
+    },
+    "total_tokens": 34664
+  }
+}

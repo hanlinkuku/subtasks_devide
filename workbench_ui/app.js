@@ -24,7 +24,7 @@ async function setFrame(n){if(!meta)return;const target=Math.max(0,Math.min(meta
 function pause(){playing=false;clearTimeout(timer);$('play').textContent='▶';}
 async function tick(){if(!playing)return;const started=performance.now();await setFrame(current+1);if(current>=meta.frames-1){pause();return;}if(playing)timer=setTimeout(tick,Math.max(0,1000/meta.fps/Number($('speed').value)-(performance.now()-started)));}
 function togglePlay(){if(playing){pause();return;}if(current>=meta.frames-1){setFrame(0).then(()=>{playing=true;$('play').textContent='Ⅱ';timer=setTimeout(tick,1000/meta.fps);});}else{playing=true;$('play').textContent='Ⅱ';tick();}}
-async function load(ep,which='latest'){pause();meta=catalog.find(e=>e.id===ep);$('episode').value=ep;$('meta').textContent=`${meta.frames} FRAMES / ${meta.fps} FPS / ${(meta.frames/meta.fps).toFixed(2)} s`;$('frame').max=$('scrub').max=meta.frames-1;$('lastFrame').textContent='/ '+(meta.frames-1);$('midFrame').textContent=Math.floor((meta.frames-1)/2);$('endFrame').textContent=meta.frames-1;try{const data=await api(`/api/episodes/${ep}/annotation?source=${which}`);doc=data.annotation;revision=data.revision;source=data.source;}catch(e){doc=null;revision=null;source='automatic';toast(e.message,true);}selected=0;history=[];future=[];saved=JSON.stringify(doc);render();await setFrame(0);}
+async function load(ep,which='latest'){pause();meta=catalog.find(e=>e.id===ep);$('episode').value=ep;$('meta').textContent=`${meta.frames} FRAMES / ${meta.fps} FPS / ${(meta.frames/meta.fps).toFixed(2)} s`;$('frame').max=$('scrub').max=meta.frames-1;$('lastFrame').textContent='/ '+(meta.frames-1);$('midFrame').textContent=Math.floor((meta.frames-1)/2);$('endFrame').textContent=meta.frames-1;try{const data=await api(`/api/episodes/${ep}/annotation?source=${which}`);doc=data.annotation;revision=data.revision;source=data.source;renderReview(data.review);}catch(e){doc=null;revision=null;source='automatic';toast(e.message,true);}selected=0;history=[];future=[];saved=JSON.stringify(doc);render();await setFrame(0);}
 async function safeLoad(ep,which){if(dirty()){const discard=await new Promise(resolve=>{const dialog=$('discardDialog');dialog.returnValue='keep';$('keepDraft').onclick=()=>dialog.close('keep');$('discardDraft').onclick=()=>dialog.close('discard');dialog.addEventListener('close',()=>resolve(dialog.returnValue==='discard'),{once:true});dialog.showModal();});if(!discard)return false;}await load(ep,which);return true;}
 $('episode').onchange=async e=>{const previous=meta.id;if(!await safeLoad(e.target.value,'latest'))$('episode').value=previous;};
 $('reload').onclick=()=>safeLoad(meta.id,'automatic');
@@ -46,3 +46,22 @@ $('jobLoad').onclick=()=>safeLoad(jobEpisode,'automatic');$('closeZoom').onclick
 window.addEventListener('beforeunload',e=>{if(dirty()){e.preventDefault();e.returnValue='';}});
 document.addEventListener('keydown',e=>{if(['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)||$('autoDialog').open||$('zoomDialog').open||$('discardDialog').open)return;if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();pause();setFrame(current+(e.key==='ArrowLeft'?-1:1)*(e.shiftKey?10:1));}else if(e.code==='Space'){e.preventDefault();togglePlay();}else if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='z'){e.preventDefault();$(e.shiftKey?'redo':'undo').click();}});
 (async()=>{try{catalog=await api('/api/episodes');if(!catalog.length)throw Error('数据集中没有轨迹');catalog.forEach(e=>{$('episode').append(option(e.id,e.id));$('jobEpisode').append(option(e.id,e.id));});await load(catalog[0].id);const job=await api('/api/jobs/current');if(job)poll(job.id);}catch(e){toast(e.message,true);}})();
+
+function renderReview(review){
+  $('reviewBox').hidden=!review;if(!review)return;
+  $('reviewTitle').textContent='多视角复核：'+(review.status==='review_required'?'存在待复核分歧（原边界保留）':'观察一致');
+  const lines=['本报告是模型复核意见，不是人工确认结果。'];
+  (review.boundary_changes||[]).forEach(c=>lines.push('交互 '+(c.index+1)+'：原边界 '+c.baseline.join('—')+'；多视角建议 '+c.proposed.join('—')+'，尚未采用。'));
+  const labels={interaction_candidate:'可见形变候选',object_release_candidate:'物体释放候选',interaction_hypothesis:'交互假设',insufficient_evidence:'不足以确认独立交互'};
+  (review.dispute_reviews||[]).forEach((r,i)=>{
+    lines.push('\n分歧 '+(i+1)+'：'+JSON.stringify(r.observation.event));
+    lines.push('第一轮局部复查（模型意见）：'+r.review.verdict+'；'+r.review.evidence);
+    const facts=review.fact_review?.results?.[i];
+    if(facts){
+      lines.push('第二轮证据检查：'+labels[facts.interpretation.status]+'。'+facts.interpretation.reason);
+      facts.facts.forEach(f=>lines.push(f.id+' · '+f.view+' · '+f.start_frame+'—'+f.end_frame+' · '+f.description));
+      lines.push('局限：'+facts.limitations);
+    }
+  });
+  $('reviewContent').textContent=lines.join('\n');
+}

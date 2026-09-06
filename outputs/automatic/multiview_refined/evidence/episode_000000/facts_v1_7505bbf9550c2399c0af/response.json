@@ -1,0 +1,67 @@
+{
+  "result": {
+    "observations": [
+      {
+        "view": "head_rgb",
+        "start_frame": 445,
+        "end_frame": 463,
+        "kind": "relative_motion",
+        "visibility": "clear",
+        "description": "从头视角观察，机械臂整体位置基本保持不变，但末端夹爪有轻微前后移动，导致其在画面中的相对位置发生微小变化。"
+      },
+      {
+        "view": "head_right_rgb",
+        "start_frame": 445,
+        "end_frame": 463,
+        "kind": "relative_motion",
+        "visibility": "clear",
+        "description": "从右侧头视角观察，机械臂末端夹爪相对于背景墙的位置有轻微前后移动，与head_rgb视角一致，表明手臂末端存在微小位移。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 445,
+        "end_frame": 452,
+        "kind": "local_tip_motion",
+        "visibility": "clear",
+        "description": "左腕相机视角下，黑色夹爪尖端紧贴白色TOSHIBA控制面板的右侧边缘，未见明显移动，面板屏幕内容无变化。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 453,
+        "end_frame": 463,
+        "kind": "relative_motion",
+        "visibility": "clear",
+        "description": "左腕相机视角下，夹爪尖端与控制面板的相对位置发生改变，夹爪向右上方移动，导致控制面板在画面中向左下方倾斜并部分移出视野。"
+      },
+      {
+        "view": "right_wrist_rgb",
+        "start_frame": 445,
+        "end_frame": 463,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "description": "右腕相机视角始终对准天花板，画面中仅可见黑色夹爪尖端和白色天花板，无其他物体或明显运动。"
+      }
+    ],
+    "limitations": [
+      "无法从任何视角直接观察到按钮形变。",
+      "控制面板屏幕内容模糊，无法辨认具体数值或界面变化。",
+      "右腕相机视角无法提供关于左臂或物体的任何信息。",
+      "夹爪在腕部相机中静止不能说明手臂整体静止，但本序列中左腕相机显示夹爪有相对运动。",
+      "未提供帧（如454）不作判断。"
+    ]
+  },
+  "raw_text": "{\n  \"observations\": [\n    {\n      \"view\": \"head_rgb\",\n      \"start_frame\": 445,\n      \"end_frame\": 463,\n      \"kind\": \"relative_motion\",\n      \"visibility\": \"clear\",\n      \"description\": \"从头视角观察，机械臂整体位置基本保持不变，但末端夹爪有轻微前后移动，导致其在画面中的相对位置发生微小变化。\"\n    },\n    {\n      \"view\": \"head_right_rgb\",\n      \"start_frame\": 445,\n      \"end_frame\": 463,\n      \"kind\": \"relative_motion\",\n      \"visibility\": \"clear\",\n      \"description\": \"从右侧头视角观察，机械臂末端夹爪相对于背景墙的位置有轻微前后移动，与head_rgb视角一致，表明手臂末端存在微小位移。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 445,\n      \"end_frame\": 452,\n      \"kind\": \"local_tip_motion\",\n      \"visibility\": \"clear\",\n      \"description\": \"左腕相机视角下，黑色夹爪尖端紧贴白色TOSHIBA控制面板的右侧边缘，未见明显移动，面板屏幕内容无变化。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 453,\n      \"end_frame\": 463,\n      \"kind\": \"relative_motion\",\n      \"visibility\": \"clear\",\n      \"description\": \"左腕相机视角下，夹爪尖端与控制面板的相对位置发生改变，夹爪向右上方移动，导致控制面板在画面中向左下方倾斜并部分移出视野。\"\n    },\n    {\n      \"view\": \"right_wrist_rgb\",\n      \"start_frame\": 445,\n      \"end_frame\": 463,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"右腕相机视角始终对准天花板，画面中仅可见黑色夹爪尖端和白色天花板，无其他物体或明显运动。\"\n    }\n  ],\n  \"limitations\": [\n    \"无法从任何视角直接观察到按钮形变。\",\n    \"控制面板屏幕内容模糊，无法辨认具体数值或界面变化。\",\n    \"右腕相机视角无法提供关于左臂或物体的任何信息。\",\n    \"夹爪在腕部相机中静止不能说明手臂整体静止，但本序列中左腕相机显示夹爪有相对运动。\",\n    \"未提供帧（如454）不作判断。\"\n  ]\n}\n",
+  "usage": {
+    "image_tokens": 33192,
+    "input_tokens": 33558,
+    "input_tokens_details": {
+      "image_tokens": 33192,
+      "text_tokens": 366
+    },
+    "output_tokens": 565,
+    "output_tokens_details": {
+      "text_tokens": 565
+    },
+    "total_tokens": 34123
+  }
+}

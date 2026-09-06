@@ -1,0 +1,58 @@
+{
+  "result": {
+    "observations": [
+      {
+        "view": "head_rgb",
+        "start_frame": 90,
+        "end_frame": 108,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "description": "从头视角观察，机械臂整体位置和姿态在90至108帧间无明显变化，夹爪未发生移动。"
+      },
+      {
+        "view": "head_right_rgb",
+        "start_frame": 90,
+        "end_frame": 108,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "description": "从右侧头视角观察，机械臂整体位置和姿态在90至108帧间无明显变化，夹爪未发生移动。"
+      },
+      {
+        "view": "left_wrist_rgb",
+        "start_frame": 90,
+        "end_frame": 108,
+        "kind": "screen_change",
+        "visibility": "clear",
+        "description": "在90至108帧期间，左腕相机持续对准一个TOSHIBA品牌的温控面板。屏幕显示温度为18.0°C，模式图标（雪花）和风扇图标保持不变。在95帧时，屏幕右上角的电源按钮区域出现短暂亮光，随后在96帧及之后帧中，该按钮区域持续发光。"
+      },
+      {
+        "view": "right_wrist_rgb",
+        "start_frame": 90,
+        "end_frame": 108,
+        "kind": "no_clear_change",
+        "visibility": "clear",
+        "description": "从右腕视角观察，仅能看到黑色夹爪尖端，背景为白色墙壁。在90至108帧间，夹爪位置和姿态无可见变化。"
+      }
+    ],
+    "limitations": [
+      "无法从head_rgb或head_right_rgb视角直接观察到温控面板的屏幕内容或按钮状态。",
+      "右腕相机视野中无其他物体，无法判断其与环境的相对运动。",
+      "左腕相机虽能清晰看到温控面板，但无法直接观察到夹爪与按钮接触点的形变或压力施加情况。",
+      "在90-108帧范围内，未见任何物体被释放或脱离的直接视觉证据。"
+    ]
+  },
+  "raw_text": "{\n  \"observations\": [\n    {\n      \"view\": \"head_rgb\",\n      \"start_frame\": 90,\n      \"end_frame\": 108,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"从头视角观察，机械臂整体位置和姿态在90至108帧间无明显变化，夹爪未发生移动。\"\n    },\n    {\n      \"view\": \"head_right_rgb\",\n      \"start_frame\": 90,\n      \"end_frame\": 108,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"从右侧头视角观察，机械臂整体位置和姿态在90至108帧间无明显变化，夹爪未发生移动。\"\n    },\n    {\n      \"view\": \"left_wrist_rgb\",\n      \"start_frame\": 90,\n      \"end_frame\": 108,\n      \"kind\": \"screen_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"在90至108帧期间，左腕相机持续对准一个TOSHIBA品牌的温控面板。屏幕显示温度为18.0°C，模式图标（雪花）和风扇图标保持不变。在95帧时，屏幕右上角的电源按钮区域出现短暂亮光，随后在96帧及之后帧中，该按钮区域持续发光。\"\n    },\n    {\n      \"view\": \"right_wrist_rgb\",\n      \"start_frame\": 90,\n      \"end_frame\": 108,\n      \"kind\": \"no_clear_change\",\n      \"visibility\": \"clear\",\n      \"description\": \"从右腕视角观察，仅能看到黑色夹爪尖端，背景为白色墙壁。在90至108帧间，夹爪位置和姿态无可见变化。\"\n    }\n  ],\n  \"limitations\": [\n    \"无法从head_rgb或head_right_rgb视角直接观察到温控面板的屏幕内容或按钮状态。\",\n    \"右腕相机视野中无其他物体，无法判断其与环境的相对运动。\",\n    \"左腕相机虽能清晰看到温控面板，但无法直接观察到夹爪与按钮接触点的形变或压力施加情况。\",\n    \"在90-108帧范围内，未见任何物体被释放或脱离的直接视觉证据。\"\n  ]\n}",
+  "usage": {
+    "image_tokens": 33192,
+    "input_tokens": 33557,
+    "input_tokens_details": {
+      "image_tokens": 33192,
+      "text_tokens": 365
+    },
+    "output_tokens": 517,
+    "output_tokens_details": {
+      "text_tokens": 517
+    },
+    "total_tokens": 34074
+  }
+}

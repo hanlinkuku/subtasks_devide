@@ -1,0 +1,26 @@
+{
+  "result": {
+    "interaction_supported": true,
+    "start_frame": 75,
+    "end_frame": 80,
+    "arm_used": "left",
+    "action": "左臂夹爪按压温度设定按钮，将温度从18.0°C调整至19.0°C后松开",
+    "evidence": "在left_wrist_rgb视角中，FRAME 75显示夹爪对准温度调节按钮区域；FRAME 76-79显示夹爪持续接触并按压按钮，屏幕温度值从18.0°C逐步上升至19.0°C；FRAME 80显示夹爪开始撤离，屏幕稳定在19.0°C。右腕相机（right_wrist_rgb）全程无交互，仅显示固定夹爪。",
+    "uncertain": false,
+    "additional_actions": []
+  },
+  "raw_text": "{\n  \"interaction_supported\": true,\n  \"start_frame\": 75,\n  \"end_frame\": 80,\n  \"arm_used\": \"left\",\n  \"action\": \"左臂夹爪按压温度设定按钮，将温度从18.0°C调整至19.0°C后松开\",\n  \"evidence\": \"在left_wrist_rgb视角中，FRAME 75显示夹爪对准温度调节按钮区域；FRAME 76-79显示夹爪持续接触并按压按钮，屏幕温度值从18.0°C逐步上升至19.0°C；FRAME 80显示夹爪开始撤离，屏幕稳定在19.0°C。右腕相机（right_wrist_rgb）全程无交互，仅显示固定夹爪。\",\n  \"uncertain\": false,\n  \"additional_actions\": []\n}\n",
+  "usage": {
+    "image_tokens": 26936,
+    "input_tokens": 27218,
+    "input_tokens_details": {
+      "image_tokens": 26936,
+      "text_tokens": 282
+    },
+    "output_tokens": 188,
+    "output_tokens_details": {
+      "text_tokens": 188
+    },
+    "total_tokens": 27406
+  }
+}

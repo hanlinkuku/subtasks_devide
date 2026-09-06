@@ -1,0 +1,45 @@
+{
+  "result": {
+    "actions": [
+      {
+        "skill_id": "press",
+        "arm_used": "left",
+        "start_frame": 450,
+        "end_frame": 458,
+        "evidence": "左腕视角显示夹爪接近并接触墙上的TOSHIBA控制面板，从450帧到458帧夹爪保持与面板的接触，且面板在458帧中可见轻微响应（如屏幕变化或按钮反馈），符合按压动作特征。",
+        "uncertain": false
+      },
+      {
+        "skill_id": "move",
+        "arm_used": "left",
+        "start_frame": 466,
+        "end_frame": 474,
+        "evidence": "左腕视角中，夹爪从控制面板处撤回并向左下方移动，同时头视角显示左臂整体向后退，表明手臂正在执行撤回和移动动作。",
+        "uncertain": false
+      },
+      {
+        "skill_id": "wait",
+        "arm_used": "left",
+        "start_frame": 482,
+        "end_frame": 569,
+        "evidence": "左腕视角中夹爪保持静止，未与任何物体交互；头视角显示左臂位置稳定，无明显运动。右腕视角全程无变化，右臂无操作迹象。",
+        "uncertain": false
+      }
+    ],
+    "limitations": "右臂在整个观察窗口内无可见动作，其夹爪始终朝向墙壁且无位移，无法确认是否存在微小操作。左臂在450-458帧的按压动作基于单次采样推断，虽有接触和可能响应，但缺乏连续帧验证精确按压边界。466-474帧的移动动作因视角限制，无法完全排除旋转或调整姿态的可能性。"
+  },
+  "raw_text": "{\n  \"actions\": [\n    {\n      \"skill_id\": \"press\",\n      \"arm_used\": \"left\",\n      \"start_frame\": 450,\n      \"end_frame\": 458,\n      \"evidence\": \"左腕视角显示夹爪接近并接触墙上的TOSHIBA控制面板，从450帧到458帧夹爪保持与面板的接触，且面板在458帧中可见轻微响应（如屏幕变化或按钮反馈），符合按压动作特征。\",\n      \"uncertain\": false\n    },\n    {\n      \"skill_id\": \"move\",\n      \"arm_used\": \"left\",\n      \"start_frame\": 466,\n      \"end_frame\": 474,\n      \"evidence\": \"左腕视角中，夹爪从控制面板处撤回并向左下方移动，同时头视角显示左臂整体向后退，表明手臂正在执行撤回和移动动作。\",\n      \"uncertain\": false\n    },\n    {\n      \"skill_id\": \"wait\",\n      \"arm_used\": \"left\",\n      \"start_frame\": 482,\n      \"end_frame\": 569,\n      \"evidence\": \"左腕视角中夹爪保持静止，未与任何物体交互；头视角显示左臂位置稳定，无明显运动。右腕视角全程无变化，右臂无操作迹象。\",\n      \"uncertain\": false\n    }\n  ],\n  \"limitations\": \"右臂在整个观察窗口内无可见动作，其夹爪始终朝向墙壁且无位移，无法确认是否存在微小操作。左臂在450-458帧的按压动作基于单次采样推断，虽有接触和可能响应，但缺乏连续帧验证精确按压边界。466-474帧的移动动作因视角限制，无法完全排除旋转或调整姿态的可能性。\"\n}\n",
+  "usage": {
+    "image_tokens": 15392,
+    "input_tokens": 15635,
+    "input_tokens_details": {
+      "image_tokens": 15392,
+      "text_tokens": 243
+    },
+    "output_tokens": 413,
+    "output_tokens_details": {
+      "text_tokens": 413
+    },
+    "total_tokens": 16048
+  }
+}
